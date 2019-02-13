@@ -1,0 +1,861 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.biz.BizsaleborrowMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.biz.Bizsaleborrow" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="contractid" property="contractid" jdbcType="INTEGER" />
+    <result column="filecode" property="filecode" jdbcType="VARCHAR" />
+    <result column="riskid" property="riskid" jdbcType="INTEGER" />
+    <result column="riskpassprice" property="riskpassprice" jdbcType="DECIMAL" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="runaddress" property="runaddress" jdbcType="VARCHAR" />
+    <result column="principle" property="principle" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="bname" property="bname" jdbcType="VARCHAR" />
+    <result column="baddress" property="baddress" jdbcType="VARCHAR" />
+    <result column="brunaddress" property="brunaddress" jdbcType="VARCHAR" />
+    <result column="identify" property="identify" jdbcType="VARCHAR" />
+    <result column="bprinciple" property="bprinciple" jdbcType="VARCHAR" />
+    <result column="faxes" property="faxes" jdbcType="VARCHAR" />
+    <result column="sightime" property="sightime" jdbcType="TIMESTAMP" />
+    <result column="bphone" property="bphone" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="vin" property="vin" jdbcType="VARCHAR" />
+    <result column="firstyearccode" property="firstyearccode" jdbcType="VARCHAR" />
+    <result column="leaseprice" property="leaseprice" jdbcType="DECIMAL" />
+    <result column="gpsprice" property="gpsprice" jdbcType="DECIMAL" />
+    <result column="superviseprice" property="superviseprice" jdbcType="DECIMAL" />
+    <result column="handcharge" property="handcharge" jdbcType="DECIMAL" />
+    <result column="promiseprice" property="promiseprice" jdbcType="DECIMAL" />
+    <result column="openbank" property="openbank" jdbcType="VARCHAR" />
+    <result column="accountname" property="accountname" jdbcType="VARCHAR" />
+    <result column="accountcode" property="accountcode" jdbcType="VARCHAR" />
+    <result column="downpay" property="downpay" jdbcType="VARCHAR" />
+    <result column="secondyearccode" property="secondyearccode" jdbcType="VARCHAR" />
+    <result column="sleaseprice" property="sleaseprice" jdbcType="DECIMAL" />
+    <result column="sgpsprice" property="sgpsprice" jdbcType="DECIMAL" />
+    <result column="ssuperviseprice" property="ssuperviseprice" jdbcType="DECIMAL" />
+    <result column="shandcharge" property="shandcharge" jdbcType="DECIMAL" />
+    <result column="spromiseprice" property="spromiseprice" jdbcType="DECIMAL" />
+    <result column="sopenbank" property="sopenbank" jdbcType="VARCHAR" />
+    <result column="saccountname" property="saccountname" jdbcType="VARCHAR" />
+    <result column="saccountcode" property="saccountcode" jdbcType="VARCHAR" />
+    <result column="note" property="note" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="saleborrowfile1" property="saleborrowfile1" jdbcType="VARCHAR" />
+    <result column="saleborrowfile2" property="saleborrowfile2" jdbcType="VARCHAR" />
+    <result column="nopass" property="nopass" jdbcType="VARCHAR" />
+    <result column="operater" property="operater" jdbcType="VARCHAR" />
+    <result column="shopid" property="shopid" jdbcType="INTEGER" />
+     <result column="pledgefile1" property="pledgefile1" jdbcType="VARCHAR" />
+      <result column="pledgefile2" property="pledgefile2" jdbcType="VARCHAR" />
+       <result column="additionalinterestrate" property="additionalinterestrate" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, contractid, filecode, riskid, riskpassprice, name, address, runaddress, principle, 
+    phone, bname, baddress, brunaddress, identify, bprinciple, faxes, sightime, bphone, 
+    brand, model, version, vin, firstyearccode, leaseprice, gpsprice, superviseprice, 
+    handcharge, promiseprice, openbank, accountname, accountcode, downpay, secondyearccode, 
+    sleaseprice, sgpsprice, ssuperviseprice, shandcharge, spromiseprice, sopenbank, saccountname, 
+    saccountcode, note, status, createtime, saleborrowfile1, saleborrowfile2, nopass, 
+    operater, shopid,pledgefile1,pledgefile2,additionalinterestrate
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="contractid != null and contractid !=''" >
+       and contractid = #{contractid}
+    </if>
+    <if test="filecode != null and filecode !=''" >
+       and filecode = #{filecode}
+    </if>
+    <if test="riskid != null and riskid !=''" >
+       and riskid = #{riskid}
+    </if>
+    <if test="riskpassprice != null and riskpassprice !=''" >
+       and riskpassprice = #{riskpassprice}
+    </if>
+    <if test="name != null and name !=''" >
+       and name = #{name}
+    </if>
+    <if test="address != null and address !=''" >
+       and address = #{address}
+    </if>
+    <if test="runaddress != null and runaddress !=''" >
+       and runaddress = #{runaddress}
+    </if>
+    <if test="principle != null and principle !=''" >
+       and principle = #{principle}
+    </if>
+    <if test="phone != null and phone !=''" >
+       and phone = #{phone}
+    </if>
+    <if test="bname != null and bname !=''" >
+       and bname = #{bname}
+    </if>
+    <if test="baddress != null and baddress !=''" >
+       and baddress = #{baddress}
+    </if>
+    <if test="brunaddress != null and brunaddress !=''" >
+       and brunaddress = #{brunaddress}
+    </if>
+    <if test="identify != null and identify !=''" >
+       and identify = #{identify}
+    </if>
+    <if test="bprinciple != null and bprinciple !=''" >
+       and bprinciple = #{bprinciple}
+    </if>
+    <if test="faxes != null and faxes !=''" >
+       and faxes = #{faxes}
+    </if>
+    <if test="sightime != null and sightime !=''" >
+       and sightime = #{sightime}
+    </if>
+    <if test="bphone != null and bphone !=''" >
+       and bphone = #{bphone}
+    </if>
+    <if test="brand != null and brand !=''" >
+       and brand = #{brand}
+    </if>
+    <if test="model != null and model !=''" >
+       and model = #{model}
+    </if>
+    <if test="version != null and version !=''" >
+       and version = #{version}
+    </if>
+    <if test="vin != null and vin !=''" >
+       and vin = #{vin}
+    </if>
+    <if test="firstyearccode != null and firstyearccode !=''" >
+       and firstyearccode = #{firstyearccode}
+    </if>
+    <if test="leaseprice != null and leaseprice !=''" >
+       and leaseprice = #{leaseprice}
+    </if>
+    <if test="gpsprice != null and gpsprice !=''" >
+       and gpsprice = #{gpsprice}
+    </if>
+    <if test="superviseprice != null and superviseprice !=''" >
+       and superviseprice = #{superviseprice}
+    </if>
+    <if test="handcharge != null and handcharge !=''" >
+       and handcharge = #{handcharge}
+    </if>
+    <if test="promiseprice != null and promiseprice !=''" >
+       and promiseprice = #{promiseprice}
+    </if>
+    <if test="openbank != null and openbank !=''" >
+       and openbank = #{openbank}
+    </if>
+    <if test="accountname != null and accountname !=''" >
+       and accountname = #{accountname}
+    </if>
+    <if test="accountcode != null and accountcode !=''" >
+       and accountcode = #{accountcode}
+    </if>
+    <if test="downpay != null and downpay !=''" >
+       and downpay = #{downpay}
+    </if>
+    <if test="secondyearccode != null and secondyearccode !=''" >
+       and secondyearccode = #{secondyearccode}
+    </if>
+    <if test="sleaseprice != null and sleaseprice !=''" >
+       and sleaseprice = #{sleaseprice}
+    </if>
+    <if test="sgpsprice != null and sgpsprice !=''" >
+       and sgpsprice = #{sgpsprice}
+    </if>
+    <if test="ssuperviseprice != null and ssuperviseprice !=''" >
+       and ssuperviseprice = #{ssuperviseprice}
+    </if>
+    <if test="shandcharge != null and shandcharge !=''" >
+       and shandcharge = #{shandcharge}
+    </if>
+    <if test="spromiseprice != null and spromiseprice !=''" >
+       and spromiseprice = #{spromiseprice}
+    </if>
+    <if test="sopenbank != null and sopenbank !=''" >
+       and sopenbank = #{sopenbank}
+    </if>
+    <if test="saccountname != null and saccountname !=''" >
+       and saccountname = #{saccountname}
+    </if>
+    <if test="saccountcode != null and saccountcode !=''" >
+       and saccountcode = #{saccountcode}
+    </if>
+    <if test="note != null and note !=''" >
+       and note = #{note}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="saleborrowfile1 != null and saleborrowfile1 !=''" >
+       and saleborrowfile1 = #{saleborrowfile1}
+    </if>
+    <if test="saleborrowfile2 != null and saleborrowfile2 !=''" >
+       and saleborrowfile2 = #{saleborrowfile2}
+    </if>
+    <if test="nopass != null and nopass !=''" >
+       and nopass = #{nopass}
+    </if>
+    <if test="operater != null and operater !=''" >
+       and operater = #{operater}
+    </if>
+    <if test="shopid != null and shopid !=''" >
+       and shopid = #{shopid}
+    </if>
+    <if test="pledgefile1 != null and pledgefile1 !=''" >
+       and pledgefile1 = #{pledgefile1}
+    </if>
+    <if test="pledgefile2 != null and pledgefile2 !=''" >
+       and pledgefile2 = #{pledgefile2}
+    </if>
+    <if test="additionalinterestrate != null and additionalinterestrate !=''" >
+       and additionalinterestrate = #{additionalinterestrate}
+    </if>
+    ORDER BY createtime desc
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.biz.Bizsaleborrow" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_saleborrow
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.biz.Bizsaleborrow" >
+    select count(*) from biz_saleborrow where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_saleborrow
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from biz_saleborrow
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.biz.Bizsaleborrow" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(406);
+    </selectKey>
+    insert into biz_saleborrow (id, contractid, filecode, 
+      riskid, riskpassprice, name, 
+      address, runaddress, principle, 
+      phone, bname, baddress, 
+      brunaddress, identify, bprinciple, 
+      faxes, sightime, bphone, 
+      brand, model, version, 
+      vin, firstyearccode, leaseprice, 
+      gpsprice, superviseprice, handcharge, 
+      promiseprice, openbank, accountname, 
+      accountcode, downpay, secondyearccode, 
+      sleaseprice, sgpsprice, ssuperviseprice, 
+      shandcharge, spromiseprice, sopenbank, 
+      saccountname, saccountcode, note, 
+      status, createtime, saleborrowfile1, 
+      saleborrowfile2, nopass, operater, 
+      shopid,pledgefile1,pledgefile2,additionalinterestrate)
+    values (#{id,jdbcType=INTEGER}, #{contractid,jdbcType=INTEGER}, #{filecode,jdbcType=VARCHAR}, 
+      #{riskid,jdbcType=INTEGER}, #{riskpassprice,jdbcType=DECIMAL}, #{name,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{runaddress,jdbcType=VARCHAR}, #{principle,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{bname,jdbcType=VARCHAR}, #{baddress,jdbcType=VARCHAR}, 
+      #{brunaddress,jdbcType=VARCHAR}, #{identify,jdbcType=VARCHAR}, #{bprinciple,jdbcType=VARCHAR}, 
+      #{faxes,jdbcType=VARCHAR}, #{sightime,jdbcType=TIMESTAMP}, #{bphone,jdbcType=VARCHAR}, 
+      #{brand,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}, 
+      #{vin,jdbcType=VARCHAR}, #{firstyearccode,jdbcType=VARCHAR}, #{leaseprice,jdbcType=DECIMAL}, 
+      #{gpsprice,jdbcType=DECIMAL}, #{superviseprice,jdbcType=DECIMAL}, #{handcharge,jdbcType=DECIMAL}, 
+      #{promiseprice,jdbcType=DECIMAL}, #{openbank,jdbcType=VARCHAR}, #{accountname,jdbcType=VARCHAR}, 
+      #{accountcode,jdbcType=VARCHAR}, #{downpay,jdbcType=VARCHAR}, #{secondyearccode,jdbcType=VARCHAR}, 
+      #{sleaseprice,jdbcType=DECIMAL}, #{sgpsprice,jdbcType=DECIMAL}, #{ssuperviseprice,jdbcType=DECIMAL}, 
+      #{shandcharge,jdbcType=DECIMAL}, #{spromiseprice,jdbcType=DECIMAL}, #{sopenbank,jdbcType=VARCHAR}, 
+      #{saccountname,jdbcType=VARCHAR}, #{saccountcode,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{saleborrowfile1,jdbcType=VARCHAR}, 
+      #{saleborrowfile2,jdbcType=VARCHAR}, #{nopass,jdbcType=VARCHAR}, #{operater,jdbcType=VARCHAR}, 
+      #{shopid,jdbcType=INTEGER}, 
+      #{pledgefile1,jdbcType=VARCHAR}, 
+      #{pledgefile2,jdbcType=VARCHAR}, 
+      #{additionalinterestrate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.biz.Bizsaleborrow" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(406);
+    </selectKey>
+    insert into biz_saleborrow
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="contractid != null" >
+        contractid,
+      </if>
+      <if test="filecode != null" >
+        filecode,
+      </if>
+      <if test="riskid != null" >
+        riskid,
+      </if>
+      <if test="riskpassprice != null" >
+        riskpassprice,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="runaddress != null" >
+        runaddress,
+      </if>
+      <if test="principle != null" >
+        principle,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="bname != null" >
+        bname,
+      </if>
+      <if test="baddress != null" >
+        baddress,
+      </if>
+      <if test="brunaddress != null" >
+        brunaddress,
+      </if>
+      <if test="identify != null" >
+        identify,
+      </if>
+      <if test="bprinciple != null" >
+        bprinciple,
+      </if>
+      <if test="faxes != null" >
+        faxes,
+      </if>
+      <if test="sightime != null" >
+        sightime,
+      </if>
+      <if test="bphone != null" >
+        bphone,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="vin != null" >
+        vin,
+      </if>
+      <if test="firstyearccode != null" >
+        firstyearccode,
+      </if>
+      <if test="leaseprice != null" >
+        leaseprice,
+      </if>
+      <if test="gpsprice != null" >
+        gpsprice,
+      </if>
+      <if test="superviseprice != null" >
+        superviseprice,
+      </if>
+      <if test="handcharge != null" >
+        handcharge,
+      </if>
+      <if test="promiseprice != null" >
+        promiseprice,
+      </if>
+      <if test="openbank != null" >
+        openbank,
+      </if>
+      <if test="accountname != null" >
+        accountname,
+      </if>
+      <if test="accountcode != null" >
+        accountcode,
+      </if>
+      <if test="downpay != null" >
+        downpay,
+      </if>
+      <if test="secondyearccode != null" >
+        secondyearccode,
+      </if>
+      <if test="sleaseprice != null" >
+        sleaseprice,
+      </if>
+      <if test="sgpsprice != null" >
+        sgpsprice,
+      </if>
+      <if test="ssuperviseprice != null" >
+        ssuperviseprice,
+      </if>
+      <if test="shandcharge != null" >
+        shandcharge,
+      </if>
+      <if test="spromiseprice != null" >
+        spromiseprice,
+      </if>
+      <if test="sopenbank != null" >
+        sopenbank,
+      </if>
+      <if test="saccountname != null" >
+        saccountname,
+      </if>
+      <if test="saccountcode != null" >
+        saccountcode,
+      </if>
+      <if test="note != null" >
+        note,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="saleborrowfile1 != null" >
+        saleborrowfile1,
+      </if>
+      <if test="saleborrowfile2 != null" >
+        saleborrowfile2,
+      </if>
+      <if test="nopass != null" >
+        nopass,
+      </if>
+      <if test="operater != null" >
+        operater,
+      </if>
+      <if test="shopid != null" >
+        shopid,
+      </if>
+       <if test="pledgefile1 != null" >
+        pledgefile1,
+      </if>
+       <if test="pledgefile2 != null" >
+        pledgefile2,
+      </if>
+       <if test="additionalinterestrate != null" >
+        additionalinterestrate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="contractid != null" >
+        #{contractid,jdbcType=INTEGER},
+      </if>
+      <if test="filecode != null" >
+        #{filecode,jdbcType=VARCHAR},
+      </if>
+      <if test="riskid != null" >
+        #{riskid,jdbcType=INTEGER},
+      </if>
+      <if test="riskpassprice != null" >
+        #{riskpassprice,jdbcType=DECIMAL},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="runaddress != null" >
+        #{runaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="principle != null" >
+        #{principle,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="bname != null" >
+        #{bname,jdbcType=VARCHAR},
+      </if>
+      <if test="baddress != null" >
+        #{baddress,jdbcType=VARCHAR},
+      </if>
+      <if test="brunaddress != null" >
+        #{brunaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="identify != null" >
+        #{identify,jdbcType=VARCHAR},
+      </if>
+      <if test="bprinciple != null" >
+        #{bprinciple,jdbcType=VARCHAR},
+      </if>
+      <if test="faxes != null" >
+        #{faxes,jdbcType=VARCHAR},
+      </if>
+      <if test="sightime != null" >
+        #{sightime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bphone != null" >
+        #{bphone,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null" >
+        #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="firstyearccode != null" >
+        #{firstyearccode,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseprice != null" >
+        #{leaseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="gpsprice != null" >
+        #{gpsprice,jdbcType=DECIMAL},
+      </if>
+      <if test="superviseprice != null" >
+        #{superviseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="handcharge != null" >
+        #{handcharge,jdbcType=DECIMAL},
+      </if>
+      <if test="promiseprice != null" >
+        #{promiseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="openbank != null" >
+        #{openbank,jdbcType=VARCHAR},
+      </if>
+      <if test="accountname != null" >
+        #{accountname,jdbcType=VARCHAR},
+      </if>
+      <if test="accountcode != null" >
+        #{accountcode,jdbcType=VARCHAR},
+      </if>
+      <if test="downpay != null" >
+        #{downpay,jdbcType=VARCHAR},
+      </if>
+      <if test="secondyearccode != null" >
+        #{secondyearccode,jdbcType=VARCHAR},
+      </if>
+      <if test="sleaseprice != null" >
+        #{sleaseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="sgpsprice != null" >
+        #{sgpsprice,jdbcType=DECIMAL},
+      </if>
+      <if test="ssuperviseprice != null" >
+        #{ssuperviseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="shandcharge != null" >
+        #{shandcharge,jdbcType=DECIMAL},
+      </if>
+      <if test="spromiseprice != null" >
+        #{spromiseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="sopenbank != null" >
+        #{sopenbank,jdbcType=VARCHAR},
+      </if>
+      <if test="saccountname != null" >
+        #{saccountname,jdbcType=VARCHAR},
+      </if>
+      <if test="saccountcode != null" >
+        #{saccountcode,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null" >
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="saleborrowfile1 != null" >
+        #{saleborrowfile1,jdbcType=VARCHAR},
+      </if>
+      <if test="saleborrowfile2 != null" >
+        #{saleborrowfile2,jdbcType=VARCHAR},
+      </if>
+      <if test="nopass != null" >
+        #{nopass,jdbcType=VARCHAR},
+      </if>
+      <if test="operater != null" >
+        #{operater,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null" >
+        #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="pledgefile1 != null" >
+        #{pledgefile1,jdbcType=VARCHAR},
+      </if>
+      <if test="pledgefile2 != null" >
+        #{pledgefile2,jdbcType=VARCHAR},
+      </if>
+      <if test="additionalinterestrate != null" >
+        #{additionalinterestrate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.biz.Bizsaleborrow" >
+    update biz_saleborrow
+    <set >
+      <if test="contractid != null" >
+        contractid = #{contractid,jdbcType=INTEGER},
+      </if>
+      <if test="filecode != null" >
+        filecode = #{filecode,jdbcType=VARCHAR},
+      </if>
+      <if test="riskid != null" >
+        riskid = #{riskid,jdbcType=INTEGER},
+      </if>
+      <if test="riskpassprice != null" >
+        riskpassprice = #{riskpassprice,jdbcType=DECIMAL},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="runaddress != null" >
+        runaddress = #{runaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="principle != null" >
+        principle = #{principle,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="bname != null" >
+        bname = #{bname,jdbcType=VARCHAR},
+      </if>
+      <if test="baddress != null" >
+        baddress = #{baddress,jdbcType=VARCHAR},
+      </if>
+      <if test="brunaddress != null" >
+        brunaddress = #{brunaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="identify != null" >
+        identify = #{identify,jdbcType=VARCHAR},
+      </if>
+      <if test="bprinciple != null" >
+        bprinciple = #{bprinciple,jdbcType=VARCHAR},
+      </if>
+      <if test="faxes != null" >
+        faxes = #{faxes,jdbcType=VARCHAR},
+      </if>
+      <if test="sightime != null" >
+        sightime = #{sightime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bphone != null" >
+        bphone = #{bphone,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null" >
+        vin = #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="firstyearccode != null" >
+        firstyearccode = #{firstyearccode,jdbcType=VARCHAR},
+      </if>
+      <if test="leaseprice != null" >
+        leaseprice = #{leaseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="gpsprice != null" >
+        gpsprice = #{gpsprice,jdbcType=DECIMAL},
+      </if>
+      <if test="superviseprice != null" >
+        superviseprice = #{superviseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="handcharge != null" >
+        handcharge = #{handcharge,jdbcType=DECIMAL},
+      </if>
+      <if test="promiseprice != null" >
+        promiseprice = #{promiseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="openbank != null" >
+        openbank = #{openbank,jdbcType=VARCHAR},
+      </if>
+      <if test="accountname != null" >
+        accountname = #{accountname,jdbcType=VARCHAR},
+      </if>
+      <if test="accountcode != null" >
+        accountcode = #{accountcode,jdbcType=VARCHAR},
+      </if>
+      <if test="downpay != null" >
+        downpay = #{downpay,jdbcType=VARCHAR},
+      </if>
+      <if test="secondyearccode != null" >
+        secondyearccode = #{secondyearccode,jdbcType=VARCHAR},
+      </if>
+      <if test="sleaseprice != null" >
+        sleaseprice = #{sleaseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="sgpsprice != null" >
+        sgpsprice = #{sgpsprice,jdbcType=DECIMAL},
+      </if>
+      <if test="ssuperviseprice != null" >
+        ssuperviseprice = #{ssuperviseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="shandcharge != null" >
+        shandcharge = #{shandcharge,jdbcType=DECIMAL},
+      </if>
+      <if test="spromiseprice != null" >
+        spromiseprice = #{spromiseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="sopenbank != null" >
+        sopenbank = #{sopenbank,jdbcType=VARCHAR},
+      </if>
+      <if test="saccountname != null" >
+        saccountname = #{saccountname,jdbcType=VARCHAR},
+      </if>
+      <if test="saccountcode != null" >
+        saccountcode = #{saccountcode,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null" >
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+       <if test="status == 5" ><!--修改保存时吧融资租赁合同状态改为未审核状态  -->
+        status = null,
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="saleborrowfile1 != null" >
+        saleborrowfile1 = #{saleborrowfile1,jdbcType=VARCHAR},
+      </if>
+      <if test="saleborrowfile2 != null" >
+        saleborrowfile2 = #{saleborrowfile2,jdbcType=VARCHAR},
+      </if>
+      <if test="nopass != null" >
+        nopass = #{nopass,jdbcType=VARCHAR},
+      </if>
+      <if test="operater != null" >
+        operater = #{operater,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null" >
+        shopid = #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="pledgefile1 != null" >
+        pledgefile1 = #{pledgefile1,jdbcType=VARCHAR},
+      </if>
+      <if test="pledgefile2 != null" >
+        pledgefile2 = #{pledgefile2,jdbcType=VARCHAR},
+      </if>
+      <if test="additionalinterestrate != null" >
+        additionalinterestrate = #{additionalinterestrate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.biz.Bizsaleborrow" >
+    update biz_saleborrow
+    set contractid = #{contractid,jdbcType=INTEGER},
+      filecode = #{filecode,jdbcType=VARCHAR},
+      riskid = #{riskid,jdbcType=INTEGER},
+      riskpassprice = #{riskpassprice,jdbcType=DECIMAL},
+      name = #{name,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      runaddress = #{runaddress,jdbcType=VARCHAR},
+      principle = #{principle,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      bname = #{bname,jdbcType=VARCHAR},
+      baddress = #{baddress,jdbcType=VARCHAR},
+      brunaddress = #{brunaddress,jdbcType=VARCHAR},
+      identify = #{identify,jdbcType=VARCHAR},
+      bprinciple = #{bprinciple,jdbcType=VARCHAR},
+      faxes = #{faxes,jdbcType=VARCHAR},
+      sightime = #{sightime,jdbcType=TIMESTAMP},
+      bphone = #{bphone,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      vin = #{vin,jdbcType=VARCHAR},
+      firstyearccode = #{firstyearccode,jdbcType=VARCHAR},
+      leaseprice = #{leaseprice,jdbcType=DECIMAL},
+      gpsprice = #{gpsprice,jdbcType=DECIMAL},
+      superviseprice = #{superviseprice,jdbcType=DECIMAL},
+      handcharge = #{handcharge,jdbcType=DECIMAL},
+      promiseprice = #{promiseprice,jdbcType=DECIMAL},
+      openbank = #{openbank,jdbcType=VARCHAR},
+      accountname = #{accountname,jdbcType=VARCHAR},
+      accountcode = #{accountcode,jdbcType=VARCHAR},
+      downpay = #{downpay,jdbcType=VARCHAR},
+      secondyearccode = #{secondyearccode,jdbcType=VARCHAR},
+      sleaseprice = #{sleaseprice,jdbcType=DECIMAL},
+      sgpsprice = #{sgpsprice,jdbcType=DECIMAL},
+      ssuperviseprice = #{ssuperviseprice,jdbcType=DECIMAL},
+      shandcharge = #{shandcharge,jdbcType=DECIMAL},
+      spromiseprice = #{spromiseprice,jdbcType=DECIMAL},
+      sopenbank = #{sopenbank,jdbcType=VARCHAR},
+      saccountname = #{saccountname,jdbcType=VARCHAR},
+      saccountcode = #{saccountcode,jdbcType=VARCHAR},
+      note = #{note,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      saleborrowfile1 = #{saleborrowfile1,jdbcType=VARCHAR},
+      saleborrowfile2 = #{saleborrowfile2,jdbcType=VARCHAR},
+      nopass = #{nopass,jdbcType=VARCHAR},
+      operater = #{operater,jdbcType=VARCHAR},
+      shopid = #{shopid,jdbcType=INTEGER},
+      pledgefile1 = #{pledgefile1,jdbcType=VARCHAR},
+      pledgefile1 = #{pledgefile1,jdbcType=VARCHAR},
+      additionalinterestrate = #{additionalinterestrate,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  
+  
+   <select id="selectAllByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.biz.Bizsaleborrow" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_saleborrow
+    where 1=1
+      and shopid in
+    <foreach collection="shopids" index="index" item="item" open="(" separator="," close=")" >
+	    #{item}
+	 </foreach>
+     and 
+    <include refid="wherecase" />
+
+  </select>
+  <select id="countAllByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.biz.Bizsaleborrow" >
+    select count(*) from biz_saleborrow 
+    where 1=1
+       and shopid in
+   <foreach collection="shopids" index="index" item="item" open="(" separator="," close=")" >
+	    #{item}
+	</foreach>
+     and 
+    <include refid="wherecase" />
+  </select>
+  <select id="updateCount" resultType="int" parameterType="map">
+    select count(*) from biz_saleborrow  where 1=1  
+     
+<if test="status ==10" >
+		 and  status in(2,3)
+   </if>
+   <if test="status ==20" >
+		 and  status is null
+   </if>
+  </select>
+</mapper>

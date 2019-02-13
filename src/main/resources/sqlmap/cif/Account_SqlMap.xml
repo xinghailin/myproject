@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.cif.AccountMapper">
+	<resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.cif.Account">
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="CODE" property="code" jdbcType="VARCHAR" />
+		<result column="NAME" property="name" jdbcType="VARCHAR" />
+		<result column="NICK_NAME" property="nickName" jdbcType="VARCHAR" />
+		<result column="LOGIN_PASSWORD" property="loginPassword" jdbcType="VARCHAR" />
+		<result column="CUSTOMER_ID" property="customerId" jdbcType="INTEGER" />
+		<result column="TYPE" property="type" jdbcType="INTEGER" />
+		<result column="STATUS" property="status" jdbcType="INTEGER" />
+		<result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="REMARK" property="remark" jdbcType="VARCHAR" />
+		<result column="ACCOUNT_SOURCE" property="accountSource" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		ID, CODE, NAME, NICK_NAME, LOGIN_PASSWORD, CUSTOMER_ID, TYPE, STATUS, CREATE_TIME,
+		REMARK,ACCOUNT_SOURCE
+	</sql>
+	<sql id="wherecase">
+		1=1
+		<if test="id != null and id !=''">
+			and ID = #{id}
+		</if>
+		<if test="code != null and code !=''">
+			and CODE = #{code}
+		</if>
+		<if test="name != null and name !=''">
+			and NAME = #{name}
+		</if>
+		<if test="nickName != null and nickName !=''">
+			and NICK_NAME = #{nickName}
+		</if>
+		<if test="loginPassword != null and loginPassword !=''">
+			and LOGIN_PASSWORD = #{loginPassword}
+		</if>
+		<if test="customerId != null and customerId !=''">
+			and CUSTOMER_ID = #{customerId}
+		</if>
+		<if test="type != null and type !=''">
+			and TYPE = #{type}
+		</if>
+		<if test="status != null and status !=''">
+			and STATUS = #{status}
+		</if>
+		<if test="createTime != null and createTime !=''">
+			and CREATE_TIME = #{createTime}
+		</if>
+		<if test="remark != null and remark !=''">
+			and REMARK = #{remark}
+		</if>
+	</sql>
+	<select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.cif.Account">
+		select
+		<include refid="Base_Column_List" />
+		from cif_account
+		where
+		<include refid="wherecase" />
+	</select>
+	<select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.cif.Account">
+		select count(*) from cif_account where
+		<include refid="wherecase" />
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from cif_account
+		where ID = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from cif_account
+		where ID = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.yyq.car.portal.common.model.cif.Account">
+		<selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE">
+			SELECT NEXTVAL(101);
+		</selectKey>
+		insert into cif_account (ID, CODE, NAME,
+		NICK_NAME, LOGIN_PASSWORD, CUSTOMER_ID,
+		TYPE, STATUS, CREATE_TIME,
+		REMARK)
+		values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+		#{nickName,jdbcType=VARCHAR}, #{loginPassword,jdbcType=VARCHAR}, #{customerId,jdbcType=INTEGER},
+		#{type,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP},
+		#{remark,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.cif.Account">
+		<selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE">
+			SELECT NEXTVAL(101);
+		</selectKey>
+		insert into cif_account
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			ID,
+			<if test="code != null">
+				CODE,
+			</if>
+			<if test="name != null">
+				NAME,
+			</if>
+			<if test="nickName != null">
+				NICK_NAME,
+			</if>
+			<if test="loginPassword != null">
+				LOGIN_PASSWORD,
+			</if>
+			<if test="customerId != null">
+				CUSTOMER_ID,
+			</if>
+			<if test="type != null">
+				TYPE,
+			</if>
+			<if test="status != null">
+				STATUS,
+			</if>
+			<if test="createTime != null">
+				CREATE_TIME,
+			</if>
+			<if test="remark != null">
+				REMARK,
+			</if>
+			<if test="accountSource != null">
+				ACCOUNT_SOURCE,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			#{id,jdbcType=INTEGER},
+			<if test="code != null">
+				#{code,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="nickName != null">
+				#{nickName,jdbcType=VARCHAR},
+			</if>
+			<if test="loginPassword != null">
+				#{loginPassword,jdbcType=VARCHAR},
+			</if>
+			<if test="customerId != null">
+				#{customerId,jdbcType=INTEGER},
+			</if>
+			<if test="type != null">
+				#{type,jdbcType=INTEGER},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=INTEGER},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="remark != null">
+				#{remark,jdbcType=VARCHAR},
+			</if>
+			<if test="accountSource != null">
+				#{accountSource,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.cif.Account">
+		update cif_account
+		<set>
+			<if test="code != null">
+				CODE = #{code,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				NAME = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="nickName != null">
+				NICK_NAME = #{nickName,jdbcType=VARCHAR},
+			</if>
+			<if test="loginPassword != null">
+				LOGIN_PASSWORD = #{loginPassword,jdbcType=VARCHAR},
+			</if>
+			<if test="customerId != null">
+				CUSTOMER_ID = #{customerId,jdbcType=INTEGER},
+			</if>
+			<if test="type != null">
+				TYPE = #{type,jdbcType=INTEGER},
+			</if>
+			<if test="status != null">
+				STATUS = #{status,jdbcType=INTEGER},
+			</if>
+			<if test="createTime != null">
+				CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="remark != null">
+				REMARK = #{remark,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where ID = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.cif.Account">
+		update cif_account
+		set CODE = #{code,jdbcType=VARCHAR},
+		NAME = #{name,jdbcType=VARCHAR},
+		NICK_NAME = #{nickName,jdbcType=VARCHAR},
+		LOGIN_PASSWORD = #{loginPassword,jdbcType=VARCHAR},
+		CUSTOMER_ID = #{customerId,jdbcType=INTEGER},
+		TYPE = #{type,jdbcType=INTEGER},
+		STATUS = #{status,jdbcType=INTEGER},
+		CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+		REMARK = #{remark,jdbcType=VARCHAR}
+		where ID = #{id,jdbcType=INTEGER}
+	</update>
+
+    
+	<select id="selectByLoginInfo" parameterType="map" resultType="com.yyq.car.portal.common.dto.AccountDTO">
+		SELECT
+		b.ID id,
+		b.NICK_NAME nickname,
+		b.LOGIN_PASSWORD loginPassword,
+		b.CUSTOMER_ID customerId,
+		b.TYPE type,
+		b.`STATUS` STATUS,
+		b.CREATE_TIME createTime,
+		a.LOGIN_NAME loginName
+		FROM cif_login a, cif_account b, cif_member c
+		WHERE a.ACCOUNT_ID = b.ID AND b.CUSTOMER_ID=c.id
+		AND a.LOGIN_NAME = #{loginName,jdbcType=VARCHAR}
+		AND a.LOGIN_TYPE =
+		#{loginType,jdbcType=INTEGER}
+	</select>
+	
+</mapper>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.cif.InitialFinalPaymentMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.cif.InitialFinalPayment" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CAR_ID" property="carId" jdbcType="INTEGER" />
+    <result column="CONTRACT_ID" property="contractId" jdbcType="INTEGER" />
+    <result column="INITIAL_PAYMENT_STATUS" property="initialPaymentStatus" jdbcType="INTEGER" />
+    <result column="FINAL_PAYMENT_STATUS" property="finalPaymentStatus" jdbcType="INTEGER" />
+    <result column="HD_OPERATION_AUDIT_STATUS" property="hdOperationAuditStatus" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, CAR_ID, CONTRACT_ID, INITIAL_PAYMENT_STATUS, FINAL_PAYMENT_STATUS, HD_OPERATION_AUDIT_STATUS, 
+    CREATE_TIME
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and ID = #{id}
+    </if>
+    <if test="carId != null and carId !=''" >
+       and CAR_ID = #{carId}
+    </if>
+    <if test="contractId != null and contractId !=''" >
+       and CONTRACT_ID = #{contractId}
+    </if>
+    <if test="initialPaymentStatus != null and initialPaymentStatus !=''" >
+       and INITIAL_PAYMENT_STATUS = #{initialPaymentStatus}
+    </if>
+    <if test="finalPaymentStatus != null and finalPaymentStatus !=''" >
+       and FINAL_PAYMENT_STATUS = #{finalPaymentStatus}
+    </if>
+    <if test="hdOperationAuditStatus != null and hdOperationAuditStatus !=''" >
+       and HD_OPERATION_AUDIT_STATUS = #{hdOperationAuditStatus}
+    </if>
+    <if test="createTime != null and createTime !=''" >
+       and CREATE_TIME = #{createTime}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.cif.InitialFinalPayment" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_initial_final_payment
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.cif.InitialFinalPayment" >
+    select count(*) from cif_initial_final_payment where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_initial_final_payment
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cif_initial_final_payment
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.cif.InitialFinalPayment" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(116);
+    </selectKey>
+    insert into cif_initial_final_payment (ID, CAR_ID, CONTRACT_ID, 
+      INITIAL_PAYMENT_STATUS, FINAL_PAYMENT_STATUS, 
+      HD_OPERATION_AUDIT_STATUS, CREATE_TIME)
+    values (#{id,jdbcType=INTEGER}, #{carId,jdbcType=INTEGER}, #{contractId,jdbcType=INTEGER}, 
+      #{initialPaymentStatus,jdbcType=INTEGER}, #{finalPaymentStatus,jdbcType=INTEGER}, 
+      #{hdOperationAuditStatus,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.cif.InitialFinalPayment" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(116);
+    </selectKey>
+    insert into cif_initial_final_payment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,
+      <if test="carId != null" >
+        CAR_ID,
+      </if>
+      <if test="contractId != null" >
+        CONTRACT_ID,
+      </if>
+      <if test="initialPaymentStatus != null" >
+        INITIAL_PAYMENT_STATUS,
+      </if>
+      <if test="finalPaymentStatus != null" >
+        FINAL_PAYMENT_STATUS,
+      </if>
+      <if test="hdOperationAuditStatus != null" >
+        HD_OPERATION_AUDIT_STATUS,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="carId != null" >
+        #{carId,jdbcType=INTEGER},
+      </if>
+      <if test="contractId != null" >
+        #{contractId,jdbcType=INTEGER},
+      </if>
+      <if test="initialPaymentStatus != null" >
+        #{initialPaymentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="finalPaymentStatus != null" >
+        #{finalPaymentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="hdOperationAuditStatus != null" >
+        #{hdOperationAuditStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.cif.InitialFinalPayment" >
+    update cif_initial_final_payment
+    <set >
+      <if test="carId != null" >
+        CAR_ID = #{carId,jdbcType=INTEGER},
+      </if>
+      <if test="contractId != null" >
+        CONTRACT_ID = #{contractId,jdbcType=INTEGER},
+      </if>
+      <if test="initialPaymentStatus != null" >
+        INITIAL_PAYMENT_STATUS = #{initialPaymentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="finalPaymentStatus != null" >
+        FINAL_PAYMENT_STATUS = #{finalPaymentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="hdOperationAuditStatus != null" >
+        HD_OPERATION_AUDIT_STATUS = #{hdOperationAuditStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.cif.InitialFinalPayment" >
+    update cif_initial_final_payment
+    set CAR_ID = #{carId,jdbcType=INTEGER},
+      CONTRACT_ID = #{contractId,jdbcType=INTEGER},
+      INITIAL_PAYMENT_STATUS = #{initialPaymentStatus,jdbcType=INTEGER},
+      FINAL_PAYMENT_STATUS = #{finalPaymentStatus,jdbcType=INTEGER},
+      HD_OPERATION_AUDIT_STATUS = #{hdOperationAuditStatus,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

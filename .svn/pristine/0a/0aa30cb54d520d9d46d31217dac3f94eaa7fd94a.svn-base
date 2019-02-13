@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.cif.LoginMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.cif.Login" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="ACCOUNT_ID" property="accountId" jdbcType="INTEGER" />
+    <result column="LOGIN_NAME" property="loginName" jdbcType="VARCHAR" />
+    <result column="LOGIN_TYPE" property="loginType" jdbcType="INTEGER" />
+    <result column="EXPIRED_DATE" property="expiredDate" jdbcType="TIMESTAMP" />
+    <result column="M_TYPE" property="mType" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    ID, ACCOUNT_ID, LOGIN_NAME, LOGIN_TYPE, EXPIRED_DATE, M_TYPE,CREATE_TIME
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and ID = #{id}
+    </if>
+    <if test="accountId != null and accountId !=''" >
+       and ACCOUNT_ID = #{accountId}
+    </if>
+    <if test="loginName != null and loginName !=''" >
+       and LOGIN_NAME = #{loginName}
+    </if>
+    <if test="loginType != null and loginType !=''" >
+       and LOGIN_TYPE = #{loginType}
+    </if>
+    <if test="expiredDate != null and expiredDate !=''" >
+       and EXPIRED_DATE = #{expiredDate}
+    </if>
+    <if test="mType != null and mType !=''" >
+       and M_TYPE = #{mType}
+    </if>
+    <if test="createTime != null and createTime !=''" >
+       and CREATE_TIME = #{createTime}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.cif.Login" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_login
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.cif.Login" >
+    select count(*) from cif_login where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_login
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cif_login
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.cif.Login" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(103);
+    </selectKey>
+    insert into cif_login (ID, ACCOUNT_ID, LOGIN_NAME, 
+      LOGIN_TYPE, EXPIRED_DATE, CREATE_TIME
+      )
+    values (#{id,jdbcType=INTEGER}, #{accountId,jdbcType=INTEGER}, #{loginName,jdbcType=VARCHAR}, 
+      #{loginType,jdbcType=INTEGER}, #{expiredDate,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.cif.Login" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(103);
+    </selectKey>
+    insert into cif_login
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,
+      <if test="accountId != null" >
+        ACCOUNT_ID,
+      </if>
+      <if test="loginName != null" >
+        LOGIN_NAME,
+      </if>
+      <if test="loginType != null" >
+        LOGIN_TYPE,
+      </if>
+      <if test="expiredDate != null" >
+        EXPIRED_DATE,
+      </if>
+      <if test="mType != null" >
+        M_TYPE,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="accountId != null" >
+        #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="loginName != null" >
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginType != null" >
+        #{loginType,jdbcType=INTEGER},
+      </if>
+      <if test="expiredDate != null" >
+        #{expiredDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mType != null" >
+        #{mType,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.cif.Login" >
+    update cif_login
+    <set >
+      <if test="accountId != null" >
+        ACCOUNT_ID = #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="loginName != null" >
+        LOGIN_NAME = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginType != null" >
+        LOGIN_TYPE = #{loginType,jdbcType=INTEGER},
+      </if>
+      <if test="expiredDate != null" >
+        EXPIRED_DATE = #{expiredDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mType != null" >
+        M_TYPE = #{mType,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.cif.Login" >
+    update cif_login
+    set ACCOUNT_ID = #{accountId,jdbcType=INTEGER},
+      LOGIN_NAME = #{loginName,jdbcType=VARCHAR},
+      LOGIN_TYPE = #{loginType,jdbcType=INTEGER},
+      EXPIRED_DATE = #{expiredDate,jdbcType=TIMESTAMP},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      M_TYPE = #{mType,jdbcType=INTEGER},
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <resultMap id="LoginInfoBaseResultMap" type="com.yyq.car.portal.common.dto.LoginInfoDTO" >
+    <result column="ID" property="accountId" jdbcType="INTEGER" />
+    <result column="NICKNAME" property="nickname" jdbcType="VARCHAR" />
+    <result column="LOGIN_PASSWORD" property="password" jdbcType="VARCHAR"/>
+    <result column="AVATAR" property="avatar" jdbcType="VARCHAR"/>
+    <result column="MOBILE" property="mobile" jdbcType="VARCHAR"/>
+    
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="CONTACT" property="contact" jdbcType="VARCHAR"/>
+    <result column="PROVINCE" property="province" jdbcType="VARCHAR"/>
+    <result column="AREA" property="area" jdbcType="VARCHAR"/>
+    <result column="STATUS" property="status" jdbcType="VARCHAR"/>
+  </resultMap>
+  
+  <select id="selectLoginInfo" parameterType="map" resultMap="LoginInfoBaseResultMap">
+  	SELECT b.ID,b.NICK_NAME NICKNAME,b.LOGIN_PASSWORD,c.AVATAR,c.MOBILE,
+  	c.`NAME`,c.CONTACT,c.PROVINCE,c.AREA,b.STATUS
+	FROM cif_login a, cif_account b, cif_member c
+	WHERE a.ACCOUNT_ID = b.ID and b.CUSTOMER_ID=c.ID
+		AND a.LOGIN_NAME = #{loginName,jdbcType=VARCHAR}
+		AND a.LOGIN_TYPE = #{loginType,jdbcType=INTEGER}
+  </select>
+  
+  <update id="updateLoginNameByAccId"  parameterType="com.yyq.car.portal.common.model.cif.Login">
+    UPDATE cif_login
+    SET LOGIN_NAME=#{loginName,jdbcType=VARCHAR}
+    WHERE ACCOUNT_ID=#{accountId,jdbcType=INTEGER}
+    AND LOGIN_TYPE = #{loginType,jdbcType=INTEGER}
+  </update>
+</mapper>

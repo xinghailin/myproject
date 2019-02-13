@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.product.flowschemeMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.product.flowscheme" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="userid" property="userid" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="taskatatus" property="taskatatus" jdbcType="VARCHAR" />
+    <result column="taskid" property="taskid" jdbcType="INTEGER" />
+    <result column="tasktype" property="tasktype" jdbcType="INTEGER" />
+    <result column="tasktype1" property="tasktype1" jdbcType="INTEGER" />
+    <result column="nopasscause" property="nopasscause" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.yyq.car.portal.common.model.product.flowscheme" extends="BaseResultMap" >
+    <result column="taskname" property="taskname" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="userid != null and userid !=''" >
+       and userid = #{userid}
+    </if>
+    <if test="username != null and username !=''" >
+       and username = #{username}
+    </if>
+    <if test="taskatatus != null and taskatatus !=''" >
+       and taskatatus = #{taskatatus}
+    </if>
+    <if test="taskid != null and taskid !=''" >
+       and taskid = #{taskid}
+    </if>
+    <if test="tasktype != null and tasktype !=''" >
+       and tasktype = #{tasktype}
+    </if>
+    <if test="tasktype1 != null and tasktype1 !=''" >
+       and tasktype1 = #{tasktype1}
+    </if>
+    <if test="nopasscause != null and nopasscause !=''" >
+       and nopasscause = #{nopasscause}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="taskname != null and taskname !=''" >
+       and taskname = #{taskname}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="ResultMapWithBLOBs" parameterType="com.yyq.car.portal.common.model.product.flowscheme" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from flow_scheme
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.product.flowscheme" >
+    select count(*) from flow_scheme where 
+    <include refid="wherecase" />
+  </select>
+  <sql id="Base_Column_List" >
+    id, userid, username, taskatatus, taskid, tasktype, tasktype1, nopasscause, createtime
+  </sql>
+  <sql id="Blob_Column_List" >
+    taskname
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from flow_scheme
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from flow_scheme
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.product.flowscheme" >
+    insert into flow_scheme (id, userid, username, 
+      taskatatus, taskid, tasktype, 
+      tasktype1, nopasscause, createtime, 
+      taskname)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
+      #{taskatatus,jdbcType=VARCHAR}, #{taskid,jdbcType=INTEGER}, #{tasktype,jdbcType=INTEGER}, 
+      #{tasktype1,jdbcType=INTEGER}, #{nopasscause,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{taskname,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.product.flowscheme" >
+    insert into flow_scheme
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="taskatatus != null" >
+        taskatatus,
+      </if>
+      <if test="taskid != null" >
+        taskid,
+      </if>
+      <if test="tasktype != null" >
+        tasktype,
+      </if>
+      <if test="tasktype1 != null" >
+        tasktype1,
+      </if>
+      <if test="nopasscause != null" >
+        nopasscause,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="taskname != null" >
+        taskname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="taskatatus != null" >
+        #{taskatatus,jdbcType=VARCHAR},
+      </if>
+      <if test="taskid != null" >
+        #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="tasktype != null" >
+        #{tasktype,jdbcType=INTEGER},
+      </if>
+      <if test="tasktype1 != null" >
+        #{tasktype1,jdbcType=INTEGER},
+      </if>
+      <if test="nopasscause != null" >
+        #{nopasscause,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="taskname != null" >
+        #{taskname,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.product.flowscheme" >
+    update flow_scheme
+    <set >
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="taskatatus != null" >
+        taskatatus = #{taskatatus,jdbcType=VARCHAR},
+      </if>
+      <if test="taskid != null" >
+        taskid = #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="tasktype != null" >
+        tasktype = #{tasktype,jdbcType=INTEGER},
+      </if>
+      <if test="tasktype1 != null" >
+        tasktype1 = #{tasktype1,jdbcType=INTEGER},
+      </if>
+      <if test="nopasscause != null" >
+        nopasscause = #{nopasscause,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="taskname != null" >
+        taskname = #{taskname,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yyq.car.portal.common.model.product.flowscheme" >
+    update flow_scheme
+    set userid = #{userid,jdbcType=INTEGER},
+      username = #{username,jdbcType=VARCHAR},
+      taskatatus = #{taskatatus,jdbcType=VARCHAR},
+      taskid = #{taskid,jdbcType=INTEGER},
+      tasktype = #{tasktype,jdbcType=INTEGER},
+      tasktype1 = #{tasktype1,jdbcType=INTEGER},
+      nopasscause = #{nopasscause,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      taskname = #{taskname,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.product.flowscheme" >
+    update flow_scheme
+    set userid = #{userid,jdbcType=INTEGER},
+      username = #{username,jdbcType=VARCHAR},
+      taskatatus = #{taskatatus,jdbcType=VARCHAR},
+      taskid = #{taskid,jdbcType=INTEGER},
+      tasktype = #{tasktype,jdbcType=INTEGER},
+      tasktype1 = #{tasktype1,jdbcType=INTEGER},
+      nopasscause = #{nopasscause,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

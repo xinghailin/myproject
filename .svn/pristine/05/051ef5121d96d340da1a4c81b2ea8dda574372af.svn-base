@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.comm.AppVersionMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.comm.AppVersion" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="VERSION" property="version" jdbcType="VARCHAR" />
+    <result column="IS_UPDATE" property="isUpdate" jdbcType="INTEGER" />
+    <result column="URL" property="url" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="DETAIL" property="detail" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, VERSION, IS_UPDATE, URL, NAME, DETAIL
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and ID = #{id}
+    </if>
+    <if test="version != null and version !=''" >
+       and VERSION = #{version}
+    </if>
+    <if test="isUpdate != null and isUpdate !=''" >
+       and IS_UPDATE = #{isUpdate}
+    </if>
+    <if test="url != null and url !=''" >
+       and URL = #{url}
+    </if>
+    <if test="name != null and name !=''" >
+       and NAME = #{name}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.comm.AppVersion" >
+    select 
+    <include refid="Base_Column_List" />
+    from comm_app_version
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.comm.AppVersion" >
+    select count(*) from comm_app_version where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from comm_app_version
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from comm_app_version
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.comm.AppVersion" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(310);
+    </selectKey>
+    insert into comm_app_version (ID, VERSION, IS_UPDATE, 
+      URL, NAME, DETAIL)
+    values (#{id,jdbcType=INTEGER}, #{version,jdbcType=VARCHAR}, #{isUpdate,jdbcType=INTEGER}, 
+      #{url,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{detail,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.comm.AppVersion" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(310);
+    </selectKey>
+    insert into comm_app_version
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,
+      <if test="version != null" >
+        VERSION,
+      </if>
+      <if test="isUpdate != null" >
+        IS_UPDATE,
+      </if>
+      <if test="url != null" >
+        URL,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="detail != null" >
+        DETAIL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="isUpdate != null" >
+        #{isUpdate,jdbcType=INTEGER},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="detail != null" >
+        #{detail,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.comm.AppVersion" >
+    update comm_app_version
+    <set >
+      <if test="version != null" >
+        VERSION = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="isUpdate != null" >
+        IS_UPDATE = #{isUpdate,jdbcType=INTEGER},
+      </if>
+      <if test="url != null" >
+        URL = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="detail != null" >
+        DETAIL = #{detail,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.comm.AppVersion" >
+    update comm_app_version
+    set VERSION = #{version,jdbcType=VARCHAR},
+      IS_UPDATE = #{isUpdate,jdbcType=INTEGER},
+      URL = #{url,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      DETAIL = #{detail,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <!-- 获取最新版本 -->
+  <select id="selectNewVersion" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from comm_app_version t where t.type = #{type,jdbcType=VARCHAR} ORDER BY t.version desc LIMIT 1
+  </select>
+  
+</mapper>

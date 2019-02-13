@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.biz.CaseMonitorMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.biz.CaseMonitor" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="rscid" property="rscid" jdbcType="INTEGER" />
+    <result column="property" property="property" jdbcType="VARCHAR" />
+    <result column="person" property="person" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, rscid, property, person, createtime, creator
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="rscid != null and rscid !=''" >
+       and rscid = #{rscid}
+    </if>
+    <if test="property != null and property !=''" >
+       and property = #{property}
+    </if>
+    <if test="person != null and person !=''" >
+       and person = #{person}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="creator != null and creator !=''" >
+       and creator = #{creator}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.biz.CaseMonitor" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_casemonitor
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.biz.CaseMonitor" >
+    select count(*) from biz_casemonitor where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_casemonitor
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from biz_casemonitor
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.biz.CaseMonitor" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(413);
+    </selectKey>
+    insert into biz_casemonitor (id, rscid, property, 
+      person, createtime, creator
+      )
+    values (#{id,jdbcType=INTEGER}, #{rscid,jdbcType=INTEGER}, #{property,jdbcType=VARCHAR}, 
+      #{person,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.biz.CaseMonitor" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(413);
+    </selectKey>
+    insert into biz_casemonitor
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="rscid != null" >
+        rscid,
+      </if>
+      <if test="property != null" >
+        property,
+      </if>
+      <if test="person != null" >
+        person,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="rscid != null" >
+        #{rscid,jdbcType=INTEGER},
+      </if>
+      <if test="property != null" >
+        #{property,jdbcType=VARCHAR},
+      </if>
+      <if test="person != null" >
+        #{person,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.biz.CaseMonitor" >
+    update biz_casemonitor
+    <set >
+      <if test="rscid != null" >
+        rscid = #{rscid,jdbcType=INTEGER},
+      </if>
+      <if test="property != null" >
+        property = #{property,jdbcType=VARCHAR},
+      </if>
+      <if test="person != null" >
+        person = #{person,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.biz.CaseMonitor" >
+    update biz_casemonitor
+    set rscid = #{rscid,jdbcType=INTEGER},
+      property = #{property,jdbcType=VARCHAR},
+      person = #{person,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectcaseByMap" resultType="map" parameterType="map" >
+    SELECT
+	a.*, c.filecode,
+	c.bname,
+	c.bphone,
+	c.identify,
+	b.id stepid,
+	b.casename stepname,
+	b.`status` stepstatus,
+	b.detail stepdetail
+FROM
+	`biz_riskcase` a
+JOIN biz_casestep b ON (
+	a.type = 1
+	AND a.id = b.caseid
+	AND a.`status` = b.`status`
+)
+JOIN biz_saleborrow c ON a.cid = c.id
+WHERE
+	(
+		a.monitor = 1
+		OR a.`status` = 9
+		OR (
+			a.`status` = 10
+			AND b.detail = '执行结果：终止执行-法院要求'
+		)
+	)
+	<if test="name != null and name !=''" >
+       and a.casename like concat('%',#{name},'%')
+    </if>
+	<if test="bname != null and bname !=''" >
+       and c.bname like concat('%',#{bname},'%')
+    </if>
+    order by a.createtime desc
+    limit #{start},#{size}
+  </select>
+  <select id="countcaseByMap" resultType="int" parameterType="map" >
+    SELECT count(*)
+FROM
+	`biz_riskcase` a
+JOIN biz_casestep b ON (
+	a.type = 1
+	AND a.id = b.caseid
+	AND a.`status` = b.`status`
+)
+JOIN biz_saleborrow c ON a.cid = c.id
+WHERE
+	(
+		a.monitor = 1
+		OR a.`status` = 9
+		OR (
+			a.`status` = 10
+			AND b.detail = '执行结果：终止执行-法院要求'
+		)
+	)
+	<if test="name != null and name !=''" >
+       and a.casename like concat('%',#{name},'%')
+    </if>
+	<if test="bname != null and bname !=''" >
+       and c.bname like concat('%',#{bname},'%')
+    </if>
+  </select>
+  
+  <select id="selectcase2ByMap" resultType="map" parameterType="map" >
+    SELECT
+	a.*,
+	b.id stepid,
+	b.casename stepname,
+	b.`status` stepstatus,
+	b.detail stepdetail
+FROM
+	`biz_riskcase` a
+JOIN biz_casestep b ON (
+	a.type = 2
+	AND a.id = b.caseid
+	AND a.`status` = b.`status`
+)
+WHERE
+	(
+		a.monitor = 1
+		OR a.`status` = 9
+		OR (
+			a.`status` = 10
+			AND b.detail = '执行结果：终止执行-法院要求'
+		)
+	)
+	<if test="name != null and name !=''" >
+       and a.casename like concat('%',#{name},'%')
+    </if>
+    order by a.createtime desc
+    limit #{start},#{size}
+  </select>
+  <select id="countcase2ByMap" resultType="int" parameterType="map" >
+    SELECT count(*)
+FROM
+	`biz_riskcase` a
+JOIN biz_casestep b ON (
+	a.type = 2
+	AND a.id = b.caseid
+	AND a.`status` = b.`status`
+)
+WHERE
+	(
+		a.monitor = 1
+		OR a.`status` = 9
+		OR (
+			a.`status` = 10
+			AND b.detail = '执行结果：终止执行-法院要求'
+		)
+	)
+	<if test="name != null and name !=''" >
+       and a.casename like concat('%',#{name},'%')
+    </if>
+  </select>
+</mapper>

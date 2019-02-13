@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.product.ShopMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.product.Shop" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="PROVINCE" property="province" jdbcType="VARCHAR" />
+    <result column="CITY" property="city" jdbcType="VARCHAR" />
+    <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+    <result column="TEL" property="tel" jdbcType="VARCHAR" />
+    <result column="PRINCIPAL" property="principal" jdbcType="VARCHAR" />
+    <result column="PRI_TEL" property="priTel" jdbcType="VARCHAR" />
+    <result column="PRI_PHONE" property="priPhone" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="credit" property="credit" jdbcType="DECIMAL" />
+    <result column="deposit" property="deposit" jdbcType="VARCHAR" />
+    <result column="financial" property="financial" jdbcType="DECIMAL" />
+    <result column="simplecarf" property="simplecarf" jdbcType="DECIMAL" />
+    <result column="signtime" property="signtime" jdbcType="TIMESTAMP" />
+    <result column="company" property="company" jdbcType="VARCHAR" />
+    <result column="creditinterestrate" property="creditinterestrate" jdbcType="VARCHAR" />
+    <result column="financialinterestrate" property="financialinterestrate" jdbcType="VARCHAR" />
+    <result column="finance_type" property="financeType" jdbcType="INTEGER" />
+    <result column="termid" property="termid" jdbcType="INTEGER" />
+    <result column="newtime" property="newtime" jdbcType="TIMESTAMP" />
+    <result column="oldtime" property="oldtime" jdbcType="TIMESTAMP" />
+    <result column="invalid" property="invalid" jdbcType="VARCHAR" />
+
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, NAME, PROVINCE, CITY, ADDRESS, TEL, PRINCIPAL, PRI_TEL, PRI_PHONE, CREATE_TIME, 
+    type, credit, deposit, financial, simplecarf, signtime, company, creditinterestrate, 
+    financialinterestrate, finance_type, termid,newtime, oldtime,invalid
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and ID = #{id}
+    </if>
+    <if test="name != null and name !=''" >
+       and NAME like concat('%',#{name},'%')
+    </if>
+    <if test="province != null and province !=''" >
+       and PROVINCE = #{province}
+    </if>
+    <if test="city != null and city !=''" >
+       and CITY = #{city}
+    </if>
+    <if test="address != null and address !=''" >
+       and ADDRESS like concat('%',#{address},'%')
+    </if>
+    <if test="tel != null and tel !=''" >
+       and TEL like concat('%',#{tel},'%')
+    </if>
+    <if test="principal != null and principal !=''" >
+       and PRINCIPAL like concat('%',#{principal},'%')
+    </if>
+    <if test="priTel != null and priTel !=''" >
+       and PRI_TEL like concat('%',#{priTel},'%')
+    </if>
+    <if test="priPhone != null and priPhone !=''" >
+       and PRI_PHONE like concat('%',#{priPhone},'%')
+    </if>
+    <if test="createTime != null and createTime !=''" >
+       and CREATE_TIME = #{createTime}
+    </if>
+    <if test="type != null and type !=''" >
+       and type = #{type}
+    </if>
+    <if test="credit != null and credit !=''" >
+       and credit = #{credit}
+    </if>
+    <if test="deposit != null and deposit !=''" >
+       and deposit = #{deposit}
+    </if>
+    <if test="financial != null and financial !=''" >
+       and financial = #{financial}
+    </if>
+    <if test="simplecarf != null and simplecarf !=''" >
+       and simplecarf = #{simplecarf}
+    </if>
+    <if test="signtime != null and signtime !=''" >
+       and signtime = #{signtime}
+    </if>
+    <if test="company != null and company !=''" >
+       and company = #{company}
+    </if>
+    <if test="creditinterestrate != null and creditinterestrate !=''" >
+       and creditinterestrate = #{creditinterestrate}
+    </if>
+    <if test="financialinterestrate != null and financialinterestrate !=''" >
+       and financialinterestrate = #{financialinterestrate}
+    </if>
+    <if test="financeType != null and financeType !=''" >
+       and finance_type = #{financeType}
+    </if>
+    <if test="termid != null and termid !=''" >
+       and termid = #{termid}
+    </if> 
+    <if test="newtime != null and newtime !=''" >
+       and newtime = #{newtime}
+    </if> 
+    <if test="oldtime != null and oldtime !=''" >
+       and oldtime = #{oldtime}
+    </if> 
+     
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.product.Shop" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_shop
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.product.Shop" >
+    select count(*) from pro_shop where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_shop
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pro_shop
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.product.Shop" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(603);
+    </selectKey>
+    insert into pro_shop (ID, NAME, PROVINCE, 
+      CITY, ADDRESS, TEL, 
+      PRINCIPAL, PRI_TEL, PRI_PHONE, 
+      CREATE_TIME, type, credit, 
+      deposit, financial, simplecarf, 
+      signtime, company, creditinterestrate, 
+      financialinterestrate, finance_type, termid,  newtime , oldtime
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{principal,jdbcType=VARCHAR}, #{priTel,jdbcType=VARCHAR}, #{priPhone,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{type,jdbcType=VARCHAR}, #{credit,jdbcType=DECIMAL}, 
+      #{deposit,jdbcType=VARCHAR}, #{financial,jdbcType=DECIMAL}, #{simplecarf,jdbcType=DECIMAL}, 
+      #{signtime,jdbcType=TIMESTAMP}, #{company,jdbcType=VARCHAR}, #{creditinterestrate,jdbcType=VARCHAR}, 
+      #{financialinterestrate,jdbcType=VARCHAR}, #{financeType,jdbcType=INTEGER}, #{termid,jdbcType=INTEGER}, 
+      #{newtime,jdbcType=TIMESTAMP}, 
+      #{oldtime,jdbcType=TIMESTAMP}
+      ) 
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.product.Shop" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(603);
+    </selectKey>
+    insert into pro_shop
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="province != null" >
+        PROVINCE,
+      </if>
+      <if test="city != null" >
+        CITY,
+      </if>
+      <if test="address != null" >
+        ADDRESS,
+      </if>
+      <if test="tel != null" >
+        TEL,
+      </if>
+      <if test="principal != null" >
+        PRINCIPAL,
+      </if>
+      <if test="priTel != null" >
+        PRI_TEL,
+      </if>
+      <if test="priPhone != null" >
+        PRI_PHONE,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="credit != null" >
+        credit,
+      </if>
+      <if test="deposit != null" >
+        deposit,
+      </if>
+      <if test="financial != null" >
+        financial,
+      </if>
+      <if test="simplecarf != null" >
+        simplecarf,
+      </if>
+      <if test="signtime != null" >
+        signtime,
+      </if>
+      <if test="company != null" >
+        company,
+      </if>
+      <if test="creditinterestrate != null" >
+        creditinterestrate,
+      </if>
+      <if test="financialinterestrate != null" >
+        financialinterestrate,
+      </if>
+      <if test="financeType != null" >
+        finance_type,
+      </if>
+      <if test="termid != null" >
+        termid,
+      </if> 
+       <if test="newtime != null" >
+        newtime,
+      </if>
+       <if test="oldtime != null" >
+        oldtime,
+      </if>
+     
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null" >
+        #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="priTel != null" >
+        #{priTel,jdbcType=VARCHAR},
+      </if>
+      <if test="priPhone != null" >
+        #{priPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="credit != null" >
+        #{credit,jdbcType=DECIMAL},
+      </if>
+      <if test="deposit != null" >
+        #{deposit,jdbcType=VARCHAR},
+      </if>
+      <if test="financial != null" >
+        #{financial,jdbcType=DECIMAL},
+      </if>
+      <if test="simplecarf != null" >
+        #{simplecarf,jdbcType=DECIMAL},
+      </if>
+      <if test="signtime != null" >
+        #{signtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="company != null" >
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="creditinterestrate != null" >
+        #{creditinterestrate,jdbcType=VARCHAR},
+      </if>
+      <if test="financialinterestrate != null" >
+        #{financialinterestrate,jdbcType=VARCHAR},
+      </if>
+      <if test="financeType != null" >
+        #{financeType,jdbcType=INTEGER},
+      </if>
+      <if test="termid != null" >
+        #{termid,jdbcType=INTEGER},
+      </if> 
+        <if test="newtime != null" >
+        #{newtime,jdbcType=TIMESTAMP},
+      </if>
+      
+        <if test="oldtime != null" >
+        #{oldtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.product.Shop" >
+    update pro_shop
+    <set >
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        PROVINCE = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        CITY = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        TEL = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null" >
+        PRINCIPAL = #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="priTel != null" >
+        PRI_TEL = #{priTel,jdbcType=VARCHAR},
+      </if>
+      <if test="priPhone != null" >
+        PRI_PHONE = #{priPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="credit != null" >
+        credit = #{credit,jdbcType=DECIMAL},
+      </if>
+      <if test="deposit != null" >
+        deposit = #{deposit,jdbcType=VARCHAR},
+      </if>
+      <if test="financial != null" >
+        financial = #{financial,jdbcType=DECIMAL},
+      </if>
+      <if test="simplecarf != null" >
+        simplecarf = #{simplecarf,jdbcType=DECIMAL},
+      </if>
+      <if test="signtime != null" >
+        signtime = #{signtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="company != null" >
+        company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="creditinterestrate != null" >
+        creditinterestrate = #{creditinterestrate,jdbcType=VARCHAR},
+      </if>
+      <if test="financialinterestrate != null" >
+        financialinterestrate = #{financialinterestrate,jdbcType=VARCHAR},
+      </if>
+      <if test="financeType != null" >
+        finance_type = #{financeType,jdbcType=INTEGER},
+      </if>
+      <if test="termid != null" >
+        termid = #{termid,jdbcType=INTEGER},
+      </if>
+        <if test="newtime != null" >
+        newtime = #{newtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldtime != null" >
+        oldtime = #{oldtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invalid != null" >
+        invalid = #{invalid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.product.Shop" >
+    update pro_shop
+    set NAME = #{name,jdbcType=VARCHAR},
+      PROVINCE = #{province,jdbcType=VARCHAR},
+      CITY = #{city,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      TEL = #{tel,jdbcType=VARCHAR},
+      PRINCIPAL = #{principal,jdbcType=VARCHAR},
+      PRI_TEL = #{priTel,jdbcType=VARCHAR},
+      PRI_PHONE = #{priPhone,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      type = #{type,jdbcType=VARCHAR},
+      credit = #{credit,jdbcType=DECIMAL},
+      deposit = #{deposit,jdbcType=VARCHAR},
+      financial = #{financial,jdbcType=DECIMAL},
+      simplecarf = #{simplecarf,jdbcType=DECIMAL},
+      signtime = #{signtime,jdbcType=TIMESTAMP},
+      company = #{company,jdbcType=VARCHAR},
+      creditinterestrate = #{creditinterestrate,jdbcType=VARCHAR},
+      financialinterestrate = #{financialinterestrate,jdbcType=VARCHAR},
+      finance_type = #{financeType,jdbcType=INTEGER},
+      termid = #{termid,jdbcType=INTEGER},
+      newtime = #{newtime,jdbcType=TIMESTAMP},
+      oldtime = #{oldtime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+   <select id="findByShop" resultType="com.yyq.car.portal.common.model.product.Shop" parameterType="com.yyq.car.portal.common.model.product.Shop">
+  SELECT
+	ID id,
+	NAME name,
+	PROVINCE province,
+	CITY city,
+	ADDRESS address,
+	TEL tel,
+	PRINCIPAL principal,
+	PRI_TEL priTel,
+	PRI_PHONE priPhone,
+	CREATE_TIME createTime
+FROM
+	pro_shop
+WHERE name=#{name}
+  </select>
+   <select id="APPselectByCriteriaExceptMc" resultMap="BaseResultMap" >
+    select id,
+   name,tel,address,id city
+    from pro_shop
+    where type>0
+  </select>
+   <select id="selectByCriteriaExceptMc" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_shop
+    where type>0
+  </select>
+   <select id="countShopNum" resultType="int">
+  SELECT COUNT(*) FROM pro_shop where type>0
+  </select>
+  <select id="countByNameForEdit" resultType="int" parameterType="com.yyq.car.portal.common.model.product.Shop" >
+    select count(*) from pro_shop where 1=1 
+    <if test="id != null and id !=''" >
+       and ID != #{id}
+    </if>
+    <if test="name != null and name !=''" >
+       and NAME = #{name}
+    </if>
+  </select>
+  <update id="updateSpecialByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.product.Shop" >
+    update pro_shop
+    <set >
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        PROVINCE = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        CITY = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        TEL = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null" >
+        PRINCIPAL = #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="priTel != null" >
+        PRI_TEL = #{priTel,jdbcType=VARCHAR},
+      </if>
+      <if test="priPhone != null" >
+        PRI_PHONE = #{priPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="deposit != null" >
+        deposit = #{deposit,jdbcType=VARCHAR},
+      </if>
+      <if test="signtime != null" >
+        signtime = #{signtime,jdbcType=TIMESTAMP},
+      </if><if test="signtime == null" >
+        signtime = null,
+      </if>
+      <if test="credit != null" >
+        credit = #{credit,jdbcType=DECIMAL},
+      </if>
+      <if test="credit == null" >
+        credit = null,
+      </if>
+      <if test="financial != null" >
+        financial = #{financial,jdbcType=DECIMAL},
+      </if>
+      <if test="financial == null" >
+        financial = null,
+      </if>
+      <if test="simplecarf != null" >
+        simplecarf = #{simplecarf,jdbcType=DECIMAL},
+      </if>
+      <if test="simplecarf == null" >
+        simplecarf = null,
+      </if>
+      <if test="financeType != null" >
+        finance_type = #{financeType,jdbcType=INTEGER},
+      </if>
+      <if test="financeType == null" >
+        finance_type = null,
+      </if>
+      <if test="creditinterestrate != null" >
+        creditinterestrate = #{creditinterestrate,jdbcType=VARCHAR},
+      </if>
+      <if test="financialinterestrate != null" >
+        financialinterestrate = #{financialinterestrate,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null" >
+        company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="newtime != null" >
+        newtime = #{newtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldtime != null" >
+        oldtime = #{oldtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invalid != null" >
+        invalid = #{invalid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+ <select id="selectShopsByTermid" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_shop
+    where type=2 and finance_type=2
+    <if test="termid != null" >
+        and (termid = #{termid} or termid is null)
+    </if>
+    <if test="termid == null" >
+        and termid is null
+    </if>
+  </select>
+  <update id="clearTermid" parameterType="int" >
+    update pro_shop set termid=null where termid = #{termid}
+  </update>
+  
+  
+  
+  
+  
+   <select id="selectShopsByParameter" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_shop
+  </select>
+
+
+
+	<select id="selectAllByCriteria" resultMap="BaseResultMap"
+		parameterType="com.yyq.car.portal.common.model.product.Shop">
+		select
+		<include refid="Base_Column_List" />
+		from pro_shop
+		where
+		<include refid="wherecase" />
+		and id in
+		<foreach collection="shopids" index="index" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+	<select id="countAllByCriteria" resultType="int"
+		parameterType="com.yyq.car.portal.common.model.product.Shop">
+		select count(*) from pro_shop
+		where
+		<include refid="wherecase" />
+		and id in
+		<foreach collection="shopids" index="index" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+  
+  <select id="selectByCriteriaOrderByInvalid" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.product.Shop" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_shop
+    where 
+    <include refid="wherecase" />
+    ORDER BY invalid
+  </select>
+</mapper>

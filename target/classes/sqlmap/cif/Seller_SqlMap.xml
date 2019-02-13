@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.cif.SellerMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.cif.Seller" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="SHOP_ID" property="shopId" jdbcType="INTEGER" />
+    <result column="CODE" property="code" jdbcType="VARCHAR" />
+    <result column="IDENTIFY" property="identify" jdbcType="VARCHAR" />
+    <result column="PHONE" property="phone" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, NAME, SHOP_ID, CODE, IDENTIFY, PHONE, STATUS, CREATE_TIME
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and ID = #{id}
+    </if>
+    <if test="name != null and name !=''" >
+       and NAME = #{name}
+    </if>
+    <if test="shopId != null and shopId !=''" >
+       and SHOP_ID = #{shopId}
+    </if>
+    <if test="code != null and code !=''" >
+       and CODE = #{code}
+    </if>
+    <if test="identify != null and identify !=''" >
+       and IDENTIFY = #{identify}
+    </if>
+    <if test="phone != null and phone !=''" >
+       and PHONE = #{phone}
+    </if>
+    <if test="status != null and status !=''" >
+       and STATUS = #{status}
+    </if>
+    <if test="createTime != null and createTime !=''" >
+       and CREATE_TIME = #{createTime}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.cif.Seller" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_seller
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.cif.Seller" >
+    select count(*) from cif_seller where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_seller
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cif_seller
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.cif.Seller" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(117);
+    </selectKey>
+    insert into cif_seller (ID, NAME, SHOP_ID, 
+      CODE, IDENTIFY, PHONE, 
+      STATUS, CREATE_TIME)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{shopId,jdbcType=INTEGER}, 
+      #{code,jdbcType=VARCHAR}, #{identify,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.cif.Seller" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(117);
+    </selectKey>
+    insert into cif_seller
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="shopId != null" >
+        SHOP_ID,
+      </if>
+      <if test="code != null" >
+        CODE,
+      </if>
+      <if test="identify != null" >
+        IDENTIFY,
+      </if>
+      <if test="phone != null" >
+        PHONE,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="identify != null" >
+        #{identify,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.cif.Seller" >
+    update cif_seller
+    <set >
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="shopId != null" >
+        SHOP_ID = #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="identify != null" >
+        IDENTIFY = #{identify,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.cif.Seller" >
+    update cif_seller
+    set NAME = #{name,jdbcType=VARCHAR},
+      SHOP_ID = #{shopId,jdbcType=INTEGER},
+      CODE = #{code,jdbcType=VARCHAR},
+      IDENTIFY = #{identify,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

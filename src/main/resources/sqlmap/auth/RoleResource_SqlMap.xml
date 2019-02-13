@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.auth.RoleResourceMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.auth.RoleResource" >
+    <id column="ROLE_ID" property="roleId" jdbcType="INTEGER" />
+    <id column="RESOURCE_ID" property="resourceId" jdbcType="INTEGER" />
+  </resultMap>
+   <sql id="Base_Column_List" >
+    ROLE_ID,RESOURCE_ID
+  </sql>
+  <delete id="deleteByPrimaryKey" parameterType="com.yyq.car.portal.common.model.auth.RoleResource" >
+    delete from auth_role_resource
+    where ROLE_ID = #{roleId,jdbcType=INTEGER}
+      and RESOURCE_ID = #{resourceId,jdbcType=INTEGER}
+  </delete>
+  <sql id="wherecase" >
+     1=1 
+    <if test="roleId != null and roleId !=''" >
+       and ROLE_ID = #{roleId}
+    </if>
+    <if test="resourceId != null and resourceId !=''" >
+       and RESOURCE_ID = #{resourceId}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.auth.RoleResource" >
+    select 
+    <include refid="Base_Column_List" />
+    from auth_role_resource
+    where 
+    <include refid="wherecase" />
+      and 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.auth.RoleResource" >
+    select count(*) from auth_role_resource where 
+    <include refid="wherecase" />
+  </select>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.auth.RoleResource" >
+    insert into auth_role_resource (ROLE_ID, RESOURCE_ID)
+    values (#{roleId,jdbcType=INTEGER}, #{resourceId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.auth.RoleResource" >
+    insert into auth_role_resource
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        ROLE_ID,
+      </if>
+      <if test="resourceId != null" >
+        RESOURCE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="resourceId != null" >
+        #{resourceId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

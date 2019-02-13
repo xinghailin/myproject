@@ -1,0 +1,27 @@
+1.ֱ�����Ҳ������Priority�У��޸�Naming Rules��MethodNamingConventions����Priority��ΪInformation
+  �޸�Naming Rules��ShortVariable����Priority��ΪInformation
+  �޸�Naming Rules��LongVariable����Priority��ΪInformation
+  �޸�Controversial Rules�� AtLeastOneConstructor,��Priority��ΪInformation
+  �޸�Controversial Rules�� OnlyOneReturn,��Priority��ΪInformation
+  �޸�Optimization Rules�� MethodArgumentCouldBeFinal,��Priority��ΪInformation
+  �޸�Java Logging Rules��LoggerIsNotStaticFinalRule,��Priority��ΪInformation
+  �޸�JUnit Rules��TestClassWithoutTestCase,��Priority��ΪInformation
+  �޸�Controversial Rules��NullAssignment,��Priority��ΪInformation
+  �޸�Design Rules��NonStaticInitializer,��Priority��ΪInformation
+  �޸�Design Rules��UseSingleton,��Priority��ΪInformation
+  �޸�Braces Rules��IfStmtsMustUseBraces,��Priority��ΪInformation
+  ѡ��Code Size Rules��TooManyFields,�ڽ����²���Rules properties�н�Rule properties�е�maxfields��Ϊ30
+  ѡ��Code Size Rules��ExcessiveParameterList,�ڽ����²���Rules properties�н�Rule properties�е�minimum��Ϊ30
+  �޸�����Migration Rules JUnit4��Priority��ΪInformation
+  �޸�Security Code Guidelines��MethodReturnsInternalArray,��Priority��ΪInformation
+  �޸�Security Code Guidelines��ArrayIsStoredDirectly,��Priority��ΪInformation
+2.Preferences->Checkstyle->Configure 
+  �㿪JavaDoc Comments->Type Javadoc ���ұߵ���Style Javadoc,���·���Open,�ڵ���������ȥ��checkFirstSentence�Ĺ�
+  �㿪Size Violations->Maximum Parameters �����·���Open,�ڵ����������޸�maxΪ30
+
+Pattern id: EQ_DOESNT_OVERRIDE_EQUALS, type: Eq, category: STYLE
+Overriding EqualsNotSymmetrical
+
+
+
+

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yyq.car.portal.common.mapper.cif.BrandRelateMapper">
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.cif.BrandRelate">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="MEMBER_ID" jdbcType="INTEGER" property="memberId" />
+    <result column="BRAND_ID" jdbcType="INTEGER" property="brandId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, MEMBER_ID, BRAND_ID, CREATE_TIME
+  </sql>
+  <sql id="wherecase">
+     1=1 
+    <if test="id != null and id !=''">
+       and ID = #{id}
+    </if>
+    <if test="memberId != null and memberId !=''">
+       and MEMBER_ID = #{memberId}
+    </if>
+    <if test="brandId != null and brandId !=''">
+       and BRAND_ID = #{brandId}
+    </if>
+    <if test="createTime != null and createTime !=''">
+       and CREATE_TIME = #{createTime}
+    </if>
+  </sql>
+  <select id="selectByCriteria" parameterType="com.yyq.car.portal.common.model.cif.BrandRelate" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cif_brand_relate
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" parameterType="com.yyq.car.portal.common.model.cif.BrandRelate" resultType="int">
+    select count(*) from cif_brand_relate where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cif_brand_relate
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cif_brand_relate
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.cif.BrandRelate">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+      SELECT NEXTVAL(113);
+    </selectKey>
+    insert into cif_brand_relate (ID, MEMBER_ID, BRAND_ID, 
+      CREATE_TIME)
+    values (#{id,jdbcType=INTEGER}, #{memberId,jdbcType=INTEGER}, #{brandId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.cif.BrandRelate">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+      SELECT NEXTVAL(113);
+    </selectKey>
+    insert into cif_brand_relate
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      ID,
+       <if test="memberId != null">
+        MEMBER_ID,
+      </if>
+      <if test="brandId != null">
+        BRAND_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=INTEGER},
+      <if test="memberId != null">
+        #{memberId,jdbcType=INTEGER},
+      </if>
+      <if test="brandId != null">
+        #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.cif.BrandRelate">
+    update cif_brand_relate
+    <set>
+      <if test="memberId != null">
+        MEMBER_ID = #{memberId,jdbcType=INTEGER},
+      </if>
+      <if test="brandId != null">
+        BRAND_ID = #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.cif.BrandRelate">
+    update cif_brand_relate
+    set MEMBER_ID = #{memberId,jdbcType=INTEGER},
+      BRAND_ID = #{brandId,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <delete id="deleteByMemberId" parameterType="java.lang.Integer">
+    delete from cif_brand_relate
+    where MEMBER_ID = #{memberId,jdbcType=INTEGER}
+  </delete>
+</mapper>

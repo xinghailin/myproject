@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.biz.RiskcaseMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.biz.Riskcase" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="cid" property="cid" jdbcType="INTEGER" />
+    <result column="casename" property="casename" jdbcType="VARCHAR" />
+    <result column="f1" property="f1" jdbcType="VARCHAR" />
+    <result column="f2" property="f2" jdbcType="VARCHAR" />
+    <result column="f3" property="f3" jdbcType="VARCHAR" />
+    <result column="note" property="note" jdbcType="VARCHAR" />
+    <result column="prefixsafe" property="prefixsafe" jdbcType="VARCHAR" />
+    <result column="pf1" property="pf1" jdbcType="VARCHAR" />
+    <result column="pf2" property="pf2" jdbcType="VARCHAR" />
+    <result column="pf3" property="pf3" jdbcType="VARCHAR" />
+    <result column="pnote" property="pnote" jdbcType="VARCHAR" />
+    <result column="suffixsafe" property="suffixsafe" jdbcType="VARCHAR" />
+    <result column="sf1" property="sf1" jdbcType="VARCHAR" />
+    <result column="sf2" property="sf2" jdbcType="VARCHAR" />
+    <result column="sf3" property="sf3" jdbcType="VARCHAR" />
+    <result column="snote" property="snote" jdbcType="VARCHAR" />
+    <result column="type2" property="type2" jdbcType="INTEGER" />
+    <result column="instancetime" property="instancetime" jdbcType="TIMESTAMP" />
+    <result column="judgeresult" property="judgeresult" jdbcType="VARCHAR" />
+    <result column="book" property="book" jdbcType="VARCHAR" />
+    <result column="need2judge" property="need2judge" jdbcType="INTEGER" />
+    <result column="applyexecute" property="applyexecute" jdbcType="INTEGER" />
+    <result column="excecuteresult" property="excecuteresult" jdbcType="INTEGER" />
+    <result column="excecute1" property="excecute1" jdbcType="VARCHAR" />
+    <result column="excecute2" property="excecute2" jdbcType="VARCHAR" />
+    <result column="excecute3" property="excecute3" jdbcType="VARCHAR" />
+    <result column="instancetime2" property="instancetime2" jdbcType="TIMESTAMP" />
+    <result column="judgeresult2" property="judgeresult2" jdbcType="VARCHAR" />
+    <result column="book2" property="book2" jdbcType="VARCHAR" />
+    <result column="applyexecute2" property="applyexecute2" jdbcType="INTEGER" />
+    <result column="excecute2result" property="excecute2result" jdbcType="INTEGER" />
+    <result column="ex2cecute1" property="ex2cecute1" jdbcType="VARCHAR" />
+    <result column="ex2cecute2" property="ex2cecute2" jdbcType="VARCHAR" />
+    <result column="ex2cecute3" property="ex2cecute3" jdbcType="VARCHAR" />
+    <result column="creatorid" property="creatorid" jdbcType="INTEGER" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="monitor" property="monitor" jdbcType="INTEGER" />
+    <result column="casetime" property="casetime" jdbcType="TIMESTAMP" />
+    <result column="judgetime1" property="judgetime1" jdbcType="TIMESTAMP" />
+    <result column="judgetime2" property="judgetime2" jdbcType="TIMESTAMP" />
+    <result column="applyexe1" property="applyexe1" jdbcType="TIMESTAMP" />
+    <result column="applyexe2" property="applyexe2" jdbcType="TIMESTAMP" />
+    <result column="finished" property="finished" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, type, cid, casename, f1, f2, f3, note, prefixsafe, pf1, pf2, pf3, pnote, suffixsafe, 
+    sf1, sf2, sf3, snote, type2, instancetime, judgeresult, book, need2judge, applyexecute, 
+    excecuteresult, excecute1, excecute2, excecute3, instancetime2, judgeresult2, book2, 
+    applyexecute2, excecute2result, ex2cecute1, ex2cecute2, ex2cecute3, creatorid, creator, 
+    createtime, status, monitor,casetime,judgetime1,judgetime2,applyexe1,applyexe2,finished
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="type != null and type !=''" >
+       and type = #{type}
+    </if>
+    <if test="cid != null and cid !=''" >
+       and cid = #{cid}
+    </if>
+    <if test="casename != null and casename !=''" >
+       and casename = #{casename}
+    </if>
+    <if test="f1 != null and f1 !=''" >
+       and f1 = #{f1}
+    </if>
+    <if test="f2 != null and f2 !=''" >
+       and f2 = #{f2}
+    </if>
+    <if test="f3 != null and f3 !=''" >
+       and f3 = #{f3}
+    </if>
+    <if test="prefixsafe != null and prefixsafe !=''" >
+       and prefixsafe = #{prefixsafe}
+    </if>
+    <if test="pf1 != null and pf1 !=''" >
+       and pf1 = #{pf1}
+    </if>
+    <if test="pf2 != null and pf2 !=''" >
+       and pf2 = #{pf2}
+    </if>
+    <if test="pf3 != null and pf3 !=''" >
+       and pf3 = #{pf3}
+    </if>
+    <if test="pnote != null and pnote !=''" >
+       and pnote = #{pnote}
+    </if>
+    <if test="suffixsafe != null and suffixsafe !=''" >
+       and suffixsafe = #{suffixsafe}
+    </if>
+    <if test="sf1 != null and sf1 !=''" >
+       and sf1 = #{sf1}
+    </if>
+    <if test="sf2 != null and sf2 !=''" >
+       and sf2 = #{sf2}
+    </if>
+    <if test="sf3 != null and sf3 !=''" >
+       and sf3 = #{sf3}
+    </if>
+    <if test="snote != null and snote !=''" >
+       and snote = #{snote}
+    </if>
+    <if test="type2 != null and type2 !=''" >
+       and type2 = #{type2}
+    </if>
+    <if test="instancetime != null and instancetime !=''" >
+       and instancetime = #{instancetime}
+    </if>
+    <if test="judgeresult != null and judgeresult !=''" >
+       and judgeresult = #{judgeresult}
+    </if>
+    <if test="book != null and book !=''" >
+       and book = #{book}
+    </if>
+    <if test="need2judge != null and need2judge !=''" >
+       and need2judge = #{need2judge}
+    </if>
+    <if test="applyexecute != null and applyexecute !=''" >
+       and applyexecute = #{applyexecute}
+    </if>
+    <if test="excecuteresult != null and excecuteresult !=''" >
+       and excecuteresult = #{excecuteresult}
+    </if>
+    <if test="excecute1 != null and excecute1 !=''" >
+       and excecute1 = #{excecute1}
+    </if>
+    <if test="excecute2 != null and excecute2 !=''" >
+       and excecute2 = #{excecute2}
+    </if>
+    <if test="excecute3 != null and excecute3 !=''" >
+       and excecute3 = #{excecute3}
+    </if>
+    <if test="instancetime2 != null and instancetime2 !=''" >
+       and instancetime2 = #{instancetime2}
+    </if>
+    <if test="judgeresult2 != null and judgeresult2 !=''" >
+       and judgeresult2 = #{judgeresult2}
+    </if>
+    <if test="book2 != null and book2 !=''" >
+       and book2 = #{book2}
+    </if>
+    <if test="applyexecute2 != null and applyexecute2 !=''" >
+       and applyexecute2 = #{applyexecute2}
+    </if>
+    <if test="excecute2result != null and excecute2result !=''" >
+       and excecute2result = #{excecute2result}
+    </if>
+    <if test="ex2cecute1 != null and ex2cecute1 !=''" >
+       and ex2cecute1 = #{ex2cecute1}
+    </if>
+    <if test="ex2cecute2 != null and ex2cecute2 !=''" >
+       and ex2cecute2 = #{ex2cecute2}
+    </if>
+    <if test="ex2cecute3 != null and ex2cecute3 !=''" >
+       and ex2cecute3 = #{ex2cecute3}
+    </if>
+    <if test="creatorid != null and creatorid !=''" >
+       and creatorid = #{creatorid}
+    </if>
+    <if test="creator != null and creator !=''" >
+       and creator = #{creator}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.biz.Riskcase" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_riskcase
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.biz.Riskcase" >
+    select count(*) from biz_riskcase where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_riskcase
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from biz_riskcase
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.biz.Riskcase" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(411);
+    </selectKey>
+    insert into biz_riskcase (id, type, cid, 
+      casename, f1, f2, f3, 
+      prefixsafe, pf1, pf2, 
+      pf3, pnote, suffixsafe, 
+      sf1, sf2, sf3, snote, 
+      type2, instancetime, judgeresult, 
+      book, need2judge, applyexecute, 
+      excecuteresult, excecute1, excecute2, 
+      excecute3, instancetime2, judgeresult2, 
+      book2, applyexecute2, excecute2result, 
+      ex2cecute1, ex2cecute2, ex2cecute3, 
+      creatorid, creator, createtime, 
+      status)
+    values (#{id,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{cid,jdbcType=INTEGER}, 
+      #{casename,jdbcType=VARCHAR}, #{f1,jdbcType=VARCHAR}, #{f2,jdbcType=VARCHAR}, #{f3,jdbcType=VARCHAR}, 
+      #{prefixsafe,jdbcType=VARCHAR}, #{pf1,jdbcType=VARCHAR}, #{pf2,jdbcType=VARCHAR}, 
+      #{pf3,jdbcType=VARCHAR}, #{pnote,jdbcType=VARCHAR}, #{suffixsafe,jdbcType=VARCHAR}, 
+      #{sf1,jdbcType=VARCHAR}, #{sf2,jdbcType=VARCHAR}, #{sf3,jdbcType=VARCHAR}, #{snote,jdbcType=VARCHAR}, 
+      #{type2,jdbcType=INTEGER}, #{instancetime,jdbcType=TIMESTAMP}, #{judgeresult,jdbcType=VARCHAR}, 
+      #{book,jdbcType=VARCHAR}, #{need2judge,jdbcType=INTEGER}, #{applyexecute,jdbcType=INTEGER}, 
+      #{excecuteresult,jdbcType=INTEGER}, #{excecute1,jdbcType=VARCHAR}, #{excecute2,jdbcType=VARCHAR}, 
+      #{excecute3,jdbcType=VARCHAR}, #{instancetime2,jdbcType=TIMESTAMP}, #{judgeresult2,jdbcType=VARCHAR}, 
+      #{book2,jdbcType=VARCHAR}, #{applyexecute2,jdbcType=INTEGER}, #{excecute2result,jdbcType=INTEGER}, 
+      #{ex2cecute1,jdbcType=VARCHAR}, #{ex2cecute2,jdbcType=VARCHAR}, #{ex2cecute3,jdbcType=VARCHAR}, 
+      #{creatorid,jdbcType=INTEGER}, #{creator,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.biz.Riskcase" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(411);
+    </selectKey>
+    insert into biz_riskcase
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="cid != null" >
+        cid,
+      </if>
+      <if test="casename != null" >
+        casename,
+      </if>
+      <if test="f1 != null" >
+        f1,
+      </if>
+      <if test="f2 != null" >
+        f2,
+      </if>
+      <if test="f3 != null" >
+        f3,
+      </if>
+      <if test="note != null" >
+        note,
+      </if>
+      <if test="prefixsafe != null" >
+        prefixsafe,
+      </if>
+      <if test="pf1 != null" >
+        pf1,
+      </if>
+      <if test="pf2 != null" >
+        pf2,
+      </if>
+      <if test="pf3 != null" >
+        pf3,
+      </if>
+      <if test="pnote != null" >
+        pnote,
+      </if>
+      <if test="suffixsafe != null" >
+        suffixsafe,
+      </if>
+      <if test="sf1 != null" >
+        sf1,
+      </if>
+      <if test="sf2 != null" >
+        sf2,
+      </if>
+      <if test="sf3 != null" >
+        sf3,
+      </if>
+      <if test="snote != null" >
+        snote,
+      </if>
+      <if test="type2 != null" >
+        type2,
+      </if>
+      <if test="instancetime != null" >
+        instancetime,
+      </if>
+      <if test="judgeresult != null" >
+        judgeresult,
+      </if>
+      <if test="book != null" >
+        book,
+      </if>
+      <if test="need2judge != null" >
+        need2judge,
+      </if>
+      <if test="applyexecute != null" >
+        applyexecute,
+      </if>
+      <if test="excecuteresult != null" >
+        excecuteresult,
+      </if>
+      <if test="excecute1 != null" >
+        excecute1,
+      </if>
+      <if test="excecute2 != null" >
+        excecute2,
+      </if>
+      <if test="excecute3 != null" >
+        excecute3,
+      </if>
+      <if test="instancetime2 != null" >
+        instancetime2,
+      </if>
+      <if test="judgeresult2 != null" >
+        judgeresult2,
+      </if>
+      <if test="book2 != null" >
+        book2,
+      </if>
+      <if test="applyexecute2 != null" >
+        applyexecute2,
+      </if>
+      <if test="excecute2result != null" >
+        excecute2result,
+      </if>
+      <if test="ex2cecute1 != null" >
+        ex2cecute1,
+      </if>
+      <if test="ex2cecute2 != null" >
+        ex2cecute2,
+      </if>
+      <if test="ex2cecute3 != null" >
+        ex2cecute3,
+      </if>
+      <if test="creatorid != null" >
+        creatorid,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="cid != null" >
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="casename != null" >
+        #{casename,jdbcType=VARCHAR},
+      </if>
+      <if test="f1 != null" >
+        #{f1,jdbcType=VARCHAR},
+      </if>
+      <if test="f2 != null" >
+        #{f2,jdbcType=VARCHAR},
+      </if>
+      <if test="f3 != null" >
+        #{f3,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null" >
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="prefixsafe != null" >
+        #{prefixsafe,jdbcType=VARCHAR},
+      </if>
+      <if test="pf1 != null" >
+        #{pf1,jdbcType=VARCHAR},
+      </if>
+      <if test="pf2 != null" >
+        #{pf2,jdbcType=VARCHAR},
+      </if>
+      <if test="pf3 != null" >
+        #{pf3,jdbcType=VARCHAR},
+      </if>
+      <if test="pnote != null" >
+        #{pnote,jdbcType=VARCHAR},
+      </if>
+      <if test="suffixsafe != null" >
+        #{suffixsafe,jdbcType=VARCHAR},
+      </if>
+      <if test="sf1 != null" >
+        #{sf1,jdbcType=VARCHAR},
+      </if>
+      <if test="sf2 != null" >
+        #{sf2,jdbcType=VARCHAR},
+      </if>
+      <if test="sf3 != null" >
+        #{sf3,jdbcType=VARCHAR},
+      </if>
+      <if test="snote != null" >
+        #{snote,jdbcType=VARCHAR},
+      </if>
+      <if test="type2 != null" >
+        #{type2,jdbcType=INTEGER},
+      </if>
+      <if test="instancetime != null" >
+        #{instancetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="judgeresult != null" >
+        #{judgeresult,jdbcType=VARCHAR},
+      </if>
+      <if test="book != null" >
+        #{book,jdbcType=VARCHAR},
+      </if>
+      <if test="need2judge != null" >
+        #{need2judge,jdbcType=INTEGER},
+      </if>
+      <if test="applyexecute != null" >
+        #{applyexecute,jdbcType=INTEGER},
+      </if>
+      <if test="excecuteresult != null" >
+        #{excecuteresult,jdbcType=INTEGER},
+      </if>
+      <if test="excecute1 != null" >
+        #{excecute1,jdbcType=VARCHAR},
+      </if>
+      <if test="excecute2 != null" >
+        #{excecute2,jdbcType=VARCHAR},
+      </if>
+      <if test="excecute3 != null" >
+        #{excecute3,jdbcType=VARCHAR},
+      </if>
+      <if test="instancetime2 != null" >
+        #{instancetime2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="judgeresult2 != null" >
+        #{judgeresult2,jdbcType=VARCHAR},
+      </if>
+      <if test="book2 != null" >
+        #{book2,jdbcType=VARCHAR},
+      </if>
+      <if test="applyexecute2 != null" >
+        #{applyexecute2,jdbcType=INTEGER},
+      </if>
+      <if test="excecute2result != null" >
+        #{excecute2result,jdbcType=INTEGER},
+      </if>
+      <if test="ex2cecute1 != null" >
+        #{ex2cecute1,jdbcType=VARCHAR},
+      </if>
+      <if test="ex2cecute2 != null" >
+        #{ex2cecute2,jdbcType=VARCHAR},
+      </if>
+      <if test="ex2cecute3 != null" >
+        #{ex2cecute3,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null" >
+        #{creatorid,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.biz.Riskcase" >
+    update biz_riskcase
+    <set >
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="cid != null" >
+        cid = #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="casename != null" >
+        casename = #{casename,jdbcType=VARCHAR},
+      </if>
+      <if test="f1 != null" >
+        f1 = #{f1,jdbcType=VARCHAR},
+      </if>
+      <if test="f2 != null" >
+        f2 = #{f2,jdbcType=VARCHAR},
+      </if>
+      <if test="f3 != null" >
+        f3 = #{f3,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null" >
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="prefixsafe != null" >
+        prefixsafe = #{prefixsafe,jdbcType=VARCHAR},
+      </if>
+      <if test="pf1 != null" >
+        pf1 = #{pf1,jdbcType=VARCHAR},
+      </if>
+      <if test="pf2 != null" >
+        pf2 = #{pf2,jdbcType=VARCHAR},
+      </if>
+      <if test="pf3 != null" >
+        pf3 = #{pf3,jdbcType=VARCHAR},
+      </if>
+      <if test="pnote != null" >
+        pnote = #{pnote,jdbcType=VARCHAR},
+      </if>
+      <if test="suffixsafe != null" >
+        suffixsafe = #{suffixsafe,jdbcType=VARCHAR},
+      </if>
+      <if test="sf1 != null" >
+        sf1 = #{sf1,jdbcType=VARCHAR},
+      </if>
+      <if test="sf2 != null" >
+        sf2 = #{sf2,jdbcType=VARCHAR},
+      </if>
+      <if test="sf3 != null" >
+        sf3 = #{sf3,jdbcType=VARCHAR},
+      </if>
+      <if test="snote != null" >
+        snote = #{snote,jdbcType=VARCHAR},
+      </if>
+      <if test="type2 != null" >
+        type2 = #{type2,jdbcType=INTEGER},
+      </if>
+      <if test="instancetime != null" >
+        instancetime = #{instancetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="judgeresult != null" >
+        judgeresult = #{judgeresult,jdbcType=VARCHAR},
+      </if>
+      <if test="book != null" >
+        book = #{book,jdbcType=VARCHAR},
+      </if>
+      <if test="need2judge != null" >
+        need2judge = #{need2judge,jdbcType=INTEGER},
+      </if>
+      <if test="applyexecute != null" >
+        applyexecute = #{applyexecute,jdbcType=INTEGER},
+      </if>
+      <if test="excecuteresult != null" >
+        excecuteresult = #{excecuteresult,jdbcType=INTEGER},
+      </if>
+      <if test="excecute1 != null" >
+        excecute1 = #{excecute1,jdbcType=VARCHAR},
+      </if>
+      <if test="excecute2 != null" >
+        excecute2 = #{excecute2,jdbcType=VARCHAR},
+      </if>
+      <if test="excecute3 != null" >
+        excecute3 = #{excecute3,jdbcType=VARCHAR},
+      </if>
+      <if test="instancetime2 != null" >
+        instancetime2 = #{instancetime2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="judgeresult2 != null" >
+        judgeresult2 = #{judgeresult2,jdbcType=VARCHAR},
+      </if>
+      <if test="book2 != null" >
+        book2 = #{book2,jdbcType=VARCHAR},
+      </if>
+      <if test="applyexecute2 != null" >
+        applyexecute2 = #{applyexecute2,jdbcType=INTEGER},
+      </if>
+      <if test="excecute2result != null" >
+        excecute2result = #{excecute2result,jdbcType=INTEGER},
+      </if>
+      <if test="ex2cecute1 != null" >
+        ex2cecute1 = #{ex2cecute1,jdbcType=VARCHAR},
+      </if>
+      <if test="ex2cecute2 != null" >
+        ex2cecute2 = #{ex2cecute2,jdbcType=VARCHAR},
+      </if>
+      <if test="ex2cecute3 != null" >
+        ex2cecute3 = #{ex2cecute3,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null" >
+        creatorid = #{creatorid,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="monitor != null" >
+        monitor = #{monitor,jdbcType=INTEGER},
+      </if>
+      <if test="casetime != null" >
+        casetime = #{casetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="judgetime1 != null" >
+        judgetime1 = #{judgetime1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="judgetime2 != null" >
+        judgetime2 = #{judgetime2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="applyexe1 != null" >
+        applyexe1 = #{applyexe1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="applyexe2 != null" >
+        applyexe2 = #{applyexe2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finished != null" >
+        finished = #{finished,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.biz.Riskcase" >
+    update biz_riskcase
+    set type = #{type,jdbcType=INTEGER},
+      cid = #{cid,jdbcType=INTEGER},
+      casename = #{casename,jdbcType=VARCHAR},
+      f1 = #{f1,jdbcType=VARCHAR},
+      f2 = #{f2,jdbcType=VARCHAR},
+      f3 = #{f3,jdbcType=VARCHAR},
+      prefixsafe = #{prefixsafe,jdbcType=VARCHAR},
+      pf1 = #{pf1,jdbcType=VARCHAR},
+      pf2 = #{pf2,jdbcType=VARCHAR},
+      pf3 = #{pf3,jdbcType=VARCHAR},
+      pnote = #{pnote,jdbcType=VARCHAR},
+      suffixsafe = #{suffixsafe,jdbcType=VARCHAR},
+      sf1 = #{sf1,jdbcType=VARCHAR},
+      sf2 = #{sf2,jdbcType=VARCHAR},
+      sf3 = #{sf3,jdbcType=VARCHAR},
+      snote = #{snote,jdbcType=VARCHAR},
+      type2 = #{type2,jdbcType=INTEGER},
+      instancetime = #{instancetime,jdbcType=TIMESTAMP},
+      judgeresult = #{judgeresult,jdbcType=VARCHAR},
+      book = #{book,jdbcType=VARCHAR},
+      need2judge = #{need2judge,jdbcType=INTEGER},
+      applyexecute = #{applyexecute,jdbcType=INTEGER},
+      excecuteresult = #{excecuteresult,jdbcType=INTEGER},
+      excecute1 = #{excecute1,jdbcType=VARCHAR},
+      excecute2 = #{excecute2,jdbcType=VARCHAR},
+      excecute3 = #{excecute3,jdbcType=VARCHAR},
+      instancetime2 = #{instancetime2,jdbcType=TIMESTAMP},
+      judgeresult2 = #{judgeresult2,jdbcType=VARCHAR},
+      book2 = #{book2,jdbcType=VARCHAR},
+      applyexecute2 = #{applyexecute2,jdbcType=INTEGER},
+      excecute2result = #{excecute2result,jdbcType=INTEGER},
+      ex2cecute1 = #{ex2cecute1,jdbcType=VARCHAR},
+      ex2cecute2 = #{ex2cecute2,jdbcType=VARCHAR},
+      ex2cecute3 = #{ex2cecute3,jdbcType=VARCHAR},
+      creatorid = #{creatorid,jdbcType=INTEGER},
+      creator = #{creator,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByMap" resultType="map" parameterType="map" >
+SELECT
+	a.*, b.filecode,
+	b.bname,
+	b.bphone,
+	b.identify
+FROM
+	biz_riskcase a
+JOIN biz_saleborrow b ON a.cid = b.id
+WHERE
+	a.type = 1
+    <if test="name != null and name !=''" >
+       and a.casename like concat('%',#{name},'%')
+    </if>
+    <if test="bname != null and bname !=''" >
+       and b.bname like concat('%',#{bname},'%')
+    </if>
+    order by a.createtime desc
+    limit #{start},#{size}
+  </select>
+  <select id="countByMap" resultType="int" parameterType="map" >
+select count(*) from biz_riskcase a
+JOIN biz_saleborrow b ON a.cid = b.id
+WHERE
+	a.type = 1
+    <if test="name != null and name !=''" >
+       and a.casename like concat('%',#{name},'%')
+    </if>
+    <if test="bname != null and bname !=''" >
+       and b.bname like concat('%',#{bname},'%')
+    </if>
+  </select>
+  
+  <select id="selectsaleborrowforriskcase" resultType="map" parameterType="map" >
+SELECT
+	a.*, c.id caseid
+FROM
+	biz_saleborrow a
+JOIN biz_contract b ON a.contractid = b.id
+LEFT JOIN biz_riskcase c ON c.cid = a.id
+WHERE
+	b.status2 IN (4, 5)
+    <if test="filecode != null" >
+       and b.filecode like concat('%',#{filecode},'%')
+    </if>
+    <if test="bname != null and bname !=''" >
+       and b.bname like concat('%',#{bname},'%')
+    </if>
+    <if test="firstcode != null" >
+       and a.firstyearccode like concat('%',#{firstcode},'%')
+    </if>
+    order by a.createtime desc
+    limit #{start},#{size}
+  </select>
+  <select id="countsaleborrowforriskcase" resultType="int" parameterType="map" >
+SELECT
+	count(1)
+FROM
+	biz_saleborrow a
+JOIN biz_contract b ON a.contractid = b.id
+LEFT JOIN biz_riskcase c ON c.cid = a.id
+WHERE
+	b.status2 IN (4, 5)
+    <if test="filecode != null" >
+       and b.filecode like concat('%',#{filecode},'%')
+    </if>
+    <if test="bname != null and bname !=''" >
+       and b.bname like concat('%',#{bname},'%')
+    </if>
+    <if test="firstcode != null" >
+       and a.firstyearccode like concat('%',#{firstcode},'%')
+    </if>    
+  </select>
+  
+  <select id="selectOtherByMap" resultType="map" parameterType="map" >
+SELECT
+	a.*
+FROM
+	biz_riskcase a
+WHERE
+	a.type = 2
+    <if test="name != null and name !=''" >
+       and a.casename like concat('%',#{name},'%')
+    </if>
+    order by a.createtime desc
+    limit #{start},#{size}
+  </select>
+  <select id="countOtherByMap" resultType="int" parameterType="map" >
+select count(*) from biz_riskcase a
+WHERE
+	a.type = 2
+    <if test="name != null and name !=''" >
+       and a.casename like concat('%',#{name},'%')
+    </if>
+  </select>
+  
+  <select id="countTaskByMap" resultType="int" parameterType="map">
+	SELECT count(*) FROM `biz_riskcase` WHERE type=#{type} and finished IS NULL
+  </select>
+</mapper>

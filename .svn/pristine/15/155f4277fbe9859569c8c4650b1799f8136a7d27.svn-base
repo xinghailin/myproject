@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.biz.BizInvoiceMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.biz.BizInvoice" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="conid" property="conid" jdbcType="INTEGER" />
+    <result column="wsid" property="wsid" jdbcType="VARCHAR" />
+    <result column="carid" property="carid" jdbcType="INTEGER" />
+    <result column="typebig" property="typebig" jdbcType="INTEGER" />
+    <result column="typesmall" property="typesmall" jdbcType="INTEGER" />
+    <result column="amount" property="amount" jdbcType="DECIMAL" />
+    <result column="companyname" property="companyname" jdbcType="VARCHAR" />
+    <result column="taxnum" property="taxnum" jdbcType="VARCHAR" />
+    <result column="openbank" property="openbank" jdbcType="VARCHAR" />
+    <result column="banknum" property="banknum" jdbcType="VARCHAR" />
+    <result column="runaddress" property="runaddress" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="identify" property="identify" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="behalfpay" property="behalfpay" jdbcType="VARCHAR" />
+    <result column="settlementcarprice" property="settlementcarprice" jdbcType="DECIMAL" />
+    <result column="purchasetax" property="purchasetax" jdbcType="DECIMAL" />
+    <result column="insurance" property="insurance" jdbcType="DECIMAL" />
+    <result column="dynamicsupervise" property="dynamicsupervise" jdbcType="DECIMAL" />
+    <result column="appointinsurance" property="appointinsurance" jdbcType="DECIMAL" />
+    <result column="plateprice" property="plateprice" jdbcType="DECIMAL" />
+    <result column="other1price" property="other1price" jdbcType="DECIMAL" />
+    <result column="other1description" property="other1description" jdbcType="VARCHAR" />
+    <result column="other2price" property="other2price" jdbcType="DECIMAL" />
+    <result column="other2description" property="other2description" jdbcType="VARCHAR" />
+    <result column="backreason" property="backreason" jdbcType="VARCHAR" />
+    <result column="nopassreason" property="nopassreason" jdbcType="VARCHAR" />
+    <result column="fsettlementcarprice" property="fsettlementcarprice" jdbcType="DECIMAL" />
+    <result column="fpurchasetax" property="fpurchasetax" jdbcType="DECIMAL" />
+    <result column="finsurance" property="finsurance" jdbcType="DECIMAL" />
+    <result column="fdynamicsupervise" property="fdynamicsupervise" jdbcType="DECIMAL" />
+    <result column="fappointinsurance" property="fappointinsurance" jdbcType="DECIMAL" />
+    <result column="fplateprice" property="fplateprice" jdbcType="DECIMAL" />
+    <result column="fother1price" property="fother1price" jdbcType="DECIMAL" />
+    <result column="fother1description" property="fother1description" jdbcType="VARCHAR" />
+    <result column="fother2price" property="fother2price" jdbcType="DECIMAL" />
+    <result column="fother2description" property="fother2description" jdbcType="VARCHAR" />
+    <result column="fbackreason" property="fbackreason" jdbcType="VARCHAR" />
+    <result column="fnopassreason" property="fnopassreason" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, conid, wsid,carid,typebig, typesmall, amount, companyname, taxnum, openbank, banknum, runaddress, 
+    phone, identify, status, createtime, creator, behalfpay, settlementcarprice, purchasetax, 
+    insurance, dynamicsupervise, appointinsurance, plateprice, other1price, other1description, 
+    other2price, other2description, backreason, nopassreason, fsettlementcarprice, fpurchasetax, 
+    finsurance, fdynamicsupervise, fappointinsurance, fplateprice, fother1price, fother1description, 
+    fother2price, fother2description, fbackreason, fnopassreason
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="conid != null and conid !=''" >
+       and conid = #{conid}
+    </if>
+    <if test="wsid != null and wsid !=''" >
+       and wsid = #{wsid}
+    </if>
+    <if test="carid != null and carid !=''" >
+       and carid = #{carid}
+    </if>
+    <if test="typebig != null and typebig !=''" >
+       and typebig = #{typebig}
+    </if>
+    <if test="typesmall != null and typesmall !=''" >
+       and typesmall = #{typesmall}
+    </if>
+    <if test="amount != null and amount !=''" >
+       and amount = #{amount}
+    </if>
+    <if test="companyname != null and companyname !=''" >
+       and companyname = #{companyname}
+    </if>
+    <if test="taxnum != null and taxnum !=''" >
+       and taxnum = #{taxnum}
+    </if>
+    <if test="openbank != null and openbank !=''" >
+       and openbank = #{openbank}
+    </if>
+    <if test="banknum != null and banknum !=''" >
+       and banknum = #{banknum}
+    </if>
+    <if test="runaddress != null and runaddress !=''" >
+       and runaddress = #{runaddress}
+    </if>
+    <if test="phone != null and phone !=''" >
+       and phone = #{phone}
+    </if>
+    <if test="identify != null and identify !=''" >
+       and identify = #{identify}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="creator != null and creator !=''" >
+       and creator = #{creator}
+    </if>
+    <if test="behalfpay != null and behalfpay !=''" >
+       and behalfpay = #{behalfpay}
+    </if>
+    <if test="settlementcarprice != null and settlementcarprice !=''" >
+       and settlementcarprice = #{settlementcarprice}
+    </if>
+    <if test="purchasetax != null and purchasetax !=''" >
+       and purchasetax = #{purchasetax}
+    </if>
+    <if test="insurance != null and insurance !=''" >
+       and insurance = #{insurance}
+    </if>
+    <if test="dynamicsupervise != null and dynamicsupervise !=''" >
+       and dynamicsupervise = #{dynamicsupervise}
+    </if>
+    <if test="appointinsurance != null and appointinsurance !=''" >
+       and appointinsurance = #{appointinsurance}
+    </if>
+    <if test="plateprice != null and plateprice !=''" >
+       and plateprice = #{plateprice}
+    </if>
+    <if test="other1price != null and other1price !=''" >
+       and other1price = #{other1price}
+    </if>
+    <if test="other1description != null and other1description !=''" >
+       and other1description = #{other1description}
+    </if>
+    <if test="other2price != null and other2price !=''" >
+       and other2price = #{other2price}
+    </if>
+    <if test="other2description != null and other2description !=''" >
+       and other2description = #{other2description}
+    </if>
+    <if test="backreason != null and backreason !=''" >
+       and backreason = #{backreason}
+    </if>
+    <if test="nopassreason != null and nopassreason !=''" >
+       and nopassreason = #{nopassreason}
+    </if>
+    <if test="fsettlementcarprice != null and fsettlementcarprice !=''" >
+       and fsettlementcarprice = #{fsettlementcarprice}
+    </if>
+    <if test="fpurchasetax != null and fpurchasetax !=''" >
+       and fpurchasetax = #{fpurchasetax}
+    </if>
+    <if test="finsurance != null and finsurance !=''" >
+       and finsurance = #{finsurance}
+    </if>
+    <if test="fdynamicsupervise != null and fdynamicsupervise !=''" >
+       and fdynamicsupervise = #{fdynamicsupervise}
+    </if>
+    <if test="fappointinsurance != null and fappointinsurance !=''" >
+       and fappointinsurance = #{fappointinsurance}
+    </if>
+    <if test="fplateprice != null and fplateprice !=''" >
+       and fplateprice = #{fplateprice}
+    </if>
+    <if test="fother1price != null and fother1price !=''" >
+       and fother1price = #{fother1price}
+    </if>
+    <if test="fother1description != null and fother1description !=''" >
+       and fother1description = #{fother1description}
+    </if>
+    <if test="fother2price != null and fother2price !=''" >
+       and fother2price = #{fother2price}
+    </if>
+    <if test="fother2description != null and fother2description !=''" >
+       and fother2description = #{fother2description}
+    </if>
+    <if test="fbackreason != null and fbackreason !=''" >
+       and fbackreason = #{fbackreason}
+    </if>
+    <if test="fnopassreason != null and fnopassreason !=''" >
+       and fnopassreason = #{fnopassreason}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.biz.BizInvoice" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_invoice
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.biz.BizInvoice" >
+    select count(*) from biz_invoice where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_invoice
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from biz_invoice
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.biz.BizInvoice" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(409);
+    </selectKey>
+    insert into biz_invoice (id, conid, typebig, 
+      typesmall, amount, companyname, 
+      taxnum, openbank, banknum, 
+      runaddress, phone, identify, 
+      status, createtime, creator, 
+      behalfpay, settlementcarprice, purchasetax, 
+      insurance, dynamicsupervise, appointinsurance, 
+      plateprice, other1price, other1description, 
+      other2price, other2description, backreason, 
+      nopassreason, fsettlementcarprice, fpurchasetax, 
+      finsurance, fdynamicsupervise, fappointinsurance, 
+      fplateprice, fother1price, fother1description, 
+      fother2price, fother2description, fbackreason, 
+      fnopassreason)
+    values (#{id,jdbcType=INTEGER}, #{conid,jdbcType=INTEGER}, #{typebig,jdbcType=INTEGER}, 
+      #{typesmall,jdbcType=INTEGER}, #{amount,jdbcType=DECIMAL}, #{companyname,jdbcType=VARCHAR}, 
+      #{taxnum,jdbcType=VARCHAR}, #{openbank,jdbcType=VARCHAR}, #{banknum,jdbcType=VARCHAR}, 
+      #{runaddress,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{identify,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, 
+      #{behalfpay,jdbcType=VARCHAR}, #{settlementcarprice,jdbcType=DECIMAL}, #{purchasetax,jdbcType=DECIMAL}, 
+      #{insurance,jdbcType=DECIMAL}, #{dynamicsupervise,jdbcType=DECIMAL}, #{appointinsurance,jdbcType=DECIMAL}, 
+      #{plateprice,jdbcType=DECIMAL}, #{other1price,jdbcType=DECIMAL}, #{other1description,jdbcType=VARCHAR}, 
+      #{other2price,jdbcType=DECIMAL}, #{other2description,jdbcType=VARCHAR}, #{backreason,jdbcType=VARCHAR}, 
+      #{nopassreason,jdbcType=VARCHAR}, #{fsettlementcarprice,jdbcType=DECIMAL}, #{fpurchasetax,jdbcType=DECIMAL}, 
+      #{finsurance,jdbcType=DECIMAL}, #{fdynamicsupervise,jdbcType=DECIMAL}, #{fappointinsurance,jdbcType=DECIMAL}, 
+      #{fplateprice,jdbcType=DECIMAL}, #{fother1price,jdbcType=DECIMAL}, #{fother1description,jdbcType=VARCHAR}, 
+      #{fother2price,jdbcType=DECIMAL}, #{fother2description,jdbcType=VARCHAR}, #{fbackreason,jdbcType=VARCHAR}, 
+      #{fnopassreason,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.biz.BizInvoice" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(409);
+    </selectKey>
+    insert into biz_invoice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="conid != null" >
+        conid,
+      </if>
+    <if test="wsid != null" >
+       wsid,
+    </if>
+    <if test="carid != null" >
+       carid,
+    </if>  
+      <if test="typebig != null" >
+        typebig,
+      </if>
+      <if test="typesmall != null" >
+        typesmall,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="companyname != null" >
+        companyname,
+      </if>
+      <if test="taxnum != null" >
+        taxnum,
+      </if>
+      <if test="openbank != null" >
+        openbank,
+      </if>
+      <if test="banknum != null" >
+        banknum,
+      </if>
+      <if test="runaddress != null" >
+        runaddress,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="identify != null" >
+        identify,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="behalfpay != null" >
+        behalfpay,
+      </if>
+      <if test="settlementcarprice != null" >
+        settlementcarprice,
+      </if>
+      <if test="purchasetax != null" >
+        purchasetax,
+      </if>
+      <if test="insurance != null" >
+        insurance,
+      </if>
+      <if test="dynamicsupervise != null" >
+        dynamicsupervise,
+      </if>
+      <if test="appointinsurance != null" >
+        appointinsurance,
+      </if>
+      <if test="plateprice != null" >
+        plateprice,
+      </if>
+      <if test="other1price != null" >
+        other1price,
+      </if>
+      <if test="other1description != null" >
+        other1description,
+      </if>
+      <if test="other2price != null" >
+        other2price,
+      </if>
+      <if test="other2description != null" >
+        other2description,
+      </if>
+      <if test="backreason != null" >
+        backreason,
+      </if>
+      <if test="nopassreason != null" >
+        nopassreason,
+      </if>
+      <if test="fsettlementcarprice != null" >
+        fsettlementcarprice,
+      </if>
+      <if test="fpurchasetax != null" >
+        fpurchasetax,
+      </if>
+      <if test="finsurance != null" >
+        finsurance,
+      </if>
+      <if test="fdynamicsupervise != null" >
+        fdynamicsupervise,
+      </if>
+      <if test="fappointinsurance != null" >
+        fappointinsurance,
+      </if>
+      <if test="fplateprice != null" >
+        fplateprice,
+      </if>
+      <if test="fother1price != null" >
+        fother1price,
+      </if>
+      <if test="fother1description != null" >
+        fother1description,
+      </if>
+      <if test="fother2price != null" >
+        fother2price,
+      </if>
+      <if test="fother2description != null" >
+        fother2description,
+      </if>
+      <if test="fbackreason != null" >
+        fbackreason,
+      </if>
+      <if test="fnopassreason != null" >
+        fnopassreason,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="conid != null" >
+        #{conid,jdbcType=INTEGER},
+      </if>
+    <if test="wsid != null" >
+       #{wsid,jdbcType=VARCHAR},
+    </if>
+    <if test="carid != null" >
+       #{carid,jdbcType=INTEGER},
+    </if>
+      <if test="typebig != null" >
+        #{typebig,jdbcType=INTEGER},
+      </if>
+      <if test="typesmall != null" >
+        #{typesmall,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="companyname != null" >
+        #{companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="taxnum != null" >
+        #{taxnum,jdbcType=VARCHAR},
+      </if>
+      <if test="openbank != null" >
+        #{openbank,jdbcType=VARCHAR},
+      </if>
+      <if test="banknum != null" >
+        #{banknum,jdbcType=VARCHAR},
+      </if>
+      <if test="runaddress != null" >
+        #{runaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="identify != null" >
+        #{identify,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="behalfpay != null" >
+        #{behalfpay,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementcarprice != null" >
+        #{settlementcarprice,jdbcType=DECIMAL},
+      </if>
+      <if test="purchasetax != null" >
+        #{purchasetax,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance != null" >
+        #{insurance,jdbcType=DECIMAL},
+      </if>
+      <if test="dynamicsupervise != null" >
+        #{dynamicsupervise,jdbcType=DECIMAL},
+      </if>
+      <if test="appointinsurance != null" >
+        #{appointinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="plateprice != null" >
+        #{plateprice,jdbcType=DECIMAL},
+      </if>
+      <if test="other1price != null" >
+        #{other1price,jdbcType=DECIMAL},
+      </if>
+      <if test="other1description != null" >
+        #{other1description,jdbcType=VARCHAR},
+      </if>
+      <if test="other2price != null" >
+        #{other2price,jdbcType=DECIMAL},
+      </if>
+      <if test="other2description != null" >
+        #{other2description,jdbcType=VARCHAR},
+      </if>
+      <if test="backreason != null" >
+        #{backreason,jdbcType=VARCHAR},
+      </if>
+      <if test="nopassreason != null" >
+        #{nopassreason,jdbcType=VARCHAR},
+      </if>
+      <if test="fsettlementcarprice != null" >
+        #{fsettlementcarprice,jdbcType=DECIMAL},
+      </if>
+      <if test="fpurchasetax != null" >
+        #{fpurchasetax,jdbcType=DECIMAL},
+      </if>
+      <if test="finsurance != null" >
+        #{finsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="fdynamicsupervise != null" >
+        #{fdynamicsupervise,jdbcType=DECIMAL},
+      </if>
+      <if test="fappointinsurance != null" >
+        #{fappointinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="fplateprice != null" >
+        #{fplateprice,jdbcType=DECIMAL},
+      </if>
+      <if test="fother1price != null" >
+        #{fother1price,jdbcType=DECIMAL},
+      </if>
+      <if test="fother1description != null" >
+        #{fother1description,jdbcType=VARCHAR},
+      </if>
+      <if test="fother2price != null" >
+        #{fother2price,jdbcType=DECIMAL},
+      </if>
+      <if test="fother2description != null" >
+        #{fother2description,jdbcType=VARCHAR},
+      </if>
+      <if test="fbackreason != null" >
+        #{fbackreason,jdbcType=VARCHAR},
+      </if>
+      <if test="fnopassreason != null" >
+        #{fnopassreason,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.biz.BizInvoice" >
+    update biz_invoice
+    <set >
+      <if test="conid != null" >
+        conid = #{conid,jdbcType=INTEGER},
+      </if>
+    <if test="wsid != null" >
+       wsid = #{wsid,jdbcType=VARCHAR},
+    </if>
+    <if test="carid != null" >
+       carid = #{carid,jdbcType=INTEGER},
+    </if>
+      <if test="typebig != null" >
+        typebig = #{typebig,jdbcType=INTEGER},
+      </if>
+      <if test="typesmall != null" >
+        typesmall = #{typesmall,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null" >
+        amount = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="companyname != null" >
+        companyname = #{companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="taxnum != null" >
+        taxnum = #{taxnum,jdbcType=VARCHAR},
+      </if>
+      <if test="openbank != null" >
+        openbank = #{openbank,jdbcType=VARCHAR},
+      </if>
+      <if test="banknum != null" >
+        banknum = #{banknum,jdbcType=VARCHAR},
+      </if>
+      <if test="runaddress != null" >
+        runaddress = #{runaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="identify != null" >
+        identify = #{identify,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="behalfpay != null" >
+        behalfpay = #{behalfpay,jdbcType=VARCHAR},
+      </if>
+      <if test="settlementcarprice != null" >
+        settlementcarprice = #{settlementcarprice,jdbcType=DECIMAL},
+      </if>
+      <if test="purchasetax != null" >
+        purchasetax = #{purchasetax,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance != null" >
+        insurance = #{insurance,jdbcType=DECIMAL},
+      </if>
+      <if test="dynamicsupervise != null" >
+        dynamicsupervise = #{dynamicsupervise,jdbcType=DECIMAL},
+      </if>
+      <if test="appointinsurance != null" >
+        appointinsurance = #{appointinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="plateprice != null" >
+        plateprice = #{plateprice,jdbcType=DECIMAL},
+      </if>
+      <if test="other1price != null" >
+        other1price = #{other1price,jdbcType=DECIMAL},
+      </if>
+      <if test="other1description != null" >
+        other1description = #{other1description,jdbcType=VARCHAR},
+      </if>
+      <if test="other2price != null" >
+        other2price = #{other2price,jdbcType=DECIMAL},
+      </if>
+      <if test="other2description != null" >
+        other2description = #{other2description,jdbcType=VARCHAR},
+      </if>
+      <if test="backreason != null" >
+        backreason = #{backreason,jdbcType=VARCHAR},
+      </if>
+      <if test="nopassreason != null" >
+        nopassreason = #{nopassreason,jdbcType=VARCHAR},
+      </if>
+      <if test="fsettlementcarprice != null" >
+        fsettlementcarprice = #{fsettlementcarprice,jdbcType=DECIMAL},
+      </if>
+      <if test="fpurchasetax != null" >
+        fpurchasetax = #{fpurchasetax,jdbcType=DECIMAL},
+      </if>
+      <if test="finsurance != null" >
+        finsurance = #{finsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="fdynamicsupervise != null" >
+        fdynamicsupervise = #{fdynamicsupervise,jdbcType=DECIMAL},
+      </if>
+      <if test="fappointinsurance != null" >
+        fappointinsurance = #{fappointinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="fplateprice != null" >
+        fplateprice = #{fplateprice,jdbcType=DECIMAL},
+      </if>
+      <if test="fother1price != null" >
+        fother1price = #{fother1price,jdbcType=DECIMAL},
+      </if>
+      <if test="fother1description != null" >
+        fother1description = #{fother1description,jdbcType=VARCHAR},
+      </if>
+      <if test="fother2price != null" >
+        fother2price = #{fother2price,jdbcType=DECIMAL},
+      </if>
+      <if test="fother2description != null" >
+        fother2description = #{fother2description,jdbcType=VARCHAR},
+      </if>
+      <if test="fbackreason != null" >
+        fbackreason = #{fbackreason,jdbcType=VARCHAR},
+      </if>
+      <if test="fnopassreason != null" >
+        fnopassreason = #{fnopassreason,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.biz.BizInvoice" >
+    update biz_invoice
+    set conid = #{conid,jdbcType=INTEGER},
+      typebig = #{typebig,jdbcType=INTEGER},
+      typesmall = #{typesmall,jdbcType=INTEGER},
+      amount = #{amount,jdbcType=DECIMAL},
+      companyname = #{companyname,jdbcType=VARCHAR},
+      taxnum = #{taxnum,jdbcType=VARCHAR},
+      openbank = #{openbank,jdbcType=VARCHAR},
+      banknum = #{banknum,jdbcType=VARCHAR},
+      runaddress = #{runaddress,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      identify = #{identify,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      behalfpay = #{behalfpay,jdbcType=VARCHAR},
+      settlementcarprice = #{settlementcarprice,jdbcType=DECIMAL},
+      purchasetax = #{purchasetax,jdbcType=DECIMAL},
+      insurance = #{insurance,jdbcType=DECIMAL},
+      dynamicsupervise = #{dynamicsupervise,jdbcType=DECIMAL},
+      appointinsurance = #{appointinsurance,jdbcType=DECIMAL},
+      plateprice = #{plateprice,jdbcType=DECIMAL},
+      other1price = #{other1price,jdbcType=DECIMAL},
+      other1description = #{other1description,jdbcType=VARCHAR},
+      other2price = #{other2price,jdbcType=DECIMAL},
+      other2description = #{other2description,jdbcType=VARCHAR},
+      backreason = #{backreason,jdbcType=VARCHAR},
+      nopassreason = #{nopassreason,jdbcType=VARCHAR},
+      fsettlementcarprice = #{fsettlementcarprice,jdbcType=DECIMAL},
+      fpurchasetax = #{fpurchasetax,jdbcType=DECIMAL},
+      finsurance = #{finsurance,jdbcType=DECIMAL},
+      fdynamicsupervise = #{fdynamicsupervise,jdbcType=DECIMAL},
+      fappointinsurance = #{fappointinsurance,jdbcType=DECIMAL},
+      fplateprice = #{fplateprice,jdbcType=DECIMAL},
+      fother1price = #{fother1price,jdbcType=DECIMAL},
+      fother1description = #{fother1description,jdbcType=VARCHAR},
+      fother2price = #{fother2price,jdbcType=DECIMAL},
+      fother2description = #{fother2description,jdbcType=VARCHAR},
+      fbackreason = #{fbackreason,jdbcType=VARCHAR},
+      fnopassreason = #{fnopassreason,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+<select id="selectByMap" resultType="map" parameterType="map" >
+SELECT
+	a.id,
+	a.filecode,
+	a.bname,
+	a.vin,
+	c.clientype,
+	a.finance,
+	a.brand,
+	a.model,
+	a.version,
+	b.id vid,
+	b.`status` vstatus
+FROM
+	`biz_contract` a
+JOIN biz_clientinfo c ON a.infoid = c.id
+LEFT JOIN biz_invoice b ON a.id = b.conid
+WHERE
+	status2 > 2
+<if test="code != null and code !=''" >
+   and a.filecode like concat('%',#{code},'%')
+</if>
+<if test="name != null and name !=''" >
+   and a.bname like concat('%',#{name},'%')
+</if>
+<if test="vin != null and vin !=''" >
+   and a.vin like concat('%',#{vin},'%')
+</if>
+<if test="status != null and status !=''" >
+	<if test='status =="0"' >
+	and b.id is null
+	</if>
+	<if test='status !="0" and status !="88" and status !="99"' >
+	and b.status =#{status}
+	</if>
+	<if test='status =="88"' >
+	and b.status in(1,5)
+	</if>
+	<if test='status =="99"' >
+	and b.status in(4,7)
+	</if>
+</if>	
+ORDER BY
+	a.id DESC limit #{start},#{size}
+</select>
+<select id="countByMap" resultType="int" parameterType="map" >
+select count(1) from `biz_contract` a
+JOIN biz_clientinfo c ON a.infoid = c.id
+LEFT JOIN biz_invoice b ON a.id = b.conid
+WHERE
+	status2 > 2 
+<if test="code != null and code !=''" >
+   and a.filecode like concat('%',#{code},'%')
+</if>
+<if test="name != null and name !=''" >
+   and a.bname like concat('%',#{name},'%')
+</if>
+<if test="vin != null and vin !=''" >
+   and a.vin like concat('%',#{vin},'%')
+</if>
+<if test="status != null and status !=''" >
+	<if test='status =="0"' >
+	and b.id is null
+	</if>
+	<if test='status !="0" and status !="88" and status !="99"' >
+	and b.status =#{status}
+	</if>
+	<if test='status =="88"' >
+	and b.status in(1,5)
+	</if>
+	<if test='status =="99"' >
+	and b.status in(4,7)
+	</if>
+</if>
+</select>
+
+<select id="countTaskByMap" resultType="int" parameterType="map" >
+select count(1) from biz_invoice WHERE
+<if test='node ==1' >
+	status in(2,3)
+</if>
+<if test='node ==2' >
+	status in(1,5)
+</if>
+<if test='node ==3' >
+	status =4
+</if>
+</select>
+
+<select id="selectBatchByMap" resultType="map" parameterType="map" >
+SELECT
+	a.id,
+	a.carid,
+	c.VIN vin,
+	c.BRAND brand,
+	c.MODEL model,
+	c.version,
+	a.price,
+	b.id invoiceid,
+	b.`status`
+FROM
+	`wholesale_car` a
+JOIN pro_car c ON a.carid = c.ID
+LEFT JOIN biz_invoice b ON a.carid = b.carid
+WHERE
+	a.`status` = 2
+<if test="brand != null and brand !=''" >
+   and c.brand like concat('%',#{brand},'%')
+</if>
+<if test="vin != null and vin !=''" >
+   and c.vin like concat('%',#{vin},'%')
+</if>
+<if test="status != null and status !=''" >
+	<if test='status =="0"' >
+	and b.id is null
+	</if>
+	<if test='status !="0" and status !="88" and status !="99"' >
+	and b.status =#{status}
+	</if>
+	<if test='status =="88"' >
+	and b.status in(1,5)
+	</if>
+	<if test='status =="99"' >
+	and b.status in(4,7)
+	</if>
+</if>	
+ORDER BY
+	a.createtime DESC limit #{start},#{size}
+</select>
+<select id="countBatchByMap" resultType="int" parameterType="map" >
+select count(1) from `wholesale_car` a
+JOIN pro_car c ON a.carid = c.ID
+LEFT JOIN biz_invoice b ON a.carid = b.carid
+WHERE
+	a.`status` = 2
+<if test="brand != null and brand !=''" >
+   and c.brand like concat('%',#{brand},'%')
+</if>
+<if test="vin != null and vin !=''" >
+   and c.vin like concat('%',#{vin},'%')
+</if>
+<if test="status != null and status !=''" >
+	<if test='status =="0"' >
+	and b.id is null
+	</if>
+	<if test='status !="0" and status !="88" and status !="99"' >
+	and b.status =#{status}
+	</if>
+	<if test='status =="88"' >
+	and b.status in(1,5)
+	</if>
+	<if test='status =="99"' >
+	and b.status in(4,7)
+	</if>
+</if>
+</select>  
+</mapper>

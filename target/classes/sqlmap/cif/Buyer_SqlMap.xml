@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.cif.BuyerMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.cif.Buyer" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="FILENUM" property="filenum" jdbcType="VARCHAR" />
+    <result column="SHOP_ID" property="shopId" jdbcType="INTEGER" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="IDENTIFY" property="identify" jdbcType="VARCHAR" />
+    <result column="PHONE" property="phone" jdbcType="VARCHAR" />
+    <result column="WORK_TYPE" property="workType" jdbcType="VARCHAR" />
+    <result column="COMPANY_NAME" property="companyName" jdbcType="VARCHAR" />
+    <result column="COMPANY_ADDRESS" property="companyAddress" jdbcType="VARCHAR" />
+    <result column="HOME_ADDRESS" property="homeAddress" jdbcType="VARCHAR" />
+    <result column="POSTCODE" property="postcode" jdbcType="VARCHAR" />
+    <result column="AUDIT_STATUS" property="auditStatus" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    
+    <result column="COMESHOP_TIME" property="comeshopTime" jdbcType="TIMESTAMP" />
+    <result column="WANTCAR" property="wantcar" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="CAR_PRICE" property="carPrice" jdbcType="DECIMAL" />
+    <result column="USEFOR" property="usefor" jdbcType="VARCHAR" />
+    <result column="NOW_CAR" property="nowCar" jdbcType="VARCHAR" />
+    <result column="COLOR" property="color" jdbcType="VARCHAR" />
+    <result column="CARID" property="carId" jdbcType="INTEGER" />
+    
+    <result column="WANTBRAND" property="wantBrand" jdbcType="VARCHAR" />
+    <result column="HEARTPRICE" property="heartPrice" jdbcType="VARCHAR" />
+    <result column="OLDINTRODUCE" property="oldIntroduce" jdbcType="VARCHAR" />
+    <result column="HAVECARD" property="haveCard" jdbcType="VARCHAR" />
+    <result column="CLIENTLEVEL" property="clientLevel" jdbcType="VARCHAR" />
+    <result column="BIZ_LICENSE" property="bizLicense" jdbcType="VARCHAR" />
+    <result column="SELLER_ID" property="sellerId" jdbcType="INTEGER" />
+     
+    <result column="PRINCIPAL" property="principal" jdbcType="VARCHAR" />
+    
+    <result column="BUY_TIME" property="buyTime" jdbcType="TIMESTAMP" />
+    
+    <result column="shopName" property="shopName" jdbcType="VARCHAR" />
+    <result column="sellerName" property="sellerName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, FILENUM, SHOP_ID, NAME, IDENTIFY, PHONE, WORK_TYPE, COMPANY_NAME, COMPANY_ADDRESS, 
+    HOME_ADDRESS, POSTCODE, AUDIT_STATUS, CREATE_TIME,COMESHOP_TIME,WANTCAR,CAR_PRICE,USEFOR,NOW_CAR,COLOR,CARID
+    ,WANTBRAND,HEARTPRICE,OLDINTRODUCE,HAVECARD,CLIENTLEVEL,BIZ_LICENSE,SELLER_ID,PRINCIPAL,BUY_TIME,version
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and ID = #{id}
+    </if>
+    <if test="filenum != null and filenum !=''" >
+       and FILENUM = #{filenum}
+    </if>
+    <if test="shopId != null and shopId !=''" >
+       and SHOP_ID = #{shopId}
+    </if>
+    <if test="name != null and name !=''" >
+       and NAME = #{name}
+    </if>
+    <if test="identify != null and identify !=''" >
+       and IDENTIFY = #{identify}
+    </if>
+    <if test="phone != null and phone !=''" >
+       and PHONE = #{phone}
+    </if>
+    <if test="workType != null and workType !=''" >
+       and WORK_TYPE = #{workType}
+    </if>
+    <if test="companyName != null and companyName !=''" >
+       and COMPANY_NAME = #{companyName}
+    </if>
+    <if test="companyAddress != null and companyAddress !=''" >
+       and COMPANY_ADDRESS = #{companyAddress}
+    </if>
+    <if test="homeAddress != null and homeAddress !=''" >
+       and HOME_ADDRESS = #{homeAddress}
+    </if>
+    <if test="postcode != null and postcode !=''" >
+       and POSTCODE = #{postcode}
+    </if>
+    <if test="auditStatus != null and auditStatus !=''" >
+       and AUDIT_STATUS = #{auditStatus}
+    </if>
+    <if test="createTime != null and createTime !=''" >
+       and CREATE_TIME = #{createTime}
+    </if>
+    
+    <if test="wantBrand != null and wantBrand !=''" >
+       and WANTBRAND = #{wantBrand}
+    </if>
+    <if test="heartPrice != null and heartPrice !=''" >
+       and HEARTPRICE = #{heartPrice}
+    </if>
+    <if test="oldIntroduce != null and oldIntroduce !=''" >
+       and OLDINTRODUCE = #{oldIntroduce}
+    </if>
+    <if test="haveCard != null and haveCard !=''" >
+       and HAVECARD = #{haveCard}
+    </if>
+    <if test="sellerId != null and sellerId !=''" >
+       and SELLER_ID = #{sellerId}
+    </if>
+    <if test="clientLevel != null and clientLevel !=''" >
+       and CLIENTLEVEL = #{clientLevel}
+    </if>
+    <if test="comeshopTime != null and comeshopTime !=''" >
+       and COMESHOP_TIME = #{comeshopTime}
+    </if>
+    <if test="buyTime != null and buyTime !=''" >
+       and BUY_TIME = #{buyTime}
+    </if>
+     <if test="version != null and version !=''" >
+       and version = #{version}
+    </if> 
+  </sql>
+  
+  <sql id="wherecaselike" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and ID = #{id}
+    </if>
+    <if test="filenum != null and filenum !=''" >
+       and FILENUM = #{filenum}
+    </if>
+    <if test="shopId != null and shopId !=''" >
+       and SHOP_ID = #{shopId}
+    </if>
+    <if test="name != null and name !=''" >
+       and NAME like concat('%',#{name},'%')
+    </if>
+    <if test="identify != null and identify !=''" >
+       and IDENTIFY = #{identify}
+    </if>
+    <if test="phone != null and phone !=''" >
+       and PHONE like concat('%',#{phone},'%')
+    </if>
+    <if test="workType != null and workType !=''" >
+       and WORK_TYPE = #{workType}
+    </if>
+    <if test="companyName != null and companyName !=''" >
+       and COMPANY_NAME = #{companyName}
+    </if>
+    <if test="companyAddress != null and companyAddress !=''" >
+       and COMPANY_ADDRESS like concat('%',#{companyAddress},'%')
+    </if>
+    <if test="homeAddress != null and homeAddress !=''" >
+       and HOME_ADDRESS = #{homeAddress}
+    </if>
+    <if test="postcode != null and postcode !=''" >
+       and POSTCODE = #{postcode}
+    </if>
+    <if test="auditStatus != null and auditStatus !=''" >
+       and AUDIT_STATUS = #{auditStatus}
+    </if>
+    <if test="createTime != null and createTime !=''" >
+       and CREATE_TIME = #{createTime}
+    </if>
+    <if test="wantBrand != null and wantBrand !=''" >
+       and WANTBRAND = #{wantBrand}
+    </if>
+      <if test="version != null and version !=''" >
+       and version = #{version}
+    </if>
+    <if test="heartPrice != null and heartPrice !=''" >
+       and HEARTPRICE = #{heartPrice}
+    </if>
+    <if test="oldIntroduce != null and oldIntroduce !=''" >
+       and OLDINTRODUCE = #{oldIntroduce}
+    </if>
+    <if test="haveCard != null and haveCard !=''" >
+       and HAVECARD = #{haveCard}
+    </if>
+    <if test="sellerId != null and sellerId !=''" >
+       and SELLER_ID = #{sellerId}
+    </if>
+    <if test="clientLevel != null and clientLevel !=''" >
+       and CLIENTLEVEL = #{clientLevel}
+    </if>
+    <if test="comeshopTime != null and comeshopTime !=''" >
+       and COMESHOP_TIME = #{comeshopTime}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.cif.Buyer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_buyer
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.cif.Buyer" >
+    select count(*) from cif_buyer where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_buyer
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cif_buyer
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.cif.Buyer" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(114);
+    </selectKey>
+    insert into cif_buyer (ID, FILENUM, SHOP_ID, 
+      NAME, IDENTIFY, PHONE, 
+      WORK_TYPE, COMPANY_NAME, COMPANY_ADDRESS, 
+      HOME_ADDRESS, POSTCODE, AUDIT_STATUS, 
+      CREATE_TIME,WANTBRAND,version,HEARTPRICE,OLDINTRODUCE,HAVECARD,CLIENTLEVEL,BIZ_LICENSE,SELLER_ID)
+    values (#{id,jdbcType=INTEGER}, #{filenum,jdbcType=VARCHAR}, #{shopId,jdbcType=INTEGER}, 
+      #{name,jdbcType=VARCHAR}, #{identify,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{workType,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, #{companyAddress,jdbcType=VARCHAR}, 
+      #{homeAddress,jdbcType=VARCHAR}, #{postcode,jdbcType=VARCHAR}, #{auditStatus,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{wantBrand,jdbcType=VARCHAR},#{version,jdbcType=VARCHAR},#{heartPrice,jdbcType=VARCHAR},
+      #{oldIntroduce,jdbcType=VARCHAR},#{haveCard,jdbcType=VARCHAR},
+      #{clientLevel,jdbcType=VARCHAR},#{bizLicense,jdbcType=VARCHAR},#{sellerId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.cif.Buyer" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(114);
+    </selectKey>
+    insert into cif_buyer
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,
+      <if test="filenum != null" >
+        FILENUM,
+      </if>
+      <if test="shopId != null" >
+        SHOP_ID,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="identify != null" >
+        IDENTIFY,
+      </if>
+      <if test="phone != null" >
+        PHONE,
+      </if>
+      <if test="workType != null" >
+        WORK_TYPE,
+      </if>
+      <if test="companyName != null" >
+        COMPANY_NAME,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="companyAddress != null" >
+        COMPANY_ADDRESS,
+      </if>
+      <if test="homeAddress != null" >
+        HOME_ADDRESS,
+      </if>
+      <if test="postcode != null" >
+        POSTCODE,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="auditStatus != null" >
+        AUDIT_STATUS,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      
+      <if test="comeshopTime != null" >
+        COMESHOP_TIME,
+      </if>
+      <if test="wantcar != null" >
+        WANTCAR,
+      </if>
+      <if test="carPrice != null" >
+        CAR_PRICE,
+      </if>
+      <if test="usefor != null" >
+        USEFOR,
+      </if>
+      <if test="nowCar != null" >
+        NOW_CAR,
+      </if>
+      <if test="color != null" >
+        COLOR,
+      </if>
+      <if test="carId != null" >
+        CARID,
+      </if>
+      <if test="wantBrand != null" >
+        WANTBRAND,
+      </if>
+      <if test="heartPrice != null" >
+        HEARTPRICE,
+      </if>
+      <if test="oldIntroduce != null" >
+        OLDINTRODUCE,
+      </if>
+      <if test="haveCard != null" >
+        HAVECARD,
+      </if>
+      <if test="clientLevel != null" >
+        CLIENTLEVEL,
+      </if>
+      <if test="bizLicense != null" >
+        BIZ_LICENSE,
+      </if>
+      <if test="sellerId != null" >
+        SELLER_ID,
+      </if>
+      <if test="principal != null" >
+        PRINCIPAL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="filenum != null" >
+        #{filenum,jdbcType=VARCHAR},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="identify != null" >
+        #{identify,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="workType != null" >
+        #{workType,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+       <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="companyAddress != null" >
+        #{companyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="homeAddress != null" >
+        #{homeAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null" >
+        #{auditStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      
+      <if test="comeshopTime != null" >
+        #{comeshopTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wantcar != null" >
+        #{wantcar,jdbcType=VARCHAR},
+      </if>
+      <if test="carPrice != null" >
+        #{carPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="usefor != null" >
+        #{usefor,jdbcType=VARCHAR},
+      </if>
+      <if test="nowCar != null" >
+        #{nowCar,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null" >
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="carId != null" >
+        #{carId,jdbcType=INTEGER},
+      </if>
+       <if test="wantBrand != null" >
+       #{wantBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="heartPrice != null" >
+       #{heartPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="oldIntroduce != null" >
+        #{oldIntroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="haveCard != null" >
+       #{haveCard,jdbcType=VARCHAR},
+      </if>
+      <if test="clientLevel != null" >
+       #{clientLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="bizLicense != null" >
+        #{bizLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=INTEGER},
+      </if>
+      <if test="principal != null" >
+        #{principal,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.cif.Buyer" >
+    update cif_buyer
+    <set >
+      <if test="filenum != null" >
+        FILENUM = #{filenum,jdbcType=VARCHAR},
+      </if>
+      <if test="shopId != null" >
+        SHOP_ID = #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="identify != null" >
+        IDENTIFY = #{identify,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="workType != null" >
+        WORK_TYPE = #{workType,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyAddress != null" >
+        COMPANY_ADDRESS = #{companyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="homeAddress != null" >
+        HOME_ADDRESS = #{homeAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        POSTCODE = #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null" >
+        AUDIT_STATUS = #{auditStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="carId != null" >
+        CARID = #{carId,jdbcType=INTEGER},
+      </if>
+       <if test="wantcar != null" >
+        WANTCAR = #{wantcar,jdbcType=VARCHAR},
+      </if>
+        <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null" >
+        COLOR = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="nowCar != null" >
+        NOW_CAR = #{nowCar,jdbcType=VARCHAR},
+      </if>
+      <if test="wantBrand != null" >
+        WANTBRAND = #{wantBrand,jdbcType=VARCHAR},
+      </if>
+       <if test="heartPrice != null" >
+        HEARTPRICE = #{heartPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="haveCard != null" >
+        HAVECARD = #{haveCard,jdbcType=VARCHAR},
+      </if>
+      <if test="clientLevel != null" >
+        CLIENTLEVEL = #{clientLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="oldIntroduce != null" >
+        OLDINTRODUCE = #{oldIntroduce,jdbcType=VARCHAR},
+      </if>
+       <if test="bizLicense != null" >
+        BIZ_LICENSE = #{bizLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        SELLER_ID = #{sellerId,jdbcType=INTEGER},
+      </if>
+      <if test="principal != null" >
+        PRINCIPAL = #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="comeshopTime != null" >
+        COMESHOP_TIME = #{comeshopTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buyTime != null" >
+        BUY_TIME = #{buyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.cif.Buyer" >
+    update cif_buyer
+    set FILENUM = #{filenum,jdbcType=VARCHAR},
+      SHOP_ID = #{shopId,jdbcType=INTEGER},
+      NAME = #{name,jdbcType=VARCHAR},
+      IDENTIFY = #{identify,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      WORK_TYPE = #{workType,jdbcType=VARCHAR},
+      COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      COMPANY_ADDRESS = #{companyAddress,jdbcType=VARCHAR},
+      HOME_ADDRESS = #{homeAddress,jdbcType=VARCHAR},
+      POSTCODE = #{postcode,jdbcType=VARCHAR},
+       version = #{version,jdbcType=VARCHAR},
+      AUDIT_STATUS = #{auditStatus,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      WANTCAR = #{wantcar,jdbcType=VARCHAR},
+      COLOR = #{color,jdbcType=VARCHAR},
+      WANTBRAND = #{createTime,jdbcType=VARCHAR},
+      HEARTPRICE = #{heartPrice,jdbcType=VARCHAR},
+      HAVECARD = #{haveCard,jdbcType=VARCHAR},
+      CLIENTLEVEL = #{clientLevel,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  
+  
+  <insert id="insertSelectiveWithKey" parameterType="com.yyq.car.portal.common.model.cif.Buyer" >
+    insert into cif_buyer
+     <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,
+      <if test="filenum != null" >
+        FILENUM,
+      </if>
+      <if test="shopId != null" >
+        SHOP_ID,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="identify != null" >
+        IDENTIFY,
+      </if>
+      <if test="phone != null" >
+        PHONE,
+      </if>
+      <if test="workType != null" >
+        WORK_TYPE,
+      </if>
+      <if test="companyName != null" >
+        COMPANY_NAME,
+      </if>
+      <if test="companyAddress != null" >
+        COMPANY_ADDRESS,
+      </if>
+      <if test="homeAddress != null" >
+        HOME_ADDRESS,
+      </if>
+         <if test="version != null" >
+        version,
+      </if>
+      <if test="postcode != null" >
+        POSTCODE,
+      </if>
+      <if test="auditStatus != null" >
+        AUDIT_STATUS,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="carId != null" >
+        CARID,
+      </if>
+      <if test="comeshopTime != null" >
+        COMESHOP_TIME,
+      </if>
+      <if test="wantcar != null" >
+        WANTCAR,
+      </if>
+      <if test="carPrice != null" >
+        CAR_PRICE,
+      </if>
+      <if test="usefor != null" >
+        USEFOR,
+      </if>
+      <if test="nowCar != null" >
+        NOW_CAR,
+      </if>
+      <if test="color != null" >
+        COLOR,
+      </if>
+      <if test="wantBrand != null" >
+        WANTBRAND,
+      </if>
+      <if test="heartPrice != null" >
+        HEARTPRICE,
+      </if>
+      <if test="oldIntroduce != null" >
+        OLDINTRODUCE,
+      </if>
+      <if test="haveCard != null" >
+        HAVECARD,
+      </if>
+      <if test="clientLevel != null" >
+        CLIENTLEVEL,
+      </if>
+      <if test="bizLicense != null" >
+        BIZ_LICENSE,
+      </if>
+      <if test="sellerId != null" >
+        SELLER_ID,
+      </if>
+      <if test="principal != null" >
+        PRINCIPAL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="filenum != null" >
+        #{filenum,jdbcType=VARCHAR},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="identify != null" >
+        #{identify,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+       
+      <if test="workType != null" >
+        #{workType,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyAddress != null" >
+        #{companyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="homeAddress != null" >
+        #{homeAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null" >
+        #{auditStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="carId != null" >
+        #{carId,jdbcType=INTEGER},
+      </if>
+      <if test="comeshopTime != null" >
+        #{comeshopTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wantcar != null" >
+        #{wantcar,jdbcType=VARCHAR},
+      </if>
+      <if test="carPrice != null" >
+        #{carPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="usefor != null" >
+        #{usefor,jdbcType=VARCHAR},
+      </if>
+      <if test="nowCar != null" >
+        #{nowCar,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null" >
+        #{color,jdbcType=VARCHAR},
+      </if>
+       <if test="wantBrand != null" >
+       #{wantBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="heartPrice != null" >
+       #{heartPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="oldIntroduce != null" >
+        #{oldIntroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="haveCard != null" >
+       #{haveCard,jdbcType=VARCHAR},
+      </if>
+      <if test="clientLevel != null" >
+       #{clientLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="bizLicense != null" >
+        #{bizLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=INTEGER},
+      </if>
+      <if test="principal != null" >
+        #{principal,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  <select id="selectByCriterialike" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.cif.Buyer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_buyer
+    where 
+    <include refid="wherecaselike" />
+	order by CREATE_TIME desc
+  </select>
+  <select id="countByCriterialike" resultType="int" parameterType="com.yyq.car.portal.common.model.cif.Buyer" >
+    select count(*) from cif_buyer where 
+    <include refid="wherecaselike" />
+  </select>
+  
+<select id="selectByCriterialikeForShop" resultMap="BaseResultMap" parameterType="map" >
+SELECT
+	a.*, b.`NAME` shopName,
+	c.`NAME` sellerName
+FROM
+	`cif_buyer` a
+JOIN pro_shop b ON a.SHOP_ID = b.ID
+JOIN auth_user c ON a.SELLER_ID = c.ID
+WHERE 1=1 
+  <if test="shopId != null and shopId !=''" >
+     and a.SHOP_ID = #{shopId}
+  </if>
+  <if test="name != null and name !=''" >
+     and a.NAME like concat('%',#{name},'%')
+  </if>
+  <if test="phone != null and phone !=''" >
+     and a.PHONE like concat('%',#{phone},'%')
+  </if>
+  <if test="workType != null and workType !=''" >
+     and a.WORK_TYPE = #{workType}
+  </if>
+  <if test="clientLevel != null and clientLevel !=''" >
+     and a.CLIENTLEVEL = #{clientLevel}
+  </if>
+  <if test="comeshopTime != null and comeshopTime !=''" >
+     and a.COMESHOP_TIME = #{comeshopTime}
+  </if>
+  order by a.CREATE_TIME desc limit #{pageStart},#{pageSize}
+</select>
+  <select id="countByCriterialikeForShop" resultType="int" parameterType="map" >
+SELECT
+	count(1)
+FROM
+	`cif_buyer` a
+JOIN pro_shop b ON a.SHOP_ID = b.ID
+JOIN auth_user c ON a.SELLER_ID = c.ID
+WHERE 1=1 
+    <if test="shopId != null and shopId !=''" >
+       and a.SHOP_ID = #{shopId}
+    </if>
+    <if test="name != null and name !=''" >
+       and a.NAME like concat('%',#{name},'%')
+    </if>
+    <if test="phone != null and phone !=''" >
+       and a.PHONE like concat('%',#{phone},'%')
+    </if>
+    <if test="workType != null and workType !=''" >
+       and a.WORK_TYPE = #{workType}
+    </if>
+    <if test="clientLevel != null and clientLevel !=''" >
+       and a.CLIENTLEVEL = #{clientLevel}
+    </if>
+    <if test="comeshopTime != null and comeshopTime !=''" >
+       and a.COMESHOP_TIME = #{comeshopTime}
+    </if>
+  </select>
+  
+  <update id="unlockCarId" parameterType="int" >
+    update cif_buyer set CARID = null where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="countComeShop" resultType="int" parameterType="map">
+  	select count(ID) comeSize from cif_buyer WHERE 1=1
+	<if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')>=#{startTime}  ]]>
+    </if>
+    <if test="endTime !=null and endTime!=''"  >
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')<=#{endTime}  ]]>
+    </if>
+  </select>
+    <select id="countIntroduce" resultType="int" parameterType="map">
+  SELECT count(id)introducebuy FROM cif_buyer where BUY_TIME!=''and OLDINTRODUCE='是'
+  <if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')>=#{startTime}  ]]>
+    </if>
+    <if test="endTime !=null and endTime!=''"  >
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')<=#{endTime}  ]]>
+    </if>
+    </select>
+    <select id="countFirstBuyCar" resultType="int" parameterType="map">
+    SELECT count(*)firstBuyCar FROM `cif_buyer` where NOW_CAR ='首次购车'
+    
+    <if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')>=#{startTime}  ]]>
+    </if>
+    <if test="endTime !=null and endTime!=''"  >
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')<=#{endTime}  ]]>
+    </if>
+    </select>
+    <select id="countPermuteCar" resultType="int" parameterType="map">
+    SELECT count(*)permuteCar FROM `cif_buyer` where NOW_CAR ='置换'
+  
+    <if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')>=#{startTime}  ]]>
+    </if>
+    <if test="endTime !=null and endTime!=''"  >
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')<=#{endTime}  ]]>
+    </if>
+    </select>
+    <select id="countAddCar" resultType="int" parameterType="map">
+    SELECT count(*)addCar FROM `cif_buyer` where NOW_CAR ='添置'
+   
+    <if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')>=#{startTime}  ]]>
+    </if>
+    <if test="endTime !=null and endTime!=''"  >
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')<=#{endTime}  ]]>
+    </if>
+    </select>
+     <select id="countLookCar" resultType="int" parameterType="map">
+   SELECT count(*)lookCar FROM `cif_buyer` where NOW_CAR IS NULL
+   
+    <if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')>=#{startTime}  ]]>
+    </if>
+    <if test="endTime !=null and endTime!=''"  >
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')<=#{endTime}  ]]>
+    </if>
+    </select>
+     <select id="countPersonageBuyCar" resultType="int" parameterType="map">
+   SELECT count(*)personageBuyCar FROM `cif_buyer` where WORK_TYPE='1'
+    <if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')>=#{startTime}  ]]>
+    </if>
+    <if test="endTime !=null and endTime!=''"  >
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')<=#{endTime}  ]]>
+    </if>
+    </select>
+       <select id="countFirmBuyCar" resultType="int" parameterType="map">
+   SELECT count(*)firmBuyCar FROM `cif_buyer` where WORK_TYPE='2'
+    <if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')>=#{startTime}  ]]>
+    </if>
+    <if test="endTime !=null and endTime!=''"  >
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')<=#{endTime}  ]]>
+    </if>
+    </select>
+     <select id="countAlreadyBuyCar" resultType="int" parameterType="map">
+   SELECT count(*)alreadyBuyCar FROM `cif_buyer` where CLIENTLEVEL='G'
+    <if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')>=#{startTime}  ]]>
+    </if>
+    <if test="endTime !=null and endTime!=''"  >
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')<=#{endTime}  ]]>
+    </if>
+    </select>
+    <select id="countVeryHighBuyCar" resultType="int" parameterType="map">
+   SELECT count(*)veryHighBuyCar FROM `cif_buyer` where CLIENTLEVEL='H'
+    <if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')>=#{startTime}  ]]>
+    </if>
+    <if test="endTime !=null and endTime!=''"  >
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')<=#{endTime}  ]]>
+    </if>
+    </select>
+    <select id="countHighBuyCar" resultType="int" parameterType="map">
+   SELECT count(*)highBuyCar FROM `cif_buyer` where CLIENTLEVEL='A'
+    <if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')>=#{startTime}  ]]>
+    </if>
+    <if test="endTime !=null and endTime!=''"  >
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')<=#{endTime}  ]]>
+    </if>
+    </select>
+     <select id="countCenterBuyCar" resultType="int" parameterType="map">
+   SELECT count(*)centerBuyCar FROM `cif_buyer` where CLIENTLEVEL='B'
+    <if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')>=#{startTime}  ]]>
+    </if>
+    <if test="endTime !=null and endTime!=''"  >
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')<=#{endTime}  ]]>
+    </if>
+    </select>
+    <select id="countBottomBuyCar" resultType="int" parameterType="map">
+   SELECT count(*)bottomBuyCar FROM `cif_buyer` where CLIENTLEVEL='C'
+    <if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')>=#{startTime}  ]]>
+    </if>
+    <if test="endTime !=null and endTime!=''"  >
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')<=#{endTime}  ]]>
+    </if>
+    </select>
+     <select id="countNotBuyCar" resultType="int" parameterType="map">
+   SELECT count(*)notBuyCar FROM `cif_buyer` where CLIENTLEVEL='N'
+    <if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')>=#{startTime}  ]]>
+    </if>
+    <if test="endTime !=null and endTime!=''"  >
+         <![CDATA[ and DATE_FORMAT(CREATE_TIME,'%Y-%m-%d')<=#{endTime}  ]]>
+    </if>
+    </select>
+    
+</mapper>

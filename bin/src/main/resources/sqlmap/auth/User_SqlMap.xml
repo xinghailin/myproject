@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.auth.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.auth.User" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CODE" property="code" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="LOGIN_NAME" property="loginName" jdbcType="VARCHAR" />
+    <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="SHOP" property="shop" jdbcType="VARCHAR" />
+      <result column="country" property="country" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, CODE, NAME, LOGIN_NAME, PASSWORD, STATUS, CREATE_TIME, SHOP,country
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and ID = #{id}
+    </if>
+    <if test="code != null and code !=''" >
+       and CODE = #{code}
+    </if>
+    <if test="name != null and name !=''" >
+       and NAME = #{name}
+    </if>
+    <if test="loginName != null and loginName !=''" >
+       and LOGIN_NAME = #{loginName}
+    </if>
+    <if test="password != null and password !=''" >
+       and PASSWORD = #{password}
+    </if>
+    <if test="status != null and status !=''" >
+       and STATUS = #{status}
+    </if>
+    <if test="createTime != null and createTime !=''" >
+       and CREATE_TIME = #{createTime}
+    </if><if test="country != null and country !=''" >
+       and country = #{country}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.auth.User" >
+    select 
+    <include refid="Base_Column_List" />
+    from auth_user
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.auth.User" >
+    select count(*) from auth_user where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from auth_user
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from auth_user
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.auth.User" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(206);
+    </selectKey>
+    insert into auth_user (ID, CODE, NAME, 
+      LOGIN_NAME, PASSWORD, STATUS, 
+      CREATE_TIME,SHOP,country)
+    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{loginName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{shop,jdbcType=VARCHAR}, #{country,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.auth.User" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(206);
+    </selectKey>
+    insert into auth_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,
+      <if test="code != null" >
+        CODE,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="loginName != null" >
+        LOGIN_NAME,
+      </if>
+      <if test="password != null" >
+        PASSWORD,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="shop != null" >
+        SHOP,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="loginName != null" >
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shop != null" >
+        #{shop,jdbcType=VARCHAR},
+      </if> 
+      <if test="country != null" >
+        #{country,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.auth.User" >
+    update auth_user
+    <set >
+      <if test="code != null" >
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="loginName != null" >
+        LOGIN_NAME = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shop != null" >
+        SHOP = #{shop,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        country = #{country,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.auth.User" >
+    update auth_user
+    set CODE = #{code,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      LOGIN_NAME = #{loginName,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},SHOP = #{shop,jdbcType=VARCHAR},
+      country = #{country,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  
+  
+   <resultMap id="RuResultMap" type="com.yyq.car.portal.common.model.auth.RoleAccount" >
+	    <result column="ROLE_ID" property="roleId" jdbcType="INTEGER" />
+	    <result column="ACCOUNT_ID" property="accountId" jdbcType="INTEGER" />
+   </resultMap>
+  
+    <select id="selectByUserId" resultMap="RuResultMap" parameterType="java.lang.Integer">
+  		SELECT a.ROLE_ID,a.ACCOUNT_ID FROM auth_role_account  a WHERE a.ACCOUNT_ID = #{userId,jdbcType=INTEGER}
+   </select>
+     
+  <select id="selectByLoginInfo" parameterType="map" resultMap="BaseResultMap">
+	  	SELECT a.* FROM auth_user a  WHERE a.LOGIN_NAME = #{userName,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectByIds" resultMap="BaseResultMap" parameterType="java.util.List">
+    SELECT * FROM auth_user 
+    WHERE ID IN 
+    <foreach collection="list" index="index" item="item" open="(" separator="," close=")" >
+      #{item}
+    </foreach>
+  </select>
+  
+  <update id="batchUpdatePwdByIds" parameterType="java.util.Map">
+    UPDATE auth_user
+    SET PASSWORD=#{loginPwd}
+    WHERE ID IN
+    <foreach collection="userList" index="index" item="item" open="(" separator="," close=")" >
+      #{item}
+    </foreach>
+  </update>
+  <select id="queryName" resultType="com.yyq.car.portal.common.model.auth.User">
+  SELECT
+	u.NAME name
+FROM
+	auth_user u
+LEFT JOIN auth_role_account a ON u.ID = a.ACCOUNT_ID
+where a.ROLE_ID=31
+  </select>
+  
+  
+    <select id="selectListByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from auth_user
+    where 1= 1      
+     <if test="loginname != null and loginname !=''">
+		and LOGIN_NAME like concat('%',#{loginname},'%')
+	</if>
+  </select>
+  
+</mapper>

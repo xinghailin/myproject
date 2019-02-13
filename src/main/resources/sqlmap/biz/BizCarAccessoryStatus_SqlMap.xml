@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.yyq.car.portal.common.mapper.biz.BizCarAccessoryStatusMapper">
+	<resultMap id="BaseResultMap"
+		type="com.yyq.car.portal.common.model.biz.BizCarAccessoryStatus">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="carid" property="carid" jdbcType="INTEGER" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="creatorname" property="creatorname" jdbcType="VARCHAR" />
+		<result column="receivename" property="receivename" jdbcType="VARCHAR" />
+		<result column="shopname" property="shopname" jdbcType="VARCHAR" />
+		<result column="creatime" property="creatime" jdbcType="TIMESTAMP" />
+		<result column="getname" property="getname" jdbcType="VARCHAR" />
+		<result column="certificateOfQuality" property="certificateofquality"
+			jdbcType="INTEGER" />
+		<result column="customsPermit" property="customspermit"
+			jdbcType="INTEGER" />
+		<result column="commodityInspectionForm" property="commodityinspectionform"
+			jdbcType="INTEGER" />
+		<result column="environmentalCertificate" property="environmentalcertificate"
+			jdbcType="INTEGER" />
+		<result column="certificateOfConformity" property="certificateofconformity"
+			jdbcType="INTEGER" />
+		<result column="remoteKey" property="remotekey" jdbcType="INTEGER" />
+		<result column="manualKey" property="manualkey" jdbcType="INTEGER" />
+		<result column="chipCard" property="chipcard" jdbcType="INTEGER" />
+		<result column="maintenanceManual" property="maintenancemanual"
+			jdbcType="INTEGER" />
+		<result column="operationInstruction" property="operationinstruction"
+			jdbcType="INTEGER" />
+		<result column="shopTicket" property="shopticket" jdbcType="INTEGER" />
+		<result column="valueAddedTaxSpecialInvoice" property="valueaddedtaxspecialinvoice"
+			jdbcType="INTEGER" />
+		<result column="carPhotos" property="carphotos" jdbcType="INTEGER" />
+		<result column="vehiclesRubbing" property="vehiclesrubbing"
+			jdbcType="INTEGER" />
+		<result column="shopInsurancePolicy" property="shopinsurancepolicy"
+			jdbcType="INTEGER" />
+		<result column="purchaseTaxReturns" property="purchasetaxreturns"
+			jdbcType="INTEGER" />
+		<result column="threePacketsOfProoves" property="threepacketsofprooves"
+			jdbcType="INTEGER" />
+		<result column="cigaretteLighter" property="cigarettelighter"
+			jdbcType="INTEGER" />
+		<result column="linkLine" property="linkline" jdbcType="INTEGER" />
+		<result column="remarks" property="remarks" jdbcType="VARCHAR" />
+		<result column="remarks1" property="remarks1" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, carid, status, creatorname, receivename, shopname, creatime, getname,
+		certificateOfQuality,
+		customsPermit, commodityInspectionForm, environmentalCertificate,
+		certificateOfConformity,
+		remoteKey, manualKey, chipCard, maintenanceManual, operationInstruction,
+		shopTicket,
+		valueAddedTaxSpecialInvoice, carPhotos, vehiclesRubbing, shopInsurancePolicy, purchaseTaxReturns,
+		threePacketsOfProoves, cigaretteLighter, linkLine, remarks,remarks1
+	</sql>
+	<sql id="wherecase">
+		1=1
+		<if test="id != null and id !=''">
+			and id = #{id}
+		</if>
+		<if test="carid != null and carid !=''">
+			and carid = #{carid}
+		</if>
+		<if test="status != null and status !=''">
+			and status = #{status}
+		</if>
+		<if test="creatorname != null and creatorname !=''">
+			and creatorname = #{creatorname}
+		</if>
+		<if test="receivename != null and receivename !=''">
+			and receivename = #{receivename}
+		</if>
+		<if test="shopname != null and shopname !=''">
+			and shopname = #{shopname}
+		</if>
+		<if test="creatime != null and creatime !=''">
+			and creatime = #{creatime}
+		</if>
+		<if test="getname != null and getname !=''">
+			and getname = #{getname}
+		</if>
+		<if test="certificateofquality != null and certificateofquality !=''">
+			and certificateOfQuality = #{certificateofquality}
+		</if>
+		<if test="customspermit != null and customspermit !=''">
+			and customsPermit = #{customspermit}
+		</if>
+		<if test="commodityinspectionform != null and commodityinspectionform !=''">
+			and commodityInspectionForm = #{commodityinspectionform}
+		</if>
+		<if
+			test="environmentalcertificate != null and environmentalcertificate !=''">
+			and environmentalCertificate = #{environmentalcertificate}
+		</if>
+		<if test="certificateofconformity != null and certificateofconformity !=''">
+			and certificateOfConformity = #{certificateofconformity}
+		</if>
+		<if test="remotekey != null and remotekey !=''">
+			and remoteKey = #{remotekey}
+		</if>
+		<if test="manualkey != null and manualkey !=''">
+			and manualKey = #{manualkey}
+		</if>
+		<if test="chipcard != null and chipcard !=''">
+			and chipCard = #{chipcard}
+		</if>
+		<if test="maintenancemanual != null and maintenancemanual !=''">
+			and maintenanceManual = #{maintenancemanual}
+		</if>
+		<if test="operationinstruction != null and operationinstruction !=''">
+			and operationInstruction = #{operationinstruction}
+		</if>
+		<if test="shopticket != null and shopticket !=''">
+			and shopTicket = #{shopticket}
+		</if>
+		<if
+			test="valueaddedtaxspecialinvoice != null and valueaddedtaxspecialinvoice !=''">
+			and valueAddedTaxSpecialInvoice = #{valueaddedtaxspecialinvoice}
+		</if>
+		<if test="carphotos != null and carphotos !=''">
+			and carPhotos = #{carphotos}
+		</if>
+		<if test="vehiclesrubbing != null and vehiclesrubbing !=''">
+			and vehiclesRubbing = #{vehiclesrubbing}
+		</if>
+		<if test="shopinsurancepolicy != null and shopinsurancepolicy !=''">
+			and shopInsurancePolicy = #{shopinsurancepolicy}
+		</if>
+		<if test="purchasetaxreturns != null and purchasetaxreturns !=''">
+			and purchaseTaxReturns = #{purchasetaxreturns}
+		</if>
+		<if test="threepacketsofprooves != null and threepacketsofprooves !=''">
+			and threePacketsOfProoves = #{threepacketsofprooves}
+		</if>
+		<if test="cigarettelighter != null and cigarettelighter !=''">
+			and cigaretteLighter = #{cigarettelighter}
+		</if>
+		<if test="linkline != null and linkline !=''">
+			and linkLine = #{linkline}
+		</if>
+		<if test="remarks != null and remarks !=''">
+			and remarks = #{remarks}
+		</if>
+		<if test="remarks1 != null and remarks1 !=''">
+			and remarks1 = #{remarks1}
+		</if>
+	</sql>
+	<select id="selectByCriteria" resultMap="BaseResultMap"
+		parameterType="com.yyq.car.portal.common.model.biz.BizCarAccessoryStatus">
+		select
+		<include refid="Base_Column_List" />
+		from biz_car_accessory_status
+		where
+		<include refid="wherecase" />
+	</select>
+	<select id="countByCriteria" resultType="int"
+		parameterType="com.yyq.car.portal.common.model.biz.BizCarAccessoryStatus">
+		select count(*) from biz_car_accessory_status where
+		<include refid="wherecase" />
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from biz_car_accessory_status
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from biz_car_accessory_status
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert"
+		parameterType="com.yyq.car.portal.common.model.biz.BizCarAccessoryStatus">
+		insert into biz_car_accessory_status (id, carid, status,
+		creatorname, receivename, shopname,
+		creatime, getname, certificateOfQuality,
+		customsPermit, commodityInspectionForm,
+		environmentalCertificate, certificateOfConformity,
+		remoteKey, manualKey, chipCard,
+		maintenanceManual, operationInstruction,
+		shopTicket, valueAddedTaxSpecialInvoice,
+		carPhotos, vehiclesRubbing, shopInsurancePolicy,
+		purchaseTaxReturns, threePacketsOfProoves,
+		cigaretteLighter, linkLine, remarks,remarks1
+		)
+		values (#{id,jdbcType=INTEGER}, #{carid,jdbcType=INTEGER},
+		#{status,jdbcType=INTEGER},
+		#{creatorname,jdbcType=VARCHAR}, #{receivename,jdbcType=VARCHAR}, #{shopname,jdbcType=VARCHAR},
+		#{creatime,jdbcType=TIMESTAMP}, #{getname,jdbcType=VARCHAR},
+		#{certificateofquality,jdbcType=INTEGER},
+		#{customspermit,jdbcType=INTEGER},
+		#{commodityinspectionform,jdbcType=INTEGER},
+		#{environmentalcertificate,jdbcType=INTEGER},
+		#{certificateofconformity,jdbcType=INTEGER},
+		#{remotekey,jdbcType=INTEGER}, #{manualkey,jdbcType=INTEGER},
+		#{chipcard,jdbcType=INTEGER},
+		#{maintenancemanual,jdbcType=INTEGER}, #{operationinstruction,jdbcType=INTEGER},
+		#{shopticket,jdbcType=INTEGER},
+		#{valueaddedtaxspecialinvoice,jdbcType=INTEGER},
+		#{carphotos,jdbcType=INTEGER}, #{vehiclesrubbing,jdbcType=INTEGER},
+		#{shopinsurancepolicy,jdbcType=INTEGER},
+		#{purchasetaxreturns,jdbcType=INTEGER},
+		#{threepacketsofprooves,jdbcType=INTEGER},
+		#{cigarettelighter,jdbcType=INTEGER}, #{linkline,jdbcType=INTEGER},
+		#{remarks,jdbcType=VARCHAR},
+		#{remarks1,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective"
+		parameterType="com.yyq.car.portal.common.model.biz.BizCarAccessoryStatus">
+		insert into biz_car_accessory_status
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="carid != null">
+				carid,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="creatorname != null">
+				creatorname,
+			</if>
+			<if test="receivename != null">
+				receivename,
+			</if>
+			<if test="shopname != null">
+				shopname,
+			</if>
+			<if test="creatime != null">
+				creatime,
+			</if>
+			<if test="getname != null">
+				getname,
+			</if>
+			<if test="certificateofquality != null">
+				certificateOfQuality,
+			</if>
+			<if test="customspermit != null">
+				customsPermit,
+			</if>
+			<if test="commodityinspectionform != null">
+				commodityInspectionForm,
+			</if>
+			<if test="environmentalcertificate != null">
+				environmentalCertificate,
+			</if>
+			<if test="certificateofconformity != null">
+				certificateOfConformity,
+			</if>
+			<if test="remotekey != null">
+				remoteKey,
+			</if>
+			<if test="manualkey != null">
+				manualKey,
+			</if>
+			<if test="chipcard != null">
+				chipCard,
+			</if>
+			<if test="maintenancemanual != null">
+				maintenanceManual,
+			</if>
+			<if test="operationinstruction != null">
+				operationInstruction,
+			</if>
+			<if test="shopticket != null">
+				shopTicket,
+			</if>
+			<if test="valueaddedtaxspecialinvoice != null">
+				valueAddedTaxSpecialInvoice,
+			</if>
+			<if test="carphotos != null">
+				carPhotos,
+			</if>
+			<if test="vehiclesrubbing != null">
+				vehiclesRubbing,
+			</if>
+			<if test="shopinsurancepolicy != null">
+				shopInsurancePolicy,
+			</if>
+			<if test="purchasetaxreturns != null">
+				purchaseTaxReturns,
+			</if>
+			<if test="threepacketsofprooves != null">
+				threePacketsOfProoves,
+			</if>
+			<if test="cigarettelighter != null">
+				cigaretteLighter,
+			</if>
+			<if test="linkline != null">
+				linkLine,
+			</if>
+			<if test="remarks != null">
+				remarks,
+			</if>
+			<if test="remarks1 != null">
+				remarks1,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="carid != null">
+				#{carid,jdbcType=INTEGER},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=INTEGER},
+			</if>
+			<if test="creatorname != null">
+				#{creatorname,jdbcType=VARCHAR},
+			</if>
+			<if test="receivename != null">
+				#{receivename,jdbcType=VARCHAR},
+			</if>
+			<if test="shopname != null">
+				#{shopname,jdbcType=VARCHAR},
+			</if>
+			<if test="creatime != null">
+				#{creatime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="getname != null">
+				#{getname,jdbcType=VARCHAR},
+			</if>
+			<if test="certificateofquality != null">
+				#{certificateofquality,jdbcType=INTEGER},
+			</if>
+			<if test="customspermit != null">
+				#{customspermit,jdbcType=INTEGER},
+			</if>
+			<if test="commodityinspectionform != null">
+				#{commodityinspectionform,jdbcType=INTEGER},
+			</if>
+			<if test="environmentalcertificate != null">
+				#{environmentalcertificate,jdbcType=INTEGER},
+			</if>
+			<if test="certificateofconformity != null">
+				#{certificateofconformity,jdbcType=INTEGER},
+			</if>
+			<if test="remotekey != null">
+				#{remotekey,jdbcType=INTEGER},
+			</if>
+			<if test="manualkey != null">
+				#{manualkey,jdbcType=INTEGER},
+			</if>
+			<if test="chipcard != null">
+				#{chipcard,jdbcType=INTEGER},
+			</if>
+			<if test="maintenancemanual != null">
+				#{maintenancemanual,jdbcType=INTEGER},
+			</if>
+			<if test="operationinstruction != null">
+				#{operationinstruction,jdbcType=INTEGER},
+			</if>
+			<if test="shopticket != null">
+				#{shopticket,jdbcType=INTEGER},
+			</if>
+			<if test="valueaddedtaxspecialinvoice != null">
+				#{valueaddedtaxspecialinvoice,jdbcType=INTEGER},
+			</if>
+			<if test="carphotos != null">
+				#{carphotos,jdbcType=INTEGER},
+			</if>
+			<if test="vehiclesrubbing != null">
+				#{vehiclesrubbing,jdbcType=INTEGER},
+			</if>
+			<if test="shopinsurancepolicy != null">
+				#{shopinsurancepolicy,jdbcType=INTEGER},
+			</if>
+			<if test="purchasetaxreturns != null">
+				#{purchasetaxreturns,jdbcType=INTEGER},
+			</if>
+			<if test="threepacketsofprooves != null">
+				#{threepacketsofprooves,jdbcType=INTEGER},
+			</if>
+			<if test="cigarettelighter != null">
+				#{cigarettelighter,jdbcType=INTEGER},
+			</if>
+			<if test="linkline != null">
+				#{linkline,jdbcType=INTEGER},
+			</if>
+			<if test="remarks != null">
+				#{remarks,jdbcType=VARCHAR},
+			</if>
+			<if test="remarks1 != null">
+				#{remarks1,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="com.yyq.car.portal.common.model.biz.BizCarAccessoryStatus">
+		update biz_car_accessory_status
+		<set>
+			<if test="carid != null">
+				carid = #{carid,jdbcType=INTEGER},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=INTEGER},
+			</if>
+			<if test="creatorname != null">
+				creatorname = #{creatorname,jdbcType=VARCHAR},
+			</if>
+			<if test="receivename != null">
+				receivename = #{receivename,jdbcType=VARCHAR},
+			</if>
+			<if test="shopname != null">
+				shopname = #{shopname,jdbcType=VARCHAR},
+			</if>
+			<if test="creatime != null">
+				creatime = #{creatime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="getname != null">
+				getname = #{getname,jdbcType=VARCHAR},
+			</if>
+			<if test="certificateofquality != null">
+				certificateOfQuality = #{certificateofquality,jdbcType=INTEGER},
+			</if>
+			<if test="customspermit != null">
+				customsPermit = #{customspermit,jdbcType=INTEGER},
+			</if>
+			<if test="commodityinspectionform != null">
+				commodityInspectionForm =
+				#{commodityinspectionform,jdbcType=INTEGER},
+			</if>
+			<if test="environmentalcertificate != null">
+				environmentalCertificate =
+				#{environmentalcertificate,jdbcType=INTEGER},
+			</if>
+			<if test="certificateofconformity != null">
+				certificateOfConformity =
+				#{certificateofconformity,jdbcType=INTEGER},
+			</if>
+			<if test="remotekey != null">
+				remoteKey = #{remotekey,jdbcType=INTEGER},
+			</if>
+			<if test="manualkey != null">
+				manualKey = #{manualkey,jdbcType=INTEGER},
+			</if>
+			<if test="chipcard != null">
+				chipCard = #{chipcard,jdbcType=INTEGER},
+			</if>
+			<if test="maintenancemanual != null">
+				maintenanceManual = #{maintenancemanual,jdbcType=INTEGER},
+			</if>
+			<if test="operationinstruction != null">
+				operationInstruction = #{operationinstruction,jdbcType=INTEGER},
+			</if>
+			<if test="shopticket != null">
+				shopTicket = #{shopticket,jdbcType=INTEGER},
+			</if>
+			<if test="valueaddedtaxspecialinvoice != null">
+				valueAddedTaxSpecialInvoice =
+				#{valueaddedtaxspecialinvoice,jdbcType=INTEGER},
+			</if>
+			<if test="carphotos != null">
+				carPhotos = #{carphotos,jdbcType=INTEGER},
+			</if>
+			<if test="vehiclesrubbing != null">
+				vehiclesRubbing = #{vehiclesrubbing,jdbcType=INTEGER},
+			</if>
+			<if test="shopinsurancepolicy != null">
+				shopInsurancePolicy = #{shopinsurancepolicy,jdbcType=INTEGER},
+			</if>
+			<if test="purchasetaxreturns != null">
+				purchaseTaxReturns = #{purchasetaxreturns,jdbcType=INTEGER},
+			</if>
+			<if test="threepacketsofprooves != null">
+				threePacketsOfProoves = #{threepacketsofprooves,jdbcType=INTEGER},
+			</if>
+			<if test="cigarettelighter != null">
+				cigaretteLighter = #{cigarettelighter,jdbcType=INTEGER},
+			</if>
+			<if test="linkline != null">
+				linkLine = #{linkline,jdbcType=INTEGER},
+			</if>
+			<if test="remarks != null">
+				remarks = #{remarks,jdbcType=VARCHAR},
+			</if>
+			<if test="remarks1 != null">
+				remarks1 = #{remarks1,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="com.yyq.car.portal.common.model.biz.BizCarAccessoryStatus">
+		update biz_car_accessory_status
+		set carid = #{carid,jdbcType=INTEGER},
+		status = #{status,jdbcType=INTEGER},
+		creatorname = #{creatorname,jdbcType=VARCHAR},
+		receivename = #{receivename,jdbcType=VARCHAR},
+		shopname = #{shopname,jdbcType=VARCHAR},
+		creatime = #{creatime,jdbcType=TIMESTAMP},
+		getname = #{getname,jdbcType=VARCHAR},
+		certificateOfQuality = #{certificateofquality,jdbcType=INTEGER},
+		customsPermit = #{customspermit,jdbcType=INTEGER},
+		commodityInspectionForm = #{commodityinspectionform,jdbcType=INTEGER},
+		environmentalCertificate =
+		#{environmentalcertificate,jdbcType=INTEGER},
+		certificateOfConformity = #{certificateofconformity,jdbcType=INTEGER},
+		remoteKey = #{remotekey,jdbcType=INTEGER},
+		manualKey = #{manualkey,jdbcType=INTEGER},
+		chipCard = #{chipcard,jdbcType=INTEGER},
+		maintenanceManual = #{maintenancemanual,jdbcType=INTEGER},
+		operationInstruction = #{operationinstruction,jdbcType=INTEGER},
+		shopTicket = #{shopticket,jdbcType=INTEGER},
+		valueAddedTaxSpecialInvoice = #{valueaddedtaxspecialinvoice,jdbcType=INTEGER},
+		carPhotos = #{carphotos,jdbcType=INTEGER},
+		vehiclesRubbing = #{vehiclesrubbing,jdbcType=INTEGER},
+		shopInsurancePolicy = #{shopinsurancepolicy,jdbcType=INTEGER},
+		purchaseTaxReturns = #{purchasetaxreturns,jdbcType=INTEGER},
+		threePacketsOfProoves = #{threepacketsofprooves,jdbcType=INTEGER},
+		cigaretteLighter = #{cigarettelighter,jdbcType=INTEGER},
+		linkLine = #{linkline,jdbcType=INTEGER},
+		remarks = #{remarks,jdbcType=VARCHAR},
+		remarks1 = #{remarks1,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<select id="CarAccessorydetailsList" parameterType="int"
+		resultType="map">
+		SELECT
+		s.creatorname creatorname,
+		s.getname getname,
+		s.receivename receivename,
+		s.creatime creatime,
+		c.brand brand,
+		c.model model,
+		c.version version,
+		c.vin vin,
+		s.id id,
+		s.status
+		FROM
+		`biz_car_accessory_status` s
+		LEFT JOIN biz_car_accessory c ON s.carid = c.id
+		WHERE
+		s.carid = #{carid} and s.status in(1,2,3,4) ;
+
+	</select>
+	<select id="getCarAccessorydetailsList" parameterType="int"
+		resultType="map">
+		SELECT
+		s.getname getname,
+		s.creatorname,s.receivename,
+		s.creatime creatime,
+		c.brand brand,
+		c.model model,
+		c.version version,
+		c.vin vin,
+		s.id id,
+		s.status
+		FROM
+		`biz_car_accessory_status` s
+		LEFT JOIN biz_car_accessory c ON s.carid = c.id
+		WHERE
+		s.carid = #{carid}
+	</select>
+</mapper>

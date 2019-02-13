@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.comm.BargainConfigMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.comm.BargainConfig" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="all_money" property="allMoney" jdbcType="DECIMAL" />
+    <result column="step_one_money" property="stepOneMoney" jdbcType="DECIMAL" />
+    <result column="step_one_person" property="stepOnePerson" jdbcType="INTEGER" />
+    <result column="step_one_wave" property="stepOneWave" jdbcType="INTEGER" />
+    <result column="step_two_money" property="stepTwoMoney" jdbcType="DECIMAL" />
+    <result column="step_two_person" property="stepTwoPerson" jdbcType="INTEGER" />
+    <result column="step_two_wave" property="stepTwoWave" jdbcType="INTEGER" />
+    <result column="step_three_money" property="stepThreeMoney" jdbcType="DECIMAL" />
+    <result column="step_three_person" property="stepThreePerson" jdbcType="INTEGER" />
+    <result column="step_three_wave" property="stepThreeWave" jdbcType="INTEGER" />
+    <result column="step_four_money" property="stepFourMoney" jdbcType="DECIMAL" />
+    <result column="step_four_person" property="stepFourPerson" jdbcType="INTEGER" />
+    <result column="step_four_wave" property="stepFourWave" jdbcType="INTEGER" />
+    <result column="step_five_money" property="stepFiveMoney" jdbcType="DECIMAL" />
+    <result column="step_five_person" property="stepFivePerson" jdbcType="INTEGER" />
+    <result column="step_five_wave" property="stepFiveWave" jdbcType="INTEGER" />
+    <result column="step_six_money" property="stepSixMoney" jdbcType="DECIMAL" />
+    <result column="step_six_person" property="stepSixPerson" jdbcType="INTEGER" />
+    <result column="step_six_wave" property="stepSixWave" jdbcType="INTEGER" />
+    <result column="down_time" property="downTime" jdbcType="INTEGER" />
+    <result column="pic" property="pic" jdbcType="VARCHAR" />
+    <result column="content_sharing" property="contentSharing" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, all_money, step_one_money, step_one_person, step_one_wave, step_two_money, step_two_person, 
+    step_two_wave, step_three_money, step_three_person, step_three_wave, step_four_money, 
+    step_four_person, step_four_wave, step_five_money, step_five_person, step_five_wave, 
+    step_six_money, step_six_person, step_six_wave, down_time, pic, content_sharing
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and ID = #{id}
+    </if>
+    <if test="allMoney != null and allMoney !=''" >
+       and all_money = #{allMoney}
+    </if>
+    <if test="stepOneMoney != null and stepOneMoney !=''" >
+       and step_one_money = #{stepOneMoney}
+    </if>
+    <if test="stepOnePerson != null and stepOnePerson !=''" >
+       and step_one_person = #{stepOnePerson}
+    </if>
+    <if test="stepOneWave != null and stepOneWave !=''" >
+       and step_one_wave = #{stepOneWave}
+    </if>
+    <if test="stepTwoMoney != null and stepTwoMoney !=''" >
+       and step_two_money = #{stepTwoMoney}
+    </if>
+    <if test="stepTwoPerson != null and stepTwoPerson !=''" >
+       and step_two_person = #{stepTwoPerson}
+    </if>
+    <if test="stepTwoWave != null and stepTwoWave !=''" >
+       and step_two_wave = #{stepTwoWave}
+    </if>
+    <if test="stepThreeMoney != null and stepThreeMoney !=''" >
+       and step_three_money = #{stepThreeMoney}
+    </if>
+    <if test="stepThreePerson != null and stepThreePerson !=''" >
+       and step_three_person = #{stepThreePerson}
+    </if>
+    <if test="stepThreeWave != null and stepThreeWave !=''" >
+       and step_three_wave = #{stepThreeWave}
+    </if>
+    <if test="stepFourMoney != null and stepFourMoney !=''" >
+       and step_four_money = #{stepFourMoney}
+    </if>
+    <if test="stepFourPerson != null and stepFourPerson !=''" >
+       and step_four_person = #{stepFourPerson}
+    </if>
+    <if test="stepFourWave != null and stepFourWave !=''" >
+       and step_four_wave = #{stepFourWave}
+    </if>
+    <if test="stepFiveMoney != null and stepFiveMoney !=''" >
+       and step_five_money = #{stepFiveMoney}
+    </if>
+    <if test="stepFivePerson != null and stepFivePerson !=''" >
+       and step_five_person = #{stepFivePerson}
+    </if>
+    <if test="stepFiveWave != null and stepFiveWave !=''" >
+       and step_five_wave = #{stepFiveWave}
+    </if>
+    <if test="stepSixMoney != null and stepSixMoney !=''" >
+       and step_six_money = #{stepSixMoney}
+    </if>
+    <if test="stepSixPerson != null and stepSixPerson !=''" >
+       and step_six_person = #{stepSixPerson}
+    </if>
+    <if test="stepSixWave != null and stepSixWave !=''" >
+       and step_six_wave = #{stepSixWave}
+    </if>
+    <if test="downTime != null and downTime !=''" >
+       and down_time = #{downTime}
+    </if>
+    <if test="pic != null and pic !=''" >
+       and pic = #{pic}
+    </if>
+    <if test="contentSharing != null and contentSharing !=''" >
+       and content_sharing = #{contentSharing}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.comm.BargainConfig" >
+    select 
+    <include refid="Base_Column_List" />
+    from comm_bargain_config
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.comm.BargainConfig" >
+    select count(*) from comm_bargain_config where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from comm_bargain_config
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from comm_bargain_config
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.comm.BargainConfig" >
+    insert into comm_bargain_config (ID, all_money, step_one_money, 
+      step_one_person, step_one_wave, step_two_money, 
+      step_two_person, step_two_wave, step_three_money, 
+      step_three_person, step_three_wave, step_four_money, 
+      step_four_person, step_four_wave, step_five_money, 
+      step_five_person, step_five_wave, step_six_money, 
+      step_six_person, step_six_wave, down_time, 
+      pic, content_sharing)
+    values (#{id,jdbcType=INTEGER}, #{allMoney,jdbcType=DECIMAL}, #{stepOneMoney,jdbcType=DECIMAL}, 
+      #{stepOnePerson,jdbcType=INTEGER}, #{stepOneWave,jdbcType=INTEGER}, #{stepTwoMoney,jdbcType=DECIMAL}, 
+      #{stepTwoPerson,jdbcType=INTEGER}, #{stepTwoWave,jdbcType=INTEGER}, #{stepThreeMoney,jdbcType=DECIMAL}, 
+      #{stepThreePerson,jdbcType=INTEGER}, #{stepThreeWave,jdbcType=INTEGER}, #{stepFourMoney,jdbcType=DECIMAL}, 
+      #{stepFourPerson,jdbcType=INTEGER}, #{stepFourWave,jdbcType=INTEGER}, #{stepFiveMoney,jdbcType=DECIMAL}, 
+      #{stepFivePerson,jdbcType=INTEGER}, #{stepFiveWave,jdbcType=INTEGER}, #{stepSixMoney,jdbcType=DECIMAL}, 
+      #{stepSixPerson,jdbcType=INTEGER}, #{stepSixWave,jdbcType=INTEGER}, #{downTime,jdbcType=INTEGER}, 
+      #{pic,jdbcType=VARCHAR}, #{contentSharing,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.comm.BargainConfig" >
+    insert into comm_bargain_config
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="allMoney != null" >
+        all_money,
+      </if>
+      <if test="stepOneMoney != null" >
+        step_one_money,
+      </if>
+      <if test="stepOnePerson != null" >
+        step_one_person,
+      </if>
+      <if test="stepOneWave != null" >
+        step_one_wave,
+      </if>
+      <if test="stepTwoMoney != null" >
+        step_two_money,
+      </if>
+      <if test="stepTwoPerson != null" >
+        step_two_person,
+      </if>
+      <if test="stepTwoWave != null" >
+        step_two_wave,
+      </if>
+      <if test="stepThreeMoney != null" >
+        step_three_money,
+      </if>
+      <if test="stepThreePerson != null" >
+        step_three_person,
+      </if>
+      <if test="stepThreeWave != null" >
+        step_three_wave,
+      </if>
+      <if test="stepFourMoney != null" >
+        step_four_money,
+      </if>
+      <if test="stepFourPerson != null" >
+        step_four_person,
+      </if>
+      <if test="stepFourWave != null" >
+        step_four_wave,
+      </if>
+      <if test="stepFiveMoney != null" >
+        step_five_money,
+      </if>
+      <if test="stepFivePerson != null" >
+        step_five_person,
+      </if>
+      <if test="stepFiveWave != null" >
+        step_five_wave,
+      </if>
+      <if test="stepSixMoney != null" >
+        step_six_money,
+      </if>
+      <if test="stepSixPerson != null" >
+        step_six_person,
+      </if>
+      <if test="stepSixWave != null" >
+        step_six_wave,
+      </if>
+      <if test="downTime != null" >
+        down_time,
+      </if>
+      <if test="pic != null" >
+        pic,
+      </if>
+      <if test="contentSharing != null" >
+        content_sharing,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="allMoney != null" >
+        #{allMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="stepOneMoney != null" >
+        #{stepOneMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="stepOnePerson != null" >
+        #{stepOnePerson,jdbcType=INTEGER},
+      </if>
+      <if test="stepOneWave != null" >
+        #{stepOneWave,jdbcType=INTEGER},
+      </if>
+      <if test="stepTwoMoney != null" >
+        #{stepTwoMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="stepTwoPerson != null" >
+        #{stepTwoPerson,jdbcType=INTEGER},
+      </if>
+      <if test="stepTwoWave != null" >
+        #{stepTwoWave,jdbcType=INTEGER},
+      </if>
+      <if test="stepThreeMoney != null" >
+        #{stepThreeMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="stepThreePerson != null" >
+        #{stepThreePerson,jdbcType=INTEGER},
+      </if>
+      <if test="stepThreeWave != null" >
+        #{stepThreeWave,jdbcType=INTEGER},
+      </if>
+      <if test="stepFourMoney != null" >
+        #{stepFourMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="stepFourPerson != null" >
+        #{stepFourPerson,jdbcType=INTEGER},
+      </if>
+      <if test="stepFourWave != null" >
+        #{stepFourWave,jdbcType=INTEGER},
+      </if>
+      <if test="stepFiveMoney != null" >
+        #{stepFiveMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="stepFivePerson != null" >
+        #{stepFivePerson,jdbcType=INTEGER},
+      </if>
+      <if test="stepFiveWave != null" >
+        #{stepFiveWave,jdbcType=INTEGER},
+      </if>
+      <if test="stepSixMoney != null" >
+        #{stepSixMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="stepSixPerson != null" >
+        #{stepSixPerson,jdbcType=INTEGER},
+      </if>
+      <if test="stepSixWave != null" >
+        #{stepSixWave,jdbcType=INTEGER},
+      </if>
+      <if test="downTime != null" >
+        #{downTime,jdbcType=INTEGER},
+      </if>
+      <if test="pic != null" >
+        #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="contentSharing != null" >
+        #{contentSharing,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.comm.BargainConfig" >
+    update comm_bargain_config
+    <set >
+      <if test="allMoney != null" >
+        all_money = #{allMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="stepOneMoney != null" >
+        step_one_money = #{stepOneMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="stepOnePerson != null" >
+        step_one_person = #{stepOnePerson,jdbcType=INTEGER},
+      </if>
+      <if test="stepOneWave != null" >
+        step_one_wave = #{stepOneWave,jdbcType=INTEGER},
+      </if>
+      <if test="stepTwoMoney != null" >
+        step_two_money = #{stepTwoMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="stepTwoPerson != null" >
+        step_two_person = #{stepTwoPerson,jdbcType=INTEGER},
+      </if>
+      <if test="stepTwoWave != null" >
+        step_two_wave = #{stepTwoWave,jdbcType=INTEGER},
+      </if>
+      <if test="stepThreeMoney != null" >
+        step_three_money = #{stepThreeMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="stepThreePerson != null" >
+        step_three_person = #{stepThreePerson,jdbcType=INTEGER},
+      </if>
+      <if test="stepThreeWave != null" >
+        step_three_wave = #{stepThreeWave,jdbcType=INTEGER},
+      </if>
+      <if test="stepFourMoney != null" >
+        step_four_money = #{stepFourMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="stepFourPerson != null" >
+        step_four_person = #{stepFourPerson,jdbcType=INTEGER},
+      </if>
+      <if test="stepFourWave != null" >
+        step_four_wave = #{stepFourWave,jdbcType=INTEGER},
+      </if>
+      <if test="stepFiveMoney != null" >
+        step_five_money = #{stepFiveMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="stepFivePerson != null" >
+        step_five_person = #{stepFivePerson,jdbcType=INTEGER},
+      </if>
+      <if test="stepFiveWave != null" >
+        step_five_wave = #{stepFiveWave,jdbcType=INTEGER},
+      </if>
+      <if test="stepSixMoney != null" >
+        step_six_money = #{stepSixMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="stepSixPerson != null" >
+        step_six_person = #{stepSixPerson,jdbcType=INTEGER},
+      </if>
+      <if test="stepSixWave != null" >
+        step_six_wave = #{stepSixWave,jdbcType=INTEGER},
+      </if>
+      <if test="downTime != null" >
+        down_time = #{downTime,jdbcType=INTEGER},
+      </if>
+      <if test="pic != null" >
+        pic = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="contentSharing != null" >
+        content_sharing = #{contentSharing,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.comm.BargainConfig" >
+    update comm_bargain_config
+    set all_money = #{allMoney,jdbcType=DECIMAL},
+      step_one_money = #{stepOneMoney,jdbcType=DECIMAL},
+      step_one_person = #{stepOnePerson,jdbcType=INTEGER},
+      step_one_wave = #{stepOneWave,jdbcType=INTEGER},
+      step_two_money = #{stepTwoMoney,jdbcType=DECIMAL},
+      step_two_person = #{stepTwoPerson,jdbcType=INTEGER},
+      step_two_wave = #{stepTwoWave,jdbcType=INTEGER},
+      step_three_money = #{stepThreeMoney,jdbcType=DECIMAL},
+      step_three_person = #{stepThreePerson,jdbcType=INTEGER},
+      step_three_wave = #{stepThreeWave,jdbcType=INTEGER},
+      step_four_money = #{stepFourMoney,jdbcType=DECIMAL},
+      step_four_person = #{stepFourPerson,jdbcType=INTEGER},
+      step_four_wave = #{stepFourWave,jdbcType=INTEGER},
+      step_five_money = #{stepFiveMoney,jdbcType=DECIMAL},
+      step_five_person = #{stepFivePerson,jdbcType=INTEGER},
+      step_five_wave = #{stepFiveWave,jdbcType=INTEGER},
+      step_six_money = #{stepSixMoney,jdbcType=DECIMAL},
+      step_six_person = #{stepSixPerson,jdbcType=INTEGER},
+      step_six_wave = #{stepSixWave,jdbcType=INTEGER},
+      down_time = #{downTime,jdbcType=INTEGER},
+      pic = #{pic,jdbcType=VARCHAR},
+      content_sharing = #{contentSharing,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

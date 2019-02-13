@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.jnd.JndsubbuyMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.jnd.Jndsubbuy" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="buyid" property="buyid" jdbcType="INTEGER" />
+    <result column="subneedid" property="subneedid" jdbcType="INTEGER" />
+    <result column="config" property="config" jdbcType="VARCHAR" />
+    <result column="outcolor" property="outcolor" jdbcType="VARCHAR" />
+    <result column="incolor" property="incolor" jdbcType="VARCHAR" />
+    <result column="adjust" property="adjust" jdbcType="VARCHAR" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="supplyname" property="supplyname" jdbcType="VARCHAR" />
+    <result column="tostoreid" property="tostoreid" jdbcType="INTEGER" />
+    <result column="appointtime" property="appointtime" jdbcType="TIMESTAMP" />
+    <result column="totalprice" property="totalprice" jdbcType="DECIMAL" />
+    <result column="rebate" property="rebate" jdbcType="DECIMAL" />
+    <result column="othercost" property="othercost" jdbcType="DECIMAL" />
+    <result column="latecost" property="latecost" jdbcType="DECIMAL" />
+    <result column="salecost" property="salecost" jdbcType="DECIMAL" />
+    <result column="insurance" property="insurance" jdbcType="DECIMAL" />
+    <result column="expensetax" property="expensetax" jdbcType="DECIMAL" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    
+    <result column="cmsn1" property="cmsn1" jdbcType="DECIMAL" />
+    <result column="cmsn2" property="cmsn2" jdbcType="DECIMAL" />
+    <result column="cmsn3" property="cmsn3" jdbcType="DECIMAL" />
+    <result column="cmsn4" property="cmsn4" jdbcType="DECIMAL" />
+    <result column="cmsn5" property="cmsn5" jdbcType="DECIMAL" />
+    <result column="other1" property="other1" jdbcType="DECIMAL" />
+    <result column="other2" property="other2" jdbcType="DECIMAL" />
+    <result column="other3" property="other3" jdbcType="DECIMAL" />
+    <result column="other4" property="other4" jdbcType="DECIMAL" />
+    <result column="other5" property="other5" jdbcType="DECIMAL" />
+    <result column="transcost" property="transcost" jdbcType="DECIMAL" />
+    <result column="transname" property="transname" jdbcType="VARCHAR" />
+    
+    <result column="country" property="country" jdbcType="INTEGER" />
+    <result column="currency" property="currency" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, buyid, subneedid, config, outcolor, incolor, adjust, num, supplyname, tostoreid, 
+    appointtime, totalprice, rebate, othercost, latecost, salecost, insurance, expensetax, 
+    createtime, status,cmsn1,cmsn2,cmsn3,cmsn4,cmsn5,other1,other2,other3,other4,other5,transcost,transname,country,currency
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="buyid != null and buyid !=''" >
+       and buyid = #{buyid}
+    </if>
+    <if test="subneedid != null and subneedid !=''" >
+       and subneedid = #{subneedid}
+    </if>
+    <if test="config != null and config !=''" >
+       and config = #{config}
+    </if>
+    <if test="outcolor != null and outcolor !=''" >
+       and outcolor = #{outcolor}
+    </if>
+    <if test="incolor != null and incolor !=''" >
+       and incolor = #{incolor}
+    </if>
+    <if test="adjust != null and adjust !=''" >
+       and adjust = #{adjust}
+    </if>
+    <if test="num != null and num !=''" >
+       and num = #{num}
+    </if>
+    <if test="supplyname != null and supplyname !=''" >
+       and supplyname = #{supplyname}
+    </if>
+    <if test="tostoreid != null and tostoreid !=''" >
+       and tostoreid = #{tostoreid}
+    </if>
+    <if test="appointtime != null and appointtime !=''" >
+       and appointtime = #{appointtime}
+    </if>
+    <if test="totalprice != null and totalprice !=''" >
+       and totalprice = #{totalprice}
+    </if>
+    <if test="rebate != null and rebate !=''" >
+       and rebate = #{rebate}
+    </if>
+    <if test="othercost != null and othercost !=''" >
+       and othercost = #{othercost}
+    </if>
+    <if test="latecost != null and latecost !=''" >
+       and latecost = #{latecost}
+    </if>
+    <if test="salecost != null and salecost !=''" >
+       and salecost = #{salecost}
+    </if>
+    <if test="insurance != null and insurance !=''" >
+       and insurance = #{insurance}
+    </if>
+    <if test="expensetax != null and expensetax !=''" >
+       and expensetax = #{expensetax}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.jnd.Jndsubbuy" >
+    select 
+    <include refid="Base_Column_List" />
+    from jnd_subbuy
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.jnd.Jndsubbuy" >
+    select count(*) from jnd_subbuy where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from jnd_subbuy
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from jnd_subbuy
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.jnd.Jndsubbuy" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(707);
+    </selectKey>
+    insert into jnd_subbuy (id, buyid, subneedid, 
+      config, outcolor, incolor, 
+      adjust, num, supplyname, 
+      tostoreid, appointtime, totalprice, 
+      rebate, othercost, latecost, 
+      salecost, insurance, expensetax, 
+      createtime, status)
+    values (#{id,jdbcType=INTEGER}, #{buyid,jdbcType=INTEGER}, #{subneedid,jdbcType=INTEGER}, 
+      #{config,jdbcType=VARCHAR}, #{outcolor,jdbcType=VARCHAR}, #{incolor,jdbcType=VARCHAR}, 
+      #{adjust,jdbcType=VARCHAR}, #{num,jdbcType=INTEGER}, #{supplyname,jdbcType=VARCHAR}, 
+      #{tostoreid,jdbcType=INTEGER}, #{appointtime,jdbcType=TIMESTAMP}, #{totalprice,jdbcType=DECIMAL}, 
+      #{rebate,jdbcType=DECIMAL}, #{othercost,jdbcType=DECIMAL}, #{latecost,jdbcType=DECIMAL}, 
+      #{salecost,jdbcType=DECIMAL}, #{insurance,jdbcType=DECIMAL}, #{expensetax,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.jnd.Jndsubbuy" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(707);
+    </selectKey>
+    insert into jnd_subbuy
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="buyid != null" >
+        buyid,
+      </if>
+      <if test="subneedid != null" >
+        subneedid,
+      </if>
+      <if test="config != null" >
+        config,
+      </if>
+      <if test="outcolor != null" >
+        outcolor,
+      </if>
+      <if test="incolor != null" >
+        incolor,
+      </if>
+      <if test="adjust != null" >
+        adjust,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="supplyname != null" >
+        supplyname,
+      </if>
+      <if test="tostoreid != null" >
+        tostoreid,
+      </if>
+      <if test="appointtime != null" >
+        appointtime,
+      </if>
+      <if test="paytime != null" >
+        paytime,
+      </if>
+      <if test="totalprice != null" >
+        totalprice,
+      </if>
+      <if test="rebate != null" >
+        rebate,
+      </if>
+      <if test="othercost != null" >
+        othercost,
+      </if>
+      <if test="latecost != null" >
+        latecost,
+      </if>
+      <if test="salecost != null" >
+        salecost,
+      </if>
+      <if test="insurance != null" >
+        insurance,
+      </if>
+      <if test="expensetax != null" >
+        expensetax,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="cmsn1 != null" >
+        cmsn1,
+      </if>
+      <if test="cmsn2 != null" >
+        cmsn2,
+      </if>
+      <if test="cmsn3 != null" >
+        cmsn3,
+      </if>
+      <if test="cmsn4 != null" >
+        cmsn4,
+      </if>
+      <if test="cmsn5 != null" >
+        cmsn5,
+      </if>
+      <if test="other1 != null" >
+        other1,
+      </if>
+      <if test="other2 != null" >
+        other2,
+      </if>
+      <if test="other3 != null" >
+        other3,
+      </if>
+      <if test="other4 != null" >
+        other4,
+      </if>
+      <if test="other5 != null" >
+        other5,
+      </if>
+      <if test="transcost != null" >
+        transcost,
+      </if>
+      <if test="transname != null" >
+        transname,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="currency != null" >
+        currency,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="buyid != null" >
+        #{buyid,jdbcType=INTEGER},
+      </if>
+      <if test="subneedid != null" >
+        #{subneedid,jdbcType=INTEGER},
+      </if>
+      <if test="config != null" >
+        #{config,jdbcType=VARCHAR},
+      </if>
+      <if test="outcolor != null" >
+        #{outcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="incolor != null" >
+        #{incolor,jdbcType=VARCHAR},
+      </if>
+      <if test="adjust != null" >
+        #{adjust,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="supplyname != null" >
+        #{supplyname,jdbcType=VARCHAR},
+      </if>
+      <if test="tostoreid != null" >
+        #{tostoreid,jdbcType=INTEGER},
+      </if>
+      <if test="appointtime != null" >
+        #{appointtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paytime != null" >
+        #{paytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalprice != null" >
+        #{totalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="rebate != null" >
+        #{rebate,jdbcType=DECIMAL},
+      </if>
+      <if test="othercost != null" >
+        #{othercost,jdbcType=DECIMAL},
+      </if>
+      <if test="latecost != null" >
+        #{latecost,jdbcType=DECIMAL},
+      </if>
+      <if test="salecost != null" >
+        #{salecost,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance != null" >
+        #{insurance,jdbcType=DECIMAL},
+      </if>
+      <if test="expensetax != null" >
+        #{expensetax,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="cmsn1 != null" >
+        #{cmsn1,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn2 != null" >
+        #{cmsn2,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn3 != null" >
+        #{cmsn3,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn4 != null" >
+        #{cmsn4,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn5 != null" >
+        #{cmsn5,jdbcType=DECIMAL},
+      </if>
+      <if test="other1 != null" >
+        #{other1,jdbcType=DECIMAL},
+      </if>
+      <if test="other2 != null" >
+        #{other2,jdbcType=DECIMAL},
+      </if>
+      <if test="other3 != null" >
+        #{other3,jdbcType=DECIMAL},
+      </if>
+      <if test="other4 != null" >
+        #{other4,jdbcType=DECIMAL},
+      </if>
+      <if test="other5 != null" >
+        #{other5,jdbcType=DECIMAL},
+      </if>
+      <if test="transcost != null" >
+        #{transcost,jdbcType=DECIMAL},
+      </if>
+      <if test="transname != null" >
+        #{transname,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=INTEGER},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.jnd.Jndsubbuy" >
+    update jnd_subbuy
+    <set >
+      <if test="buyid != null" >
+        buyid = #{buyid,jdbcType=INTEGER},
+      </if>
+      <if test="subneedid != null" >
+        subneedid = #{subneedid,jdbcType=INTEGER},
+      </if>
+      <if test="config != null" >
+        config = #{config,jdbcType=VARCHAR},
+      </if>
+      <if test="outcolor != null" >
+        outcolor = #{outcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="incolor != null" >
+        incolor = #{incolor,jdbcType=VARCHAR},
+      </if>
+      <if test="adjust != null" >
+        adjust = #{adjust,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="supplyname != null" >
+        supplyname = #{supplyname,jdbcType=VARCHAR},
+      </if>
+      <if test="tostoreid != null" >
+        tostoreid = #{tostoreid,jdbcType=INTEGER},
+      </if>
+      <if test="appointtime != null" >
+        appointtime = #{appointtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paytime != null" >
+        paytime = #{paytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalprice != null" >
+        totalprice = #{totalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="rebate != null" >
+        rebate = #{rebate,jdbcType=DECIMAL},
+      </if>
+      <if test="othercost != null" >
+        othercost = #{othercost,jdbcType=DECIMAL},
+      </if>
+      <if test="latecost != null" >
+        latecost = #{latecost,jdbcType=DECIMAL},
+      </if>
+      <if test="salecost != null" >
+        salecost = #{salecost,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance != null" >
+        insurance = #{insurance,jdbcType=DECIMAL},
+      </if>
+      <if test="expensetax != null" >
+        expensetax = #{expensetax,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="cmsn1 != null" >
+        cmsn1=#{cmsn1,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn2 != null" >
+        cmsn2=#{cmsn2,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn3 != null" >
+        cmsn3=#{cmsn3,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn4 != null" >
+        cmsn4=#{cmsn4,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn5 != null" >
+        cmsn5=#{cmsn5,jdbcType=DECIMAL},
+      </if>
+      <if test="other1 != null" >
+        other1=#{other1,jdbcType=DECIMAL},
+      </if>
+      <if test="other2 != null" >
+        other2=#{other2,jdbcType=DECIMAL},
+      </if>
+      <if test="other3 != null" >
+        other3=#{other3,jdbcType=DECIMAL},
+      </if>
+      <if test="other4 != null" >
+        other4=#{other4,jdbcType=DECIMAL},
+      </if>
+      <if test="other5 != null" >
+        other5=#{other5,jdbcType=DECIMAL},
+      </if>
+      <if test="transcost != null" >
+        transcost=#{transcost,jdbcType=DECIMAL},
+      </if>
+      <if test="transname != null" >
+        transname=#{transname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.jnd.Jndsubbuy" >
+    update jnd_subbuy
+    set buyid = #{buyid,jdbcType=INTEGER},
+      subneedid = #{subneedid,jdbcType=INTEGER},
+      config = #{config,jdbcType=VARCHAR},
+      outcolor = #{outcolor,jdbcType=VARCHAR},
+      incolor = #{incolor,jdbcType=VARCHAR},
+      adjust = #{adjust,jdbcType=VARCHAR},
+      num = #{num,jdbcType=INTEGER},
+      supplyname = #{supplyname,jdbcType=VARCHAR},
+      tostoreid = #{tostoreid,jdbcType=INTEGER},
+      appointtime = #{appointtime,jdbcType=TIMESTAMP},
+      totalprice = #{totalprice,jdbcType=DECIMAL},
+      rebate = #{rebate,jdbcType=DECIMAL},
+      othercost = #{othercost,jdbcType=DECIMAL},
+      latecost = #{latecost,jdbcType=DECIMAL},
+      salecost = #{salecost,jdbcType=DECIMAL},
+      insurance = #{insurance,jdbcType=DECIMAL},
+      expensetax = #{expensetax,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectJoinApplyPay" resultType="map" parameterType="map" >
+SELECT a.*, COUNT(b.id) bidc FROM jnd_subbuy a LEFT JOIN jnd_applypay b ON a.id = b.subbuyid WHERE a.buyid =#{buyid} GROUP BY a.id ORDER BY a.id ASC    
+  </select>
+  <select id="selectJoinContract" resultType="map" parameterType="map" >
+SELECT a.*, COUNT(b.id) bidc FROM jnd_subbuy a LEFT JOIN jnd_contract b ON (a.id = b.subbuyid AND b.nopass is NULL) WHERE a.buyid =#{buyid} GROUP BY a.id ORDER BY a.id ASC    
+  </select>
+<update id="updateByPrimaryKeySelectiveSpecial" parameterType="com.yyq.car.portal.common.model.jnd.Jndsubbuy" >
+    update jnd_subbuy
+    <set >
+      <if test="buyid != null" >
+        buyid = #{buyid,jdbcType=INTEGER},
+      </if>
+      <if test="subneedid != null" >
+        subneedid = #{subneedid,jdbcType=INTEGER},
+      </if>
+      <if test="config != null" >
+        config = #{config,jdbcType=VARCHAR},
+      </if>
+      <if test="outcolor != null" >
+        outcolor = #{outcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="incolor != null" >
+        incolor = #{incolor,jdbcType=VARCHAR},
+      </if>
+      <if test="adjust != null" >
+        adjust = #{adjust,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="supplyname != null" >
+        supplyname = #{supplyname,jdbcType=VARCHAR},
+      </if>
+      <if test="tostoreid != null" >
+        tostoreid = #{tostoreid,jdbcType=INTEGER},
+      </if>
+      <if test="appointtime != null" >
+        appointtime = #{appointtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appointtime == null" >
+        appointtime = null,
+      </if>
+      <if test="paytime != null" >
+        paytime = #{paytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paytime == null" >
+        paytime = null,
+      </if>
+      <if test="totalprice != null" >
+        totalprice = #{totalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="rebate != null" >
+        rebate = #{rebate,jdbcType=DECIMAL},
+      </if>
+      <if test="rebate == null" >
+        rebate = null,
+      </if>
+      <if test="othercost != null" >
+        othercost = #{othercost,jdbcType=DECIMAL},
+      </if>
+      <if test="othercost == null" >
+        othercost = null,
+      </if>
+      <if test="latecost != null" >
+        latecost = #{latecost,jdbcType=DECIMAL},
+      </if>
+      <if test="latecost == null" >
+        latecost = null,
+      </if>
+      <if test="salecost != null" >
+        salecost = #{salecost,jdbcType=DECIMAL},
+      </if>
+      <if test="salecost == null" >
+        salecost = null,
+      </if>
+      <if test="insurance != null" >
+        insurance = #{insurance,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance == null" >
+        insurance = null,
+      </if>
+      <if test="expensetax != null" >
+        expensetax = #{expensetax,jdbcType=DECIMAL},
+      </if>
+      <if test="expensetax == null" >
+        expensetax = null,
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="cmsn1 != null" >
+        cmsn1 = #{cmsn1,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn1 == null" >
+        cmsn1 = null,
+      </if>
+      <if test="cmsn2 != null" >
+        cmsn2 = #{cmsn2,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn2 == null" >
+        cmsn2 = null,
+      </if>
+      <if test="cmsn3 != null" >
+        cmsn3 = #{cmsn3,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn3 == null" >
+        cmsn3 = null,
+      </if>
+      <if test="cmsn4 != null" >
+        cmsn4 = #{cmsn4,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn4 == null" >
+        cmsn4 = null,
+      </if>
+      <if test="cmsn5 != null" >
+        cmsn5 = #{cmsn5,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn5 == null" >
+        cmsn5 = null,
+      </if>
+      <if test="other1 != null" >
+        other1 = #{other1,jdbcType=DECIMAL},
+      </if>
+      <if test="other1 == null" >
+        other1 = null,
+      </if>
+      <if test="other2 != null" >
+        other2 = #{other2,jdbcType=DECIMAL},
+      </if>
+      <if test="other2 == null" >
+        other2 = null,
+      </if>
+      <if test="other3 != null" >
+        other3 = #{other3,jdbcType=DECIMAL},
+      </if>
+      <if test="other3 == null" >
+        other3 = null,
+      </if>
+      <if test="other4 != null" >
+        other4 = #{other4,jdbcType=DECIMAL},
+      </if>
+      <if test="other4 == null" >
+        other4 = null,
+      </if>
+      <if test="other5 != null" >
+        other5 = #{other5,jdbcType=DECIMAL},
+      </if>
+      <if test="other5 == null" >
+        other5 = null,
+      </if>
+      <if test="transcost != null" >
+        transcost = #{transcost,jdbcType=DECIMAL},
+      </if>
+      <if test="transcost == null" >
+        transcost = null,
+      </if>
+      <if test="transname != null" >
+        transname = #{transname,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectLstForApay" resultType="map" parameterType="map" >
+SELECT
+	a.id,
+	c.`code`,
+	c.`name`,
+	b.initials,
+	b.brand,
+	b.model,
+	b.version,
+	IF(a.adjust=1,'是','否') adjust,
+	a.config,
+	a.outcolor,
+	a.incolor,
+	a.num,
+	a.supplyname,
+	a.totalprice,
+	a.createtime,IFNULL(SUM(d.num),0) locknum
+FROM
+	jnd_subbuy a
+JOIN jnd_buy c ON a.buyid = #{buyid,jdbcType=INTEGER} and a.buyid = c.id
+JOIN jnd_subneed b ON a.subneedid = b.id LEFT JOIN jnd_applypay d ON a.id=d.subbuyid
+WHERE 1=1
+    <if test="brand != null and brand !=''" >
+       and b.brand = #{brand}
+    </if>
+	<if test="createtime != null and createtime !=''" >
+       and DATE_FORMAT(a.createtime,'%Y-%m-%d') = #{createtime}
+    </if>
+    GROUP BY a.id
+ORDER BY
+	a.createtime DESC limit #{start},#{pageSize}
+  </select>
+  <select id="countForApay" resultType="int" parameterType="map" >
+SELECT
+	count(1)
+FROM
+	jnd_subbuy a
+JOIN jnd_buy c ON a.buyid = #{buyid,jdbcType=INTEGER} and a.buyid = c.id
+JOIN jnd_subneed b ON a.subneedid = b.id
+WHERE 1=1
+    <if test="brand != null and brand !=''" >
+       and b.brand = #{brand}
+    </if>
+	<if test="createtime != null and createtime !=''" >
+       and DATE_FORMAT(a.createtime,'%Y-%m-%d') = #{createtime}
+    </if>    
+  </select>
+  
+  <select id="selectForApayById" resultType="map" parameterType="map" >
+SELECT
+	a.*, c.`code`,DATE_FORMAT(c.createtime, '%Y-%m-%d') buytime,DATE_FORMAT(a.appointtime, '%Y-%m-%d') sappointtime,
+	DATE_FORMAT(a.paytime, '%Y-%m-%d') _paytime,
+	c.`name`,
+	b.initials,
+	b.brand,
+	b.model,
+	b.version,a.num-IFNULL(SUM(d.num),0) remainnum
+FROM
+	jnd_subbuy a
+JOIN jnd_buy c ON a.id = #{sbid,jdbcType=INTEGER}
+AND a.buyid = c.id
+JOIN jnd_subneed b ON a.subneedid = b.id LEFT JOIN jnd_applypay d ON a.id=d.subbuyid
+<if test="apayid != null" >
+   AND d.id!=#{apayid,jdbcType=INTEGER}
+</if>
+ GROUP BY a.id
+  </select>
+  <select id="querysubbuyidBysubneedid" parameterType="String" resultType="String">
+  select id from jnd_subbuy where subneedid=#{subneedid} LIMIT 0,1;
+  </select>
+  
+  <select id="selectLstForContract" resultType="map" parameterType="map" >
+SELECT
+	a.id,
+	c.`code`,
+	c.`name`,
+	b.initials,
+	b.brand,
+	b.model,
+	b.version,
+	IF(a.adjust=1,'是','否') adjust,
+	a.config,
+	a.outcolor,
+	a.incolor,
+	a.num,
+	a.supplyname,
+	a.totalprice,
+	a.createtime,IFNULL(SUM(d.num),0) locknum
+FROM
+	jnd_subbuy a
+JOIN jnd_buy c ON a.buyid = #{buyid,jdbcType=INTEGER} and a.buyid = c.id
+JOIN jnd_subneed b ON a.subneedid = b.id LEFT JOIN jnd_contract d ON a.id=d.subbuyid and d.nopass IS NULL
+WHERE 1=1
+    <if test="brand != null and brand !=''" >
+       and b.brand = #{brand}
+    </if>
+	<if test="createtime != null and createtime !=''" >
+       and DATE_FORMAT(a.createtime,'%Y-%m-%d') = #{createtime}
+    </if>
+    GROUP BY a.id
+ORDER BY
+	a.createtime DESC limit #{start},#{pageSize}
+  </select>
+  <select id="countForContract" resultType="int" parameterType="map" >
+SELECT
+	count(1)
+FROM
+	jnd_subbuy a
+JOIN jnd_buy c ON a.buyid = #{buyid,jdbcType=INTEGER} and a.buyid = c.id
+JOIN jnd_subneed b ON a.subneedid = b.id
+WHERE 1=1
+    <if test="brand != null and brand !=''" >
+       and b.brand = #{brand}
+    </if>
+	<if test="createtime != null and createtime !=''" >
+       and DATE_FORMAT(a.createtime,'%Y-%m-%d') = #{createtime}
+    </if>    
+  </select>
+  
+  <select id="selectForContractById" resultType="map" parameterType="map" >
+SELECT
+	a.*, n.needer,c.`code`,
+	c.`name`,
+	DATE_FORMAT(c.createtime, '%Y-%m-%d') buytime,
+	DATE_FORMAT(a.appointtime, '%Y-%m-%d') sappointtime,
+	b.initials,
+	b.brand,
+	b.model,
+	b.version,
+	a.num - IFNULL(SUM(d.num), 0) remainnum
+FROM
+	jnd_subbuy a
+JOIN jnd_buy c ON a.id = #{sbid,jdbcType=INTEGER}
+AND a.buyid = c.id
+JOIN jnd_subneed b ON a.subneedid = b.id join jnd_need n on b.needid=n.id
+LEFT JOIN jnd_contract d ON a.id = d.subbuyid and d.nopass IS NULL
+<if test="contractid != null" >
+   AND d.id!=#{contractid,jdbcType=INTEGER}
+</if>
+ GROUP BY a.id
+  </select>
+</mapper>

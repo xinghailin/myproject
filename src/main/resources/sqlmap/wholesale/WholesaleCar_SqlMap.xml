@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.wholesale.wholesaleCarMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.wholesale.WholesaleCar" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="carid" property="carid" jdbcType="INTEGER" />
+    <result column="monad" property="monad" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="location" property="location" jdbcType="INTEGER" />
+    <result column="status2" property="status2" jdbcType="INTEGER" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="modifytime" property="modifytime" jdbcType="TIMESTAMP" />
+    <result column="createuser" property="createuser" jdbcType="INTEGER" />
+    <result column="modifyuser" property="modifyuser" jdbcType="INTEGER" />
+    <result column="reason1" property="reason1" jdbcType="VARCHAR" />
+    <result column="reason2" property="reason2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, carid, monad, price, status, location, status2, createtime, modifytime, createuser, 
+    modifyuser, reason1, reason2
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="carid != null and carid !=''" >
+       and carid = #{carid}
+    </if>
+    <if test="monad != null and monad !=''" >
+       and monad = #{monad}
+    </if>
+    <if test="price != null and price !=''" >
+       and price = #{price}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+    <if test="location != null and location !=''" >
+       and location = #{location}
+    </if>
+    <if test="status2 != null and status2 !=''" >
+       and status2 = #{status2}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="modifytime != null and modifytime !=''" >
+       and modifytime = #{modifytime}
+    </if>
+    <if test="createuser != null and createuser !=''" >
+       and createuser = #{createuser}
+    </if>
+    <if test="modifyuser != null and modifyuser !=''" >
+       and modifyuser = #{modifyuser}
+    </if>
+    <if test="reason1 != null and reason1 !=''" >
+       and reason1 = #{reason1}
+    </if>
+    <if test="reason2 != null and reason2 !=''" >
+       and reason2 = #{reason2}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.wholesale.WholesaleCar" >
+    select 
+    <include refid="Base_Column_List" />
+    from wholesale_car
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.wholesale.WholesaleCar" >
+    select count(*) from wholesale_car where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from wholesale_car
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from wholesale_car
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.wholesale.WholesaleCar" >
+    insert into wholesale_car (id, carid, monad, 
+      price, status, location, 
+      status2, createtime, modifytime, 
+      createuser, modifyuser, reason1, 
+      reason2)
+    values (#{id,jdbcType=VARCHAR}, #{carid,jdbcType=INTEGER}, #{monad,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DECIMAL}, #{status,jdbcType=INTEGER}, #{location,jdbcType=INTEGER}, 
+      #{status2,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{modifytime,jdbcType=TIMESTAMP}, 
+      #{createuser,jdbcType=INTEGER}, #{modifyuser,jdbcType=INTEGER}, #{reason1,jdbcType=VARCHAR}, 
+      #{reason2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.wholesale.WholesaleCar" >
+    insert into wholesale_car
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="carid != null" >
+        carid,
+      </if>
+      <if test="monad != null" >
+        monad,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="location != null" >
+        location,
+      </if>
+      <if test="status2 != null" >
+        status2,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="modifytime != null" >
+        modifytime,
+      </if>
+      <if test="createuser != null" >
+        createuser,
+      </if>
+      <if test="modifyuser != null" >
+        modifyuser,
+      </if>
+      <if test="reason1 != null" >
+        reason1,
+      </if>
+      <if test="reason2 != null" >
+        reason2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="carid != null" >
+        #{carid,jdbcType=INTEGER},
+      </if>
+      <if test="monad != null" >
+        #{monad,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="location != null" >
+        #{location,jdbcType=INTEGER},
+      </if>
+      <if test="status2 != null" >
+        #{status2,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifytime != null" >
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuser != null" >
+        #{createuser,jdbcType=INTEGER},
+      </if>
+      <if test="modifyuser != null" >
+        #{modifyuser,jdbcType=INTEGER},
+      </if>
+      <if test="reason1 != null" >
+        #{reason1,jdbcType=VARCHAR},
+      </if>
+      <if test="reason2 != null" >
+        #{reason2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.wholesale.WholesaleCar" >
+    update wholesale_car
+    <set >
+      <if test="carid != null" >
+        carid = #{carid,jdbcType=INTEGER},
+      </if>
+      <if test="monad != null" >
+        monad = #{monad,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="location != null" >
+        location = #{location,jdbcType=INTEGER},
+      </if>
+      <if test="status2 != null" >
+        status2 = #{status2,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifytime != null" >
+        modifytime = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuser != null" >
+        createuser = #{createuser,jdbcType=INTEGER},
+      </if>
+      <if test="modifyuser != null" >
+        modifyuser = #{modifyuser,jdbcType=INTEGER},
+      </if>
+      <if test="reason1 != null" >
+        reason1 = #{reason1,jdbcType=VARCHAR},
+      </if>
+      <if test="reason2 != null" >
+        reason2 = #{reason2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.wholesale.WholesaleCar" >
+    update wholesale_car
+    set carid = #{carid,jdbcType=INTEGER},
+      monad = #{monad,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      status = #{status,jdbcType=INTEGER},
+      location = #{location,jdbcType=INTEGER},
+      status2 = #{status2,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      modifytime = #{modifytime,jdbcType=TIMESTAMP},
+      createuser = #{createuser,jdbcType=INTEGER},
+      modifyuser = #{modifyuser,jdbcType=INTEGER},
+      reason1 = #{reason1,jdbcType=VARCHAR},
+      reason2 = #{reason2,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  
+  
+  
+  
+    <!--    -->
+    
+   <resultMap id="Result_Map" type="com.yyq.car.portal.common.dto.WholesaleCarDTO" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="carid" property="carid" jdbcType="INTEGER" />
+    <result column="monad" property="monad" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="location" property="location" jdbcType="INTEGER" />
+    <result column="status2" property="status2" jdbcType="INTEGER" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="modifytime" property="modifytime" jdbcType="TIMESTAMP" />
+    <result column="createuser" property="createuser" jdbcType="INTEGER" />
+    <result column="modifyuser" property="modifyuser" jdbcType="INTEGER" />
+    <result column="reason1" property="reason1" jdbcType="VARCHAR" />
+    <result column="reason2" property="reason2" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+	<result column="model" property="model" jdbcType="VARCHAR" />
+	<result column="version" property="version" jdbcType="VARCHAR" />
+	<result column="vin" property="vin" jdbcType="VARCHAR" />
+    
+  </resultMap>
+	<sql id="Column_List">
+		salecar.id id, salecar.monad monad, salecar.price price, salecar.status status, salecar.location location, salecar.status2 status2, salecar.createtime createtime,
+		salecar.modifytime modifytime, salecar.createuser createuser,
+		salecar.modifyuser modifyuser, salecar.reason1 reason1, salecar.reason2 reason2,
+		car.id carid,car.brand brand, car.version version,car.model model,car.vin vin
+	</sql>
+	
+	 <sql id="whereparametercase" > 
+   		<if test="version != null and version !=''">
+			and car.version like concat('%',#{version},'%')
+		</if>
+		<if test="brand != null and brand !=''">
+			and car.BRAND like concat('%',#{brand},'%')
+		</if>
+		<if test="model != null and model !=''">
+			and car.MODEL like concat('%',#{model},'%')
+		</if>
+	   <if test="vin != null and vin !=''">
+			and car.VIN like concat('%',#{vin},'%')
+		</if>
+	   <if test="status2 != null and status2 !=''">
+			and salecar.status2 =#{status2}
+		</if>
+  </sql>
+   <!--   门店审核列表 -->
+    <select id="selectListCarForStoreByParameter" resultMap="Result_Map" parameterType="com.yyq.car.portal.common.dto.WholesaleCarDTO" >
+    select 
+    <include refid="Column_List" />
+    from wholesale_car salecar ,pro_car car
+    where 
+    salecar.carid =car.id  and salecar.status2 in (1,2,3) and salecar.location = 1
+    <include refid="whereparametercase" />
+    ORDER BY salecar.modifytime desc ,salecar.createtime desc
+	LIMIT #{start},#{pageSize}
+  </select>
+  <select id="countListCarForStoreByParameter" resultType="int" parameterType="com.yyq.car.portal.common.dto.WholesaleCarDTO" >
+    select count(*) from wholesale_car salecar ,pro_car car 
+    where 
+     salecar.carid =car.id  and salecar.status2 in (1,2,3) and salecar.location = 1
+    <include refid="whereparametercase" />
+  </select>
+  
+   <!--   财务审核列表     资产库列表-->
+      <select id="selectListCarForFinanceByParameter" resultMap="Result_Map" parameterType="com.yyq.car.portal.common.dto.WholesaleCarDTO" >
+    select 
+    <include refid="Column_List" />
+    from wholesale_car salecar ,pro_car car
+    where 
+    salecar.carid =car.id  and salecar.status2 in (2,4,5) 
+    <include refid="whereparametercase" />
+    ORDER BY salecar.modifytime desc ,salecar.createtime desc
+	LIMIT #{start},#{pageSize}
+  </select>
+  <select id="countListCarForFinanceByParameter" resultType="int" parameterType="com.yyq.car.portal.common.dto.WholesaleCarDTO" >
+    select count(*) from wholesale_car salecar ,pro_car car 
+    where 
+     salecar.carid =car.id  and salecar.status2 in (2,4,5) 
+    <include refid="whereparametercase" />
+  </select>
+  <!--   根据id 查询 -->
+    <select id="selectCarAllByPrimaryKey" resultMap="Result_Map" parameterType="java.lang.String" >
+    select 
+    <include refid="Column_List" />
+    from wholesale_car salecar ,pro_car car
+    where 
+     salecar.carid =car.id and salecar.id = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="countTaskByMap" resultType="int" parameterType="map" >
+     select count(*) from wholesale_car salecar ,pro_car car 
+    where 
+     salecar.carid =car.id 
+    <if test="status2 != null and status2 !=''" >
+       and salecar.status2 = #{status2}
+    </if>
+  </select>
+</mapper>

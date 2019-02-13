@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.product.StoreMapper">
+	<resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.product.Store">
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="NAME" property="name" jdbcType="VARCHAR" />
+		<result column="PROVINCE" property="province" jdbcType="VARCHAR" />
+		<result column="CITY" property="city" jdbcType="VARCHAR" />
+		<result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+		<result column="TEL" property="tel" jdbcType="VARCHAR" />
+		<result column="PRINCIPAL" property="principal" jdbcType="VARCHAR" />
+		<result column="PRI_TEL" property="priTel" jdbcType="VARCHAR" />
+		<result column="PRI_PHONE" property="priPhone" jdbcType="VARCHAR" />
+		<result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="type" property="type" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		ID, NAME, PROVINCE, CITY, ADDRESS, TEL, PRINCIPAL, PRI_TEL, PRI_PHONE,
+		CREATE_TIME,type
+	</sql>
+	<sql id="wherecase">
+		1=1
+		<if test="id != null and id !=''">
+			and ID = #{id}
+		</if>
+		<if test="name != null and name !=''">
+			and NAME = #{name}
+		</if>
+		<if test="province != null and province !=''">
+			and PROVINCE = #{province}
+		</if>
+		<if test="city != null and city !=''">
+			and CITY = #{city}
+		</if>
+		<if test="address != null and address !=''">
+			and ADDRESS = #{address}
+		</if>
+		<if test="tel != null and tel !=''">
+			and TEL = #{tel}
+		</if>
+		<if test="principal != null and principal !=''">
+			and PRINCIPAL = #{principal}
+		</if>
+		<if test="priTel != null and priTel !=''">
+			and PRI_TEL = #{priTel}
+		</if>
+		<if test="priPhone != null and priPhone !=''">
+			and PRI_PHONE = #{priPhone}
+		</if>
+		<if test="createTime != null and createTime !=''">
+			and CREATE_TIME = #{createTime}
+		</if>
+		<if test="type != null and type !=''">
+			and type = #{type}
+		</if>
+	</sql>
+	<select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.product.Store">
+		select
+		<include refid="Base_Column_List" />
+		from pro_store
+		where
+		<include refid="wherecase" />
+	</select>
+	<select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.product.Store">
+		select count(*) from pro_store where
+		<include refid="wherecase" />
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from pro_store
+		where ID = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from pro_store
+		where ID = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.yyq.car.portal.common.model.product.Store">
+		<selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE">
+			SELECT NEXTVAL(604);
+		</selectKey>
+		insert into pro_store (ID, NAME,PROVINCE,
+		CITY, ADDRESS,
+		TEL, PRINCIPAL, PRI_TEL,
+		PRI_PHONE, CREATE_TIME)
+		values (#{id,jdbcType=INTEGER},
+		#{name,jdbcType=VARCHAR},#{province,jdbcType=VARCHAR},
+		#{city,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
+		#{tel,jdbcType=VARCHAR}, #{principal,jdbcType=VARCHAR},
+		#{priTel,jdbcType=VARCHAR},
+		#{priPhone,jdbcType=VARCHAR},
+		#{createTime,jdbcType=TIMESTAMP})
+	</insert>
+	<insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.product.Store">
+		<selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE">
+			SELECT NEXTVAL(604);
+		</selectKey>
+		insert into pro_store
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			ID,
+			<if test="name != null">
+				NAME,
+			</if>
+			<if test="province != null">
+				PROVINCE,
+			</if>
+			<if test="city != null">
+				CITY,
+			</if>
+			<if test="address != null">
+				ADDRESS,
+			</if>
+			<if test="tel != null">
+				TEL,
+			</if>
+			<if test="principal != null">
+				PRINCIPAL,
+			</if>
+			<if test="priTel != null">
+				PRI_TEL,
+			</if>
+			<if test="priPhone != null">
+				PRI_PHONE,
+			</if>
+			<if test="createTime != null">
+				CREATE_TIME,
+			</if>
+			<if test="type != null">
+				type,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			#{id,jdbcType=INTEGER},
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="province != null">
+				#{province,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				#{city,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				#{address,jdbcType=VARCHAR},
+			</if>
+			<if test="tel != null">
+				#{tel,jdbcType=VARCHAR},
+			</if>
+			<if test="principal != null">
+				#{principal,jdbcType=VARCHAR},
+			</if>
+			<if test="priTel != null">
+				#{priTel,jdbcType=VARCHAR},
+			</if>
+			<if test="priPhone != null">
+				#{priPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="type != null">
+				#{type,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.product.Store">
+		update pro_store
+		<set>
+			<if test="name != null">
+				NAME = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="province != null">
+				PROVINCE = #{province,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				CITY = #{city,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				ADDRESS = #{address,jdbcType=VARCHAR},
+			</if>
+			<if test="tel != null">
+				TEL = #{tel,jdbcType=VARCHAR},
+			</if>
+			<if test="principal != null">
+				PRINCIPAL = #{principal,jdbcType=VARCHAR},
+			</if>
+			<if test="priTel != null">
+				PRI_TEL = #{priTel,jdbcType=VARCHAR},
+			</if>
+			<if test="priPhone != null">
+				PRI_PHONE = #{priPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="type != null">
+				type = #{type,jdbcType=VARCHAR},
+			</if>
+			<if test="type == null">
+				type = null,
+			</if>
+		</set>
+		where ID = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.product.Store">
+		update pro_store
+		set NAME = #{name,jdbcType=VARCHAR},
+		PROVINCE = #{province,jdbcType=VARCHAR},
+		CITY = #{city,jdbcType=VARCHAR},
+		ADDRESS =
+		#{address,jdbcType=VARCHAR},
+		TEL = #{tel,jdbcType=VARCHAR},
+		PRINCIPAL = #{principal,jdbcType=VARCHAR},
+		PRI_TEL = #{priTel,jdbcType=VARCHAR},
+		PRI_PHONE = #{priPhone,jdbcType=VARCHAR},
+		CREATE_TIME =
+		#{createTime,jdbcType=TIMESTAMP}
+		where ID = #{id,jdbcType=INTEGER}
+	</update>
+	<select id="jndstore" resultType="com.yyq.car.portal.common.model.product.Store">
+		select ID id,name from pro_store where type is not null
+	</select>
+	<select id="cStoreid" resultType="com.yyq.car.portal.common.model.product.Store">
+		select ID id,name,address from pro_store where type is null
+	</select>
+	<select id="userjndstore" resultType="com.yyq.car.portal.common.model.product.Store" parameterType="int">
+		select ID id,name,address from pro_store where type =#{type}
+	</select>
+
+	<select id="selectByCountry" resultType="com.yyq.car.portal.common.model.product.Store"
+		parameterType="int">
+		SELECT * FROM `pro_store` where type=#{type} 
+	</select>
+</mapper>

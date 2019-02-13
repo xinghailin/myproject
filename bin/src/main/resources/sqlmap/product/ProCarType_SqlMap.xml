@@ -1,0 +1,2844 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.product.CarTypeMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.product.CarType" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="putaway" property="putaway" jdbcType="VARCHAR" />
+    <result column="putawayTime" property="putawaytime" jdbcType="TIMESTAMP" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="principal" property="principal" jdbcType="VARCHAR" />
+    <result column="first_month_pay" property="firstMonthPay" jdbcType="VARCHAR" />
+    <result column="every_month_pay" property="everyMonthPay" jdbcType="VARCHAR" />
+    <result column="rate" property="rate" jdbcType="VARCHAR" />
+    <result column="period_num" property="periodNum" jdbcType="VARCHAR" />
+    <result column="firstpay" property="firstpay" jdbcType="VARCHAR" />
+    <result column="down_pay" property="downPay" jdbcType="VARCHAR" />
+    <result column="cover_pic" property="coverPic" jdbcType="VARCHAR" />
+    <result column="structure" property="structure" jdbcType="VARCHAR" />
+    <result column="lwh" property="lwh" jdbcType="VARCHAR" />
+    <result column="engine" property="engine" jdbcType="VARCHAR" />
+    <result column="gearbox" property="gearbox" jdbcType="VARCHAR" />
+    <result column="drive_t" property="driveT" jdbcType="VARCHAR" />
+    <result column="fuel_t" property="fuelT" jdbcType="VARCHAR" />
+    <result column="oil_wear" property="oilWear" jdbcType="VARCHAR" />
+    <result column="color" property="color" jdbcType="VARCHAR" />
+    <result column="wheel_base" property="wheelBase" jdbcType="VARCHAR" />
+    <result column="front_span" property="frontSpan" jdbcType="VARCHAR" />
+    <result column="rear_span" property="rearSpan" jdbcType="VARCHAR" />
+    <result column="min_clearance" property="minClearance" jdbcType="VARCHAR" />
+    <result column="weight" property="weight" jdbcType="VARCHAR" />
+    <result column="door_num" property="doorNum" jdbcType="VARCHAR" />
+    <result column="seat_num" property="seatNum" jdbcType="VARCHAR" />
+    <result column="fuel_tank_vol" property="fuelTankVol" jdbcType="VARCHAR" />
+    <result column="trunk_vol" property="trunkVol" jdbcType="VARCHAR" />
+    <result column="engine_t" property="engineT" jdbcType="VARCHAR" />
+    <result column="displacement" property="displacement" jdbcType="VARCHAR" />
+    <result column="inair_type" property="inairType" jdbcType="VARCHAR" />
+    <result column="air_cylinder_arr" property="airCylinderArr" jdbcType="VARCHAR" />
+    <result column="air_cy_num" property="airCyNum" jdbcType="VARCHAR" />
+    <result column="air_doors_per_cy" property="airDoorsPerCy" jdbcType="VARCHAR" />
+    <result column="cy_span" property="cySpan" jdbcType="VARCHAR" />
+    <result column="cy_distance" property="cyDistance" jdbcType="VARCHAR" />
+    <result column="max_power" property="maxPower" jdbcType="VARCHAR" />
+    <result column="max_work" property="maxWork" jdbcType="VARCHAR" />
+    <result column="max_work_rotate" property="maxWorkRotate" jdbcType="VARCHAR" />
+    <result column="max_torque" property="maxTorque" jdbcType="VARCHAR" />
+    <result column="max_torque_rotate" property="maxTorqueRotate" jdbcType="VARCHAR" />
+    <result column="engine_special_tech" property="engineSpecialTech" jdbcType="VARCHAR" />
+    <result column="fuel_flag" property="fuelFlag" jdbcType="VARCHAR" />
+    <result column="supply_fuel_t" property="supplyFuelT" jdbcType="VARCHAR" />
+    <result column="cy_cover_material" property="cyCoverMaterial" jdbcType="VARCHAR" />
+    <result column="cy_trunk_material" property="cyTrunkMaterial" jdbcType="VARCHAR" />
+    <result column="envir_protect" property="envirProtect" jdbcType="VARCHAR" />
+    <result column="gears_num" property="gearsNum" jdbcType="VARCHAR" />
+    <result column="gearbox_t" property="gearboxT" jdbcType="VARCHAR" />
+    <result column="fourDriveT" property="fourdrivet" jdbcType="VARCHAR" />
+    <result column="centerDiffStru" property="centerdiffstru" jdbcType="VARCHAR" />
+    <result column="frontFrameT" property="frontframet" jdbcType="VARCHAR" />
+    <result column="rearFrameT" property="rearframet" jdbcType="VARCHAR" />
+    <result column="assistPowerT" property="assistpowert" jdbcType="VARCHAR" />
+    <result column="trunkStruc" property="trunkstruc" jdbcType="VARCHAR" />
+    <result column="frontBrakeT" property="frontbraket" jdbcType="VARCHAR" />
+    <result column="rearBrakeT" property="rearbraket" jdbcType="VARCHAR" />
+    <result column="parkingBrakeT" property="parkingbraket" jdbcType="VARCHAR" />
+    <result column="frontWheelSpe" property="frontwheelspe" jdbcType="VARCHAR" />
+    <result column="rearWheelSpe" property="rearwheelspe" jdbcType="VARCHAR" />
+    <result column="readyWheelSpe" property="readywheelspe" jdbcType="VARCHAR" />
+    <result column="mainSafeAir" property="mainsafeair" jdbcType="VARCHAR" />
+    <result column="sideSafeAir" property="sidesafeair" jdbcType="VARCHAR" />
+    <result column="frontSideAir" property="frontsideair" jdbcType="VARCHAR" />
+    <result column="rearSizeAir" property="rearsizeair" jdbcType="VARCHAR" />
+    <result column="frontHeadAir" property="frontheadair" jdbcType="VARCHAR" />
+    <result column="rearHeadAir" property="rearheadair" jdbcType="VARCHAR" />
+    <result column="kneeAir" property="kneeair" jdbcType="VARCHAR" />
+    <result column="tirePresCheck" property="tireprescheck" jdbcType="VARCHAR" />
+    <result column="zeroTirePresDrive" property="zerotirepresdrive" jdbcType="VARCHAR" />
+    <result column="safeBeltNotice" property="safebeltnotice" jdbcType="VARCHAR" />
+    <result column="isofix" property="isofix" jdbcType="VARCHAR" />
+    <result column="engineStopSteal" property="enginestopsteal" jdbcType="VARCHAR" />
+    <result column="insideCenterLock" property="insidecenterlock" jdbcType="VARCHAR" />
+    <result column="controKey" property="controkey" jdbcType="VARCHAR" />
+    <result column="startNoKey" property="startnokey" jdbcType="VARCHAR" />
+    <result column="enterNoKey" property="enternokey" jdbcType="VARCHAR" />
+    <result column="antiBlocking" property="antiblocking" jdbcType="VARCHAR" />
+    <result column="brakeAllot" property="brakeallot" jdbcType="VARCHAR" />
+    <result column="brakeAssist" property="brakeassist" jdbcType="VARCHAR" />
+    <result column="pullControl" property="pullcontrol" jdbcType="VARCHAR" />
+    <result column="trunkHoldControl" property="trunkholdcontrol" jdbcType="VARCHAR" />
+    <result column="uphillAssist" property="uphillassist" jdbcType="VARCHAR" />
+    <result column="autoParking" property="autoparking" jdbcType="VARCHAR" />
+    <result column="steephillSlow" property="steephillslow" jdbcType="VARCHAR" />
+    <result column="changeFrame" property="changeframe" jdbcType="VARCHAR" />
+    <result column="airFrame" property="airframe" jdbcType="VARCHAR" />
+    <result column="elecSkyWin" property="elecskywin" jdbcType="VARCHAR" />
+    <result column="wideWin" property="widewin" jdbcType="VARCHAR" />
+    <result column="sportExtend" property="sportextend" jdbcType="VARCHAR" />
+    <result column="lvhejinTire" property="lvhejintire" jdbcType="VARCHAR" />
+    <result column="elecDoor" property="elecdoor" jdbcType="VARCHAR" />
+    <result column="sideSlideDoor" property="sideslidedoor" jdbcType="VARCHAR" />
+    <result column="elecBackVan" property="elecbackvan" jdbcType="VARCHAR" />
+    <result column="feelBackVan" property="feelbackvan" jdbcType="VARCHAR" />
+    <result column="roofRack" property="roofrack" jdbcType="VARCHAR" />
+    <result column="realFurSteering" property="realfursteering" jdbcType="VARCHAR" />
+    <result column="steeringAdjust" property="steeringadjust" jdbcType="VARCHAR" />
+    <result column="steeringElecA" property="steeringeleca" jdbcType="VARCHAR" />
+    <result column="multiFunSteering" property="multifunsteering" jdbcType="VARCHAR" />
+    <result column="steeringShift" property="steeringshift" jdbcType="VARCHAR" />
+    <result column="steeringHot" property="steeringhot" jdbcType="VARCHAR" />
+    <result column="speedNavigation" property="speednavigation" jdbcType="VARCHAR" />
+    <result column="frontParkingRadar" property="frontparkingradar" jdbcType="VARCHAR" />
+    <result column="rearParkingRadar" property="rearparkingradar" jdbcType="VARCHAR" />
+    <result column="backVideo" property="backvideo" jdbcType="VARCHAR" />
+    <result column="driveDisplay" property="drivedisplay" jdbcType="VARCHAR" />
+    <result column="liquidDisplay" property="liquiddisplay" jdbcType="VARCHAR" />
+    <result column="seatMatieral" property="seatmatieral" jdbcType="VARCHAR" />
+    <result column="seatAdjust" property="seatadjust" jdbcType="VARCHAR" />
+    <result column="waistAdjust" property="waistadjust" jdbcType="VARCHAR" />
+    <result column="shoulderAdjust" property="shoulderadjust" jdbcType="VARCHAR" />
+    <result column="mainSeatElecA" property="mainseateleca" jdbcType="VARCHAR" />
+    <result column="assistSeartElecA" property="assistsearteleca" jdbcType="VARCHAR" />
+    <result column="rearSeatElecA" property="rearseateleca" jdbcType="VARCHAR" />
+    <result column="frontSeatHot" property="frontseathot" jdbcType="VARCHAR" />
+    <result column="rearSeartHot" property="rearsearthot" jdbcType="VARCHAR" />
+    <result column="frontSeartWind" property="frontseartwind" jdbcType="VARCHAR" />
+    <result column="rearSeatWind" property="rearseatwind" jdbcType="VARCHAR" />
+    <result column="gpsNaviSys" property="gpsnavisys" jdbcType="VARCHAR" />
+    <result column="centerColorfulScreen" property="centercolorfulscreen" jdbcType="VARCHAR" />
+    <result column="bluePhone" property="bluephone" jdbcType="VARCHAR" />
+    <result column="soundInterface" property="soundinterface" jdbcType="VARCHAR" />
+    <result column="multimediaSys" property="multimediasys" jdbcType="VARCHAR" />
+    <result column="loudspeakerNum" property="loudspeakernum" jdbcType="VARCHAR" />
+    <result column="headlight" property="headlight" jdbcType="VARCHAR" />
+    <result column="farlight" property="farlight" jdbcType="VARCHAR" />
+    <result column="daylight" property="daylight" jdbcType="VARCHAR" />
+    <result column="autolight" property="autolight" jdbcType="VARCHAR" />
+    <result column="autoHeadLight" property="autoheadlight" jdbcType="VARCHAR" />
+    <result column="turnAssistLight" property="turnassistlight" jdbcType="VARCHAR" />
+    <result column="turnLight" property="turnlight" jdbcType="VARCHAR" />
+    <result column="frontFogLight" property="frontfoglight" jdbcType="VARCHAR" />
+    <result column="bigLightA" property="biglighta" jdbcType="VARCHAR" />
+    <result column="bigLightClean" property="biglightclean" jdbcType="VARCHAR" />
+    <result column="frontElecWin" property="frontelecwin" jdbcType="VARCHAR" />
+    <result column="rearElecWin" property="rearelecwin" jdbcType="VARCHAR" />
+    <result column="winPrevHand" property="winprevhand" jdbcType="VARCHAR" />
+    <result column="rearviewElecA" property="rearvieweleca" jdbcType="VARCHAR" />
+    <result column="rearviewHot" property="rearviewhot" jdbcType="VARCHAR" />
+    <result column="inRearviewPrevEye" property="inrearviewpreveye" jdbcType="VARCHAR" />
+    <result column="outRearviewPrevEye" property="outrearviewpreveye" jdbcType="VARCHAR" />
+    <result column="rearviewElecFold" property="rearviewelecfold" jdbcType="VARCHAR" />
+    <result column="sunMakeupMirror" property="sunmakeupmirror" jdbcType="VARCHAR" />
+    <result column="rearRainBrush" property="rearrainbrush" jdbcType="VARCHAR" />
+    <result column="feelRarnBrush" property="feelrarnbrush" jdbcType="VARCHAR" />
+    <result column="airconditionControlT" property="airconditioncontrolt" jdbcType="VARCHAR" />
+    <result column="rearIndependentAC" property="rearindependentac" jdbcType="VARCHAR" />
+    <result column="rearOutWindPort" property="rearoutwindport" jdbcType="VARCHAR" />
+    <result column="temperControl" property="tempercontrol" jdbcType="VARCHAR" />
+    <result column="airAdjust" property="airadjust" jdbcType="VARCHAR" />
+    <result column="iceBox" property="icebox" jdbcType="VARCHAR" />
+    <result column="autoParkingPosi" property="autoparkingposi" jdbcType="VARCHAR" />
+    <result column="engineStartShopTech" property="enginestartshoptech" jdbcType="VARCHAR" />
+    <result column="asyAssist" property="asyassist" jdbcType="VARCHAR" />
+    <result column="roadWrongSys" property="roadwrongsys" jdbcType="VARCHAR" />
+    <result column="selfBrakeSys" property="selfbrakesys" jdbcType="VARCHAR" />
+    <result column="selfTurnSys" property="selfturnsys" jdbcType="VARCHAR" />
+    <result column="nightSeeSys" property="nightseesys" jdbcType="VARCHAR" />
+    <result column="liquidByPage" property="liquidbypage" jdbcType="VARCHAR" />
+    <result column="autoNavi" property="autonavi" jdbcType="VARCHAR" />
+    <result column="allcamera" property="allcamera" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+     <result column="oneMonthPay" property="oneMonthPay" jdbcType="VARCHAR" />
+     <result column="thirteenthMonthPay" property="thirteenthMonthPay" jdbcType="VARCHAR" />
+     <result column="fourteenthMonthPay" property="fourteenthMonthPay" jdbcType="VARCHAR" />
+     <result column="finalPayment" property="finalPayment" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <resultMap id="dtoResultMap" type="com.yyq.car.portal.common.dto.Cartypedto" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="putaway" property="putaway" jdbcType="VARCHAR" />
+    <result column="putawayTime" property="putawaytime" jdbcType="TIMESTAMP" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="principal" property="principal" jdbcType="VARCHAR" />
+    <result column="first_month_pay" property="firstMonthPay" jdbcType="VARCHAR" />
+    <result column="every_month_pay" property="everyMonthPay" jdbcType="VARCHAR" />
+    <result column="rate" property="rate" jdbcType="VARCHAR" />
+    <result column="period_num" property="periodNum" jdbcType="VARCHAR" />
+    <result column="firstpay" property="firstpay" jdbcType="VARCHAR" />
+    <result column="down_pay" property="downPay" jdbcType="VARCHAR" />
+    <result column="cover_pic" property="coverPic" jdbcType="VARCHAR" />
+    <result column="structure" property="structure" jdbcType="VARCHAR" />
+    <result column="lwh" property="lwh" jdbcType="VARCHAR" />
+    <result column="engine" property="engine" jdbcType="VARCHAR" />
+    <result column="gearbox" property="gearbox" jdbcType="VARCHAR" />
+    <result column="drive_t" property="driveT" jdbcType="VARCHAR" />
+    <result column="fuel_t" property="fuelT" jdbcType="VARCHAR" />
+    <result column="oil_wear" property="oilWear" jdbcType="VARCHAR" />
+    <result column="color" property="color" jdbcType="VARCHAR" />
+    <result column="wheel_base" property="wheelBase" jdbcType="VARCHAR" />
+    <result column="front_span" property="frontSpan" jdbcType="VARCHAR" />
+    <result column="rear_span" property="rearSpan" jdbcType="VARCHAR" />
+    <result column="min_clearance" property="minClearance" jdbcType="VARCHAR" />
+    <result column="weight" property="weight" jdbcType="VARCHAR" />
+    <result column="door_num" property="doorNum" jdbcType="VARCHAR" />
+    <result column="seat_num" property="seatNum" jdbcType="VARCHAR" />
+    <result column="fuel_tank_vol" property="fuelTankVol" jdbcType="VARCHAR" />
+    <result column="trunk_vol" property="trunkVol" jdbcType="VARCHAR" />
+    <result column="engine_t" property="engineT" jdbcType="VARCHAR" />
+    <result column="displacement" property="displacement" jdbcType="VARCHAR" />
+    <result column="inair_type" property="inairType" jdbcType="VARCHAR" />
+    <result column="air_cylinder_arr" property="airCylinderArr" jdbcType="VARCHAR" />
+    <result column="air_cy_num" property="airCyNum" jdbcType="VARCHAR" />
+    <result column="air_doors_per_cy" property="airDoorsPerCy" jdbcType="VARCHAR" />
+    <result column="cy_span" property="cySpan" jdbcType="VARCHAR" />
+    <result column="cy_distance" property="cyDistance" jdbcType="VARCHAR" />
+    <result column="max_power" property="maxPower" jdbcType="VARCHAR" />
+    <result column="max_work" property="maxWork" jdbcType="VARCHAR" />
+    <result column="max_work_rotate" property="maxWorkRotate" jdbcType="VARCHAR" />
+    <result column="max_torque" property="maxTorque" jdbcType="VARCHAR" />
+    <result column="max_torque_rotate" property="maxTorqueRotate" jdbcType="VARCHAR" />
+    <result column="engine_special_tech" property="engineSpecialTech" jdbcType="VARCHAR" />
+    <result column="fuel_flag" property="fuelFlag" jdbcType="VARCHAR" />
+    <result column="supply_fuel_t" property="supplyFuelT" jdbcType="VARCHAR" />
+    <result column="cy_cover_material" property="cyCoverMaterial" jdbcType="VARCHAR" />
+    <result column="cy_trunk_material" property="cyTrunkMaterial" jdbcType="VARCHAR" />
+    <result column="envir_protect" property="envirProtect" jdbcType="VARCHAR" />
+    <result column="gears_num" property="gearsNum" jdbcType="VARCHAR" />
+    <result column="gearbox_t" property="gearboxT" jdbcType="VARCHAR" />
+    <result column="fourDriveT" property="fourdrivet" jdbcType="VARCHAR" />
+    <result column="centerDiffStru" property="centerdiffstru" jdbcType="VARCHAR" />
+    <result column="frontFrameT" property="frontframet" jdbcType="VARCHAR" />
+    <result column="rearFrameT" property="rearframet" jdbcType="VARCHAR" />
+    <result column="assistPowerT" property="assistpowert" jdbcType="VARCHAR" />
+    <result column="trunkStruc" property="trunkstruc" jdbcType="VARCHAR" />
+    <result column="frontBrakeT" property="frontbraket" jdbcType="VARCHAR" />
+    <result column="rearBrakeT" property="rearbraket" jdbcType="VARCHAR" />
+    <result column="parkingBrakeT" property="parkingbraket" jdbcType="VARCHAR" />
+    <result column="frontWheelSpe" property="frontwheelspe" jdbcType="VARCHAR" />
+    <result column="rearWheelSpe" property="rearwheelspe" jdbcType="VARCHAR" />
+    <result column="readyWheelSpe" property="readywheelspe" jdbcType="VARCHAR" />
+    <result column="mainSafeAir" property="mainsafeair" jdbcType="VARCHAR" />
+    <result column="sideSafeAir" property="sidesafeair" jdbcType="VARCHAR" />
+    <result column="frontSideAir" property="frontsideair" jdbcType="VARCHAR" />
+    <result column="rearSizeAir" property="rearsizeair" jdbcType="VARCHAR" />
+    <result column="frontHeadAir" property="frontheadair" jdbcType="VARCHAR" />
+    <result column="rearHeadAir" property="rearheadair" jdbcType="VARCHAR" />
+    <result column="kneeAir" property="kneeair" jdbcType="VARCHAR" />
+    <result column="tirePresCheck" property="tireprescheck" jdbcType="VARCHAR" />
+    <result column="zeroTirePresDrive" property="zerotirepresdrive" jdbcType="VARCHAR" />
+    <result column="safeBeltNotice" property="safebeltnotice" jdbcType="VARCHAR" />
+    <result column="isofix" property="isofix" jdbcType="VARCHAR" />
+    <result column="engineStopSteal" property="enginestopsteal" jdbcType="VARCHAR" />
+    <result column="insideCenterLock" property="insidecenterlock" jdbcType="VARCHAR" />
+    <result column="controKey" property="controkey" jdbcType="VARCHAR" />
+    <result column="startNoKey" property="startnokey" jdbcType="VARCHAR" />
+    <result column="enterNoKey" property="enternokey" jdbcType="VARCHAR" />
+    <result column="antiBlocking" property="antiblocking" jdbcType="VARCHAR" />
+    <result column="brakeAllot" property="brakeallot" jdbcType="VARCHAR" />
+    <result column="brakeAssist" property="brakeassist" jdbcType="VARCHAR" />
+    <result column="pullControl" property="pullcontrol" jdbcType="VARCHAR" />
+    <result column="trunkHoldControl" property="trunkholdcontrol" jdbcType="VARCHAR" />
+    <result column="uphillAssist" property="uphillassist" jdbcType="VARCHAR" />
+    <result column="autoParking" property="autoparking" jdbcType="VARCHAR" />
+    <result column="steephillSlow" property="steephillslow" jdbcType="VARCHAR" />
+    <result column="changeFrame" property="changeframe" jdbcType="VARCHAR" />
+    <result column="airFrame" property="airframe" jdbcType="VARCHAR" />
+    <result column="elecSkyWin" property="elecskywin" jdbcType="VARCHAR" />
+    <result column="wideWin" property="widewin" jdbcType="VARCHAR" />
+    <result column="sportExtend" property="sportextend" jdbcType="VARCHAR" />
+    <result column="lvhejinTire" property="lvhejintire" jdbcType="VARCHAR" />
+    <result column="elecDoor" property="elecdoor" jdbcType="VARCHAR" />
+    <result column="sideSlideDoor" property="sideslidedoor" jdbcType="VARCHAR" />
+    <result column="elecBackVan" property="elecbackvan" jdbcType="VARCHAR" />
+    <result column="feelBackVan" property="feelbackvan" jdbcType="VARCHAR" />
+    <result column="roofRack" property="roofrack" jdbcType="VARCHAR" />
+    <result column="realFurSteering" property="realfursteering" jdbcType="VARCHAR" />
+    <result column="steeringAdjust" property="steeringadjust" jdbcType="VARCHAR" />
+    <result column="steeringElecA" property="steeringeleca" jdbcType="VARCHAR" />
+    <result column="multiFunSteering" property="multifunsteering" jdbcType="VARCHAR" />
+    <result column="steeringShift" property="steeringshift" jdbcType="VARCHAR" />
+    <result column="steeringHot" property="steeringhot" jdbcType="VARCHAR" />
+    <result column="speedNavigation" property="speednavigation" jdbcType="VARCHAR" />
+    <result column="frontParkingRadar" property="frontparkingradar" jdbcType="VARCHAR" />
+    <result column="rearParkingRadar" property="rearparkingradar" jdbcType="VARCHAR" />
+    <result column="backVideo" property="backvideo" jdbcType="VARCHAR" />
+    <result column="driveDisplay" property="drivedisplay" jdbcType="VARCHAR" />
+    <result column="liquidDisplay" property="liquiddisplay" jdbcType="VARCHAR" />
+    <result column="seatMatieral" property="seatmatieral" jdbcType="VARCHAR" />
+    <result column="seatAdjust" property="seatadjust" jdbcType="VARCHAR" />
+    <result column="waistAdjust" property="waistadjust" jdbcType="VARCHAR" />
+    <result column="shoulderAdjust" property="shoulderadjust" jdbcType="VARCHAR" />
+    <result column="mainSeatElecA" property="mainseateleca" jdbcType="VARCHAR" />
+    <result column="assistSeartElecA" property="assistsearteleca" jdbcType="VARCHAR" />
+    <result column="rearSeatElecA" property="rearseateleca" jdbcType="VARCHAR" />
+    <result column="frontSeatHot" property="frontseathot" jdbcType="VARCHAR" />
+    <result column="rearSeartHot" property="rearsearthot" jdbcType="VARCHAR" />
+    <result column="frontSeartWind" property="frontseartwind" jdbcType="VARCHAR" />
+    <result column="rearSeatWind" property="rearseatwind" jdbcType="VARCHAR" />
+    <result column="gpsNaviSys" property="gpsnavisys" jdbcType="VARCHAR" />
+    <result column="centerColorfulScreen" property="centercolorfulscreen" jdbcType="VARCHAR" />
+    <result column="bluePhone" property="bluephone" jdbcType="VARCHAR" />
+    <result column="soundInterface" property="soundinterface" jdbcType="VARCHAR" />
+    <result column="multimediaSys" property="multimediasys" jdbcType="VARCHAR" />
+    <result column="loudspeakerNum" property="loudspeakernum" jdbcType="VARCHAR" />
+    <result column="headlight" property="headlight" jdbcType="VARCHAR" />
+    <result column="farlight" property="farlight" jdbcType="VARCHAR" />
+    <result column="daylight" property="daylight" jdbcType="VARCHAR" />
+    <result column="autolight" property="autolight" jdbcType="VARCHAR" />
+    <result column="autoHeadLight" property="autoheadlight" jdbcType="VARCHAR" />
+    <result column="turnAssistLight" property="turnassistlight" jdbcType="VARCHAR" />
+    <result column="turnLight" property="turnlight" jdbcType="VARCHAR" />
+    <result column="frontFogLight" property="frontfoglight" jdbcType="VARCHAR" />
+    <result column="bigLightA" property="biglighta" jdbcType="VARCHAR" />
+    <result column="bigLightClean" property="biglightclean" jdbcType="VARCHAR" />
+    <result column="frontElecWin" property="frontelecwin" jdbcType="VARCHAR" />
+    <result column="rearElecWin" property="rearelecwin" jdbcType="VARCHAR" />
+    <result column="winPrevHand" property="winprevhand" jdbcType="VARCHAR" />
+    <result column="rearviewElecA" property="rearvieweleca" jdbcType="VARCHAR" />
+    <result column="rearviewHot" property="rearviewhot" jdbcType="VARCHAR" />
+    <result column="inRearviewPrevEye" property="inrearviewpreveye" jdbcType="VARCHAR" />
+    <result column="outRearviewPrevEye" property="outrearviewpreveye" jdbcType="VARCHAR" />
+    <result column="rearviewElecFold" property="rearviewelecfold" jdbcType="VARCHAR" />
+    <result column="sunMakeupMirror" property="sunmakeupmirror" jdbcType="VARCHAR" />
+    <result column="rearRainBrush" property="rearrainbrush" jdbcType="VARCHAR" />
+    <result column="feelRarnBrush" property="feelrarnbrush" jdbcType="VARCHAR" />
+    <result column="airconditionControlT" property="airconditioncontrolt" jdbcType="VARCHAR" />
+    <result column="rearIndependentAC" property="rearindependentac" jdbcType="VARCHAR" />
+    <result column="rearOutWindPort" property="rearoutwindport" jdbcType="VARCHAR" />
+    <result column="temperControl" property="tempercontrol" jdbcType="VARCHAR" />
+    <result column="airAdjust" property="airadjust" jdbcType="VARCHAR" />
+    <result column="iceBox" property="icebox" jdbcType="VARCHAR" />
+    <result column="autoParkingPosi" property="autoparkingposi" jdbcType="VARCHAR" />
+    <result column="engineStartShopTech" property="enginestartshoptech" jdbcType="VARCHAR" />
+    <result column="asyAssist" property="asyassist" jdbcType="VARCHAR" />
+    <result column="roadWrongSys" property="roadwrongsys" jdbcType="VARCHAR" />
+    <result column="selfBrakeSys" property="selfbrakesys" jdbcType="VARCHAR" />
+    <result column="selfTurnSys" property="selfturnsys" jdbcType="VARCHAR" />
+    <result column="nightSeeSys" property="nightseesys" jdbcType="VARCHAR" />
+    <result column="liquidByPage" property="liquidbypage" jdbcType="VARCHAR" />
+    <result column="autoNavi" property="autonavi" jdbcType="VARCHAR" />
+    <result column="allcamera" property="allcamera" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+     <result column="oneMonthPay" property="oneMonthPay" jdbcType="VARCHAR" />
+     <result column="thirteenthMonthPay" property="thirteenthMonthPay" jdbcType="VARCHAR" />
+     <result column="fourteenthMonthPay" property="fourteenthMonthPay" jdbcType="VARCHAR" />
+     <result column="finalPayment" property="finalPayment" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    id, putaway, putawayTime, brand, model, version, principal, first_month_pay, every_month_pay, 
+    rate, period_num, firstpay, down_pay, cover_pic, structure, lwh, engine, gearbox, drive_t, 
+    fuel_t, oil_wear, color, wheel_base, front_span, rear_span, min_clearance, weight, 
+    door_num, seat_num, fuel_tank_vol, trunk_vol, engine_t, displacement, inair_type, 
+    air_cylinder_arr, air_cy_num, air_doors_per_cy, cy_span, cy_distance, max_power, 
+    max_work, max_work_rotate, max_torque, max_torque_rotate, engine_special_tech, fuel_flag, 
+    supply_fuel_t, cy_cover_material, cy_trunk_material, envir_protect, gears_num, gearbox_t, 
+    fourDriveT, centerDiffStru, frontFrameT, rearFrameT, assistPowerT, trunkStruc, frontBrakeT, 
+    rearBrakeT, parkingBrakeT, frontWheelSpe, rearWheelSpe, readyWheelSpe, mainSafeAir, 
+    sideSafeAir, frontSideAir, rearSizeAir, frontHeadAir, rearHeadAir, kneeAir, tirePresCheck, 
+    zeroTirePresDrive, safeBeltNotice, isofix, engineStopSteal, insideCenterLock, controKey, 
+    startNoKey, enterNoKey, antiBlocking, brakeAllot, brakeAssist, pullControl, trunkHoldControl, 
+    uphillAssist, autoParking, steephillSlow, changeFrame, airFrame, elecSkyWin, wideWin, 
+    sportExtend, lvhejinTire, elecDoor, sideSlideDoor, elecBackVan, feelBackVan, roofRack, 
+    realFurSteering, steeringAdjust, steeringElecA, multiFunSteering, steeringShift, 
+    steeringHot, speedNavigation, frontParkingRadar, rearParkingRadar, backVideo, driveDisplay, 
+    liquidDisplay, seatMatieral, seatAdjust, waistAdjust, shoulderAdjust, mainSeatElecA, 
+    assistSeartElecA, rearSeatElecA, frontSeatHot, rearSeartHot, frontSeartWind, rearSeatWind, 
+    gpsNaviSys, centerColorfulScreen, bluePhone, soundInterface, multimediaSys, loudspeakerNum, 
+    headlight, farlight, daylight, autolight, autoHeadLight, turnAssistLight, turnLight, 
+    frontFogLight, bigLightA, bigLightClean, frontElecWin, rearElecWin, winPrevHand, 
+    rearviewElecA, rearviewHot, inRearviewPrevEye, outRearviewPrevEye, rearviewElecFold, 
+    sunMakeupMirror, rearRainBrush, feelRarnBrush, airconditionControlT, rearIndependentAC, 
+    rearOutWindPort, temperControl, airAdjust, iceBox, autoParkingPosi, engineStartShopTech, 
+    asyAssist, roadWrongSys, selfBrakeSys, selfTurnSys, nightSeeSys, liquidByPage, autoNavi, 
+    allcamera, createTime,oneMonthPay,thirteenthMonthPay,fourteenthMonthPay,finalPayment
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="putaway != null and putaway !='' and putaway != 2" >
+       and putaway = #{putaway}
+    </if>
+     <if test="putaway == 2" >
+       and putaway is null
+    </if>
+    <if test="putawaytime != null and putawaytime !=''" >
+       and putawayTime = #{putawaytime}
+    </if>
+    <if test="brand != null and brand !=''" >
+       and brand like concat('%',#{brand},'%')
+    </if>
+    <if test="model != null and model !=''" >
+       and model like concat('%',#{model},'%')
+    </if>
+    <if test="version != null and version !=''" >
+       and version like concat('%',#{version},'%')
+    </if>
+    <if test="principal != null and principal !=''" >
+       and principal = #{principal}
+    </if>
+    <if test="firstMonthPay != null and firstMonthPay !=''" >
+       and first_month_pay = #{firstMonthPay}
+    </if>
+    <if test="everyMonthPay != null and everyMonthPay !=''" >
+       and every_month_pay = #{everyMonthPay}
+    </if>
+    <if test="rate != null and rate !=''" >
+       and rate = #{rate}
+    </if>
+    <if test="periodNum != null and periodNum !=''" >
+       and period_num = #{periodNum}
+    </if>
+    <if test="downPay != null and downPay !=''" >
+       and down_pay = #{downPay}
+    </if>
+    <if test="coverPic != null and coverPic !=''" >
+       and cover_pic = #{coverPic}
+    </if>
+    <if test="structure != null and structure !=''" >
+       and structure = #{structure}
+    </if>
+    <if test="lwh != null and lwh !=''" >
+       and lwh = #{lwh}
+    </if>
+    <if test="engine != null and engine !=''" >
+       and engine = #{engine}
+    </if>
+    <if test="gearbox != null and gearbox !=''" >
+       and gearbox = #{gearbox}
+    </if>
+    <if test="driveT != null and driveT !=''" >
+       and drive_t = #{driveT}
+    </if>
+    <if test="fuelT != null and fuelT !=''" >
+       and fuel_t = #{fuelT}
+    </if>
+    <if test="oilWear != null and oilWear !=''" >
+       and oil_wear = #{oilWear}
+    </if>
+    <if test="color != null and color !=''" >
+       and color = #{color}
+    </if>
+    <if test="wheelBase != null and wheelBase !=''" >
+       and wheel_base = #{wheelBase}
+    </if>
+    <if test="frontSpan != null and frontSpan !=''" >
+       and front_span = #{frontSpan}
+    </if>
+    <if test="rearSpan != null and rearSpan !=''" >
+       and rear_span = #{rearSpan}
+    </if>
+    <if test="minClearance != null and minClearance !=''" >
+       and min_clearance = #{minClearance}
+    </if>
+    <if test="weight != null and weight !=''" >
+       and weight = #{weight}
+    </if>
+    <if test="doorNum != null and doorNum !=''" >
+       and door_num = #{doorNum}
+    </if>
+    <if test="seatNum != null and seatNum !=''" >
+       and seat_num = #{seatNum}
+    </if>
+    <if test="fuelTankVol != null and fuelTankVol !=''" >
+       and fuel_tank_vol = #{fuelTankVol}
+    </if>
+    <if test="trunkVol != null and trunkVol !=''" >
+       and trunk_vol = #{trunkVol}
+    </if>
+    <if test="engineT != null and engineT !=''" >
+       and engine_t = #{engineT}
+    </if>
+    <if test="displacement != null and displacement !=''" >
+       and displacement = #{displacement}
+    </if>
+    <if test="inairType != null and inairType !=''" >
+       and inair_type = #{inairType}
+    </if>
+    <if test="airCylinderArr != null and airCylinderArr !=''" >
+       and air_cylinder_arr = #{airCylinderArr}
+    </if>
+    <if test="airCyNum != null and airCyNum !=''" >
+       and air_cy_num = #{airCyNum}
+    </if>
+    <if test="airDoorsPerCy != null and airDoorsPerCy !=''" >
+       and air_doors_per_cy = #{airDoorsPerCy}
+    </if>
+    <if test="cySpan != null and cySpan !=''" >
+       and cy_span = #{cySpan}
+    </if>
+    <if test="cyDistance != null and cyDistance !=''" >
+       and cy_distance = #{cyDistance}
+    </if>
+    <if test="maxPower != null and maxPower !=''" >
+       and max_power = #{maxPower}
+    </if>
+    <if test="maxWork != null and maxWork !=''" >
+       and max_work = #{maxWork}
+    </if>
+    <if test="maxWorkRotate != null and maxWorkRotate !=''" >
+       and max_work_rotate = #{maxWorkRotate}
+    </if>
+    <if test="maxTorque != null and maxTorque !=''" >
+       and max_torque = #{maxTorque}
+    </if>
+    <if test="maxTorqueRotate != null and maxTorqueRotate !=''" >
+       and max_torque_rotate = #{maxTorqueRotate}
+    </if>
+    <if test="engineSpecialTech != null and engineSpecialTech !=''" >
+       and engine_special_tech = #{engineSpecialTech}
+    </if>
+    <if test="fuelFlag != null and fuelFlag !=''" >
+       and fuel_flag = #{fuelFlag}
+    </if>
+    <if test="supplyFuelT != null and supplyFuelT !=''" >
+       and supply_fuel_t = #{supplyFuelT}
+    </if>
+    <if test="cyCoverMaterial != null and cyCoverMaterial !=''" >
+       and cy_cover_material = #{cyCoverMaterial}
+    </if>
+    <if test="cyTrunkMaterial != null and cyTrunkMaterial !=''" >
+       and cy_trunk_material = #{cyTrunkMaterial}
+    </if>
+    <if test="envirProtect != null and envirProtect !=''" >
+       and envir_protect = #{envirProtect}
+    </if>
+    <if test="gearsNum != null and gearsNum !=''" >
+       and gears_num = #{gearsNum}
+    </if>
+    <if test="gearboxT != null and gearboxT !=''" >
+       and gearbox_t = #{gearboxT}
+    </if>
+    <if test="fourdrivet != null and fourdrivet !=''" >
+       and fourDriveT = #{fourdrivet}
+    </if>
+    <if test="centerdiffstru != null and centerdiffstru !=''" >
+       and centerDiffStru = #{centerdiffstru}
+    </if>
+    <if test="frontframet != null and frontframet !=''" >
+       and frontFrameT = #{frontframet}
+    </if>
+    <if test="rearframet != null and rearframet !=''" >
+       and rearFrameT = #{rearframet}
+    </if>
+    <if test="assistpowert != null and assistpowert !=''" >
+       and assistPowerT = #{assistpowert}
+    </if>
+    <if test="trunkstruc != null and trunkstruc !=''" >
+       and trunkStruc = #{trunkstruc}
+    </if>
+    <if test="frontbraket != null and frontbraket !=''" >
+       and frontBrakeT = #{frontbraket}
+    </if>
+    <if test="rearbraket != null and rearbraket !=''" >
+       and rearBrakeT = #{rearbraket}
+    </if>
+    <if test="parkingbraket != null and parkingbraket !=''" >
+       and parkingBrakeT = #{parkingbraket}
+    </if>
+    <if test="frontwheelspe != null and frontwheelspe !=''" >
+       and frontWheelSpe = #{frontwheelspe}
+    </if>
+    <if test="rearwheelspe != null and rearwheelspe !=''" >
+       and rearWheelSpe = #{rearwheelspe}
+    </if>
+    <if test="readywheelspe != null and readywheelspe !=''" >
+       and readyWheelSpe = #{readywheelspe}
+    </if>
+    <if test="mainsafeair != null and mainsafeair !=''" >
+       and mainSafeAir = #{mainsafeair}
+    </if>
+    <if test="sidesafeair != null and sidesafeair !=''" >
+       and sideSafeAir = #{sidesafeair}
+    </if>
+    <if test="frontsideair != null and frontsideair !=''" >
+       and frontSideAir = #{frontsideair}
+    </if>
+    <if test="rearsizeair != null and rearsizeair !=''" >
+       and rearSizeAir = #{rearsizeair}
+    </if>
+    <if test="frontheadair != null and frontheadair !=''" >
+       and frontHeadAir = #{frontheadair}
+    </if>
+    <if test="rearheadair != null and rearheadair !=''" >
+       and rearHeadAir = #{rearheadair}
+    </if>
+    <if test="kneeair != null and kneeair !=''" >
+       and kneeAir = #{kneeair}
+    </if>
+    <if test="tireprescheck != null and tireprescheck !=''" >
+       and tirePresCheck = #{tireprescheck}
+    </if>
+    <if test="zerotirepresdrive != null and zerotirepresdrive !=''" >
+       and zeroTirePresDrive = #{zerotirepresdrive}
+    </if>
+    <if test="safebeltnotice != null and safebeltnotice !=''" >
+       and safeBeltNotice = #{safebeltnotice}
+    </if>
+    <if test="isofix != null and isofix !=''" >
+       and isofix = #{isofix}
+    </if>
+    <if test="enginestopsteal != null and enginestopsteal !=''" >
+       and engineStopSteal = #{enginestopsteal}
+    </if>
+    <if test="insidecenterlock != null and insidecenterlock !=''" >
+       and insideCenterLock = #{insidecenterlock}
+    </if>
+    <if test="controkey != null and controkey !=''" >
+       and controKey = #{controkey}
+    </if>
+    <if test="startnokey != null and startnokey !=''" >
+       and startNoKey = #{startnokey}
+    </if>
+    <if test="enternokey != null and enternokey !=''" >
+       and enterNoKey = #{enternokey}
+    </if>
+    <if test="antiblocking != null and antiblocking !=''" >
+       and antiBlocking = #{antiblocking}
+    </if>
+    <if test="brakeallot != null and brakeallot !=''" >
+       and brakeAllot = #{brakeallot}
+    </if>
+    <if test="brakeassist != null and brakeassist !=''" >
+       and brakeAssist = #{brakeassist}
+    </if>
+    <if test="pullcontrol != null and pullcontrol !=''" >
+       and pullControl = #{pullcontrol}
+    </if>
+    <if test="trunkholdcontrol != null and trunkholdcontrol !=''" >
+       and trunkHoldControl = #{trunkholdcontrol}
+    </if>
+    <if test="uphillassist != null and uphillassist !=''" >
+       and uphillAssist = #{uphillassist}
+    </if>
+    <if test="autoparking != null and autoparking !=''" >
+       and autoParking = #{autoparking}
+    </if>
+    <if test="steephillslow != null and steephillslow !=''" >
+       and steephillSlow = #{steephillslow}
+    </if>
+    <if test="changeframe != null and changeframe !=''" >
+       and changeFrame = #{changeframe}
+    </if>
+    <if test="airframe != null and airframe !=''" >
+       and airFrame = #{airframe}
+    </if>
+    <if test="elecskywin != null and elecskywin !=''" >
+       and elecSkyWin = #{elecskywin}
+    </if>
+    <if test="widewin != null and widewin !=''" >
+       and wideWin = #{widewin}
+    </if>
+    <if test="sportextend != null and sportextend !=''" >
+       and sportExtend = #{sportextend}
+    </if>
+    <if test="lvhejintire != null and lvhejintire !=''" >
+       and lvhejinTire = #{lvhejintire}
+    </if>
+    <if test="elecdoor != null and elecdoor !=''" >
+       and elecDoor = #{elecdoor}
+    </if>
+    <if test="sideslidedoor != null and sideslidedoor !=''" >
+       and sideSlideDoor = #{sideslidedoor}
+    </if>
+    <if test="elecbackvan != null and elecbackvan !=''" >
+       and elecBackVan = #{elecbackvan}
+    </if>
+    <if test="feelbackvan != null and feelbackvan !=''" >
+       and feelBackVan = #{feelbackvan}
+    </if>
+    <if test="roofrack != null and roofrack !=''" >
+       and roofRack = #{roofrack}
+    </if>
+    <if test="realfursteering != null and realfursteering !=''" >
+       and realFurSteering = #{realfursteering}
+    </if>
+    <if test="steeringadjust != null and steeringadjust !=''" >
+       and steeringAdjust = #{steeringadjust}
+    </if>
+    <if test="steeringeleca != null and steeringeleca !=''" >
+       and steeringElecA = #{steeringeleca}
+    </if>
+    <if test="multifunsteering != null and multifunsteering !=''" >
+       and multiFunSteering = #{multifunsteering}
+    </if>
+    <if test="steeringshift != null and steeringshift !=''" >
+       and steeringShift = #{steeringshift}
+    </if>
+    <if test="steeringhot != null and steeringhot !=''" >
+       and steeringHot = #{steeringhot}
+    </if>
+    <if test="speednavigation != null and speednavigation !=''" >
+       and speedNavigation = #{speednavigation}
+    </if>
+    <if test="frontparkingradar != null and frontparkingradar !=''" >
+       and frontParkingRadar = #{frontparkingradar}
+    </if>
+    <if test="rearparkingradar != null and rearparkingradar !=''" >
+       and rearParkingRadar = #{rearparkingradar}
+    </if>
+    <if test="backvideo != null and backvideo !=''" >
+       and backVideo = #{backvideo}
+    </if>
+    <if test="drivedisplay != null and drivedisplay !=''" >
+       and driveDisplay = #{drivedisplay}
+    </if>
+    <if test="liquiddisplay != null and liquiddisplay !=''" >
+       and liquidDisplay = #{liquiddisplay}
+    </if>
+    <if test="seatmatieral != null and seatmatieral !=''" >
+       and seatMatieral = #{seatmatieral}
+    </if>
+    <if test="seatadjust != null and seatadjust !=''" >
+       and seatAdjust = #{seatadjust}
+    </if>
+    <if test="waistadjust != null and waistadjust !=''" >
+       and waistAdjust = #{waistadjust}
+    </if>
+    <if test="shoulderadjust != null and shoulderadjust !=''" >
+       and shoulderAdjust = #{shoulderadjust}
+    </if>
+    <if test="mainseateleca != null and mainseateleca !=''" >
+       and mainSeatElecA = #{mainseateleca}
+    </if>
+    <if test="assistsearteleca != null and assistsearteleca !=''" >
+       and assistSeartElecA = #{assistsearteleca}
+    </if>
+    <if test="rearseateleca != null and rearseateleca !=''" >
+       and rearSeatElecA = #{rearseateleca}
+    </if>
+    <if test="frontseathot != null and frontseathot !=''" >
+       and frontSeatHot = #{frontseathot}
+    </if>
+    <if test="rearsearthot != null and rearsearthot !=''" >
+       and rearSeartHot = #{rearsearthot}
+    </if>
+    <if test="frontseartwind != null and frontseartwind !=''" >
+       and frontSeartWind = #{frontseartwind}
+    </if>
+    <if test="rearseatwind != null and rearseatwind !=''" >
+       and rearSeatWind = #{rearseatwind}
+    </if>
+    <if test="gpsnavisys != null and gpsnavisys !=''" >
+       and gpsNaviSys = #{gpsnavisys}
+    </if>
+    <if test="centercolorfulscreen != null and centercolorfulscreen !=''" >
+       and centerColorfulScreen = #{centercolorfulscreen}
+    </if>
+    <if test="bluephone != null and bluephone !=''" >
+       and bluePhone = #{bluephone}
+    </if>
+    <if test="soundinterface != null and soundinterface !=''" >
+       and soundInterface = #{soundinterface}
+    </if>
+    <if test="multimediasys != null and multimediasys !=''" >
+       and multimediaSys = #{multimediasys}
+    </if>
+    <if test="loudspeakernum != null and loudspeakernum !=''" >
+       and loudspeakerNum = #{loudspeakernum}
+    </if>
+    <if test="headlight != null and headlight !=''" >
+       and headlight = #{headlight}
+    </if>
+    <if test="farlight != null and farlight !=''" >
+       and farlight = #{farlight}
+    </if>
+    <if test="daylight != null and daylight !=''" >
+       and daylight = #{daylight}
+    </if>
+    <if test="autolight != null and autolight !=''" >
+       and autolight = #{autolight}
+    </if>
+    <if test="autoheadlight != null and autoheadlight !=''" >
+       and autoHeadLight = #{autoheadlight}
+    </if>
+    <if test="turnassistlight != null and turnassistlight !=''" >
+       and turnAssistLight = #{turnassistlight}
+    </if>
+    <if test="turnlight != null and turnlight !=''" >
+       and turnLight = #{turnlight}
+    </if>
+    <if test="frontfoglight != null and frontfoglight !=''" >
+       and frontFogLight = #{frontfoglight}
+    </if>
+    <if test="biglighta != null and biglighta !=''" >
+       and bigLightA = #{biglighta}
+    </if>
+    <if test="biglightclean != null and biglightclean !=''" >
+       and bigLightClean = #{biglightclean}
+    </if>
+    <if test="frontelecwin != null and frontelecwin !=''" >
+       and frontElecWin = #{frontelecwin}
+    </if>
+    <if test="rearelecwin != null and rearelecwin !=''" >
+       and rearElecWin = #{rearelecwin}
+    </if>
+    <if test="winprevhand != null and winprevhand !=''" >
+       and winPrevHand = #{winprevhand}
+    </if>
+    <if test="rearvieweleca != null and rearvieweleca !=''" >
+       and rearviewElecA = #{rearvieweleca}
+    </if>
+    <if test="rearviewhot != null and rearviewhot !=''" >
+       and rearviewHot = #{rearviewhot}
+    </if>
+    <if test="inrearviewpreveye != null and inrearviewpreveye !=''" >
+       and inRearviewPrevEye = #{inrearviewpreveye}
+    </if>
+    <if test="outrearviewpreveye != null and outrearviewpreveye !=''" >
+       and outRearviewPrevEye = #{outrearviewpreveye}
+    </if>
+    <if test="rearviewelecfold != null and rearviewelecfold !=''" >
+       and rearviewElecFold = #{rearviewelecfold}
+    </if>
+    <if test="sunmakeupmirror != null and sunmakeupmirror !=''" >
+       and sunMakeupMirror = #{sunmakeupmirror}
+    </if>
+    <if test="rearrainbrush != null and rearrainbrush !=''" >
+       and rearRainBrush = #{rearrainbrush}
+    </if>
+    <if test="feelrarnbrush != null and feelrarnbrush !=''" >
+       and feelRarnBrush = #{feelrarnbrush}
+    </if>
+    <if test="airconditioncontrolt != null and airconditioncontrolt !=''" >
+       and airconditionControlT = #{airconditioncontrolt}
+    </if>
+    <if test="rearindependentac != null and rearindependentac !=''" >
+       and rearIndependentAC = #{rearindependentac}
+    </if>
+    <if test="rearoutwindport != null and rearoutwindport !=''" >
+       and rearOutWindPort = #{rearoutwindport}
+    </if>
+    <if test="tempercontrol != null and tempercontrol !=''" >
+       and temperControl = #{tempercontrol}
+    </if>
+    <if test="airadjust != null and airadjust !=''" >
+       and airAdjust = #{airadjust}
+    </if>
+    <if test="icebox != null and icebox !=''" >
+       and iceBox = #{icebox}
+    </if>
+    <if test="autoparkingposi != null and autoparkingposi !=''" >
+       and autoParkingPosi = #{autoparkingposi}
+    </if>
+    <if test="enginestartshoptech != null and enginestartshoptech !=''" >
+       and engineStartShopTech = #{enginestartshoptech}
+    </if>
+    <if test="asyassist != null and asyassist !=''" >
+       and asyAssist = #{asyassist}
+    </if>
+    <if test="roadwrongsys != null and roadwrongsys !=''" >
+       and roadWrongSys = #{roadwrongsys}
+    </if>
+    <if test="selfbrakesys != null and selfbrakesys !=''" >
+       and selfBrakeSys = #{selfbrakesys}
+    </if>
+    <if test="selfturnsys != null and selfturnsys !=''" >
+       and selfTurnSys = #{selfturnsys}
+    </if>
+    <if test="nightseesys != null and nightseesys !=''" >
+       and nightSeeSys = #{nightseesys}
+    </if>
+    <if test="liquidbypage != null and liquidbypage !=''" >
+       and liquidByPage = #{liquidbypage}
+    </if>
+    <if test="autonavi != null and autonavi !=''" >
+       and autoNavi = #{autonavi}
+    </if>
+    <if test="allcamera != null and allcamera !=''" >
+       and allcamera = #{allcamera}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createTime = #{createtime}
+    </if>
+    <if test="oneMonthPay != null and oneMonthPay !=''" >
+       and oneMonthPay = #{oneMonthPay}
+    </if>
+      <if test="thirteenthMonthPay != null and thirteenthMonthPay !=''" >
+       and thirteenthMonthPay = #{thirteenthMonthPay}
+    </if>
+      <if test="fourteenthMonthPay != null and fourteenthMonthPay !=''" >
+       and fourteenthMonthPay = #{fourteenthMonthPay}
+    </if>
+    <if test="finalPayment != null and finalPayment !=''" >
+       and finalPayment = #{finalPayment}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.product.CarType" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_car_type
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.product.CarType" >
+    select count(*) from pro_car_type where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_car_type
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pro_car_type
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.product.CarType" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(606);
+    </selectKey>
+    insert into pro_car_type (id, putaway, putawayTime, 
+      brand, model, version, 
+      principal, first_month_pay, every_month_pay, 
+      rate, period_num, down_pay, 
+      cover_pic, structure, lwh, 
+      engine, gearbox, drive_t, 
+      fuel_t, oil_wear, color, 
+      wheel_base, front_span, rear_span, 
+      min_clearance, weight, door_num, 
+      seat_num, fuel_tank_vol, trunk_vol, 
+      engine_t, displacement, inair_type, 
+      air_cylinder_arr, air_cy_num, air_doors_per_cy, 
+      cy_span, cy_distance, max_power, 
+      max_work, max_work_rotate, max_torque, 
+      max_torque_rotate, engine_special_tech, fuel_flag, 
+      supply_fuel_t, cy_cover_material, cy_trunk_material, 
+      envir_protect, gears_num, gearbox_t, 
+      fourDriveT, centerDiffStru, frontFrameT, 
+      rearFrameT, assistPowerT, trunkStruc, 
+      frontBrakeT, rearBrakeT, parkingBrakeT, 
+      frontWheelSpe, rearWheelSpe, readyWheelSpe, 
+      mainSafeAir, sideSafeAir, frontSideAir, 
+      rearSizeAir, frontHeadAir, rearHeadAir, 
+      kneeAir, tirePresCheck, zeroTirePresDrive, 
+      safeBeltNotice, isofix, engineStopSteal, 
+      insideCenterLock, controKey, startNoKey, 
+      enterNoKey, antiBlocking, brakeAllot, 
+      brakeAssist, pullControl, trunkHoldControl, 
+      uphillAssist, autoParking, steephillSlow, 
+      changeFrame, airFrame, elecSkyWin, 
+      wideWin, sportExtend, lvhejinTire, 
+      elecDoor, sideSlideDoor, elecBackVan, 
+      feelBackVan, roofRack, realFurSteering, 
+      steeringAdjust, steeringElecA, multiFunSteering, 
+      steeringShift, steeringHot, speedNavigation, 
+      frontParkingRadar, rearParkingRadar, backVideo, 
+      driveDisplay, liquidDisplay, seatMatieral, 
+      seatAdjust, waistAdjust, shoulderAdjust, 
+      mainSeatElecA, assistSeartElecA, rearSeatElecA, 
+      frontSeatHot, rearSeartHot, frontSeartWind, 
+      rearSeatWind, gpsNaviSys, centerColorfulScreen, 
+      bluePhone, soundInterface, multimediaSys, 
+      loudspeakerNum, headlight, farlight, 
+      daylight, autolight, autoHeadLight, 
+      turnAssistLight, turnLight, frontFogLight, 
+      bigLightA, bigLightClean, frontElecWin, 
+      rearElecWin, winPrevHand, rearviewElecA, 
+      rearviewHot, inRearviewPrevEye, outRearviewPrevEye, 
+      rearviewElecFold, sunMakeupMirror, rearRainBrush, 
+      feelRarnBrush, airconditionControlT, rearIndependentAC, 
+      rearOutWindPort, temperControl, airAdjust, 
+      iceBox, autoParkingPosi, engineStartShopTech, 
+      asyAssist, roadWrongSys, selfBrakeSys, 
+      selfTurnSys, nightSeeSys, liquidByPage, 
+      autoNavi, allcamera, createTime,oneMonthPay,thirteenthMonthPay,fourteenthMonthPay,finalPayment
+      )
+    values (#{id,jdbcType=VARCHAR}, #{putaway,jdbcType=VARCHAR}, #{putawaytime,jdbcType=TIMESTAMP}, 
+      #{brand,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}, 
+      #{principal,jdbcType=VARCHAR}, #{firstMonthPay,jdbcType=VARCHAR}, #{everyMonthPay,jdbcType=VARCHAR}, 
+      #{rate,jdbcType=VARCHAR}, #{periodNum,jdbcType=VARCHAR}, #{downPay,jdbcType=VARCHAR}, 
+      #{coverPic,jdbcType=VARCHAR}, #{structure,jdbcType=VARCHAR}, #{lwh,jdbcType=VARCHAR}, 
+      #{engine,jdbcType=VARCHAR}, #{gearbox,jdbcType=VARCHAR}, #{driveT,jdbcType=VARCHAR}, 
+      #{fuelT,jdbcType=VARCHAR}, #{oilWear,jdbcType=VARCHAR}, #{color,jdbcType=VARCHAR}, 
+      #{wheelBase,jdbcType=VARCHAR}, #{frontSpan,jdbcType=VARCHAR}, #{rearSpan,jdbcType=VARCHAR}, 
+      #{minClearance,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR}, #{doorNum,jdbcType=VARCHAR}, 
+      #{seatNum,jdbcType=VARCHAR}, #{fuelTankVol,jdbcType=VARCHAR}, #{trunkVol,jdbcType=VARCHAR}, 
+      #{engineT,jdbcType=VARCHAR}, #{displacement,jdbcType=VARCHAR}, #{inairType,jdbcType=VARCHAR}, 
+      #{airCylinderArr,jdbcType=VARCHAR}, #{airCyNum,jdbcType=VARCHAR}, #{airDoorsPerCy,jdbcType=VARCHAR}, 
+      #{cySpan,jdbcType=VARCHAR}, #{cyDistance,jdbcType=VARCHAR}, #{maxPower,jdbcType=VARCHAR}, 
+      #{maxWork,jdbcType=VARCHAR}, #{maxWorkRotate,jdbcType=VARCHAR}, #{maxTorque,jdbcType=VARCHAR}, 
+      #{maxTorqueRotate,jdbcType=VARCHAR}, #{engineSpecialTech,jdbcType=VARCHAR}, #{fuelFlag,jdbcType=VARCHAR}, 
+      #{supplyFuelT,jdbcType=VARCHAR}, #{cyCoverMaterial,jdbcType=VARCHAR}, #{cyTrunkMaterial,jdbcType=VARCHAR}, 
+      #{envirProtect,jdbcType=VARCHAR}, #{gearsNum,jdbcType=VARCHAR}, #{gearboxT,jdbcType=VARCHAR}, 
+      #{fourdrivet,jdbcType=VARCHAR}, #{centerdiffstru,jdbcType=VARCHAR}, #{frontframet,jdbcType=VARCHAR}, 
+      #{rearframet,jdbcType=VARCHAR}, #{assistpowert,jdbcType=VARCHAR}, #{trunkstruc,jdbcType=VARCHAR}, 
+      #{frontbraket,jdbcType=VARCHAR}, #{rearbraket,jdbcType=VARCHAR}, #{parkingbraket,jdbcType=VARCHAR}, 
+      #{frontwheelspe,jdbcType=VARCHAR}, #{rearwheelspe,jdbcType=VARCHAR}, #{readywheelspe,jdbcType=VARCHAR}, 
+      #{mainsafeair,jdbcType=VARCHAR}, #{sidesafeair,jdbcType=VARCHAR}, #{frontsideair,jdbcType=VARCHAR}, 
+      #{rearsizeair,jdbcType=VARCHAR}, #{frontheadair,jdbcType=VARCHAR}, #{rearheadair,jdbcType=VARCHAR}, 
+      #{kneeair,jdbcType=VARCHAR}, #{tireprescheck,jdbcType=VARCHAR}, #{zerotirepresdrive,jdbcType=VARCHAR}, 
+      #{safebeltnotice,jdbcType=VARCHAR}, #{isofix,jdbcType=VARCHAR}, #{enginestopsteal,jdbcType=VARCHAR}, 
+      #{insidecenterlock,jdbcType=VARCHAR}, #{controkey,jdbcType=VARCHAR}, #{startnokey,jdbcType=VARCHAR}, 
+      #{enternokey,jdbcType=VARCHAR}, #{antiblocking,jdbcType=VARCHAR}, #{brakeallot,jdbcType=VARCHAR}, 
+      #{brakeassist,jdbcType=VARCHAR}, #{pullcontrol,jdbcType=VARCHAR}, #{trunkholdcontrol,jdbcType=VARCHAR}, 
+      #{uphillassist,jdbcType=VARCHAR}, #{autoparking,jdbcType=VARCHAR}, #{steephillslow,jdbcType=VARCHAR}, 
+      #{changeframe,jdbcType=VARCHAR}, #{airframe,jdbcType=VARCHAR}, #{elecskywin,jdbcType=VARCHAR}, 
+      #{widewin,jdbcType=VARCHAR}, #{sportextend,jdbcType=VARCHAR}, #{lvhejintire,jdbcType=VARCHAR}, 
+      #{elecdoor,jdbcType=VARCHAR}, #{sideslidedoor,jdbcType=VARCHAR}, #{elecbackvan,jdbcType=VARCHAR}, 
+      #{feelbackvan,jdbcType=VARCHAR}, #{roofrack,jdbcType=VARCHAR}, #{realfursteering,jdbcType=VARCHAR}, 
+      #{steeringadjust,jdbcType=VARCHAR}, #{steeringeleca,jdbcType=VARCHAR}, #{multifunsteering,jdbcType=VARCHAR}, 
+      #{steeringshift,jdbcType=VARCHAR}, #{steeringhot,jdbcType=VARCHAR}, #{speednavigation,jdbcType=VARCHAR}, 
+      #{frontparkingradar,jdbcType=VARCHAR}, #{rearparkingradar,jdbcType=VARCHAR}, #{backvideo,jdbcType=VARCHAR}, 
+      #{drivedisplay,jdbcType=VARCHAR}, #{liquiddisplay,jdbcType=VARCHAR}, #{seatmatieral,jdbcType=VARCHAR}, 
+      #{seatadjust,jdbcType=VARCHAR}, #{waistadjust,jdbcType=VARCHAR}, #{shoulderadjust,jdbcType=VARCHAR}, 
+      #{mainseateleca,jdbcType=VARCHAR}, #{assistsearteleca,jdbcType=VARCHAR}, #{rearseateleca,jdbcType=VARCHAR}, 
+      #{frontseathot,jdbcType=VARCHAR}, #{rearsearthot,jdbcType=VARCHAR}, #{frontseartwind,jdbcType=VARCHAR}, 
+      #{rearseatwind,jdbcType=VARCHAR}, #{gpsnavisys,jdbcType=VARCHAR}, #{centercolorfulscreen,jdbcType=VARCHAR}, 
+      #{bluephone,jdbcType=VARCHAR}, #{soundinterface,jdbcType=VARCHAR}, #{multimediasys,jdbcType=VARCHAR}, 
+      #{loudspeakernum,jdbcType=VARCHAR}, #{headlight,jdbcType=VARCHAR}, #{farlight,jdbcType=VARCHAR}, 
+      #{daylight,jdbcType=VARCHAR}, #{autolight,jdbcType=VARCHAR}, #{autoheadlight,jdbcType=VARCHAR}, 
+      #{turnassistlight,jdbcType=VARCHAR}, #{turnlight,jdbcType=VARCHAR}, #{frontfoglight,jdbcType=VARCHAR}, 
+      #{biglighta,jdbcType=VARCHAR}, #{biglightclean,jdbcType=VARCHAR}, #{frontelecwin,jdbcType=VARCHAR}, 
+      #{rearelecwin,jdbcType=VARCHAR}, #{winprevhand,jdbcType=VARCHAR}, #{rearvieweleca,jdbcType=VARCHAR}, 
+      #{rearviewhot,jdbcType=VARCHAR}, #{inrearviewpreveye,jdbcType=VARCHAR}, #{outrearviewpreveye,jdbcType=VARCHAR}, 
+      #{rearviewelecfold,jdbcType=VARCHAR}, #{sunmakeupmirror,jdbcType=VARCHAR}, #{rearrainbrush,jdbcType=VARCHAR}, 
+      #{feelrarnbrush,jdbcType=VARCHAR}, #{airconditioncontrolt,jdbcType=VARCHAR}, #{rearindependentac,jdbcType=VARCHAR}, 
+      #{rearoutwindport,jdbcType=VARCHAR}, #{tempercontrol,jdbcType=VARCHAR}, #{airadjust,jdbcType=VARCHAR}, 
+      #{icebox,jdbcType=VARCHAR}, #{autoparkingposi,jdbcType=VARCHAR}, #{enginestartshoptech,jdbcType=VARCHAR}, 
+      #{asyassist,jdbcType=VARCHAR}, #{roadwrongsys,jdbcType=VARCHAR}, #{selfbrakesys,jdbcType=VARCHAR}, 
+      #{selfturnsys,jdbcType=VARCHAR}, #{nightseesys,jdbcType=VARCHAR}, #{liquidbypage,jdbcType=VARCHAR}, 
+      #{autonavi,jdbcType=VARCHAR}, #{allcamera,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP},
+       #{oneMonthPay,jdbcType=VARCHAR}, #{thirteenthMonthPay,jdbcType=VARCHAR}, #{fourteenthMonthPay,jdbcType=VARCHAR}, #{finalPayment,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.product.CarType" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(606);
+    </selectKey>
+    insert into pro_car_type
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="putaway != null" >
+        putaway,
+      </if>
+      <if test="putawaytime != null" >
+        putawayTime,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="principal != null" >
+        principal,
+      </if>
+      <if test="firstMonthPay != null" >
+        first_month_pay,
+      </if>
+      <if test="everyMonthPay != null" >
+        every_month_pay,
+      </if>
+      <if test="rate != null" >
+        rate,
+      </if>
+      <if test="periodNum != null" >
+        period_num,
+      </if>
+      <if test="firstpay != null" >
+        firstpay,
+      </if>
+      <if test="downPay != null" >
+        down_pay,
+      </if>
+      <if test="coverPic != null" >
+        cover_pic,
+      </if>
+      <if test="structure != null" >
+        structure,
+      </if>
+      <if test="lwh != null" >
+        lwh,
+      </if>
+      <if test="engine != null" >
+        engine,
+      </if>
+      <if test="gearbox != null" >
+        gearbox,
+      </if>
+      <if test="driveT != null" >
+        drive_t,
+      </if>
+      <if test="fuelT != null" >
+        fuel_t,
+      </if>
+      <if test="oilWear != null" >
+        oil_wear,
+      </if>
+      <if test="color != null" >
+        color,
+      </if>
+      <if test="wheelBase != null" >
+        wheel_base,
+      </if>
+      <if test="frontSpan != null" >
+        front_span,
+      </if>
+      <if test="rearSpan != null" >
+        rear_span,
+      </if>
+      <if test="minClearance != null" >
+        min_clearance,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="doorNum != null" >
+        door_num,
+      </if>
+      <if test="seatNum != null" >
+        seat_num,
+      </if>
+      <if test="fuelTankVol != null" >
+        fuel_tank_vol,
+      </if>
+      <if test="trunkVol != null" >
+        trunk_vol,
+      </if>
+      <if test="engineT != null" >
+        engine_t,
+      </if>
+      <if test="displacement != null" >
+        displacement,
+      </if>
+      <if test="inairType != null" >
+        inair_type,
+      </if>
+      <if test="airCylinderArr != null" >
+        air_cylinder_arr,
+      </if>
+      <if test="airCyNum != null" >
+        air_cy_num,
+      </if>
+      <if test="airDoorsPerCy != null" >
+        air_doors_per_cy,
+      </if>
+      <if test="cySpan != null" >
+        cy_span,
+      </if>
+      <if test="cyDistance != null" >
+        cy_distance,
+      </if>
+      <if test="maxPower != null" >
+        max_power,
+      </if>
+      <if test="maxWork != null" >
+        max_work,
+      </if>
+      <if test="maxWorkRotate != null" >
+        max_work_rotate,
+      </if>
+      <if test="maxTorque != null" >
+        max_torque,
+      </if>
+      <if test="maxTorqueRotate != null" >
+        max_torque_rotate,
+      </if>
+      <if test="engineSpecialTech != null" >
+        engine_special_tech,
+      </if>
+      <if test="fuelFlag != null" >
+        fuel_flag,
+      </if>
+      <if test="supplyFuelT != null" >
+        supply_fuel_t,
+      </if>
+      <if test="cyCoverMaterial != null" >
+        cy_cover_material,
+      </if>
+      <if test="cyTrunkMaterial != null" >
+        cy_trunk_material,
+      </if>
+      <if test="envirProtect != null" >
+        envir_protect,
+      </if>
+      <if test="gearsNum != null" >
+        gears_num,
+      </if>
+      <if test="gearboxT != null" >
+        gearbox_t,
+      </if>
+      <if test="fourdrivet != null" >
+        fourDriveT,
+      </if>
+      <if test="centerdiffstru != null" >
+        centerDiffStru,
+      </if>
+      <if test="frontframet != null" >
+        frontFrameT,
+      </if>
+      <if test="rearframet != null" >
+        rearFrameT,
+      </if>
+      <if test="assistpowert != null" >
+        assistPowerT,
+      </if>
+      <if test="trunkstruc != null" >
+        trunkStruc,
+      </if>
+      <if test="frontbraket != null" >
+        frontBrakeT,
+      </if>
+      <if test="rearbraket != null" >
+        rearBrakeT,
+      </if>
+      <if test="parkingbraket != null" >
+        parkingBrakeT,
+      </if>
+      <if test="frontwheelspe != null" >
+        frontWheelSpe,
+      </if>
+      <if test="rearwheelspe != null" >
+        rearWheelSpe,
+      </if>
+      <if test="readywheelspe != null" >
+        readyWheelSpe,
+      </if>
+      <if test="mainsafeair != null" >
+        mainSafeAir,
+      </if>
+      <if test="sidesafeair != null" >
+        sideSafeAir,
+      </if>
+      <if test="frontsideair != null" >
+        frontSideAir,
+      </if>
+      <if test="rearsizeair != null" >
+        rearSizeAir,
+      </if>
+      <if test="frontheadair != null" >
+        frontHeadAir,
+      </if>
+      <if test="rearheadair != null" >
+        rearHeadAir,
+      </if>
+      <if test="kneeair != null" >
+        kneeAir,
+      </if>
+      <if test="tireprescheck != null" >
+        tirePresCheck,
+      </if>
+      <if test="zerotirepresdrive != null" >
+        zeroTirePresDrive,
+      </if>
+      <if test="safebeltnotice != null" >
+        safeBeltNotice,
+      </if>
+      <if test="isofix != null" >
+        isofix,
+      </if>
+      <if test="enginestopsteal != null" >
+        engineStopSteal,
+      </if>
+      <if test="insidecenterlock != null" >
+        insideCenterLock,
+      </if>
+      <if test="controkey != null" >
+        controKey,
+      </if>
+      <if test="startnokey != null" >
+        startNoKey,
+      </if>
+      <if test="enternokey != null" >
+        enterNoKey,
+      </if>
+      <if test="antiblocking != null" >
+        antiBlocking,
+      </if>
+      <if test="brakeallot != null" >
+        brakeAllot,
+      </if>
+      <if test="brakeassist != null" >
+        brakeAssist,
+      </if>
+      <if test="pullcontrol != null" >
+        pullControl,
+      </if>
+      <if test="trunkholdcontrol != null" >
+        trunkHoldControl,
+      </if>
+      <if test="uphillassist != null" >
+        uphillAssist,
+      </if>
+      <if test="autoparking != null" >
+        autoParking,
+      </if>
+      <if test="steephillslow != null" >
+        steephillSlow,
+      </if>
+      <if test="changeframe != null" >
+        changeFrame,
+      </if>
+      <if test="airframe != null" >
+        airFrame,
+      </if>
+      <if test="elecskywin != null" >
+        elecSkyWin,
+      </if>
+      <if test="widewin != null" >
+        wideWin,
+      </if>
+      <if test="sportextend != null" >
+        sportExtend,
+      </if>
+      <if test="lvhejintire != null" >
+        lvhejinTire,
+      </if>
+      <if test="elecdoor != null" >
+        elecDoor,
+      </if>
+      <if test="sideslidedoor != null" >
+        sideSlideDoor,
+      </if>
+      <if test="elecbackvan != null" >
+        elecBackVan,
+      </if>
+      <if test="feelbackvan != null" >
+        feelBackVan,
+      </if>
+      <if test="roofrack != null" >
+        roofRack,
+      </if>
+      <if test="realfursteering != null" >
+        realFurSteering,
+      </if>
+      <if test="steeringadjust != null" >
+        steeringAdjust,
+      </if>
+      <if test="steeringeleca != null" >
+        steeringElecA,
+      </if>
+      <if test="multifunsteering != null" >
+        multiFunSteering,
+      </if>
+      <if test="steeringshift != null" >
+        steeringShift,
+      </if>
+      <if test="steeringhot != null" >
+        steeringHot,
+      </if>
+      <if test="speednavigation != null" >
+        speedNavigation,
+      </if>
+      <if test="frontparkingradar != null" >
+        frontParkingRadar,
+      </if>
+      <if test="rearparkingradar != null" >
+        rearParkingRadar,
+      </if>
+      <if test="backvideo != null" >
+        backVideo,
+      </if>
+      <if test="drivedisplay != null" >
+        driveDisplay,
+      </if>
+      <if test="liquiddisplay != null" >
+        liquidDisplay,
+      </if>
+      <if test="seatmatieral != null" >
+        seatMatieral,
+      </if>
+      <if test="seatadjust != null" >
+        seatAdjust,
+      </if>
+      <if test="waistadjust != null" >
+        waistAdjust,
+      </if>
+      <if test="shoulderadjust != null" >
+        shoulderAdjust,
+      </if>
+      <if test="mainseateleca != null" >
+        mainSeatElecA,
+      </if>
+      <if test="assistsearteleca != null" >
+        assistSeartElecA,
+      </if>
+      <if test="rearseateleca != null" >
+        rearSeatElecA,
+      </if>
+      <if test="frontseathot != null" >
+        frontSeatHot,
+      </if>
+      <if test="rearsearthot != null" >
+        rearSeartHot,
+      </if>
+      <if test="frontseartwind != null" >
+        frontSeartWind,
+      </if>
+      <if test="rearseatwind != null" >
+        rearSeatWind,
+      </if>
+      <if test="gpsnavisys != null" >
+        gpsNaviSys,
+      </if>
+      <if test="centercolorfulscreen != null" >
+        centerColorfulScreen,
+      </if>
+      <if test="bluephone != null" >
+        bluePhone,
+      </if>
+      <if test="soundinterface != null" >
+        soundInterface,
+      </if>
+      <if test="multimediasys != null" >
+        multimediaSys,
+      </if>
+      <if test="loudspeakernum != null" >
+        loudspeakerNum,
+      </if>
+      <if test="headlight != null" >
+        headlight,
+      </if>
+      <if test="farlight != null" >
+        farlight,
+      </if>
+      <if test="daylight != null" >
+        daylight,
+      </if>
+      <if test="autolight != null" >
+        autolight,
+      </if>
+      <if test="autoheadlight != null" >
+        autoHeadLight,
+      </if>
+      <if test="turnassistlight != null" >
+        turnAssistLight,
+      </if>
+      <if test="turnlight != null" >
+        turnLight,
+      </if>
+      <if test="frontfoglight != null" >
+        frontFogLight,
+      </if>
+      <if test="biglighta != null" >
+        bigLightA,
+      </if>
+      <if test="biglightclean != null" >
+        bigLightClean,
+      </if>
+      <if test="frontelecwin != null" >
+        frontElecWin,
+      </if>
+      <if test="rearelecwin != null" >
+        rearElecWin,
+      </if>
+      <if test="winprevhand != null" >
+        winPrevHand,
+      </if>
+      <if test="rearvieweleca != null" >
+        rearviewElecA,
+      </if>
+      <if test="rearviewhot != null" >
+        rearviewHot,
+      </if>
+      <if test="inrearviewpreveye != null" >
+        inRearviewPrevEye,
+      </if>
+      <if test="outrearviewpreveye != null" >
+        outRearviewPrevEye,
+      </if>
+      <if test="rearviewelecfold != null" >
+        rearviewElecFold,
+      </if>
+      <if test="sunmakeupmirror != null" >
+        sunMakeupMirror,
+      </if>
+      <if test="rearrainbrush != null" >
+        rearRainBrush,
+      </if>
+      <if test="feelrarnbrush != null" >
+        feelRarnBrush,
+      </if>
+      <if test="airconditioncontrolt != null" >
+        airconditionControlT,
+      </if>
+      <if test="rearindependentac != null" >
+        rearIndependentAC,
+      </if>
+      <if test="rearoutwindport != null" >
+        rearOutWindPort,
+      </if>
+      <if test="tempercontrol != null" >
+        temperControl,
+      </if>
+      <if test="airadjust != null" >
+        airAdjust,
+      </if>
+      <if test="icebox != null" >
+        iceBox,
+      </if>
+      <if test="autoparkingposi != null" >
+        autoParkingPosi,
+      </if>
+      <if test="enginestartshoptech != null" >
+        engineStartShopTech,
+      </if>
+      <if test="asyassist != null" >
+        asyAssist,
+      </if>
+      <if test="roadwrongsys != null" >
+        roadWrongSys,
+      </if>
+      <if test="selfbrakesys != null" >
+        selfBrakeSys,
+      </if>
+      <if test="selfturnsys != null" >
+        selfTurnSys,
+      </if>
+      <if test="nightseesys != null" >
+        nightSeeSys,
+      </if>
+      <if test="liquidbypage != null" >
+        liquidByPage,
+      </if>
+      <if test="autonavi != null" >
+        autoNavi,
+      </if>
+      <if test="allcamera != null" >
+        allcamera,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+       <if test="oneMonthPay != null" >
+        oneMonthPay,
+      </if>
+       <if test="thirteenthMonthPay != null" >
+        thirteenthMonthPay,
+      </if>
+      <if test="fourteenthMonthPay != null" >
+        fourteenthMonthPay,
+      </if>
+      <if test="finalPayment != null" >
+        finalPayment,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=VARCHAR},
+      <if test="putaway != null" >
+        #{putaway,jdbcType=VARCHAR},
+      </if>
+      <if test="putawaytime != null" >
+        #{putawaytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null" >
+        #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="firstMonthPay != null" >
+        #{firstMonthPay,jdbcType=VARCHAR},
+      </if>
+      <if test="everyMonthPay != null" >
+        #{everyMonthPay,jdbcType=VARCHAR},
+      </if>
+      <if test="rate != null" >
+        #{rate,jdbcType=VARCHAR},
+      </if>
+      <if test="periodNum != null" >
+        #{periodNum,jdbcType=VARCHAR},
+      </if>
+       <if test="firstpay != null" >
+        #{firstpay,jdbcType=VARCHAR},
+      </if>
+      <if test="downPay != null" >
+        #{downPay,jdbcType=VARCHAR},
+      </if>
+      <if test="coverPic != null" >
+        #{coverPic,jdbcType=VARCHAR},
+      </if>
+      <if test="structure != null" >
+        #{structure,jdbcType=VARCHAR},
+      </if>
+      <if test="lwh != null" >
+        #{lwh,jdbcType=VARCHAR},
+      </if>
+      <if test="engine != null" >
+        #{engine,jdbcType=VARCHAR},
+      </if>
+      <if test="gearbox != null" >
+        #{gearbox,jdbcType=VARCHAR},
+      </if>
+      <if test="driveT != null" >
+        #{driveT,jdbcType=VARCHAR},
+      </if>
+      <if test="fuelT != null" >
+        #{fuelT,jdbcType=VARCHAR},
+      </if>
+      <if test="oilWear != null" >
+        #{oilWear,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null" >
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="wheelBase != null" >
+        #{wheelBase,jdbcType=VARCHAR},
+      </if>
+      <if test="frontSpan != null" >
+        #{frontSpan,jdbcType=VARCHAR},
+      </if>
+      <if test="rearSpan != null" >
+        #{rearSpan,jdbcType=VARCHAR},
+      </if>
+      <if test="minClearance != null" >
+        #{minClearance,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="doorNum != null" >
+        #{doorNum,jdbcType=VARCHAR},
+      </if>
+      <if test="seatNum != null" >
+        #{seatNum,jdbcType=VARCHAR},
+      </if>
+      <if test="fuelTankVol != null" >
+        #{fuelTankVol,jdbcType=VARCHAR},
+      </if>
+      <if test="trunkVol != null" >
+        #{trunkVol,jdbcType=VARCHAR},
+      </if>
+      <if test="engineT != null" >
+        #{engineT,jdbcType=VARCHAR},
+      </if>
+      <if test="displacement != null" >
+        #{displacement,jdbcType=VARCHAR},
+      </if>
+      <if test="inairType != null" >
+        #{inairType,jdbcType=VARCHAR},
+      </if>
+      <if test="airCylinderArr != null" >
+        #{airCylinderArr,jdbcType=VARCHAR},
+      </if>
+      <if test="airCyNum != null" >
+        #{airCyNum,jdbcType=VARCHAR},
+      </if>
+      <if test="airDoorsPerCy != null" >
+        #{airDoorsPerCy,jdbcType=VARCHAR},
+      </if>
+      <if test="cySpan != null" >
+        #{cySpan,jdbcType=VARCHAR},
+      </if>
+      <if test="cyDistance != null" >
+        #{cyDistance,jdbcType=VARCHAR},
+      </if>
+      <if test="maxPower != null" >
+        #{maxPower,jdbcType=VARCHAR},
+      </if>
+      <if test="maxWork != null" >
+        #{maxWork,jdbcType=VARCHAR},
+      </if>
+      <if test="maxWorkRotate != null" >
+        #{maxWorkRotate,jdbcType=VARCHAR},
+      </if>
+      <if test="maxTorque != null" >
+        #{maxTorque,jdbcType=VARCHAR},
+      </if>
+      <if test="maxTorqueRotate != null" >
+        #{maxTorqueRotate,jdbcType=VARCHAR},
+      </if>
+      <if test="engineSpecialTech != null" >
+        #{engineSpecialTech,jdbcType=VARCHAR},
+      </if>
+      <if test="fuelFlag != null" >
+        #{fuelFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyFuelT != null" >
+        #{supplyFuelT,jdbcType=VARCHAR},
+      </if>
+      <if test="cyCoverMaterial != null" >
+        #{cyCoverMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="cyTrunkMaterial != null" >
+        #{cyTrunkMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="envirProtect != null" >
+        #{envirProtect,jdbcType=VARCHAR},
+      </if>
+      <if test="gearsNum != null" >
+        #{gearsNum,jdbcType=VARCHAR},
+      </if>
+      <if test="gearboxT != null" >
+        #{gearboxT,jdbcType=VARCHAR},
+      </if>
+      <if test="fourdrivet != null" >
+        #{fourdrivet,jdbcType=VARCHAR},
+      </if>
+      <if test="centerdiffstru != null" >
+        #{centerdiffstru,jdbcType=VARCHAR},
+      </if>
+      <if test="frontframet != null" >
+        #{frontframet,jdbcType=VARCHAR},
+      </if>
+      <if test="rearframet != null" >
+        #{rearframet,jdbcType=VARCHAR},
+      </if>
+      <if test="assistpowert != null" >
+        #{assistpowert,jdbcType=VARCHAR},
+      </if>
+      <if test="trunkstruc != null" >
+        #{trunkstruc,jdbcType=VARCHAR},
+      </if>
+      <if test="frontbraket != null" >
+        #{frontbraket,jdbcType=VARCHAR},
+      </if>
+      <if test="rearbraket != null" >
+        #{rearbraket,jdbcType=VARCHAR},
+      </if>
+      <if test="parkingbraket != null" >
+        #{parkingbraket,jdbcType=VARCHAR},
+      </if>
+      <if test="frontwheelspe != null" >
+        #{frontwheelspe,jdbcType=VARCHAR},
+      </if>
+      <if test="rearwheelspe != null" >
+        #{rearwheelspe,jdbcType=VARCHAR},
+      </if>
+      <if test="readywheelspe != null" >
+        #{readywheelspe,jdbcType=VARCHAR},
+      </if>
+      <if test="mainsafeair != null" >
+        #{mainsafeair,jdbcType=VARCHAR},
+      </if>
+      <if test="sidesafeair != null" >
+        #{sidesafeair,jdbcType=VARCHAR},
+      </if>
+      <if test="frontsideair != null" >
+        #{frontsideair,jdbcType=VARCHAR},
+      </if>
+      <if test="rearsizeair != null" >
+        #{rearsizeair,jdbcType=VARCHAR},
+      </if>
+      <if test="frontheadair != null" >
+        #{frontheadair,jdbcType=VARCHAR},
+      </if>
+      <if test="rearheadair != null" >
+        #{rearheadair,jdbcType=VARCHAR},
+      </if>
+      <if test="kneeair != null" >
+        #{kneeair,jdbcType=VARCHAR},
+      </if>
+      <if test="tireprescheck != null" >
+        #{tireprescheck,jdbcType=VARCHAR},
+      </if>
+      <if test="zerotirepresdrive != null" >
+        #{zerotirepresdrive,jdbcType=VARCHAR},
+      </if>
+      <if test="safebeltnotice != null" >
+        #{safebeltnotice,jdbcType=VARCHAR},
+      </if>
+      <if test="isofix != null" >
+        #{isofix,jdbcType=VARCHAR},
+      </if>
+      <if test="enginestopsteal != null" >
+        #{enginestopsteal,jdbcType=VARCHAR},
+      </if>
+      <if test="insidecenterlock != null" >
+        #{insidecenterlock,jdbcType=VARCHAR},
+      </if>
+      <if test="controkey != null" >
+        #{controkey,jdbcType=VARCHAR},
+      </if>
+      <if test="startnokey != null" >
+        #{startnokey,jdbcType=VARCHAR},
+      </if>
+      <if test="enternokey != null" >
+        #{enternokey,jdbcType=VARCHAR},
+      </if>
+      <if test="antiblocking != null" >
+        #{antiblocking,jdbcType=VARCHAR},
+      </if>
+      <if test="brakeallot != null" >
+        #{brakeallot,jdbcType=VARCHAR},
+      </if>
+      <if test="brakeassist != null" >
+        #{brakeassist,jdbcType=VARCHAR},
+      </if>
+      <if test="pullcontrol != null" >
+        #{pullcontrol,jdbcType=VARCHAR},
+      </if>
+      <if test="trunkholdcontrol != null" >
+        #{trunkholdcontrol,jdbcType=VARCHAR},
+      </if>
+      <if test="uphillassist != null" >
+        #{uphillassist,jdbcType=VARCHAR},
+      </if>
+      <if test="autoparking != null" >
+        #{autoparking,jdbcType=VARCHAR},
+      </if>
+      <if test="steephillslow != null" >
+        #{steephillslow,jdbcType=VARCHAR},
+      </if>
+      <if test="changeframe != null" >
+        #{changeframe,jdbcType=VARCHAR},
+      </if>
+      <if test="airframe != null" >
+        #{airframe,jdbcType=VARCHAR},
+      </if>
+      <if test="elecskywin != null" >
+        #{elecskywin,jdbcType=VARCHAR},
+      </if>
+      <if test="widewin != null" >
+        #{widewin,jdbcType=VARCHAR},
+      </if>
+      <if test="sportextend != null" >
+        #{sportextend,jdbcType=VARCHAR},
+      </if>
+      <if test="lvhejintire != null" >
+        #{lvhejintire,jdbcType=VARCHAR},
+      </if>
+      <if test="elecdoor != null" >
+        #{elecdoor,jdbcType=VARCHAR},
+      </if>
+      <if test="sideslidedoor != null" >
+        #{sideslidedoor,jdbcType=VARCHAR},
+      </if>
+      <if test="elecbackvan != null" >
+        #{elecbackvan,jdbcType=VARCHAR},
+      </if>
+      <if test="feelbackvan != null" >
+        #{feelbackvan,jdbcType=VARCHAR},
+      </if>
+      <if test="roofrack != null" >
+        #{roofrack,jdbcType=VARCHAR},
+      </if>
+      <if test="realfursteering != null" >
+        #{realfursteering,jdbcType=VARCHAR},
+      </if>
+      <if test="steeringadjust != null" >
+        #{steeringadjust,jdbcType=VARCHAR},
+      </if>
+      <if test="steeringeleca != null" >
+        #{steeringeleca,jdbcType=VARCHAR},
+      </if>
+      <if test="multifunsteering != null" >
+        #{multifunsteering,jdbcType=VARCHAR},
+      </if>
+      <if test="steeringshift != null" >
+        #{steeringshift,jdbcType=VARCHAR},
+      </if>
+      <if test="steeringhot != null" >
+        #{steeringhot,jdbcType=VARCHAR},
+      </if>
+      <if test="speednavigation != null" >
+        #{speednavigation,jdbcType=VARCHAR},
+      </if>
+      <if test="frontparkingradar != null" >
+        #{frontparkingradar,jdbcType=VARCHAR},
+      </if>
+      <if test="rearparkingradar != null" >
+        #{rearparkingradar,jdbcType=VARCHAR},
+      </if>
+      <if test="backvideo != null" >
+        #{backvideo,jdbcType=VARCHAR},
+      </if>
+      <if test="drivedisplay != null" >
+        #{drivedisplay,jdbcType=VARCHAR},
+      </if>
+      <if test="liquiddisplay != null" >
+        #{liquiddisplay,jdbcType=VARCHAR},
+      </if>
+      <if test="seatmatieral != null" >
+        #{seatmatieral,jdbcType=VARCHAR},
+      </if>
+      <if test="seatadjust != null" >
+        #{seatadjust,jdbcType=VARCHAR},
+      </if>
+      <if test="waistadjust != null" >
+        #{waistadjust,jdbcType=VARCHAR},
+      </if>
+      <if test="shoulderadjust != null" >
+        #{shoulderadjust,jdbcType=VARCHAR},
+      </if>
+      <if test="mainseateleca != null" >
+        #{mainseateleca,jdbcType=VARCHAR},
+      </if>
+      <if test="assistsearteleca != null" >
+        #{assistsearteleca,jdbcType=VARCHAR},
+      </if>
+      <if test="rearseateleca != null" >
+        #{rearseateleca,jdbcType=VARCHAR},
+      </if>
+      <if test="frontseathot != null" >
+        #{frontseathot,jdbcType=VARCHAR},
+      </if>
+      <if test="rearsearthot != null" >
+        #{rearsearthot,jdbcType=VARCHAR},
+      </if>
+      <if test="frontseartwind != null" >
+        #{frontseartwind,jdbcType=VARCHAR},
+      </if>
+      <if test="rearseatwind != null" >
+        #{rearseatwind,jdbcType=VARCHAR},
+      </if>
+      <if test="gpsnavisys != null" >
+        #{gpsnavisys,jdbcType=VARCHAR},
+      </if>
+      <if test="centercolorfulscreen != null" >
+        #{centercolorfulscreen,jdbcType=VARCHAR},
+      </if>
+      <if test="bluephone != null" >
+        #{bluephone,jdbcType=VARCHAR},
+      </if>
+      <if test="soundinterface != null" >
+        #{soundinterface,jdbcType=VARCHAR},
+      </if>
+      <if test="multimediasys != null" >
+        #{multimediasys,jdbcType=VARCHAR},
+      </if>
+      <if test="loudspeakernum != null" >
+        #{loudspeakernum,jdbcType=VARCHAR},
+      </if>
+      <if test="headlight != null" >
+        #{headlight,jdbcType=VARCHAR},
+      </if>
+      <if test="farlight != null" >
+        #{farlight,jdbcType=VARCHAR},
+      </if>
+      <if test="daylight != null" >
+        #{daylight,jdbcType=VARCHAR},
+      </if>
+      <if test="autolight != null" >
+        #{autolight,jdbcType=VARCHAR},
+      </if>
+      <if test="autoheadlight != null" >
+        #{autoheadlight,jdbcType=VARCHAR},
+      </if>
+      <if test="turnassistlight != null" >
+        #{turnassistlight,jdbcType=VARCHAR},
+      </if>
+      <if test="turnlight != null" >
+        #{turnlight,jdbcType=VARCHAR},
+      </if>
+      <if test="frontfoglight != null" >
+        #{frontfoglight,jdbcType=VARCHAR},
+      </if>
+      <if test="biglighta != null" >
+        #{biglighta,jdbcType=VARCHAR},
+      </if>
+      <if test="biglightclean != null" >
+        #{biglightclean,jdbcType=VARCHAR},
+      </if>
+      <if test="frontelecwin != null" >
+        #{frontelecwin,jdbcType=VARCHAR},
+      </if>
+      <if test="rearelecwin != null" >
+        #{rearelecwin,jdbcType=VARCHAR},
+      </if>
+      <if test="winprevhand != null" >
+        #{winprevhand,jdbcType=VARCHAR},
+      </if>
+      <if test="rearvieweleca != null" >
+        #{rearvieweleca,jdbcType=VARCHAR},
+      </if>
+      <if test="rearviewhot != null" >
+        #{rearviewhot,jdbcType=VARCHAR},
+      </if>
+      <if test="inrearviewpreveye != null" >
+        #{inrearviewpreveye,jdbcType=VARCHAR},
+      </if>
+      <if test="outrearviewpreveye != null" >
+        #{outrearviewpreveye,jdbcType=VARCHAR},
+      </if>
+      <if test="rearviewelecfold != null" >
+        #{rearviewelecfold,jdbcType=VARCHAR},
+      </if>
+      <if test="sunmakeupmirror != null" >
+        #{sunmakeupmirror,jdbcType=VARCHAR},
+      </if>
+      <if test="rearrainbrush != null" >
+        #{rearrainbrush,jdbcType=VARCHAR},
+      </if>
+      <if test="feelrarnbrush != null" >
+        #{feelrarnbrush,jdbcType=VARCHAR},
+      </if>
+      <if test="airconditioncontrolt != null" >
+        #{airconditioncontrolt,jdbcType=VARCHAR},
+      </if>
+      <if test="rearindependentac != null" >
+        #{rearindependentac,jdbcType=VARCHAR},
+      </if>
+      <if test="rearoutwindport != null" >
+        #{rearoutwindport,jdbcType=VARCHAR},
+      </if>
+      <if test="tempercontrol != null" >
+        #{tempercontrol,jdbcType=VARCHAR},
+      </if>
+      <if test="airadjust != null" >
+        #{airadjust,jdbcType=VARCHAR},
+      </if>
+      <if test="icebox != null" >
+        #{icebox,jdbcType=VARCHAR},
+      </if>
+      <if test="autoparkingposi != null" >
+        #{autoparkingposi,jdbcType=VARCHAR},
+      </if>
+      <if test="enginestartshoptech != null" >
+        #{enginestartshoptech,jdbcType=VARCHAR},
+      </if>
+      <if test="asyassist != null" >
+        #{asyassist,jdbcType=VARCHAR},
+      </if>
+      <if test="roadwrongsys != null" >
+        #{roadwrongsys,jdbcType=VARCHAR},
+      </if>
+      <if test="selfbrakesys != null" >
+        #{selfbrakesys,jdbcType=VARCHAR},
+      </if>
+      <if test="selfturnsys != null" >
+        #{selfturnsys,jdbcType=VARCHAR},
+      </if>
+      <if test="nightseesys != null" >
+        #{nightseesys,jdbcType=VARCHAR},
+      </if>
+      <if test="liquidbypage != null" >
+        #{liquidbypage,jdbcType=VARCHAR},
+      </if>
+      <if test="autonavi != null" >
+        #{autonavi,jdbcType=VARCHAR},
+      </if>
+      <if test="allcamera != null" >
+        #{allcamera,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oneMonthPay != null" >
+        #{oneMonthPay,jdbcType=VARCHAR},
+      </if>
+      <if test="thirteenthMonthPay != null" >
+        #{thirteenthMonthPay,jdbcType=VARCHAR},
+      </if>
+      <if test="fourteenthMonthPay != null" >
+        #{fourteenthMonthPay,jdbcType=VARCHAR},
+      </if>
+       <if test="finalPayment != null" >
+        #{finalPayment,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.product.CarType" >
+    update pro_car_type
+    <set >
+      <if test="putaway != null" >
+        putaway = #{putaway,jdbcType=VARCHAR},
+      </if>
+      <if test="putawaytime != null" >
+        putawayTime = #{putawaytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null" >
+        principal = #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="firstMonthPay != null" >
+        first_month_pay = #{firstMonthPay,jdbcType=VARCHAR},
+      </if>
+       <if test="oneMonthPay != null" >
+        oneMonthPay = #{oneMonthPay,jdbcType=VARCHAR},
+      </if>
+       <if test="thirteenthMonthPay != null" >
+        thirteenthMonthPay = #{thirteenthMonthPay,jdbcType=VARCHAR},
+      </if>
+       <if test="fourteenthMonthPay != null" >
+        fourteenthMonthPay = #{fourteenthMonthPay,jdbcType=VARCHAR},
+      </if>
+      <if test="everyMonthPay != null" >
+        every_month_pay = #{everyMonthPay,jdbcType=VARCHAR},
+      </if>
+      <if test="rate != null" >
+        rate = #{rate,jdbcType=VARCHAR},
+      </if>
+      <if test="periodNum != null" >
+        period_num = #{periodNum,jdbcType=VARCHAR},
+      </if>
+      <if test="firstpay != null" >
+        firstpay = #{firstpay,jdbcType=VARCHAR},
+      </if>
+      <if test="downPay != null" >
+        down_pay = #{downPay,jdbcType=VARCHAR},
+      </if>
+      <if test="coverPic != null" >
+        cover_pic = #{coverPic,jdbcType=VARCHAR},
+      </if>
+      <if test="structure != null" >
+        structure = #{structure,jdbcType=VARCHAR},
+      </if>
+      <if test="lwh != null" >
+        lwh = #{lwh,jdbcType=VARCHAR},
+      </if>
+      <if test="engine != null" >
+        engine = #{engine,jdbcType=VARCHAR},
+      </if>
+      <if test="gearbox != null" >
+        gearbox = #{gearbox,jdbcType=VARCHAR},
+      </if>
+      <if test="driveT != null" >
+        drive_t = #{driveT,jdbcType=VARCHAR},
+      </if>
+      <if test="fuelT != null" >
+        fuel_t = #{fuelT,jdbcType=VARCHAR},
+      </if>
+      <if test="oilWear != null" >
+        oil_wear = #{oilWear,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null" >
+        color = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="wheelBase != null" >
+        wheel_base = #{wheelBase,jdbcType=VARCHAR},
+      </if>
+      <if test="frontSpan != null" >
+        front_span = #{frontSpan,jdbcType=VARCHAR},
+      </if>
+      <if test="rearSpan != null" >
+        rear_span = #{rearSpan,jdbcType=VARCHAR},
+      </if>
+      <if test="minClearance != null" >
+        min_clearance = #{minClearance,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="doorNum != null" >
+        door_num = #{doorNum,jdbcType=VARCHAR},
+      </if>
+      <if test="seatNum != null" >
+        seat_num = #{seatNum,jdbcType=VARCHAR},
+      </if>
+      <if test="fuelTankVol != null" >
+        fuel_tank_vol = #{fuelTankVol,jdbcType=VARCHAR},
+      </if>
+      <if test="trunkVol != null" >
+        trunk_vol = #{trunkVol,jdbcType=VARCHAR},
+      </if>
+      <if test="engineT != null" >
+        engine_t = #{engineT,jdbcType=VARCHAR},
+      </if>
+      <if test="displacement != null" >
+        displacement = #{displacement,jdbcType=VARCHAR},
+      </if>
+      <if test="inairType != null" >
+        inair_type = #{inairType,jdbcType=VARCHAR},
+      </if>
+      <if test="airCylinderArr != null" >
+        air_cylinder_arr = #{airCylinderArr,jdbcType=VARCHAR},
+      </if>
+      <if test="airCyNum != null" >
+        air_cy_num = #{airCyNum,jdbcType=VARCHAR},
+      </if>
+      <if test="airDoorsPerCy != null" >
+        air_doors_per_cy = #{airDoorsPerCy,jdbcType=VARCHAR},
+      </if>
+      <if test="cySpan != null" >
+        cy_span = #{cySpan,jdbcType=VARCHAR},
+      </if>
+      <if test="cyDistance != null" >
+        cy_distance = #{cyDistance,jdbcType=VARCHAR},
+      </if>
+      <if test="maxPower != null" >
+        max_power = #{maxPower,jdbcType=VARCHAR},
+      </if>
+      <if test="maxWork != null" >
+        max_work = #{maxWork,jdbcType=VARCHAR},
+      </if>
+      <if test="maxWorkRotate != null" >
+        max_work_rotate = #{maxWorkRotate,jdbcType=VARCHAR},
+      </if>
+      <if test="maxTorque != null" >
+        max_torque = #{maxTorque,jdbcType=VARCHAR},
+      </if>
+      <if test="maxTorqueRotate != null" >
+        max_torque_rotate = #{maxTorqueRotate,jdbcType=VARCHAR},
+      </if>
+      <if test="engineSpecialTech != null" >
+        engine_special_tech = #{engineSpecialTech,jdbcType=VARCHAR},
+      </if>
+      <if test="fuelFlag != null" >
+        fuel_flag = #{fuelFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="supplyFuelT != null" >
+        supply_fuel_t = #{supplyFuelT,jdbcType=VARCHAR},
+      </if>
+      <if test="cyCoverMaterial != null" >
+        cy_cover_material = #{cyCoverMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="cyTrunkMaterial != null" >
+        cy_trunk_material = #{cyTrunkMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="envirProtect != null" >
+        envir_protect = #{envirProtect,jdbcType=VARCHAR},
+      </if>
+      <if test="gearsNum != null" >
+        gears_num = #{gearsNum,jdbcType=VARCHAR},
+      </if>
+      <if test="gearboxT != null" >
+        gearbox_t = #{gearboxT,jdbcType=VARCHAR},
+      </if>
+      <if test="fourdrivet != null" >
+        fourDriveT = #{fourdrivet,jdbcType=VARCHAR},
+      </if>
+      <if test="centerdiffstru != null" >
+        centerDiffStru = #{centerdiffstru,jdbcType=VARCHAR},
+      </if>
+      <if test="frontframet != null" >
+        frontFrameT = #{frontframet,jdbcType=VARCHAR},
+      </if>
+      <if test="rearframet != null" >
+        rearFrameT = #{rearframet,jdbcType=VARCHAR},
+      </if>
+      <if test="assistpowert != null" >
+        assistPowerT = #{assistpowert,jdbcType=VARCHAR},
+      </if>
+      <if test="trunkstruc != null" >
+        trunkStruc = #{trunkstruc,jdbcType=VARCHAR},
+      </if>
+      <if test="frontbraket != null" >
+        frontBrakeT = #{frontbraket,jdbcType=VARCHAR},
+      </if>
+      <if test="rearbraket != null" >
+        rearBrakeT = #{rearbraket,jdbcType=VARCHAR},
+      </if>
+      <if test="parkingbraket != null" >
+        parkingBrakeT = #{parkingbraket,jdbcType=VARCHAR},
+      </if>
+      <if test="frontwheelspe != null" >
+        frontWheelSpe = #{frontwheelspe,jdbcType=VARCHAR},
+      </if>
+      <if test="rearwheelspe != null" >
+        rearWheelSpe = #{rearwheelspe,jdbcType=VARCHAR},
+      </if>
+      <if test="readywheelspe != null" >
+        readyWheelSpe = #{readywheelspe,jdbcType=VARCHAR},
+      </if>
+      <if test="mainsafeair != null" >
+        mainSafeAir = #{mainsafeair,jdbcType=VARCHAR},
+      </if>
+      <if test="sidesafeair != null" >
+        sideSafeAir = #{sidesafeair,jdbcType=VARCHAR},
+      </if>
+      <if test="frontsideair != null" >
+        frontSideAir = #{frontsideair,jdbcType=VARCHAR},
+      </if>
+      <if test="rearsizeair != null" >
+        rearSizeAir = #{rearsizeair,jdbcType=VARCHAR},
+      </if>
+      <if test="frontheadair != null" >
+        frontHeadAir = #{frontheadair,jdbcType=VARCHAR},
+      </if>
+      <if test="rearheadair != null" >
+        rearHeadAir = #{rearheadair,jdbcType=VARCHAR},
+      </if>
+      <if test="kneeair != null" >
+        kneeAir = #{kneeair,jdbcType=VARCHAR},
+      </if>
+      <if test="tireprescheck != null" >
+        tirePresCheck = #{tireprescheck,jdbcType=VARCHAR},
+      </if>
+      <if test="zerotirepresdrive != null" >
+        zeroTirePresDrive = #{zerotirepresdrive,jdbcType=VARCHAR},
+      </if>
+      <if test="safebeltnotice != null" >
+        safeBeltNotice = #{safebeltnotice,jdbcType=VARCHAR},
+      </if>
+      <if test="isofix != null" >
+        isofix = #{isofix,jdbcType=VARCHAR},
+      </if>
+      <if test="enginestopsteal != null" >
+        engineStopSteal = #{enginestopsteal,jdbcType=VARCHAR},
+      </if>
+      <if test="insidecenterlock != null" >
+        insideCenterLock = #{insidecenterlock,jdbcType=VARCHAR},
+      </if>
+      <if test="controkey != null" >
+        controKey = #{controkey,jdbcType=VARCHAR},
+      </if>
+      <if test="startnokey != null" >
+        startNoKey = #{startnokey,jdbcType=VARCHAR},
+      </if>
+      <if test="enternokey != null" >
+        enterNoKey = #{enternokey,jdbcType=VARCHAR},
+      </if>
+      <if test="antiblocking != null" >
+        antiBlocking = #{antiblocking,jdbcType=VARCHAR},
+      </if>
+      <if test="brakeallot != null" >
+        brakeAllot = #{brakeallot,jdbcType=VARCHAR},
+      </if>
+      <if test="brakeassist != null" >
+        brakeAssist = #{brakeassist,jdbcType=VARCHAR},
+      </if>
+      <if test="pullcontrol != null" >
+        pullControl = #{pullcontrol,jdbcType=VARCHAR},
+      </if>
+      <if test="trunkholdcontrol != null" >
+        trunkHoldControl = #{trunkholdcontrol,jdbcType=VARCHAR},
+      </if>
+      <if test="uphillassist != null" >
+        uphillAssist = #{uphillassist,jdbcType=VARCHAR},
+      </if>
+      <if test="autoparking != null" >
+        autoParking = #{autoparking,jdbcType=VARCHAR},
+      </if>
+      <if test="steephillslow != null" >
+        steephillSlow = #{steephillslow,jdbcType=VARCHAR},
+      </if>
+      <if test="changeframe != null" >
+        changeFrame = #{changeframe,jdbcType=VARCHAR},
+      </if>
+      <if test="airframe != null" >
+        airFrame = #{airframe,jdbcType=VARCHAR},
+      </if>
+      <if test="elecskywin != null" >
+        elecSkyWin = #{elecskywin,jdbcType=VARCHAR},
+      </if>
+      <if test="widewin != null" >
+        wideWin = #{widewin,jdbcType=VARCHAR},
+      </if>
+      <if test="sportextend != null" >
+        sportExtend = #{sportextend,jdbcType=VARCHAR},
+      </if>
+      <if test="lvhejintire != null" >
+        lvhejinTire = #{lvhejintire,jdbcType=VARCHAR},
+      </if>
+      <if test="elecdoor != null" >
+        elecDoor = #{elecdoor,jdbcType=VARCHAR},
+      </if>
+      <if test="sideslidedoor != null" >
+        sideSlideDoor = #{sideslidedoor,jdbcType=VARCHAR},
+      </if>
+      <if test="elecbackvan != null" >
+        elecBackVan = #{elecbackvan,jdbcType=VARCHAR},
+      </if>
+      <if test="feelbackvan != null" >
+        feelBackVan = #{feelbackvan,jdbcType=VARCHAR},
+      </if>
+      <if test="roofrack != null" >
+        roofRack = #{roofrack,jdbcType=VARCHAR},
+      </if>
+      <if test="realfursteering != null" >
+        realFurSteering = #{realfursteering,jdbcType=VARCHAR},
+      </if>
+      <if test="steeringadjust != null" >
+        steeringAdjust = #{steeringadjust,jdbcType=VARCHAR},
+      </if>
+      <if test="steeringeleca != null" >
+        steeringElecA = #{steeringeleca,jdbcType=VARCHAR},
+      </if>
+      <if test="multifunsteering != null" >
+        multiFunSteering = #{multifunsteering,jdbcType=VARCHAR},
+      </if>
+      <if test="steeringshift != null" >
+        steeringShift = #{steeringshift,jdbcType=VARCHAR},
+      </if>
+      <if test="steeringhot != null" >
+        steeringHot = #{steeringhot,jdbcType=VARCHAR},
+      </if>
+      <if test="speednavigation != null" >
+        speedNavigation = #{speednavigation,jdbcType=VARCHAR},
+      </if>
+      <if test="frontparkingradar != null" >
+        frontParkingRadar = #{frontparkingradar,jdbcType=VARCHAR},
+      </if>
+      <if test="rearparkingradar != null" >
+        rearParkingRadar = #{rearparkingradar,jdbcType=VARCHAR},
+      </if>
+      <if test="backvideo != null" >
+        backVideo = #{backvideo,jdbcType=VARCHAR},
+      </if>
+      <if test="drivedisplay != null" >
+        driveDisplay = #{drivedisplay,jdbcType=VARCHAR},
+      </if>
+      <if test="liquiddisplay != null" >
+        liquidDisplay = #{liquiddisplay,jdbcType=VARCHAR},
+      </if>
+      <if test="seatmatieral != null" >
+        seatMatieral = #{seatmatieral,jdbcType=VARCHAR},
+      </if>
+      <if test="seatadjust != null" >
+        seatAdjust = #{seatadjust,jdbcType=VARCHAR},
+      </if>
+      <if test="waistadjust != null" >
+        waistAdjust = #{waistadjust,jdbcType=VARCHAR},
+      </if>
+      <if test="shoulderadjust != null" >
+        shoulderAdjust = #{shoulderadjust,jdbcType=VARCHAR},
+      </if>
+      <if test="mainseateleca != null" >
+        mainSeatElecA = #{mainseateleca,jdbcType=VARCHAR},
+      </if>
+      <if test="assistsearteleca != null" >
+        assistSeartElecA = #{assistsearteleca,jdbcType=VARCHAR},
+      </if>
+      <if test="rearseateleca != null" >
+        rearSeatElecA = #{rearseateleca,jdbcType=VARCHAR},
+      </if>
+      <if test="frontseathot != null" >
+        frontSeatHot = #{frontseathot,jdbcType=VARCHAR},
+      </if>
+      <if test="rearsearthot != null" >
+        rearSeartHot = #{rearsearthot,jdbcType=VARCHAR},
+      </if>
+      <if test="frontseartwind != null" >
+        frontSeartWind = #{frontseartwind,jdbcType=VARCHAR},
+      </if>
+      <if test="rearseatwind != null" >
+        rearSeatWind = #{rearseatwind,jdbcType=VARCHAR},
+      </if>
+      <if test="gpsnavisys != null" >
+        gpsNaviSys = #{gpsnavisys,jdbcType=VARCHAR},
+      </if>
+      <if test="centercolorfulscreen != null" >
+        centerColorfulScreen = #{centercolorfulscreen,jdbcType=VARCHAR},
+      </if>
+      <if test="bluephone != null" >
+        bluePhone = #{bluephone,jdbcType=VARCHAR},
+      </if>
+      <if test="soundinterface != null" >
+        soundInterface = #{soundinterface,jdbcType=VARCHAR},
+      </if>
+      <if test="multimediasys != null" >
+        multimediaSys = #{multimediasys,jdbcType=VARCHAR},
+      </if>
+      <if test="loudspeakernum != null" >
+        loudspeakerNum = #{loudspeakernum,jdbcType=VARCHAR},
+      </if>
+      <if test="headlight != null" >
+        headlight = #{headlight,jdbcType=VARCHAR},
+      </if>
+      <if test="farlight != null" >
+        farlight = #{farlight,jdbcType=VARCHAR},
+      </if>
+      <if test="daylight != null" >
+        daylight = #{daylight,jdbcType=VARCHAR},
+      </if>
+      <if test="autolight != null" >
+        autolight = #{autolight,jdbcType=VARCHAR},
+      </if>
+      <if test="autoheadlight != null" >
+        autoHeadLight = #{autoheadlight,jdbcType=VARCHAR},
+      </if>
+      <if test="turnassistlight != null" >
+        turnAssistLight = #{turnassistlight,jdbcType=VARCHAR},
+      </if>
+      <if test="turnlight != null" >
+        turnLight = #{turnlight,jdbcType=VARCHAR},
+      </if>
+      <if test="frontfoglight != null" >
+        frontFogLight = #{frontfoglight,jdbcType=VARCHAR},
+      </if>
+      <if test="biglighta != null" >
+        bigLightA = #{biglighta,jdbcType=VARCHAR},
+      </if>
+      <if test="biglightclean != null" >
+        bigLightClean = #{biglightclean,jdbcType=VARCHAR},
+      </if>
+      <if test="frontelecwin != null" >
+        frontElecWin = #{frontelecwin,jdbcType=VARCHAR},
+      </if>
+      <if test="rearelecwin != null" >
+        rearElecWin = #{rearelecwin,jdbcType=VARCHAR},
+      </if>
+      <if test="winprevhand != null" >
+        winPrevHand = #{winprevhand,jdbcType=VARCHAR},
+      </if>
+      <if test="rearvieweleca != null" >
+        rearviewElecA = #{rearvieweleca,jdbcType=VARCHAR},
+      </if>
+      <if test="rearviewhot != null" >
+        rearviewHot = #{rearviewhot,jdbcType=VARCHAR},
+      </if>
+      <if test="inrearviewpreveye != null" >
+        inRearviewPrevEye = #{inrearviewpreveye,jdbcType=VARCHAR},
+      </if>
+      <if test="outrearviewpreveye != null" >
+        outRearviewPrevEye = #{outrearviewpreveye,jdbcType=VARCHAR},
+      </if>
+      <if test="rearviewelecfold != null" >
+        rearviewElecFold = #{rearviewelecfold,jdbcType=VARCHAR},
+      </if>
+      <if test="sunmakeupmirror != null" >
+        sunMakeupMirror = #{sunmakeupmirror,jdbcType=VARCHAR},
+      </if>
+      <if test="rearrainbrush != null" >
+        rearRainBrush = #{rearrainbrush,jdbcType=VARCHAR},
+      </if>
+      <if test="feelrarnbrush != null" >
+        feelRarnBrush = #{feelrarnbrush,jdbcType=VARCHAR},
+      </if>
+      <if test="airconditioncontrolt != null" >
+        airconditionControlT = #{airconditioncontrolt,jdbcType=VARCHAR},
+      </if>
+      <if test="rearindependentac != null" >
+        rearIndependentAC = #{rearindependentac,jdbcType=VARCHAR},
+      </if>
+      <if test="rearoutwindport != null" >
+        rearOutWindPort = #{rearoutwindport,jdbcType=VARCHAR},
+      </if>
+      <if test="tempercontrol != null" >
+        temperControl = #{tempercontrol,jdbcType=VARCHAR},
+      </if>
+      <if test="airadjust != null" >
+        airAdjust = #{airadjust,jdbcType=VARCHAR},
+      </if>
+      <if test="icebox != null" >
+        iceBox = #{icebox,jdbcType=VARCHAR},
+      </if>
+      <if test="autoparkingposi != null" >
+        autoParkingPosi = #{autoparkingposi,jdbcType=VARCHAR},
+      </if>
+      <if test="enginestartshoptech != null" >
+        engineStartShopTech = #{enginestartshoptech,jdbcType=VARCHAR},
+      </if>
+      <if test="asyassist != null" >
+        asyAssist = #{asyassist,jdbcType=VARCHAR},
+      </if>
+      <if test="roadwrongsys != null" >
+        roadWrongSys = #{roadwrongsys,jdbcType=VARCHAR},
+      </if>
+      <if test="selfbrakesys != null" >
+        selfBrakeSys = #{selfbrakesys,jdbcType=VARCHAR},
+      </if>
+      <if test="selfturnsys != null" >
+        selfTurnSys = #{selfturnsys,jdbcType=VARCHAR},
+      </if>
+      <if test="nightseesys != null" >
+        nightSeeSys = #{nightseesys,jdbcType=VARCHAR},
+      </if>
+      <if test="liquidbypage != null" >
+        liquidByPage = #{liquidbypage,jdbcType=VARCHAR},
+      </if>
+      <if test="autonavi != null" >
+        autoNavi = #{autonavi,jdbcType=VARCHAR},
+      </if>
+      <if test="allcamera != null" >
+        allcamera = #{allcamera,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="finalPayment != null" >
+        finalPayment = #{finalPayment,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.product.CarType" >
+    update pro_car_type
+    set putaway = #{putaway,jdbcType=VARCHAR},
+      putawayTime = #{putawaytime,jdbcType=TIMESTAMP},
+      brand = #{brand,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      principal = #{principal,jdbcType=VARCHAR},
+      first_month_pay = #{firstMonthPay,jdbcType=VARCHAR},
+      every_month_pay = #{everyMonthPay,jdbcType=VARCHAR},
+      rate = #{rate,jdbcType=VARCHAR},
+      period_num = #{periodNum,jdbcType=VARCHAR},
+      oneMonthPay = #{oneMonthPay,jdbcType=VARCHAR},
+      thirteenthMonthPay = #{thirteenthMonthPay,jdbcType=VARCHAR},
+      fourteenthMonthPay = #{fourteenthMonthPay,jdbcType=VARCHAR},
+      down_pay = #{downPay,jdbcType=VARCHAR},
+      cover_pic = #{coverPic,jdbcType=VARCHAR},
+      structure = #{structure,jdbcType=VARCHAR},
+      lwh = #{lwh,jdbcType=VARCHAR},
+      engine = #{engine,jdbcType=VARCHAR},
+      gearbox = #{gearbox,jdbcType=VARCHAR},
+      drive_t = #{driveT,jdbcType=VARCHAR},
+      fuel_t = #{fuelT,jdbcType=VARCHAR},
+      oil_wear = #{oilWear,jdbcType=VARCHAR},
+      color = #{color,jdbcType=VARCHAR},
+      wheel_base = #{wheelBase,jdbcType=VARCHAR},
+      front_span = #{frontSpan,jdbcType=VARCHAR},
+      rear_span = #{rearSpan,jdbcType=VARCHAR},
+      min_clearance = #{minClearance,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=VARCHAR},
+      door_num = #{doorNum,jdbcType=VARCHAR},
+      seat_num = #{seatNum,jdbcType=VARCHAR},
+      fuel_tank_vol = #{fuelTankVol,jdbcType=VARCHAR},
+      trunk_vol = #{trunkVol,jdbcType=VARCHAR},
+      engine_t = #{engineT,jdbcType=VARCHAR},
+      displacement = #{displacement,jdbcType=VARCHAR},
+      inair_type = #{inairType,jdbcType=VARCHAR},
+      air_cylinder_arr = #{airCylinderArr,jdbcType=VARCHAR},
+      air_cy_num = #{airCyNum,jdbcType=VARCHAR},
+      air_doors_per_cy = #{airDoorsPerCy,jdbcType=VARCHAR},
+      cy_span = #{cySpan,jdbcType=VARCHAR},
+      cy_distance = #{cyDistance,jdbcType=VARCHAR},
+      max_power = #{maxPower,jdbcType=VARCHAR},
+      max_work = #{maxWork,jdbcType=VARCHAR},
+      max_work_rotate = #{maxWorkRotate,jdbcType=VARCHAR},
+      max_torque = #{maxTorque,jdbcType=VARCHAR},
+      max_torque_rotate = #{maxTorqueRotate,jdbcType=VARCHAR},
+      engine_special_tech = #{engineSpecialTech,jdbcType=VARCHAR},
+      fuel_flag = #{fuelFlag,jdbcType=VARCHAR},
+      supply_fuel_t = #{supplyFuelT,jdbcType=VARCHAR},
+      cy_cover_material = #{cyCoverMaterial,jdbcType=VARCHAR},
+      cy_trunk_material = #{cyTrunkMaterial,jdbcType=VARCHAR},
+      envir_protect = #{envirProtect,jdbcType=VARCHAR},
+      gears_num = #{gearsNum,jdbcType=VARCHAR},
+      gearbox_t = #{gearboxT,jdbcType=VARCHAR},
+      fourDriveT = #{fourdrivet,jdbcType=VARCHAR},
+      centerDiffStru = #{centerdiffstru,jdbcType=VARCHAR},
+      frontFrameT = #{frontframet,jdbcType=VARCHAR},
+      rearFrameT = #{rearframet,jdbcType=VARCHAR},
+      assistPowerT = #{assistpowert,jdbcType=VARCHAR},
+      trunkStruc = #{trunkstruc,jdbcType=VARCHAR},
+      frontBrakeT = #{frontbraket,jdbcType=VARCHAR},
+      rearBrakeT = #{rearbraket,jdbcType=VARCHAR},
+      parkingBrakeT = #{parkingbraket,jdbcType=VARCHAR},
+      frontWheelSpe = #{frontwheelspe,jdbcType=VARCHAR},
+      rearWheelSpe = #{rearwheelspe,jdbcType=VARCHAR},
+      readyWheelSpe = #{readywheelspe,jdbcType=VARCHAR},
+      mainSafeAir = #{mainsafeair,jdbcType=VARCHAR},
+      sideSafeAir = #{sidesafeair,jdbcType=VARCHAR},
+      frontSideAir = #{frontsideair,jdbcType=VARCHAR},
+      rearSizeAir = #{rearsizeair,jdbcType=VARCHAR},
+      frontHeadAir = #{frontheadair,jdbcType=VARCHAR},
+      rearHeadAir = #{rearheadair,jdbcType=VARCHAR},
+      kneeAir = #{kneeair,jdbcType=VARCHAR},
+      tirePresCheck = #{tireprescheck,jdbcType=VARCHAR},
+      zeroTirePresDrive = #{zerotirepresdrive,jdbcType=VARCHAR},
+      safeBeltNotice = #{safebeltnotice,jdbcType=VARCHAR},
+      isofix = #{isofix,jdbcType=VARCHAR},
+      engineStopSteal = #{enginestopsteal,jdbcType=VARCHAR},
+      insideCenterLock = #{insidecenterlock,jdbcType=VARCHAR},
+      controKey = #{controkey,jdbcType=VARCHAR},
+      startNoKey = #{startnokey,jdbcType=VARCHAR},
+      enterNoKey = #{enternokey,jdbcType=VARCHAR},
+      antiBlocking = #{antiblocking,jdbcType=VARCHAR},
+      brakeAllot = #{brakeallot,jdbcType=VARCHAR},
+      brakeAssist = #{brakeassist,jdbcType=VARCHAR},
+      pullControl = #{pullcontrol,jdbcType=VARCHAR},
+      trunkHoldControl = #{trunkholdcontrol,jdbcType=VARCHAR},
+      uphillAssist = #{uphillassist,jdbcType=VARCHAR},
+      autoParking = #{autoparking,jdbcType=VARCHAR},
+      steephillSlow = #{steephillslow,jdbcType=VARCHAR},
+      changeFrame = #{changeframe,jdbcType=VARCHAR},
+      airFrame = #{airframe,jdbcType=VARCHAR},
+      elecSkyWin = #{elecskywin,jdbcType=VARCHAR},
+      wideWin = #{widewin,jdbcType=VARCHAR},
+      sportExtend = #{sportextend,jdbcType=VARCHAR},
+      lvhejinTire = #{lvhejintire,jdbcType=VARCHAR},
+      elecDoor = #{elecdoor,jdbcType=VARCHAR},
+      sideSlideDoor = #{sideslidedoor,jdbcType=VARCHAR},
+      elecBackVan = #{elecbackvan,jdbcType=VARCHAR},
+      feelBackVan = #{feelbackvan,jdbcType=VARCHAR},
+      roofRack = #{roofrack,jdbcType=VARCHAR},
+      realFurSteering = #{realfursteering,jdbcType=VARCHAR},
+      steeringAdjust = #{steeringadjust,jdbcType=VARCHAR},
+      steeringElecA = #{steeringeleca,jdbcType=VARCHAR},
+      multiFunSteering = #{multifunsteering,jdbcType=VARCHAR},
+      steeringShift = #{steeringshift,jdbcType=VARCHAR},
+      steeringHot = #{steeringhot,jdbcType=VARCHAR},
+      speedNavigation = #{speednavigation,jdbcType=VARCHAR},
+      frontParkingRadar = #{frontparkingradar,jdbcType=VARCHAR},
+      rearParkingRadar = #{rearparkingradar,jdbcType=VARCHAR},
+      backVideo = #{backvideo,jdbcType=VARCHAR},
+      driveDisplay = #{drivedisplay,jdbcType=VARCHAR},
+      liquidDisplay = #{liquiddisplay,jdbcType=VARCHAR},
+      seatMatieral = #{seatmatieral,jdbcType=VARCHAR},
+      seatAdjust = #{seatadjust,jdbcType=VARCHAR},
+      waistAdjust = #{waistadjust,jdbcType=VARCHAR},
+      shoulderAdjust = #{shoulderadjust,jdbcType=VARCHAR},
+      mainSeatElecA = #{mainseateleca,jdbcType=VARCHAR},
+      assistSeartElecA = #{assistsearteleca,jdbcType=VARCHAR},
+      rearSeatElecA = #{rearseateleca,jdbcType=VARCHAR},
+      frontSeatHot = #{frontseathot,jdbcType=VARCHAR},
+      rearSeartHot = #{rearsearthot,jdbcType=VARCHAR},
+      frontSeartWind = #{frontseartwind,jdbcType=VARCHAR},
+      rearSeatWind = #{rearseatwind,jdbcType=VARCHAR},
+      gpsNaviSys = #{gpsnavisys,jdbcType=VARCHAR},
+      centerColorfulScreen = #{centercolorfulscreen,jdbcType=VARCHAR},
+      bluePhone = #{bluephone,jdbcType=VARCHAR},
+      soundInterface = #{soundinterface,jdbcType=VARCHAR},
+      multimediaSys = #{multimediasys,jdbcType=VARCHAR},
+      loudspeakerNum = #{loudspeakernum,jdbcType=VARCHAR},
+      headlight = #{headlight,jdbcType=VARCHAR},
+      farlight = #{farlight,jdbcType=VARCHAR},
+      daylight = #{daylight,jdbcType=VARCHAR},
+      autolight = #{autolight,jdbcType=VARCHAR},
+      autoHeadLight = #{autoheadlight,jdbcType=VARCHAR},
+      turnAssistLight = #{turnassistlight,jdbcType=VARCHAR},
+      turnLight = #{turnlight,jdbcType=VARCHAR},
+      frontFogLight = #{frontfoglight,jdbcType=VARCHAR},
+      bigLightA = #{biglighta,jdbcType=VARCHAR},
+      bigLightClean = #{biglightclean,jdbcType=VARCHAR},
+      frontElecWin = #{frontelecwin,jdbcType=VARCHAR},
+      rearElecWin = #{rearelecwin,jdbcType=VARCHAR},
+      winPrevHand = #{winprevhand,jdbcType=VARCHAR},
+      rearviewElecA = #{rearvieweleca,jdbcType=VARCHAR},
+      rearviewHot = #{rearviewhot,jdbcType=VARCHAR},
+      inRearviewPrevEye = #{inrearviewpreveye,jdbcType=VARCHAR},
+      outRearviewPrevEye = #{outrearviewpreveye,jdbcType=VARCHAR},
+      rearviewElecFold = #{rearviewelecfold,jdbcType=VARCHAR},
+      sunMakeupMirror = #{sunmakeupmirror,jdbcType=VARCHAR},
+      rearRainBrush = #{rearrainbrush,jdbcType=VARCHAR},
+      feelRarnBrush = #{feelrarnbrush,jdbcType=VARCHAR},
+      airconditionControlT = #{airconditioncontrolt,jdbcType=VARCHAR},
+      rearIndependentAC = #{rearindependentac,jdbcType=VARCHAR},
+      rearOutWindPort = #{rearoutwindport,jdbcType=VARCHAR},
+      temperControl = #{tempercontrol,jdbcType=VARCHAR},
+      airAdjust = #{airadjust,jdbcType=VARCHAR},
+      iceBox = #{icebox,jdbcType=VARCHAR},
+      autoParkingPosi = #{autoparkingposi,jdbcType=VARCHAR},
+      engineStartShopTech = #{enginestartshoptech,jdbcType=VARCHAR},
+      asyAssist = #{asyassist,jdbcType=VARCHAR},
+      roadWrongSys = #{roadwrongsys,jdbcType=VARCHAR},
+      selfBrakeSys = #{selfbrakesys,jdbcType=VARCHAR},
+      selfTurnSys = #{selfturnsys,jdbcType=VARCHAR},
+      nightSeeSys = #{nightseesys,jdbcType=VARCHAR},
+      liquidByPage = #{liquidbypage,jdbcType=VARCHAR},
+      autoNavi = #{autonavi,jdbcType=VARCHAR},
+      allcamera = #{allcamera,jdbcType=VARCHAR},
+      finalPayment = #{finalPayment,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="findCarTypeByModel" resultType="map" parameterType="map">
+  SELECT id, brand, model,version ,every_month_pay pay,cover_pic pic,firstpay,first_month_pay firstMonthPay,principal,period_num periodNum,id carid FROM `pro_car_type`  where putaway=1 
+	and model=#{model} 
+	and brand=#{brand} 
+  </select>
+  <!--  根据型号分组查询所有上架车型-->
+  <select id="groupfindAllCarTypeByBrand" resultType="map" parameterType="map">
+  SELECT id, brand ,model ,min(cast(every_month_pay as UNSIGNED INTEGER)) pay,cover_pic pic,firstpay,id carid FROM `pro_car_type`  where putaway=1
+   <if test="brand != null and brand !=''" >
+      and brand = #{brand}
+  </if>
+   GROUP BY model
+   order by id desc
+   <if test="page != null" >
+  limit #{page},#{size}
+  </if>
+  </select>
+  <select id="findAllCarTypeByBrand" resultType="map" parameterType="map">
+
+  SELECT id, brand ,model ,version ,every_month_pay pay,cover_pic pic FROM `pro_car_type`  where putaway=1
+
+  <if test="brand != null and brand !=''" >
+      and brand = #{brand}
+  </if>
+   order by id desc
+  <if test="page != null" >
+  limit #{page},#{size}
+  </if>
+  </select>
+  <select id="queryCarTypeById" resultType="map" parameterType="int">
+  SELECT id,brand,model,version,every_month_pay pay,cover_pic coverPic FROM `pro_car_type` where id=#{id}
+  </select>
+   <select id="queryCarBrand" resultType="map" >
+  SELECT DISTINCT brand FROM `pro_car_type`
+  </select>
+   
+  <select id="queryCarTypeModelByBrand" resultType="map" parameterType="String">
+  SELECT DISTINCT model FROM `pro_car_type` WHERE brand=#{brand}
+  </select>
+  
+  <select id="queryCarTypeVersionByModel" resultType="map" parameterType="String">
+  SELECT DISTINCT version FROM `pro_car_type` WHERE model=#{model}
+  </select>
+  <select id="selectByCriteriaForMsPage" resultType="map" parameterType="map">
+  SELECT id,brand,model,version,down_pay downpay,first_month_pay firstpay,
+  every_month_pay everypay,rate,period_num period,cover_pic pic,putaway,
+  oneMonthPay,thirteenthMonthPay,fourteenthMonthPay
+   FROM `pro_car_type` WHERE 1=1
+  <if test="brand != null" >
+  and brand = #{brand}
+  </if>
+  <if test="model != null" >
+  and model = #{model}
+  </if>
+  <if test="version != null" >
+  and version = #{version}
+  </if>
+  order by id desc limit #{page,jdbcType=INTEGER},#{size,jdbcType=INTEGER}
+  </select>
+  
+  <select id="countByCriteriaForMsPage" resultType="int" parameterType="map" >
+  select count(1) from pro_car_type where 1=1
+  <if test="brand != null" >
+  and brand = #{brand}
+  </if>
+  <if test="model != null" >
+  and model = #{model}
+  </if>
+  <if test="version != null" >
+  and version = #{version}
+  </if>
+  </select>
+  <!-- 查询所有品牌 -->
+  <select id="queryCarType" resultType="map">
+  SELECT DISTINCT brand FROM `pro_car_type` where putaway=1
+  </select>
+  <!-- 查询每个品牌对应的车型 -->
+ <select id="queryCarTypeModel" resultType="map" parameterType="com.yyq.car.portal.common.model.product.CarType">
+  SELECT DISTINCT model FROM `pro_car_type` where putaway=1  and brand = #{brand} 
+  </select>
+  <!--查询每个品牌和车型对应的版别  -->
+  <select id="queryCarTypeVersion" resultType="map" parameterType="com.yyq.car.portal.common.model.product.CarType">
+  SELECT version FROM `pro_car_type` where putaway=1 and brand = #{brand} and model = #{model}
+  </select>
+   <!-- 查询每个品牌和车型和版别对应的id -->
+  <select id="queryCarByid" resultType="com.yyq.car.portal.common.model.product.CarType" parameterType="com.yyq.car.portal.common.model.product.CarType">
+  select  id,min(cast(first_month_pay as UNSIGNED INTEGER)) firstMonthPay,min(cast(every_month_pay as UNSIGNED INTEGER)) everyMonthPay FROM `pro_car_type` where putaway=1 and brand = #{brand} and model = #{model} 
+  </select>
+  <select id="queryCarByidputaway" resultType="String" parameterType="int">
+  select putaway from `pro_car_type` where id=#{id}
+  </select>
+  <update id="updateParamById" parameterType="int" >
+    update pro_car_type set putaway=null where id=#{id}
+  </update>
+  <update id="updateParam" parameterType="int" >
+    update pro_car_type set putaway='1' where id=#{id}
+  </update>
+  <select id="selectdtoByPrimaryKey" resultMap="dtoResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_car_type
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+</mapper>

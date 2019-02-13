@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.cif.NeedBillMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.cif.NeedBill" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="buybillid" property="buybillid" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="color" property="color" jdbcType="VARCHAR" />
+    <result column="takecartime" property="takecartime" jdbcType="TIMESTAMP" />
+    <result column="ischange" property="ischange" jdbcType="VARCHAR" />
+    <result column="isfinance" property="isfinance" jdbcType="VARCHAR" />
+    <result column="decorate" property="decorate" jdbcType="VARCHAR" />
+    <result column="note" property="note" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="endtime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="isdeal" property="isdeal" jdbcType="VARCHAR" />
+    <result column="dealtime" property="dealtime" jdbcType="TIMESTAMP" />
+    <result column="dealman" property="dealman" jdbcType="VARCHAR" />
+    <result column="dealid" property="dealid" jdbcType="INTEGER" />
+    <result column="accId" property="accId" jdbcType="INTEGER" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, buybillid, type, name, tel, city, brand, model, version, color, takecartime, 
+    ischange, isfinance, decorate, note, createtime, endtime, status, isdeal, dealtime, 
+    dealman, dealid,accId,sex
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="buybillid != null and buybillid !=''" >
+       and buybillid = #{buybillid}
+    </if>
+    <if test="type != null and type !=''" >
+       and type = #{type}
+    </if>
+    <if test="name != null and name !=''" >
+       and name = #{name}
+    </if>
+    <if test="tel != null and tel !=''" >
+       and tel = #{tel}
+    </if>
+    <if test="city != null and city !=''" >
+       and city = #{city}
+    </if>
+    <if test="brand != null and brand !=''" >
+       and brand = #{brand}
+    </if>
+    <if test="model != null and model !=''" >
+       and model = #{model}
+    </if>
+    <if test="version != null and version !=''" >
+       and version = #{version}
+    </if>
+    <if test="color != null and color !=''" >
+       and color = #{color}
+    </if>
+    <if test="takecartime != null and takecartime !=''" >
+       and takecartime = #{takecartime}
+    </if>
+    <if test="ischange != null and ischange !=''" >
+       and ischange = #{ischange}
+    </if>
+    <if test="isfinance != null and isfinance !=''" >
+       and isfinance = #{isfinance}
+    </if>
+    <if test="decorate != null and decorate !=''" >
+       and decorate = #{decorate}
+    </if>
+    <if test="note != null and note !=''" >
+       and note = #{note}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="endtime != null and endtime !=''" >
+       and endtime = #{endtime}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+    <if test="isdeal != null and isdeal !=''" >
+       and isdeal = #{isdeal}
+    </if>
+    <if test="dealtime != null and dealtime !=''" >
+       and dealtime = #{dealtime}
+    </if>
+    <if test="dealman != null and dealman !=''" >
+       and dealman = #{dealman}
+    </if>
+    <if test="dealid != null and dealid !=''" >
+       and dealid = #{dealid}
+    </if>
+    <if test="accId != null and accId !=''" >
+       and accId = #{accId}
+    </if>
+     <if test="sex != null and sex !=''" >
+       and sex = #{sex}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.cif.NeedBill" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_needbill
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.cif.NeedBill" >
+    select count(*) from cif_needbill where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_needbill
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cif_needbill
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.cif.NeedBill" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(121);
+    </selectKey>
+    insert into cif_needbill (id, buybillid, type, 
+      name, tel, city, brand, 
+      model, version, color, 
+      takecartime, ischange, isfinance, 
+      decorate, note, createtime, 
+      endtime, status, isdeal, 
+      dealtime, dealman, dealid,sex
+      )
+    values (#{id,jdbcType=INTEGER}, #{buybillid,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, 
+      #{model,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}, #{color,jdbcType=VARCHAR}, 
+      #{takecartime,jdbcType=TIMESTAMP}, #{ischange,jdbcType=VARCHAR}, #{isfinance,jdbcType=VARCHAR}, 
+      #{decorate,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{endtime,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{isdeal,jdbcType=VARCHAR}, 
+      #{dealtime,jdbcType=TIMESTAMP}, #{dealman,jdbcType=VARCHAR}, #{dealid,jdbcType=INTEGER}, #{sex,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.cif.NeedBill" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(121);
+    </selectKey>
+    insert into cif_needbill
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="buybillid != null" >
+        buybillid,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="tel != null" >
+        tel,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="color != null" >
+        color,
+      </if>
+      <if test="takecartime != null" >
+        takecartime,
+      </if>
+      <if test="ischange != null" >
+        ischange,
+      </if>
+      <if test="isfinance != null" >
+        isfinance,
+      </if>
+      <if test="decorate != null" >
+        decorate,
+      </if>
+      <if test="note != null" >
+        note,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="endtime != null" >
+        endtime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="isdeal != null" >
+        isdeal,
+      </if>
+      <if test="dealtime != null" >
+        dealtime,
+      </if>
+      <if test="dealman != null" >
+        dealman,
+      </if>
+      <if test="dealid != null" >
+        dealid,
+      </if>
+      <if test="accId != null" >
+        accId,
+      </if>
+       <if test="sex != null" >
+        sex,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="buybillid != null" >
+        #{buybillid,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null" >
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="takecartime != null" >
+        #{takecartime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ischange != null" >
+        #{ischange,jdbcType=VARCHAR},
+      </if>
+      <if test="isfinance != null" >
+        #{isfinance,jdbcType=VARCHAR},
+      </if>
+      <if test="decorate != null" >
+        #{decorate,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null" >
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeal != null" >
+        #{isdeal,jdbcType=VARCHAR},
+      </if>
+      <if test="dealtime != null" >
+        #{dealtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealman != null" >
+        #{dealman,jdbcType=VARCHAR},
+      </if>
+      <if test="dealid != null" >
+        #{dealid,jdbcType=INTEGER},
+      </if>
+      <if test="accId != null" >
+        #{accId,jdbcType=INTEGER},
+      </if>
+       <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.cif.NeedBill" >
+    update cif_needbill
+    <set >
+      <if test="buybillid != null" >
+        buybillid = #{buybillid,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null" >
+        color = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="takecartime != null" >
+        takecartime = #{takecartime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ischange != null" >
+        ischange = #{ischange,jdbcType=VARCHAR},
+      </if>
+      <if test="isfinance != null" >
+        isfinance = #{isfinance,jdbcType=VARCHAR},
+      </if>
+      <if test="decorate != null" >
+        decorate = #{decorate,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null" >
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        endtime = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeal != null" >
+        isdeal = #{isdeal,jdbcType=VARCHAR},
+      </if>
+      <if test="dealtime != null" >
+        dealtime = #{dealtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealman != null" >
+        dealman = #{dealman,jdbcType=VARCHAR},
+      </if>
+      <if test="dealid != null" >
+        dealid = #{dealid,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.cif.NeedBill" >
+    update cif_needbill
+    set buybillid = #{buybillid,jdbcType=INTEGER},
+      type = #{type,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      color = #{color,jdbcType=VARCHAR},
+      takecartime = #{takecartime,jdbcType=TIMESTAMP},
+      ischange = #{ischange,jdbcType=VARCHAR},
+      isfinance = #{isfinance,jdbcType=VARCHAR},
+      decorate = #{decorate,jdbcType=VARCHAR},
+      note = #{note,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      endtime = #{endtime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR},
+      isdeal = #{isdeal,jdbcType=VARCHAR},
+      dealtime = #{dealtime,jdbcType=TIMESTAMP},
+      dealman = #{dealman,jdbcType=VARCHAR},
+       sex = #{sex,jdbcType=VARCHAR},
+      dealid = #{dealid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectByCriteriaForMs" resultType="map" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_needbill where 1=1 
+    <if test="type != null and type !=''" >
+       and type = #{type}
+    </if>
+    <if test="brand != null and brand !=''" >
+       and brand like concat('%',#{brand},'%')
+    </if>
+    <if test="model != null and model !=''" >
+       and model like concat('%',#{model},'%')
+    </if>
+    <if test="version != null and version !=''" >
+       and version like concat('%',#{version},'%')
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and DATE_FORMAT(createtime,'%Y-%m-%d') = #{createtime}
+    </if>
+    <if test="remaintime != null and remaintime !=''" >
+       and status is null and #{remaintime} >= TIMESTAMPDIFF(SECOND,NOW(),endtime) 
+    </if>
+    order by createtime desc limit #{start},#{pageSize}
+  </select>
+  <select id="countByCriteriaForMs" resultType="int" parameterType="map" >
+    select count(1) from cif_needbill where 1=1 
+    <if test="type != null and type !=''" >
+       and type = #{type}
+    </if>
+    <if test="brand != null and brand !=''" >
+       and brand like concat('%',#{brand},'%')
+    </if>
+    <if test="model != null and model !=''" >
+       and model like concat('%',#{model},'%')
+    </if>
+    <if test="version != null and version !=''" >
+       and version like concat('%',#{version},'%')
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and DATE_FORMAT(createtime,'%Y-%m-%d') = #{createtime}
+    </if>
+    <if test="remaintime != null and remaintime !=''" >
+       and status is null and #{remaintime} >= TIMESTAMPDIFF(SECOND,NOW(),endtime) 
+    </if>
+  </select>
+    <select id="queryOfferbill" resultType="map" parameterType="map">
+SELECT
+n.brand brand,
+n.model model,
+n.version version,
+n.name name,
+n.tel tel,
+n.isfinance isfinance,
+n.city city,
+f.createtime createtime,
+f.id id,
+f.allprice allprice,
+f.firstPay firstPay,
+f.secondPay secondPay,
+f.thirteenthPay thirteenthPay,
+f.fourteenthPay fourteenthPay,
+f.validtime validtime
+FROM
+	`cif_offerbill` f LEFT JOIN cif_needbill n on f.needid=n.id
+	where 1=1
+	<if test="brand != null and brand !=''" >
+       and n.brand like concat('%',#{brand},'%')
+    </if>
+    <if test="model != null and model !=''" >
+       and n.model like concat('%',#{model},'%')
+    </if>
+    <if test="version != null and version !=''" >
+       and n.version like concat('%',#{version},'%')
+    </if>
+     <if test="city != null and city !=''" >
+       and n.city like concat('%',#{city},'%')
+    </if>
+    <if test="name != null and name !=''" >
+       and n.name like concat('%',#{name},'%')
+    </if>
+    <if test="validtime != null and validtime !=''" >
+       and DATE_FORMAT(f.validtime,'%Y-%m-%d') = #{validtime}
+    </if>
+    order by f.createtime desc 
+     limit #{start},#{pageSize}
+  </select>
+   <select id="countOfferbill" resultType="int" parameterType="map">
+SELECT
+count(*)
+FROM
+	`cif_offerbill` f LEFT JOIN cif_needbill n on f.needid=n.id
+	where 1=1
+	 <if test="brand != null and brand !=''" >
+       and n.brand like concat('%',#{brand},'%')
+    </if>
+    <if test="model != null and model !=''" >
+       and n.model like concat('%',#{model},'%')
+    </if>
+    <if test="version != null and version !=''" >
+       and n.version like concat('%',#{version},'%')
+    </if>
+     <if test="city != null and city !=''" >
+       and n.city like concat('%',#{city},'%')
+    </if>
+    <if test="name != null and name !=''" >
+       and n.name like concat('%',#{name},'%')
+    </if>
+    <if test="validtime != null and validtime !=''" >
+       and DATE_FORMAT(f.validtime,'%Y-%m-%d') = #{validtime}
+    </if>
+  </select>
+  <select id="queryOfferbilldetails" resultType="com.yyq.car.portal.common.model.cif.Purchasebill" parameterType="int">
+ SELECT
+n.brand brand,
+n.model model,
+n.version version,
+n.name supplyname,<!-- 客户姓名 -->
+n.tel color,<!-- 客户电话 -->
+n.decorate createman,<!-- 加装 -->
+n.isfinance status,<!--是否需要金融  -->
+n.city middleman,<!-- 地区  -->
+f.id id,<!--报价单id  -->
+f.validtime createtime,<!-- 报价有效期 -->
+f.allprice offerprice,<!-- 报价 -->
+f.firstPay firstmonthpay,<!-- 第一月月供  -->
+f.secondPay everymonthpay,<!--第二月月供  -->
+f.thirteenthPay channelprice,<!--第十三月月供  -->
+f.fourteenthPay decorateprice,<!-- 第十四月月供 -->
+f.finpri profit<!-- 金融本金 -->
+FROM
+	`cif_offerbill` f JOIN cif_needbill n on f.needid=n.id and f.id=#{id}
+  </select>
+  <select id="selectNeedLstByAccId" resultType="map" parameterType="map">
+SELECT
+	a.id,
+	a.`name`,
+	a.tel,
+	a.city,
+	a.brand,
+	a.model,
+	a.version,
+	DATE_FORMAT(a.takecartime, '%Y-%m-%d') takecartime,
+	a.ischange,
+	a.isfinance,
+	a.decorate,
+	DATE_FORMAT(a.createtime, '%Y-%m-%d') createtime,
+	IFNULL(a.`status`, 0) `status`,
+	b.allprice,
+	b.firstPay,
+	b.secondPay,
+	b.thirteenthPay,
+	b.fourteenthPay,
+	b.validtime,
+	b.remainprice,0 as shoufu
+FROM
+	cif_needbill a
+LEFT JOIN cif_offerbill b ON a.id = b.needid
+WHERE
+	a.accid = #{accountId,jdbcType=INTEGER}
+ORDER BY
+	a.createtime DESC
+	<if test="page != null and page !=''" >
+       LIMIT #{page,jdbcType=INTEGER},#{size,jdbcType=INTEGER}
+    </if>
+  </select>
+  <select id="countNeedLstByAccId" resultType="int" parameterType="map" >
+    select count(1) from cif_needbill WHERE accid = #{accountId,jdbcType=INTEGER}
+  </select>
+</mapper>

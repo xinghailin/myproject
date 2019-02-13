@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.mall.mallAreaBrandMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.mall.mallAreaBrand" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="areaid" property="areaid" jdbcType="INTEGER" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="logourl" property="logourl" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="updator" property="updator" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, areaid, brand, logourl, sort, status, creator, createtime, updatetime, updator
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="areaid != null and areaid !=''" >
+       and areaid = #{areaid}
+    </if>
+    <if test="brand != null and brand !=''" >
+       and brand like concat('%',#{brand},'%')
+    </if>
+    <if test="logourl != null and logourl !=''" >
+       and logourl = #{logourl}
+    </if>
+    <if test="sort != null and sort !=''" >
+       and sort = #{sort}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+    <if test="creator != null and creator !=''" >
+       and creator = #{creator}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="updatetime != null and updatetime !=''" >
+       and updatetime = #{updatetime}
+    </if>
+    <if test="updator != null and updator !=''" >
+       and updator = #{updator}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.mall.mallAreaBrand" >
+    select 
+    <include refid="Base_Column_List" />
+    from mall_area_brand
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.mall.mallAreaBrand" >
+    select count(*) from mall_area_brand where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from mall_area_brand
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from mall_area_brand
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.mall.mallAreaBrand" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(1001);
+    </selectKey>
+    insert into mall_area_brand (id, areaid, brand, 
+      logourl, sort, status, 
+      creator, createtime, updatetime, 
+      updator)
+    values (#{id,jdbcType=INTEGER}, #{areaid,jdbcType=INTEGER}, #{brand,jdbcType=VARCHAR}, 
+      #{logourl,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{creator,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{updator,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.mall.mallAreaBrand" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(1001);
+    </selectKey>
+    insert into mall_area_brand
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="areaid != null" >
+        areaid,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="logourl != null" >
+        logourl,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="updatetime != null" >
+        updatetime,
+      </if>
+      <if test="updator != null" >
+        updator,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="areaid != null" >
+        #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="logourl != null" >
+        #{logourl,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updator != null" >
+        #{updator,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.mall.mallAreaBrand" >
+    update mall_area_brand
+    <set >
+      <if test="areaid != null" >
+        areaid = #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="logourl != null" >
+        logourl = #{logourl,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updator != null" >
+        updator = #{updator,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.mall.mallAreaBrand" >
+    update mall_area_brand
+    set areaid = #{areaid,jdbcType=INTEGER},
+      brand = #{brand,jdbcType=VARCHAR},
+      logourl = #{logourl,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      creator = #{creator,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      updator = #{updator,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectBrand" resultType="map" parameterType="map">
+  SELECT
+	s.`name`,
+	a.brand,
+	a.id,
+	a.createtime,
+	a.`status`,
+	a.logourl,
+	s.status statuss
+FROM
+	`mall_area_brand` a
+LEFT JOIN jnd_site s ON a.areaid = s.id where 1=1
+<if test="name !='' and name !=null">
+and s.`name` like concat('%',#{name},'%')
+</if>
+<if test="brand !='' and brand !=null">
+and a.`brand` like concat('%',#{brand},'%')
+</if>
+ORDER BY a.createtime desc 
+  LIMIT #{page},#{size}
+  </select>
+  <select id="countBrand" resultType="int" parameterType="map">
+  SELECT
+	count(*)
+FROM
+	`mall_area_brand` a
+LEFT JOIN jnd_site s ON a.areaid = s.id where 1=1 
+<if test="name !='' and name !=null">
+and s.`name` like concat('%',#{name},'%')
+</if>
+<if test="brand !='' and brand !=null">
+and a.brand like concat('%',#{brand},'%')
+</if>
+  </select>
+  <update id="updateStatus" parameterType="com.yyq.car.portal.common.model.mall.mallAreaBrand" >
+     update mall_area_brand
+    set 
+      status = #{status,jdbcType=INTEGER}
+    where areaid = #{areaid,jdbcType=INTEGER}
+  </update>
+</mapper>

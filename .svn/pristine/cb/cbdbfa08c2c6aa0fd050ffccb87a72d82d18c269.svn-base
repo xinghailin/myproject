@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.biz.BatchpayPayResponseMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.biz.BatchpayPayResponse" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="batch_id" property="batchId" jdbcType="VARCHAR" />
+    <result column="member_id" property="memberId" jdbcType="VARCHAR" />
+    <result column="resp_code" property="respCode" jdbcType="VARCHAR" />
+    <result column="resp_msg" property="respMsg" jdbcType="VARCHAR" />
+    <result column="terminal_id" property="terminalId" jdbcType="VARCHAR" />
+    <result column="creat_time" property="creatTime" jdbcType="TIMESTAMP" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="pay_type" property="payType" jdbcType="INTEGER" />
+    <result column="query_type" property="queryType" jdbcType="INTEGER" />
+    <result column="trans_batch_id" property="transBatchId" jdbcType="VARCHAR" />
+    <result column="pay_date" property="payDate" jdbcType="DATE" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.yyq.car.portal.common.model.biz.BatchpayPayResponse" extends="BaseResultMap" >
+    <result column="payids" property="payids" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="batchId != null and batchId !=''" >
+       and batch_id = #{batchId}
+    </if>
+    <if test="memberId != null and memberId !=''" >
+       and member_id = #{memberId}
+    </if>
+    <if test="respCode != null and respCode !=''" >
+       and resp_code = #{respCode}
+    </if>
+    <if test="respMsg != null and respMsg !=''" >
+       and resp_msg = #{respMsg}
+    </if>
+    <if test="terminalId != null and terminalId !=''" >
+       and terminal_id = #{terminalId}
+    </if>
+    <if test="creatTime != null and creatTime !=''" >
+       and creat_time = #{creatTime}
+    </if>
+    <if test="modifyTime != null and modifyTime !=''" >
+       and modify_time = #{modifyTime}
+    </if>
+    <if test="payType != null and payType !='' or payType == 0 " >
+       and pay_type = #{payType}
+    </if>
+    <if test="queryType != null and queryType !='' or queryType == 0 " >
+       and query_type = #{queryType}
+    </if>
+    <if test="transBatchId != null and transBatchId !=''" >
+       and trans_batch_id = #{transBatchId}
+    </if>
+    <if test="payDate != null and payDate !=''" >
+       and pay_date = #{payDate}
+    </if>
+    <if test="payids != null and payids !=''" >
+       and payids = #{payids}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="ResultMapWithBLOBs" parameterType="com.yyq.car.portal.common.model.biz.BatchpayPayResponse" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from batchpay_pay_response
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.biz.BatchpayPayResponse" >
+    select count(*) from batchpay_pay_response where 
+    <include refid="wherecase" />
+  </select>
+  <sql id="Base_Column_List" >
+    id, batch_id, member_id, resp_code, resp_msg, terminal_id, creat_time, modify_time, 
+    pay_type, query_type, trans_batch_id, pay_date
+  </sql>
+  <sql id="Blob_Column_List" >
+    payids
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from batchpay_pay_response
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from batchpay_pay_response
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.biz.BatchpayPayResponse" >
+    insert into batchpay_pay_response (id, batch_id, member_id, 
+      resp_code, resp_msg, terminal_id, 
+      creat_time, modify_time, pay_type, 
+      query_type, trans_batch_id, pay_date, 
+      payids)
+    values (#{id,jdbcType=VARCHAR}, #{batchId,jdbcType=VARCHAR}, #{memberId,jdbcType=VARCHAR}, 
+      #{respCode,jdbcType=VARCHAR}, #{respMsg,jdbcType=VARCHAR}, #{terminalId,jdbcType=VARCHAR}, 
+      #{creatTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}, #{payType,jdbcType=INTEGER}, 
+      #{queryType,jdbcType=INTEGER}, #{transBatchId,jdbcType=VARCHAR}, #{payDate,jdbcType=DATE}, 
+      #{payids,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.biz.BatchpayPayResponse" >
+    insert into batchpay_pay_response
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="batchId != null" >
+        batch_id,
+      </if>
+      <if test="memberId != null" >
+        member_id,
+      </if>
+      <if test="respCode != null" >
+        resp_code,
+      </if>
+      <if test="respMsg != null" >
+        resp_msg,
+      </if>
+      <if test="terminalId != null" >
+        terminal_id,
+      </if>
+      <if test="creatTime != null" >
+        creat_time,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="payType != null or payType == 0 " >
+        pay_type,
+      </if>
+      <if test="queryType != null or queryType == 0 " >
+        query_type,
+      </if>
+      <if test="transBatchId != null" >
+        trans_batch_id,
+      </if>
+      <if test="payDate != null" >
+        pay_date,
+      </if>
+      <if test="payids != null" >
+        payids,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="batchId != null" >
+        #{batchId,jdbcType=VARCHAR},
+      </if>
+      <if test="memberId != null" >
+        #{memberId,jdbcType=VARCHAR},
+      </if>
+      <if test="respCode != null" >
+        #{respCode,jdbcType=VARCHAR},
+      </if>
+      <if test="respMsg != null" >
+        #{respMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalId != null" >
+        #{terminalId,jdbcType=VARCHAR},
+      </if>
+      <if test="creatTime != null" >
+        #{creatTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payType != null" >
+        #{payType,jdbcType=INTEGER},
+      </if>
+      <if test="queryType != null" >
+        #{queryType,jdbcType=INTEGER},
+      </if>
+      <if test="transBatchId != null" >
+        #{transBatchId,jdbcType=VARCHAR},
+      </if>
+      <if test="payDate != null" >
+        #{payDate,jdbcType=DATE},
+      </if>
+      <if test="payids != null" >
+        #{payids,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.biz.BatchpayPayResponse" >
+    update batchpay_pay_response
+    <set >
+      <if test="batchId != null" >
+        batch_id = #{batchId,jdbcType=VARCHAR},
+      </if>
+      <if test="memberId != null" >
+        member_id = #{memberId,jdbcType=VARCHAR},
+      </if>
+      <if test="respCode != null" >
+        resp_code = #{respCode,jdbcType=VARCHAR},
+      </if>
+      <if test="respMsg != null" >
+        resp_msg = #{respMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalId != null" >
+        terminal_id = #{terminalId,jdbcType=VARCHAR},
+      </if>
+      <if test="creatTime != null" >
+        creat_time = #{creatTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payType != null or payType == 0" >
+        pay_type = #{payType,jdbcType=INTEGER},
+      </if>
+      <if test="queryType != null or queryType == 0 " >
+        query_type = #{queryType,jdbcType=INTEGER},
+      </if>
+      <if test="transBatchId != null" >
+        trans_batch_id = #{transBatchId,jdbcType=VARCHAR},
+      </if>
+      <if test="payDate != null" >
+        pay_date = #{payDate,jdbcType=DATE},
+      </if>
+      <if test="payids != null" >
+        payids = #{payids,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yyq.car.portal.common.model.biz.BatchpayPayResponse" >
+    update batchpay_pay_response
+    set batch_id = #{batchId,jdbcType=VARCHAR},
+      member_id = #{memberId,jdbcType=VARCHAR},
+      resp_code = #{respCode,jdbcType=VARCHAR},
+      resp_msg = #{respMsg,jdbcType=VARCHAR},
+      terminal_id = #{terminalId,jdbcType=VARCHAR},
+      creat_time = #{creatTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      pay_type = #{payType,jdbcType=INTEGER},
+      query_type = #{queryType,jdbcType=INTEGER},
+      trans_batch_id = #{transBatchId,jdbcType=VARCHAR},
+      pay_date = #{payDate,jdbcType=DATE},
+      payids = #{payids,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.biz.BatchpayPayResponse" >
+    update batchpay_pay_response
+    set batch_id = #{batchId,jdbcType=VARCHAR},
+      member_id = #{memberId,jdbcType=VARCHAR},
+      resp_code = #{respCode,jdbcType=VARCHAR},
+      resp_msg = #{respMsg,jdbcType=VARCHAR},
+      terminal_id = #{terminalId,jdbcType=VARCHAR},
+      creat_time = #{creatTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      pay_type = #{payType,jdbcType=INTEGER},
+      query_type = #{queryType,jdbcType=INTEGER},
+      trans_batch_id = #{transBatchId,jdbcType=VARCHAR},
+      pay_date = #{payDate,jdbcType=DATE}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

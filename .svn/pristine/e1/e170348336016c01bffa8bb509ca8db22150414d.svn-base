@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.mallcontract.JndCarorderDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.mallcontract.JndCarorderDetail" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="sourceid" property="sourceid" jdbcType="INTEGER" />
+    <result column="skucode" property="skucode" jdbcType="VARCHAR" />
+    <result column="ordercode" property="ordercode" jdbcType="VARCHAR" />
+    <result column="subordercode" property="subordercode" jdbcType="VARCHAR" />
+    <result column="contractcode" property="contractcode" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="verifystatus" property="verifystatus" jdbcType="INTEGER" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="totalprice" property="totalprice" jdbcType="DECIMAL" />
+    <result column="areaid" property="areaid" jdbcType="INTEGER" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="areaname" property="areaname" jdbcType="VARCHAR" />
+    <result column="vin" property="vin" jdbcType="VARCHAR" />
+    <result column="vinsource" property="vinsource" jdbcType="INTEGER" />
+    
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sourceid, skucode, ordercode, subordercode, contractcode, createtime, verifystatus, 
+    description, totalprice, areaid, unit, areaname,vin,vinsource
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="sourceid != null and sourceid !=''" >
+       and sourceid = #{sourceid}
+    </if>
+    <if test="skucode != null and skucode !=''" >
+       and skucode = #{skucode}
+    </if>
+    <if test="ordercode != null and ordercode !=''" >
+       and ordercode = #{ordercode}
+    </if>
+    <if test="subordercode != null and subordercode !=''" >
+       and subordercode = #{subordercode}
+    </if>
+    <if test="contractcode != null and contractcode !=''" >
+       and contractcode = #{contractcode}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="verifystatus != null and verifystatus !=''" >
+       and verifystatus = #{verifystatus}
+    </if>
+    <if test="description != null and description !=''" >
+       and description = #{description}
+    </if>
+    <if test="totalprice != null and totalprice !=''" >
+       and totalprice = #{totalprice}
+    </if>
+    <if test="areaid != null and areaid !=''" >
+       and areaid = #{areaid}
+    </if>
+    <if test="unit != null and unit !=''" >
+       and unit = #{unit}
+    </if>
+    <if test="areaname != null and areaname !=''" >
+       and areaname = #{areaname}
+    </if>
+     <if test="vin != null and vin !=''" >
+       and vin = #{vin}
+    </if>
+    <if test="vinsource != null and vinsource !=''" >
+       and vinsource = #{vinsource}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.mallcontract.JndCarorderDetail" >
+    select 
+    <include refid="Base_Column_List" />
+    from jnd_carorder_detail
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.mallcontract.JndCarorderDetail" >
+    select count(*) from jnd_carorder_detail where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from jnd_carorder_detail
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from jnd_carorder_detail
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.mallcontract.JndCarorderDetail" >
+    insert into jnd_carorder_detail (id, sourceid, skucode, 
+      ordercode, subordercode, contractcode, 
+      createtime, verifystatus, description, 
+      totalprice, areaid, unit, 
+      areaname,vin,vinsource)
+    values (#{id,jdbcType=VARCHAR}, #{sourceid,jdbcType=INTEGER}, #{skucode,jdbcType=VARCHAR}, 
+      #{ordercode,jdbcType=VARCHAR}, #{subordercode,jdbcType=VARCHAR}, #{contractcode,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{verifystatus,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, 
+      #{totalprice,jdbcType=DECIMAL}, #{areaid,jdbcType=INTEGER}, #{unit,jdbcType=VARCHAR}, 
+      #{areaname,jdbcType=VARCHAR}, #{vin,jdbcType=VARCHAR}, #{vinsource,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.mallcontract.JndCarorderDetail" >
+    insert into jnd_carorder_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sourceid != null" >
+        sourceid,
+      </if>
+      <if test="skucode != null" >
+        skucode,
+      </if>
+      <if test="ordercode != null" >
+        ordercode,
+      </if>
+      <if test="subordercode != null" >
+        subordercode,
+      </if>
+      <if test="contractcode != null" >
+        contractcode,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="verifystatus != null" >
+        verifystatus,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="totalprice != null" >
+        totalprice,
+      </if>
+      <if test="areaid != null" >
+        areaid,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="areaname != null" >
+        areaname,
+      </if>
+      <if test="vin != null" >
+        vin,
+      </if>
+       <if test="vinsource != null" >
+        vinsource,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceid != null" >
+        #{sourceid,jdbcType=INTEGER},
+      </if>
+      <if test="skucode != null" >
+        #{skucode,jdbcType=VARCHAR},
+      </if>
+      <if test="ordercode != null" >
+        #{ordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="subordercode != null" >
+        #{subordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="contractcode != null" >
+        #{contractcode,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="verifystatus != null" >
+        #{verifystatus,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="totalprice != null" >
+        #{totalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="areaid != null" >
+        #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        #{areaname,jdbcType=VARCHAR},
+      </if>
+       <if test="vin != null" >
+        #{vin,jdbcType=VARCHAR},
+      </if>
+       <if test="vinsource != null" >
+        #{vinsource,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.mallcontract.JndCarorderDetail" >
+    update jnd_carorder_detail
+    <set >
+      <if test="sourceid != null" >
+        sourceid = #{sourceid,jdbcType=INTEGER},
+      </if>
+      <if test="skucode != null" >
+        skucode = #{skucode,jdbcType=VARCHAR},
+      </if>
+      <if test="ordercode != null" >
+        ordercode = #{ordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="subordercode != null" >
+        subordercode = #{subordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="contractcode != null" >
+        contractcode = #{contractcode,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="verifystatus != null" >
+        verifystatus = #{verifystatus,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="totalprice != null" >
+        totalprice = #{totalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="areaid != null" >
+        areaid = #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        areaname = #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null" >
+        vin = #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="vinsource != null" >
+        vinsource = #{vinsource,jdbcType=INTEGER},
+      </if>
+      
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.mallcontract.JndCarorderDetail" >
+    update jnd_carorder_detail
+    set sourceid = #{sourceid,jdbcType=INTEGER},
+      skucode = #{skucode,jdbcType=VARCHAR},
+      ordercode = #{ordercode,jdbcType=VARCHAR},
+      subordercode = #{subordercode,jdbcType=VARCHAR},
+      contractcode = #{contractcode,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      verifystatus = #{verifystatus,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      totalprice = #{totalprice,jdbcType=DECIMAL},
+      areaid = #{areaid,jdbcType=INTEGER},
+      unit = #{unit,jdbcType=VARCHAR},
+      areaname = #{areaname,jdbcType=VARCHAR},
+      vin = #{vin,jdbcType=VARCHAR},
+      vinsource = #{vinsource,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  	<sql id="whereparameter">
+		1=1
+		<if test="skucode != null and skucode !=''">
+			AND jnddetail.skucode like concat('%',#{skucode},'%')
+		</if>
+	    <if test="subordercode != null and subordercode !=''">
+			AND jnddetail.subordercode = #{subordercode}
+		</if>
+		
+	</sql>
+
+
+	<select id="selectDetailByCriteria" resultType="com.yyq.car.portal.common.dto.JndCarorderDetailDTO"
+		parameterType="com.yyq.car.portal.common.vo.MallSealApplyVO">
+		SELECT jnddetail.* ,orderdetail.username username,
+		orderdetail.brand brand, orderdetail.model model, orderdetail.version version
+		from jnd_carorder_detail jnddetail
+		LEFT JOIN mall_order_detail orderdetail
+		ON jnddetail.subordercode = orderdetail.code
+		where 
+		<include refid="whereparameter" />
+		ORDER BY jnddetail.createtime DESC
+		LIMIT #{start},#{pageSize}
+	</select>
+
+
+	<select id="countDetailByCriteria" resultType="int"
+		parameterType="com.yyq.car.portal.common.vo.MallSealApplyVO">
+		select count(*)
+		from jnd_carorder_detail jnddetail
+		LEFT JOIN mall_order_detail orderdetail
+		ON jnddetail.subordercode = orderdetail.code
+		where 
+		<include refid="whereparameter" />
+	</select>
+	<select id="matchingVin" resultType="map" parameterType="String">
+	SELECT* from jnd_carorder_detail where subordercode=#{subordercode} and vinsource is not null
+	</select>
+</mapper>

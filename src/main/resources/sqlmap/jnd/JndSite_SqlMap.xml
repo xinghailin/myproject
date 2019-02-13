@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.jnd.jndSiteMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.jnd.jndSite" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="ename" property="ename" jdbcType="VARCHAR" />
+    <result column="currency" property="currency" jdbcType="INTEGER" />
+    <result column="country" property="country" jdbcType="INTEGER" />
+    <result column="picurl" property="picurl" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="currencyunit" property="currencyunit" jdbcType="VARCHAR" />
+    <result column="exchangeRate" property="exchangerate" jdbcType="DECIMAL" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updator" property="updator" jdbcType="VARCHAR" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+     <result column="currencyname" property="currencyname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, ename, currency, country, picurl, status, currencyunit, exchangeRate, creator, 
+    createtime, updator, updatetime,currencyname
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="name != null and name !=''" >
+       and name = #{name}
+    </if>
+    <if test="ename != null and ename !=''" >
+       and ename = #{ename}
+    </if>
+    <if test="currency != null and currency !=''" >
+       and currency = #{currency}
+    </if>
+    <if test="country != null and country !=''" >
+       and country = #{country}
+    </if>
+    <if test="picurl != null and picurl !=''" >
+       and picurl = #{picurl}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+    <if test="currencyunit != null and currencyunit !=''" >
+       and currencyunit = #{currencyunit}
+    </if>
+    <if test="exchangerate != null and exchangerate !=''" >
+       and exchangeRate = #{exchangerate}
+    </if>
+    <if test="creator != null and creator !=''" >
+       and creator = #{creator}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="updator != null and updator !=''" >
+       and updator = #{updator}
+    </if>
+    <if test="updatetime != null and updatetime !=''" >
+       and updatetime = #{updatetime}
+    </if>
+      <if test="currencyname != null and currencyname !=''" >
+       and currencyname = #{currencyname}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.jnd.jndSite" >
+    select 
+    <include refid="Base_Column_List" />
+    from jnd_site
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.jnd.jndSite" >
+    select count(*) from jnd_site where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from jnd_site
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from jnd_site
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.jnd.jndSite" >
+    insert into jnd_site (id, name, ename, 
+      currency, country, picurl, 
+      status, currencyunit, exchangeRate, 
+      creator, createtime, updator, 
+      updatetime,currencyname)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR}, 
+      #{currency,jdbcType=INTEGER}, #{country,jdbcType=INTEGER}, #{picurl,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{currencyunit,jdbcType=VARCHAR}, #{exchangerate,jdbcType=DECIMAL}, 
+      #{creator,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updator,jdbcType=VARCHAR}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{currencyname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.jnd.jndSite" >
+    insert into jnd_site
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="ename != null" >
+        ename,
+      </if>
+      <if test="currency != null" >
+        currency,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="picurl != null" >
+        picurl,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="currencyunit != null" >
+        currencyunit,
+      </if>
+      <if test="exchangerate != null" >
+        exchangeRate,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="updator != null" >
+        updator,
+      </if>
+      <if test="updatetime != null" >
+        updatetime,
+      </if>
+         <if test="currencyname != null" >
+        currencyname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null" >
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=INTEGER},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=INTEGER},
+      </if>
+      <if test="picurl != null" >
+        #{picurl,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="currencyunit != null" >
+        #{currencyunit,jdbcType=VARCHAR},
+      </if>
+      <if test="exchangerate != null" >
+        #{exchangerate,jdbcType=DECIMAL},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updator != null" >
+        #{updator,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="currencyname != null" >
+        #{currencyname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.jnd.jndSite" >
+    update jnd_site
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="ename != null" >
+        ename = #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null" >
+        currency = #{currency,jdbcType=INTEGER},
+      </if>
+      <if test="country != null" >
+        country = #{country,jdbcType=INTEGER},
+      </if>
+      <if test="picurl != null" >
+        picurl = #{picurl,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="currencyunit != null" >
+        currencyunit = #{currencyunit,jdbcType=VARCHAR},
+      </if>
+      <if test="exchangerate != null" >
+        exchangeRate = #{exchangerate,jdbcType=DECIMAL},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updator != null" >
+        updator = #{updator,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+       <if test="currencyname != null" >
+        currencyname = #{currencyname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.jnd.jndSite" >
+    update jnd_site
+    set name = #{name,jdbcType=VARCHAR},
+      ename = #{ename,jdbcType=VARCHAR},
+      currency = #{currency,jdbcType=INTEGER},
+      country = #{country,jdbcType=INTEGER},
+      picurl = #{picurl,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      currencyunit = #{currencyunit,jdbcType=VARCHAR},
+      exchangeRate = #{exchangerate,jdbcType=DECIMAL},
+      creator = #{creator,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updator = #{updator,jdbcType=VARCHAR},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      currencyname = #{currencyname,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="querycurrency" resultType="com.yyq.car.portal.common.model.jnd.jndSite" parameterType="com.yyq.car.portal.common.model.jnd.jndSite">
+  select currency,country from jnd_site where <include refid="wherecase" />
+  </select>
+  <select id="selectArea" resultType="com.yyq.car.portal.common.model.jnd.jndSite" parameterType="map">
+  SELECT
+		c.id id,
+		c. NAME name,
+		c.picurl,
+		c.country,c.exchangeRate,
+		c.currencyunit,
+		c.`status`,
+		GROUP_CONCAT(c.brand SEPARATOR '/') updator,
+		c.createtime
+		FROM
+		(
+		SELECT
+		a.id,
+		a.`name`,
+		a.`status`,
+		a.picurl,
+		a.country,
+		a.exchangeRate,
+		a.currencyunit,
+		b.brand,
+		a.createtime
+		FROM
+		jnd_site a
+		LEFT JOIN (select brand,areaid from  mall_area_brand GROUP BY brand,areaid) b ON b.areaid=a.id 
+		) c  where 1=1
+		<if test="name !='' and name !=null">
+			and c.name like concat('%',#{name},'%')
+		</if>
+		<if test="status !='' and status !=null">
+			and c.status=#{status}
+		</if>
+		GROUP BY
+		c.`name` ORDER BY c.createtime desc
+		LIMIT #{page},#{size}
+  </select>
+  <select id="countArea" resultType="int" parameterType="map">
+  select count(*) from jnd_site where 1=1
+  <if test="name !='' and name !=null">
+			and name like concat('%',#{name},'%')
+		</if>
+		<if test="status !='' and status !=null">
+			and status=#{status}
+		</if>
+  </select>
+</mapper>

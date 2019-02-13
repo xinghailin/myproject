@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.jnd.JndblacksupplierMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.jnd.Jndblacksupplier" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, createtime
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="name != null and name !=''" >
+       and name = #{name}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    order by id desc
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.jnd.Jndblacksupplier" >
+    select 
+    <include refid="Base_Column_List" />
+    from jnd_blacksupplier
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.jnd.Jndblacksupplier" >
+    select count(*) from jnd_blacksupplier where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from jnd_blacksupplier
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from jnd_blacksupplier
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.jnd.Jndblacksupplier" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(709);
+    </selectKey>
+    insert into jnd_blacksupplier (id, name, createtime
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.jnd.Jndblacksupplier" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(709);
+    </selectKey>
+    insert into jnd_blacksupplier
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.jnd.Jndblacksupplier" >
+    update jnd_blacksupplier
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.jnd.Jndblacksupplier" >
+    update jnd_blacksupplier
+    set name = #{name,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="countInLstByName" resultType="int" parameterType="map" >
+SELECT
+	COUNT(1)
+FROM
+	(
+		SELECT DISTINCT
+			d.sname
+		FROM
+			(
+				SELECT DISTINCT
+					sname
+				FROM
+					(
+						SELECT DISTINCT
+							contractid
+						FROM
+							jnd_car a
+						WHERE
+							`status` = '0'
+						AND #{now} > appointtime
+					) b
+				JOIN jnd_contract c ON b.contractid = c.id
+			) d
+	) f
+WHERE
+	f.sname = #{name}
+  </select>
+  
+  <insert id="checkAndInsertSupplier" parameterType="string">
+    INSERT INTO jnd_blacksupplier SELECT nextval(709),c.supplyname,NOW() from (SELECT
+			b.supplyname
+		FROM
+			`jnd_car` a
+		JOIN jnd_applypay b ON a.`status` = 0
+		AND #{now} > a.appointtime
+		AND a.applypayid = b.id
+		GROUP BY
+			b.supplyname) c LEFT JOIN jnd_blacksupplier d ON c.supplyname=d.name WHERE id is NULL
+  </insert>
+  
+  <insert id="checkAndInsertSupplierNew" parameterType="string">
+INSERT INTO jnd_blacksupplier (
+	SELECT
+		nextval (709),
+		f.sname,
+		NOW()
+	FROM
+		(
+			SELECT DISTINCT
+				d.sname
+			FROM
+				(
+					SELECT DISTINCT
+						sname
+					FROM
+						(
+							SELECT DISTINCT
+								contractid
+							FROM
+								jnd_car a
+							WHERE
+								`status` = '0'
+							AND #{now} > appointtime
+						) b
+					JOIN jnd_contract c ON b.contractid = c.id
+				) d
+			LEFT JOIN jnd_blacksupplier e ON d.sname = e.`name`
+			WHERE
+				e.id IS NULL
+		) f
+);		
+  </insert>
+</mapper>

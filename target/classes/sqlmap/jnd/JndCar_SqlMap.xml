@@ -1,0 +1,1569 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.jnd.JndcarMapper">
+	<resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.jnd.Jndcar">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="applypayid" property="applypayid" jdbcType="INTEGER" />
+		<result column="needcode" property="needcode" jdbcType="VARCHAR" />
+		<result column="needname" property="needname" jdbcType="VARCHAR" />
+		<result column="buycode" property="buycode" jdbcType="VARCHAR" />
+		<result column="buyname" property="buyname" jdbcType="VARCHAR" />
+		<result column="initials" property="initials" jdbcType="VARCHAR" />
+		<result column="brand" property="brand" jdbcType="VARCHAR" />
+		<result column="model" property="model" jdbcType="VARCHAR" />
+		<result column="version" property="version" jdbcType="VARCHAR" />
+		<result column="displacement" property="displacement" jdbcType="VARCHAR" />
+		<result column="vin" property="vin" jdbcType="VARCHAR" />
+		<result column="config" property="config" jdbcType="VARCHAR" />
+		<result column="outcolor" property="outcolor" jdbcType="VARCHAR" />
+		<result column="incolor" property="incolor" jdbcType="VARCHAR" />
+		<result column="iden1" property="iden1" jdbcType="VARCHAR" />
+		<result column="iden2" property="iden2" jdbcType="VARCHAR" />
+		<result column="iden3" property="iden3" jdbcType="VARCHAR" />
+		<result column="iden4" property="iden4" jdbcType="VARCHAR" />
+		<result column="iden5" property="iden5" jdbcType="VARCHAR" />
+		<result column="appointtime" property="appointtime" jdbcType="TIMESTAMP" />
+		<result column="fstatus" property="fstatus" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="VARCHAR" />
+		<result column="status1" property="status1" jdbcType="VARCHAR" />
+		<result column="drayage" property="drayage" jdbcType="DECIMAL" />
+		<result column="oceanfreight" property="oceanfreight" jdbcType="DECIMAL" />
+		<result column="elsecost1" property="elsecost1" jdbcType="DECIMAL" />
+		<result column="elsecost2" property="elsecost2" jdbcType="DECIMAL" />
+		<result column="freightid" property="freightid" jdbcType="INTEGER" />
+		<result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+		<result column="instoretime" property="instoretime" jdbcType="TIMESTAMP" />
+		<result column="instoreid" property="instoreid" jdbcType="INTEGER" />
+		<result column="note" property="note" jdbcType="VARCHAR" />
+		<result column="price" property="price" jdbcType="DECIMAL" />
+		<result column="costprice" property="costprice" jdbcType="DECIMAL" />
+		<result column="rebate" property="rebate" jdbcType="DECIMAL" />
+		<result column="othercost" property="othercost" jdbcType="DECIMAL" />
+		<result column="latecost" property="latecost" jdbcType="DECIMAL" />
+		<result column="salecost" property="salecost" jdbcType="DECIMAL" />
+		<result column="insurance" property="insurance" jdbcType="DECIMAL" />
+		<result column="expensetax" property="expensetax" jdbcType="DECIMAL" />
+		<result column="leavefactime" property="leavefactime" jdbcType="TIMESTAMP" />
+		<result column="enginenum" property="enginenum" jdbcType="VARCHAR" />
+		<result column="checkstatus" property="checkstatus" jdbcType="VARCHAR" />
+		<result column="shipname" property="shipname" jdbcType="VARCHAR" />
+		<result column="voyage" property="voyage" jdbcType="VARCHAR" />
+		<result column="containernum" property="containernum" jdbcType="VARCHAR" />
+		<result column="bookingnum" property="bookingnum" jdbcType="VARCHAR" />
+		<result column="buyername" property="buyername" jdbcType="VARCHAR" />
+		<result column="exportcorpname" property="exportcorpname" jdbcType="VARCHAR" />
+		<result column="goalhaven" property="goalhaven" jdbcType="VARCHAR" />
+		<result column="receivingcorpname" property="receivingcorpname" jdbcType="VARCHAR" />
+		<result column="goodname" property="goodname" jdbcType="VARCHAR" />
+		<result column="roughweight" property="roughweight" jdbcType="VARCHAR" />
+		<result column="starttime" property="starttime" jdbcType="TIMESTAMP" />
+		<result column="arrivetime" property="arrivetime" jdbcType="TIMESTAMP" />
+		<result column="inbondedtime" property="inbondedtime" jdbcType="TIMESTAMP" />
+		<result column="currency" property="currency" jdbcType="INTEGER" />
+		<result column="country" property="country" jdbcType="INTEGER" />
+		<result column="contractid" property="contractid" jdbcType="INTEGER" />
+		<result column="contractname" property="contractname" jdbcType="VARCHAR" />
+		<result column="Tiretype" property="tiretype" jdbcType="VARCHAR" />
+		<result column="seat" property="seat" jdbcType="INTEGER" />
+		<result column="seatnum" property="seatnum" jdbcType="INTEGER" />
+		<result column="fourtorep" property="fourtorep" jdbcType="DECIMAL" />
+		<result column="brandprice" property="brandprice" jdbcType="DECIMAL" />
+		<result column="modifytime" property="modifytime" jdbcType="TIMESTAMP" />
+		<result column="niden1" property="niden1" jdbcType="VARCHAR" />
+		<result column="niden2" property="niden2" jdbcType="VARCHAR" />
+		<result column="niden3" property="niden3" jdbcType="VARCHAR" />
+		<result column="niden4" property="niden4" jdbcType="VARCHAR" />
+		<result column="niden5" property="niden5" jdbcType="VARCHAR" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="energytype" property="energytype" jdbcType="VARCHAR" />
+		<result column="sellerprice" property="sellerprice" jdbcType="DECIMAL" />
+		<result column="decorate" property="decorate" jdbcType="VARCHAR" />
+		<result column="buyeruser" property="buyeruser" jdbcType="VARCHAR" />
+		<result column="purchasetime" property="purchasetime" jdbcType="TIMESTAMP" />
+		<result column="realsale" property="realsale" jdbcType="INTEGER" />
+		<result column="preinsuranceprice" property="preinsuranceprice" jdbcType="DECIMAL" />
+		<result column="predrayageprice" property="predrayageprice" jdbcType="DECIMAL" />
+		<result column="prelicenseprice" property="prelicenseprice" jdbcType="DECIMAL" />
+		<result column="preoilprice" property="preoilprice" jdbcType="DECIMAL" />
+		<result column="surepreinsuranceprice" property="surepreinsuranceprice" jdbcType="DECIMAL" />
+		<result column="surepreoilprice" property="surepreoilprice" jdbcType="DECIMAL" />
+		<result column="datatype" property="datatype" jdbcType="INTEGER" />
+		<result column="needer" property="needer" jdbcType="VARCHAR" />
+		<result column="mallContractCode" property="mallcontractcode" jdbcType="VARCHAR" />
+		<result column="mallordercode" property="mallordercode" jdbcType="VARCHAR" />
+		<result column="skucode" property="skucode" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, applypayid, needcode, needname, buycode, buyname, initials, brand,
+		model, version,
+		displacement, vin, config, outcolor, incolor, iden1, iden2, iden3, iden4, iden5,
+		appointtime, fstatus,
+		status, status1, drayage, oceanfreight,
+		elsecost1, elsecost2,
+		freightid, createtime, instoretime, instoreid, note, price, costprice, rebate,
+		othercost,
+		latecost, salecost, insurance, expensetax,
+		leavefactime, enginenum,
+		checkstatus,
+		shipname, voyage, containernum, bookingnum, buyername, exportcorpname,
+		goalhaven,
+		receivingcorpname, goodname, roughweight, starttime, arrivetime, inbondedtime,
+		currency,
+		country, contractid, contractname, Tiretype, seat, seatnum, fourtorep,
+		brandprice,
+		modifytime, niden1, niden2, niden3, niden4, niden5, address, energytype,
+		sellerprice,
+		decorate, buyeruser,
+		purchasetime, realsale, preinsuranceprice,
+		predrayageprice,
+		prelicenseprice, preoilprice, surepreinsuranceprice, surepreoilprice, datatype,
+		needer,
+		mallContractCode,mallordercode,skucode
+	</sql>
+	<sql id="wherecase">
+		1=1
+		<if test="id != null and id !=''">
+			and id = #{id}
+		</if>
+		<if test="applypayid != null and applypayid !=''">
+			and applypayid = #{applypayid}
+		</if>
+		<if test="needcode != null and needcode !=''">
+			and needcode = #{needcode}
+		</if>
+		<if test="needname != null and needname !=''">
+			and needname = #{needname}
+		</if>
+		<if test="buycode != null and buycode !=''">
+			and buycode like concat('%',#{buycode},'%')
+		</if>
+		<if test="buyname != null and buyname !=''">
+			and buyname like concat('%',#{buyname},'%')
+		</if>
+		<if test="initials != null and initials !=''">
+			and initials = #{initials}
+		</if>
+		<if test="brand != null and brand !=''">
+			and brand like concat('%',#{brand},'%')
+		</if>
+		<if test="model != null and model !=''">
+			and model like concat('%',#{model},'%')
+		</if>
+		<if test="version != null and version !=''">
+			and version like concat('%',#{version},'%')
+		</if>
+		<if test="displacement != null and displacement !=''">
+			and displacement = #{displacement}
+		</if>
+		<if test="vin != null and vin !=''">
+			and vin like concat('%',#{vin},'%')
+		</if>
+		<if test="config != null and config !=''">
+			and config = #{config}
+		</if>
+		<if test="outcolor != null and outcolor !=''">
+			and outcolor = #{outcolor}
+		</if>
+		<if test="incolor != null and incolor !=''">
+			and incolor = #{incolor}
+		</if>
+		<if test="iden1 != null and iden1 !=''">
+			and iden1 = #{iden1}
+		</if>
+		<if test="iden2 != null and iden2 !=''">
+			and iden2 = #{iden2}
+		</if>
+		<if test="iden3 != null and iden3 !=''">
+			and iden3 = #{iden3}
+		</if>
+		<if test="iden4 != null and iden4 !=''">
+			and iden4 = #{iden4}
+		</if>
+		<if test="iden5 != null and iden5 !=''">
+			and iden5 = #{iden5}
+		</if>
+		<if test="appointtime != null and appointtime !=''">
+			and appointtime = #{appointtime}
+		</if>
+		<if test="fstatus != null and fstatus !=''">
+			and fstatus = #{fstatus}
+		</if>
+		<if test="status != null and status !='' and status !=20 and status!=30 and status!=70 and status!=10 and status!=60">
+			and status = #{status}
+		</if>
+		<if test="status == 20 ">
+			AND ((status in (2,3) AND datatype=1) OR (status in (2,3) AND datatype IS NULL))
+		</if>
+		<if test="status == 70 ">
+			and status is not null
+		</if>
+		<if test="status == 30 ">
+			and status BETWEEN 2 and 6
+		</if>
+		<if test="status == 60 ">
+			and status=1
+		</if>
+		<if test="status ==10">
+			and (( status1 is null and `status` BETWEEN 1 and 8 and datatype is
+			null)or( status1 is null and `status` BETWEEN 1 and 8 and datatype=1))
+		</if>
+		<if test="status1 != null and status1 !=''">
+			and status1 = #{status1}
+		</if>
+		<if test="drayage != null and drayage !=''">
+			and drayage = #{drayage}
+		</if>
+		<if test="oceanfreight != null and oceanfreight !=''">
+			and oceanfreight = #{oceanfreight}
+		</if>
+		<if test="elsecost1 != null and elsecost1 !=''">
+			and elsecost1 = #{elsecost1}
+		</if>
+		<if test="elsecost2 != null and elsecost2 !=''">
+			and elsecost2 = #{elsecost2}
+		</if>
+		<if test="freightid != null and freightid !=''">
+			and freightid = #{freightid}
+		</if>
+		<if test="createtime != null and createtime !=''">
+			and createtime = #{createtime}
+		</if>
+		<if test="instoretime != null and instoretime !=''">
+			and instoretime = #{instoretime}
+		</if>
+		<if test="instoreid != null and instoreid !=''">
+			and instoreid = #{instoreid}
+		</if>
+		<if test="note != null and note !=''">
+			and note = #{note}
+		</if>
+		<if test="price != null and price !=''">
+			and price = #{price}
+		</if>
+		<if test="costprice != null and costprice !=''">
+			and costprice = #{costprice}
+		</if>
+		<if test="rebate != null and rebate !=''">
+			and rebate = #{rebate}
+		</if>
+		<if test="othercost != null and othercost !=''">
+			and othercost = #{othercost}
+		</if>
+		<if test="latecost != null and latecost !=''">
+			and latecost = #{latecost}
+		</if>
+		<if test="salecost != null and salecost !=''">
+			and salecost = #{salecost}
+		</if>
+		<if test="insurance != null and insurance !=''">
+			and insurance = #{insurance}
+		</if>
+		<if test="expensetax != null and expensetax !=''">
+			and expensetax = #{expensetax}
+		</if>
+		<if test="leavefactime != null and leavefactime !=''">
+			and leavefactime = #{leavefactime}
+		</if>
+		<if test="enginenum != null and enginenum !=''">
+			and enginenum = #{enginenum}
+		</if>
+		<if test="checkstatus != null and checkstatus !=''">
+			and checkstatus = #{checkstatus}
+		</if>
+		<if test="shipname != null and shipname !=''">
+			and shipname like concat('%',#{shipname},'%')
+		</if>
+		<if test="voyage != null and voyage !=''">
+			and voyage like concat('%',#{voyage},'%')
+		</if>
+		<if test="containernum != null and containernum !=''">
+			and containernum like concat('%',#{containernum},'%')
+		</if>
+		<if test="bookingnum != null and bookingnum !=''">
+			and bookingnum like concat('%',#{bookingnum},'%')
+		</if>
+		<if test="buyername != null and buyername !=''">
+			and buyername like concat('%',#{buyername},'%')
+		</if>
+		<if test="exportcorpname != null and exportcorpname !=''">
+			and exportcorpname = #{exportcorpname}
+		</if>
+		<if test="goalhaven != null and goalhaven !=''">
+			and goalhaven = #{goalhaven}
+		</if>
+		<if test="receivingcorpname != null and receivingcorpname !=''">
+			and receivingcorpname = #{receivingcorpname}
+		</if>
+		<if test="goodname != null and goodname !=''">
+			and goodname = #{goodname}
+		</if>
+		<if test="roughweight != null and roughweight !=''">
+			and roughweight = #{roughweight}
+		</if>
+		<if test="starttime != null and starttime !=''">
+			and starttime = #{starttime}
+		</if>
+		<if test="arrivetime != null and arrivetime !=''">
+			and arrivetime = #{arrivetime}
+		</if>
+		<if test="inbondedtime != null and inbondedtime !=''">
+			and inbondedtime = #{inbondedtime}
+		</if>
+		<if test="currency != null and currency !=''">
+			and currency = #{currency}
+		</if>
+		<if test="country != null and country !=''">
+			and country = #{country}
+		</if>
+		<if test="contractid != null and contractid !=''">
+			and contractid = #{contractid}
+		</if>
+		<if test="contractname != null and contractname !=''">
+			and contractname like concat('%',#{contractname},'%')
+		</if>
+		<if test="tiretype != null and tiretype !=''">
+			and Tiretype = #{tiretype}
+		</if>
+		<if test="seat != null and seat !=''">
+			and seat = #{seat}
+		</if>
+		<if test="seatnum != null and seatnum !=''">
+			and seatnum = #{seatnum}
+		</if>
+		<if test="fourtorep != null and fourtorep !=''">
+			and fourtorep = #{fourtorep}
+		</if>
+		<if test="brandprice != null and brandprice !=''">
+			and brandprice = #{brandprice}
+		</if>
+		<if test="modifytime != null and modifytime !=''">
+			and modifytime = #{modifytime}
+		</if>
+		<if test="niden1 != null and niden1 !=''">
+			and niden1 = #{niden1}
+		</if>
+		<if test="niden2 != null and niden2 !=''">
+			and niden2 = #{niden2}
+		</if>
+		<if test="niden3 != null and niden3 !=''">
+			and niden3 = #{niden3}
+		</if>
+		<if test="niden4 != null and niden4 !=''">
+			and niden4 = #{niden4}
+		</if>
+		<if test="niden5 != null and niden5 !=''">
+			and niden5 = #{niden5}
+		</if>
+		<if test="address != null and address !=''">
+			and address = #{address}
+		</if>
+		<if test="energytype != null and energytype !=''">
+			and energytype = #{energytype}
+		</if>
+		<if test="sellerprice != null and sellerprice !=''">
+			and sellerprice = #{sellerprice}
+		</if>
+		<if test="decorate != null and decorate !=''">
+			and decorate = #{decorate}
+		</if>
+		<if test="buyeruser != null and buyeruser !=''">
+			and buyeruser = #{buyeruser}
+		</if>
+		<if test="purchasetime != null and purchasetime !=''">
+			and purchasetime = #{purchasetime}
+		</if>
+		<if test="realsale != null and realsale !=''">
+			and realsale = #{realsale}
+		</if>
+		<if test="preinsuranceprice != null and preinsuranceprice !=''">
+			and preinsuranceprice = #{preinsuranceprice}
+		</if>
+		<if test="predrayageprice != null and predrayageprice !=''">
+			and predrayageprice = #{predrayageprice}
+		</if>
+		<if test="prelicenseprice != null and prelicenseprice !=''">
+			and prelicenseprice = #{prelicenseprice}
+		</if>
+		<if test="preoilprice != null and preoilprice !=''">
+			and preoilprice = #{preoilprice}
+		</if>
+		<if test="surepreinsuranceprice != null and surepreinsuranceprice !=''">
+			and surepreinsuranceprice = #{surepreinsuranceprice}
+		</if>
+		<if test="surepreoilprice != null and surepreoilprice !=''">
+			and surepreoilprice = #{surepreoilprice}
+		</if>
+		<if test="datatype != null and datatype !=''">
+			and datatype = #{datatype}
+		</if>
+		<if test="needer != null and needer !=''">
+			and needer = #{needer}
+		</if>
+		<if test="mallcontractcode != null and mallcontractcode !=''">
+			and mallContractCode like concat('%',#{mallcontractcode},'%')
+		</if>
+		<if test="mallordercode != null and mallordercode !=''">
+			and mallordercode like concat('%',#{mallordercode},'%')
+		</if>
+		<if test="skucode != null and skucode !=''">
+			and skucode like concat('%',#{skucode},'%')
+		</if>
+		<if test="status !=60 ">
+			ORDER BY id desc
+		</if>
+		<if test="status ==60 ">
+			ORDER BY instoretime desc
+		</if>
+	</sql>
+	<select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.jnd.Jndcar">
+		select
+		<include refid="Base_Column_List" />
+		from jnd_car
+		where
+		<include refid="wherecase" />
+	</select>
+	<select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.jnd.Jndcar">
+		select count(*) from jnd_car where
+		<include refid="wherecase" />
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from jnd_car
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from jnd_car
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.yyq.car.portal.common.model.jnd.Jndcar">
+		<selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE">
+			SELECT NEXTVAL(703);
+		</selectKey>
+		insert into jnd_car (id, applypayid, needcode,
+		needname, buycode, buyname,
+		initials, brand, model,
+		version, displacement, vin,
+		config, outcolor, incolor,
+		iden1, iden2, iden3,
+		iden4, iden5, appointtime,
+		fstatus, status, status1,
+		drayage, oceanfreight, elsecost1,
+		elsecost2, freightid, createtime,
+		instoretime, instoreid, note,
+		price, costprice, rebate,
+		othercost, latecost, salecost,
+		insurance, expensetax,
+		leavefactime,
+		enginenum, checkstatus, shipname,
+		voyage, containernum, bookingnum,
+		buyername, exportcorpname, goalhaven,
+		receivingcorpname, goodname, roughweight,
+		starttime, arrivetime, inbondedtime,
+		currency, country, contractid,
+		contractname, Tiretype, seat,
+		seatnum, fourtorep, brandprice,
+		modifytime, niden1, niden2,
+		niden3, niden4, niden5,
+		address, energytype, sellerprice,
+		decorate, buyeruser,
+		purchasetime,
+		realsale, preinsuranceprice, predrayageprice,
+		prelicenseprice, preoilprice, surepreinsuranceprice,
+		surepreoilprice, datatype, needer,
+		mallContractCode,mallordercode)
+		values
+		(#{id,jdbcType=INTEGER}, #{applypayid,jdbcType=INTEGER},
+		#{needcode,jdbcType=VARCHAR},
+		#{needname,jdbcType=VARCHAR}, #{buycode,jdbcType=VARCHAR}, #{buyname,jdbcType=VARCHAR},
+		#{initials,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR},
+		#{model,jdbcType=VARCHAR},
+		#{version,jdbcType=VARCHAR}, #{displacement,jdbcType=VARCHAR}, #{vin,jdbcType=VARCHAR},
+		#{config,jdbcType=VARCHAR},
+		#{outcolor,jdbcType=VARCHAR},
+		#{incolor,jdbcType=VARCHAR},
+		#{iden1,jdbcType=VARCHAR}, #{iden2,jdbcType=VARCHAR}, #{iden3,jdbcType=VARCHAR},
+		#{iden4,jdbcType=VARCHAR}, #{iden5,jdbcType=VARCHAR},
+		#{appointtime,jdbcType=TIMESTAMP},
+		#{fstatus,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{status1,jdbcType=VARCHAR},
+		#{drayage,jdbcType=DECIMAL}, #{oceanfreight,jdbcType=DECIMAL},
+		#{elsecost1,jdbcType=DECIMAL},
+		#{elsecost2,jdbcType=DECIMAL}, #{freightid,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP},
+		#{instoretime,jdbcType=TIMESTAMP}, #{instoreid,jdbcType=INTEGER},
+		#{note,jdbcType=VARCHAR},
+		#{price,jdbcType=DECIMAL}, #{costprice,jdbcType=DECIMAL}, #{rebate,jdbcType=DECIMAL},
+		#{othercost,jdbcType=DECIMAL}, #{latecost,jdbcType=DECIMAL},
+		#{salecost,jdbcType=DECIMAL},
+		#{insurance,jdbcType=DECIMAL}, #{expensetax,jdbcType=DECIMAL}, #{leavefactime,jdbcType=TIMESTAMP},
+		#{enginenum,jdbcType=VARCHAR}, #{checkstatus,jdbcType=VARCHAR},
+		#{shipname,jdbcType=VARCHAR},
+		#{voyage,jdbcType=VARCHAR}, #{containernum,jdbcType=VARCHAR}, #{bookingnum,jdbcType=VARCHAR},
+		#{buyername,jdbcType=VARCHAR}, #{exportcorpname,jdbcType=VARCHAR},
+		#{goalhaven,jdbcType=VARCHAR},
+		#{receivingcorpname,jdbcType=VARCHAR}, #{goodname,jdbcType=VARCHAR}, #{roughweight,jdbcType=VARCHAR},
+		#{starttime,jdbcType=TIMESTAMP}, #{arrivetime,jdbcType=TIMESTAMP},
+		#{inbondedtime,jdbcType=TIMESTAMP},
+		#{currency,jdbcType=INTEGER}, #{country,jdbcType=INTEGER}, #{contractid,jdbcType=INTEGER},
+		#{contractname,jdbcType=VARCHAR}, #{tiretype,jdbcType=VARCHAR},
+		#{seat,jdbcType=INTEGER},
+		#{seatnum,jdbcType=INTEGER}, #{fourtorep,jdbcType=DECIMAL}, #{brandprice,jdbcType=DECIMAL},
+		#{modifytime,jdbcType=TIMESTAMP}, #{niden1,jdbcType=VARCHAR},
+		#{niden2,jdbcType=VARCHAR},
+		#{niden3,jdbcType=VARCHAR}, #{niden4,jdbcType=VARCHAR}, #{niden5,jdbcType=VARCHAR},
+		#{address,jdbcType=VARCHAR}, #{energytype,jdbcType=VARCHAR},
+		#{sellerprice,jdbcType=DECIMAL},
+		#{decorate,jdbcType=VARCHAR}, #{buyeruser,jdbcType=VARCHAR}, #{purchasetime,jdbcType=TIMESTAMP},
+		#{realsale,jdbcType=INTEGER}, #{preinsuranceprice,jdbcType=DECIMAL},
+		#{predrayageprice,jdbcType=DECIMAL},
+		#{prelicenseprice,jdbcType=DECIMAL}, #{preoilprice,jdbcType=DECIMAL},
+		#{surepreinsuranceprice,jdbcType=DECIMAL},
+		#{surepreoilprice,jdbcType=DECIMAL},
+		#{datatype,jdbcType=INTEGER},
+		#{needer,jdbcType=VARCHAR},
+		#{mallcontractcode,jdbcType=VARCHAR},
+		#{mallordercode,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.jnd.Jndcar">
+		<selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE">
+			SELECT NEXTVAL(703);
+		</selectKey>
+		insert into jnd_car
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			id,
+			<if test="applypayid != null">
+				applypayid,
+			</if>
+			<if test="needcode != null">
+				needcode,
+			</if>
+			<if test="needname != null">
+				needname,
+			</if>
+			<if test="buycode != null">
+				buycode,
+			</if>
+			<if test="buyname != null">
+				buyname,
+			</if>
+			<if test="initials != null">
+				initials,
+			</if>
+			<if test="brand != null">
+				brand,
+			</if>
+			<if test="model != null">
+				model,
+			</if>
+			<if test="version != null">
+				version,
+			</if>
+			<if test="displacement != null">
+				displacement,
+			</if>
+			<if test="vin != null">
+				vin,
+			</if>
+			<if test="config != null">
+				config,
+			</if>
+			<if test="outcolor != null">
+				outcolor,
+			</if>
+			<if test="incolor != null">
+				incolor,
+			</if>
+			<if test="iden1 != null">
+				iden1,
+			</if>
+			<if test="iden2 != null">
+				iden2,
+			</if>
+			<if test="iden3 != null">
+				iden3,
+			</if>
+			<if test="iden4 != null">
+				iden4,
+			</if>
+			<if test="iden5 != null">
+				iden5,
+			</if>
+			<if test="appointtime != null">
+				appointtime,
+			</if>
+			<if test="fstatus != null">
+				fstatus,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="status1 != null">
+				status1,
+			</if>
+			<if test="drayage != null">
+				drayage,
+			</if>
+			<if test="oceanfreight != null">
+				oceanfreight,
+			</if>
+			<if test="elsecost1 != null">
+				elsecost1,
+			</if>
+			<if test="elsecost2 != null">
+				elsecost2,
+			</if>
+			<if test="freightid != null">
+				freightid,
+			</if>
+			<if test="createtime != null">
+				createtime,
+			</if>
+			<if test="instoretime != null">
+				instoretime,
+			</if>
+			<if test="instoreid != null">
+				instoreid,
+			</if>
+			<if test="note != null">
+				note,
+			</if>
+			<if test="price != null">
+				price,
+			</if>
+			<if test="costprice != null">
+				costprice,
+			</if>
+			<if test="rebate != null">
+				rebate,
+			</if>
+			<if test="othercost != null">
+				othercost,
+			</if>
+			<if test="latecost != null">
+				latecost,
+			</if>
+			<if test="salecost != null">
+				salecost,
+			</if>
+			<if test="insurance != null">
+				insurance,
+			</if>
+			<if test="expensetax != null">
+				expensetax,
+			</if>
+			<if test="leavefactime != null">
+				leavefactime,
+			</if>
+			<if test="enginenum != null">
+				enginenum,
+			</if>
+			<if test="checkstatus != null">
+				checkstatus,
+			</if>
+			<if test="shipname != null">
+				shipname,
+			</if>
+			<if test="voyage != null">
+				voyage,
+			</if>
+			<if test="containernum != null">
+				containernum,
+			</if>
+			<if test="bookingnum != null">
+				bookingnum,
+			</if>
+			<if test="buyername != null">
+				buyername,
+			</if>
+			<if test="exportcorpname != null">
+				exportcorpname,
+			</if>
+			<if test="goalhaven != null">
+				goalhaven,
+			</if>
+			<if test="receivingcorpname != null">
+				receivingcorpname,
+			</if>
+			<if test="goodname != null">
+				goodname,
+			</if>
+			<if test="roughweight != null">
+				roughweight,
+			</if>
+			<if test="starttime != null">
+				starttime,
+			</if>
+			<if test="arrivetime != null">
+				arrivetime,
+			</if>
+			<if test="inbondedtime != null">
+				inbondedtime,
+			</if>
+			<if test="currency != null">
+				currency,
+			</if>
+			<if test="country != null">
+				country,
+			</if>
+			<if test="contractid != null">
+				contractid,
+			</if>
+			<if test="contractname != null">
+				contractname,
+			</if>
+			<if test="tiretype != null">
+				Tiretype,
+			</if>
+			<if test="seat != null">
+				seat,
+			</if>
+			<if test="seatnum != null">
+				seatnum,
+			</if>
+			<if test="fourtorep != null">
+				fourtorep,
+			</if>
+			<if test="brandprice != null">
+				brandprice,
+			</if>
+			<if test="modifytime != null">
+				modifytime,
+			</if>
+			<if test="niden1 != null">
+				niden1,
+			</if>
+			<if test="niden2 != null">
+				niden2,
+			</if>
+			<if test="niden3 != null">
+				niden3,
+			</if>
+			<if test="niden4 != null">
+				niden4,
+			</if>
+			<if test="niden5 != null">
+				niden5,
+			</if>
+			<if test="address != null">
+				address,
+			</if>
+			<if test="energytype != null">
+				energytype,
+			</if>
+			<if test="sellerprice != null">
+				sellerprice,
+			</if>
+			<if test="decorate != null">
+				decorate,
+			</if>
+			<if test="buyeruser != null">
+				buyeruser,
+			</if>
+			<if test="purchasetime != null">
+				purchasetime,
+			</if>
+			<if test="realsale != null">
+				realsale,
+			</if>
+			<if test="preinsuranceprice != null">
+				preinsuranceprice,
+			</if>
+			<if test="predrayageprice != null">
+				predrayageprice,
+			</if>
+			<if test="prelicenseprice != null">
+				prelicenseprice,
+			</if>
+			<if test="preoilprice != null">
+				preoilprice,
+			</if>
+			<if test="surepreinsuranceprice != null">
+				surepreinsuranceprice,
+			</if>
+			<if test="surepreoilprice != null">
+				surepreoilprice,
+			</if>
+			<if test="datatype != null">
+				datatype,
+			</if>
+			<if test="needer != null">
+				needer,
+			</if>
+			<if test="mallcontractcode != null">
+				mallContractCode,
+			</if>
+			<if test="mallordercode != null">
+				mallordercode,
+			</if>
+			<if test="skucode != null">
+				skucode,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			#{id,jdbcType=INTEGER},
+			<if test="applypayid != null">
+				#{applypayid,jdbcType=INTEGER},
+			</if>
+			<if test="needcode != null">
+				#{needcode,jdbcType=VARCHAR},
+			</if>
+			<if test="needname != null">
+				#{needname,jdbcType=VARCHAR},
+			</if>
+			<if test="buycode != null">
+				#{buycode,jdbcType=VARCHAR},
+			</if>
+			<if test="buyname != null">
+				#{buyname,jdbcType=VARCHAR},
+			</if>
+			<if test="initials != null">
+				#{initials,jdbcType=VARCHAR},
+			</if>
+			<if test="brand != null">
+				#{brand,jdbcType=VARCHAR},
+			</if>
+			<if test="model != null">
+				#{model,jdbcType=VARCHAR},
+			</if>
+			<if test="version != null">
+				#{version,jdbcType=VARCHAR},
+			</if>
+			<if test="displacement != null">
+				#{displacement,jdbcType=VARCHAR},
+			</if>
+			<if test="vin != null">
+				#{vin,jdbcType=VARCHAR},
+			</if>
+			<if test="config != null">
+				#{config,jdbcType=VARCHAR},
+			</if>
+			<if test="outcolor != null">
+				#{outcolor,jdbcType=VARCHAR},
+			</if>
+			<if test="incolor != null">
+				#{incolor,jdbcType=VARCHAR},
+			</if>
+			<if test="iden1 != null">
+				#{iden1,jdbcType=VARCHAR},
+			</if>
+			<if test="iden2 != null">
+				#{iden2,jdbcType=VARCHAR},
+			</if>
+			<if test="iden3 != null">
+				#{iden3,jdbcType=VARCHAR},
+			</if>
+			<if test="iden4 != null">
+				#{iden4,jdbcType=VARCHAR},
+			</if>
+			<if test="iden5 != null">
+				#{iden5,jdbcType=VARCHAR},
+			</if>
+			<if test="appointtime != null">
+				#{appointtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="fstatus != null">
+				#{fstatus,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=VARCHAR},
+			</if>
+			<if test="status1 != null">
+				#{status1,jdbcType=VARCHAR},
+			</if>
+			<if test="drayage != null">
+				#{drayage,jdbcType=DECIMAL},
+			</if>
+			<if test="oceanfreight != null">
+				#{oceanfreight,jdbcType=DECIMAL},
+			</if>
+			<if test="elsecost1 != null">
+				#{elsecost1,jdbcType=DECIMAL},
+			</if>
+			<if test="elsecost2 != null">
+				#{elsecost2,jdbcType=DECIMAL},
+			</if>
+			<if test="freightid != null">
+				#{freightid,jdbcType=INTEGER},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="instoretime != null">
+				#{instoretime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="instoreid != null">
+				#{instoreid,jdbcType=INTEGER},
+			</if>
+			<if test="note != null">
+				#{note,jdbcType=VARCHAR},
+			</if>
+			<if test="price != null">
+				#{price,jdbcType=DECIMAL},
+			</if>
+			<if test="costprice != null">
+				#{costprice,jdbcType=DECIMAL},
+			</if>
+			<if test="rebate != null">
+				#{rebate,jdbcType=DECIMAL},
+			</if>
+			<if test="othercost != null">
+				#{othercost,jdbcType=DECIMAL},
+			</if>
+			<if test="latecost != null">
+				#{latecost,jdbcType=DECIMAL},
+			</if>
+			<if test="salecost != null">
+				#{salecost,jdbcType=DECIMAL},
+			</if>
+			<if test="insurance != null">
+				#{insurance,jdbcType=DECIMAL},
+			</if>
+			<if test="expensetax != null">
+				#{expensetax,jdbcType=DECIMAL},
+			</if>
+			<if test="leavefactime != null">
+				#{leavefactime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="enginenum != null">
+				#{enginenum,jdbcType=VARCHAR},
+			</if>
+			<if test="checkstatus != null">
+				#{checkstatus,jdbcType=VARCHAR},
+			</if>
+			<if test="shipname != null">
+				#{shipname,jdbcType=VARCHAR},
+			</if>
+			<if test="voyage != null">
+				#{voyage,jdbcType=VARCHAR},
+			</if>
+			<if test="containernum != null">
+				#{containernum,jdbcType=VARCHAR},
+			</if>
+			<if test="bookingnum != null">
+				#{bookingnum,jdbcType=VARCHAR},
+			</if>
+			<if test="buyername != null">
+				#{buyername,jdbcType=VARCHAR},
+			</if>
+			<if test="exportcorpname != null">
+				#{exportcorpname,jdbcType=VARCHAR},
+			</if>
+			<if test="goalhaven != null">
+				#{goalhaven,jdbcType=VARCHAR},
+			</if>
+			<if test="receivingcorpname != null">
+				#{receivingcorpname,jdbcType=VARCHAR},
+			</if>
+			<if test="goodname != null">
+				#{goodname,jdbcType=VARCHAR},
+			</if>
+			<if test="roughweight != null">
+				#{roughweight,jdbcType=VARCHAR},
+			</if>
+			<if test="starttime != null">
+				#{starttime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="arrivetime != null">
+				#{arrivetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="inbondedtime != null">
+				#{inbondedtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="currency != null">
+				#{currency,jdbcType=INTEGER},
+			</if>
+			<if test="country != null">
+				#{country,jdbcType=INTEGER},
+			</if>
+			<if test="contractid != null">
+				#{contractid,jdbcType=INTEGER},
+			</if>
+			<if test="contractname != null">
+				#{contractname,jdbcType=VARCHAR},
+			</if>
+			<if test="tiretype != null">
+				#{tiretype,jdbcType=VARCHAR},
+			</if>
+			<if test="seat != null">
+				#{seat,jdbcType=INTEGER},
+			</if>
+			<if test="seatnum != null">
+				#{seatnum,jdbcType=INTEGER},
+			</if>
+			<if test="fourtorep != null">
+				#{fourtorep,jdbcType=DECIMAL},
+			</if>
+			<if test="brandprice != null">
+				#{brandprice,jdbcType=DECIMAL},
+			</if>
+			<if test="modifytime != null">
+				#{modifytime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="niden1 != null">
+				#{niden1,jdbcType=VARCHAR},
+			</if>
+			<if test="niden2 != null">
+				#{niden2,jdbcType=VARCHAR},
+			</if>
+			<if test="niden3 != null">
+				#{niden3,jdbcType=VARCHAR},
+			</if>
+			<if test="niden4 != null">
+				#{niden4,jdbcType=VARCHAR},
+			</if>
+			<if test="niden5 != null">
+				#{niden5,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				#{address,jdbcType=VARCHAR},
+			</if>
+			<if test="energytype != null">
+				#{energytype,jdbcType=VARCHAR},
+			</if>
+			<if test="sellerprice != null">
+				#{sellerprice,jdbcType=DECIMAL},
+			</if>
+			<if test="decorate != null">
+				#{decorate,jdbcType=VARCHAR},
+			</if>
+			<if test="buyeruser != null">
+				#{buyeruser,jdbcType=VARCHAR},
+			</if>
+			<if test="purchasetime != null">
+				#{purchasetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="realsale != null">
+				#{realsale,jdbcType=INTEGER},
+			</if>
+			<if test="preinsuranceprice != null">
+				#{preinsuranceprice,jdbcType=DECIMAL},
+			</if>
+			<if test="predrayageprice != null">
+				#{predrayageprice,jdbcType=DECIMAL},
+			</if>
+			<if test="prelicenseprice != null">
+				#{prelicenseprice,jdbcType=DECIMAL},
+			</if>
+			<if test="preoilprice != null">
+				#{preoilprice,jdbcType=DECIMAL},
+			</if>
+			<if test="surepreinsuranceprice != null">
+				#{surepreinsuranceprice,jdbcType=DECIMAL},
+			</if>
+			<if test="surepreoilprice != null">
+				#{surepreoilprice,jdbcType=DECIMAL},
+			</if>
+			<if test="datatype != null">
+				#{datatype,jdbcType=INTEGER},
+			</if>
+			<if test="needer != null">
+				#{needer,jdbcType=VARCHAR},
+			</if>
+			<if test="mallcontractcode != null">
+				#{mallcontractcode,jdbcType=VARCHAR},
+			</if>
+			<if test="mallordercode != null">
+				#{mallordercode,jdbcType=VARCHAR},
+			</if>
+			<if test="skucode != null">
+				#{skucode,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.jnd.Jndcar">
+		update jnd_car
+		<set>
+			<if test="applypayid != null">
+				applypayid = #{applypayid,jdbcType=INTEGER},
+			</if>
+			<if test="needcode != null">
+				needcode = #{needcode,jdbcType=VARCHAR},
+			</if>
+			<if test="needname != null">
+				needname = #{needname,jdbcType=VARCHAR},
+			</if>
+			<if test="buycode != null">
+				buycode = #{buycode,jdbcType=VARCHAR},
+			</if>
+			<if test="buyname != null">
+				buyname = #{buyname,jdbcType=VARCHAR},
+			</if>
+			<if test="initials != null">
+				initials = #{initials,jdbcType=VARCHAR},
+			</if>
+			<if test="brand != null">
+				brand = #{brand,jdbcType=VARCHAR},
+			</if>
+			<if test="model != null">
+				model = #{model,jdbcType=VARCHAR},
+			</if>
+			<if test="version != null">
+				version = #{version,jdbcType=VARCHAR},
+			</if>
+			<if test="displacement != null">
+				displacement = #{displacement,jdbcType=VARCHAR},
+			</if>
+			<if test="vin != null">
+				vin = #{vin,jdbcType=VARCHAR},
+			</if>
+			<if test="config != null">
+				config = #{config,jdbcType=VARCHAR},
+			</if>
+			<if test="outcolor != null">
+				outcolor = #{outcolor,jdbcType=VARCHAR},
+			</if>
+			<if test="incolor != null">
+				incolor = #{incolor,jdbcType=VARCHAR},
+			</if>
+			<if test="iden1 != null">
+				iden1 = #{iden1,jdbcType=VARCHAR},
+			</if>
+			<if test="iden2 != null">
+				iden2 = #{iden2,jdbcType=VARCHAR},
+			</if>
+			<if test="iden3 != null">
+				iden3 = #{iden3,jdbcType=VARCHAR},
+			</if>
+			<if test="iden4 != null">
+				iden4 = #{iden4,jdbcType=VARCHAR},
+			</if>
+			<if test="iden5 != null">
+				iden5 = #{iden5,jdbcType=VARCHAR},
+			</if>
+			<if test="appointtime != null">
+				appointtime = #{appointtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="fstatus != null">
+				fstatus = #{fstatus,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=VARCHAR},
+			</if>
+			<if test="status1 != null">
+				status1 = #{status1,jdbcType=VARCHAR},
+			</if>
+			<if test="drayage != null">
+				drayage = #{drayage,jdbcType=DECIMAL},
+			</if>
+			<if test="oceanfreight != null">
+				oceanfreight = #{oceanfreight,jdbcType=DECIMAL},
+			</if>
+			<if test="elsecost1 != null">
+				elsecost1 = #{elsecost1,jdbcType=DECIMAL},
+			</if>
+			<if test="elsecost2 != null">
+				elsecost2 = #{elsecost2,jdbcType=DECIMAL},
+			</if>
+			<if test="freightid != null">
+				freightid = #{freightid,jdbcType=INTEGER},
+			</if>
+			<if test="createtime != null">
+				createtime = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="instoretime != null">
+				instoretime = #{instoretime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="instoreid != null">
+				instoreid = #{instoreid,jdbcType=INTEGER},
+			</if>
+			<if test="note != null">
+				note = #{note,jdbcType=VARCHAR},
+			</if>
+			<if test="price != null">
+				price = #{price,jdbcType=DECIMAL},
+			</if>
+			<if test="costprice != null">
+				costprice = #{costprice,jdbcType=DECIMAL},
+			</if>
+			<if test="rebate != null">
+				rebate = #{rebate,jdbcType=DECIMAL},
+			</if>
+			<if test="othercost != null">
+				othercost = #{othercost,jdbcType=DECIMAL},
+			</if>
+			<if test="latecost != null">
+				latecost = #{latecost,jdbcType=DECIMAL},
+			</if>
+			<if test="salecost != null">
+				salecost = #{salecost,jdbcType=DECIMAL},
+			</if>
+			<if test="insurance != null">
+				insurance = #{insurance,jdbcType=DECIMAL},
+			</if>
+			<if test="expensetax != null">
+				expensetax = #{expensetax,jdbcType=DECIMAL},
+			</if>
+			<if test="leavefactime != null">
+				leavefactime = #{leavefactime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="enginenum != null">
+				enginenum = #{enginenum,jdbcType=VARCHAR},
+			</if>
+			<if test="checkstatus != null">
+				checkstatus = #{checkstatus,jdbcType=VARCHAR},
+			</if>
+			<if test="shipname != null">
+				shipname = #{shipname,jdbcType=VARCHAR},
+			</if>
+			<if test="voyage != null">
+				voyage = #{voyage,jdbcType=VARCHAR},
+			</if>
+			<if test="containernum != null">
+				containernum = #{containernum,jdbcType=VARCHAR},
+			</if>
+			<if test="bookingnum != null">
+				bookingnum = #{bookingnum,jdbcType=VARCHAR},
+			</if>
+			<if test="buyername != null">
+				buyername = #{buyername,jdbcType=VARCHAR},
+			</if>
+			<if test="exportcorpname != null">
+				exportcorpname = #{exportcorpname,jdbcType=VARCHAR},
+			</if>
+			<if test="goalhaven != null">
+				goalhaven = #{goalhaven,jdbcType=VARCHAR},
+			</if>
+			<if test="receivingcorpname != null">
+				receivingcorpname = #{receivingcorpname,jdbcType=VARCHAR},
+			</if>
+			<if test="goodname != null">
+				goodname = #{goodname,jdbcType=VARCHAR},
+			</if>
+			<if test="roughweight != null">
+				roughweight = #{roughweight,jdbcType=VARCHAR},
+			</if>
+			<if test="starttime != null">
+				starttime = #{starttime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="arrivetime != null">
+				arrivetime = #{arrivetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="inbondedtime != null">
+				inbondedtime = #{inbondedtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="currency != null">
+				currency = #{currency,jdbcType=INTEGER},
+			</if>
+			<if test="country != null">
+				country = #{country,jdbcType=INTEGER},
+			</if>
+			<if test="contractid != null">
+				contractid = #{contractid,jdbcType=INTEGER},
+			</if>
+			<if test="contractname != null">
+				contractname = #{contractname,jdbcType=VARCHAR},
+			</if>
+			<if test="tiretype != null">
+				Tiretype = #{tiretype,jdbcType=VARCHAR},
+			</if>
+			<if test="seat != null">
+				seat = #{seat,jdbcType=INTEGER},
+			</if>
+			<if test="seatnum != null">
+				seatnum = #{seatnum,jdbcType=INTEGER},
+			</if>
+			<if test="fourtorep != null">
+				fourtorep = #{fourtorep,jdbcType=DECIMAL},
+			</if>
+			<if test="brandprice != null">
+				brandprice = #{brandprice,jdbcType=DECIMAL},
+			</if>
+			<if test="modifytime != null">
+				modifytime = #{modifytime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="niden1 != null">
+				niden1 = #{niden1,jdbcType=VARCHAR},
+			</if>
+			<if test="niden2 != null">
+				niden2 = #{niden2,jdbcType=VARCHAR},
+			</if>
+			<if test="niden3 != null">
+				niden3 = #{niden3,jdbcType=VARCHAR},
+			</if>
+			<if test="niden4 != null">
+				niden4 = #{niden4,jdbcType=VARCHAR},
+			</if>
+			<if test="niden5 != null">
+				niden5 = #{niden5,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				address = #{address,jdbcType=VARCHAR},
+			</if>
+			<if test="energytype != null">
+				energytype = #{energytype,jdbcType=VARCHAR},
+			</if>
+			<if test="sellerprice != null">
+				sellerprice = #{sellerprice,jdbcType=DECIMAL},
+			</if>
+			<if test="decorate != null">
+				decorate = #{decorate,jdbcType=VARCHAR},
+			</if>
+			<if test="buyeruser != null">
+				buyeruser = #{buyeruser,jdbcType=VARCHAR},
+			</if>
+			<if test="purchasetime != null">
+				purchasetime = #{purchasetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="realsale != null">
+				realsale = #{realsale,jdbcType=INTEGER},
+			</if>
+			<if test="preinsuranceprice != null">
+				preinsuranceprice = #{preinsuranceprice,jdbcType=DECIMAL},
+			</if>
+			<if test="predrayageprice != null">
+				predrayageprice = #{predrayageprice,jdbcType=DECIMAL},
+			</if>
+			<if test="prelicenseprice != null">
+				prelicenseprice = #{prelicenseprice,jdbcType=DECIMAL},
+			</if>
+			<if test="preoilprice != null">
+				preoilprice = #{preoilprice,jdbcType=DECIMAL},
+			</if>
+			<if test="surepreinsuranceprice != null">
+				surepreinsuranceprice = #{surepreinsuranceprice,jdbcType=DECIMAL},
+			</if>
+			<if test="surepreoilprice != null">
+				surepreoilprice = #{surepreoilprice,jdbcType=DECIMAL},
+			</if>
+			<if test="datatype != null">
+				datatype = #{datatype,jdbcType=INTEGER},
+			</if>
+			<if test="needer != null">
+				needer = #{needer,jdbcType=VARCHAR},
+			</if>
+			<if test="mallcontractcode != null">
+				mallContractCode = #{mallcontractcode,jdbcType=VARCHAR},
+			</if>
+			<if test="mallordercode != null">
+				mallordercode = #{mallordercode,jdbcType=VARCHAR},
+			</if>
+			<if test="skucode != null">
+				skucode = #{skucode,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.jnd.Jndcar">
+		update jnd_car
+		set applypayid = #{applypayid,jdbcType=INTEGER},
+		needcode = #{needcode,jdbcType=VARCHAR},
+		needname = #{needname,jdbcType=VARCHAR},
+		buycode = #{buycode,jdbcType=VARCHAR},
+		buyname = #{buyname,jdbcType=VARCHAR},
+		initials = #{initials,jdbcType=VARCHAR},
+		brand = #{brand,jdbcType=VARCHAR},
+		model = #{model,jdbcType=VARCHAR},
+		version =
+		#{version,jdbcType=VARCHAR},
+		displacement = #{displacement,jdbcType=VARCHAR},
+		vin = #{vin,jdbcType=VARCHAR},
+		config = #{config,jdbcType=VARCHAR},
+		outcolor = #{outcolor,jdbcType=VARCHAR},
+		incolor =
+		#{incolor,jdbcType=VARCHAR},
+		iden1 = #{iden1,jdbcType=VARCHAR},
+		iden2 = #{iden2,jdbcType=VARCHAR},
+		iden3 = #{iden3,jdbcType=VARCHAR},
+		iden4 = #{iden4,jdbcType=VARCHAR},
+		iden5 = #{iden5,jdbcType=VARCHAR},
+		appointtime = #{appointtime,jdbcType=TIMESTAMP},
+		fstatus = #{fstatus,jdbcType=VARCHAR},
+		status = #{status,jdbcType=VARCHAR},
+		status1 = #{status1,jdbcType=VARCHAR},
+		drayage = #{drayage,jdbcType=DECIMAL},
+		oceanfreight = #{oceanfreight,jdbcType=DECIMAL},
+		elsecost1 = #{elsecost1,jdbcType=DECIMAL},
+		elsecost2 = #{elsecost2,jdbcType=DECIMAL},
+		freightid = #{freightid,jdbcType=INTEGER},
+		createtime =
+		#{createtime,jdbcType=TIMESTAMP},
+		instoretime = #{instoretime,jdbcType=TIMESTAMP},
+		instoreid = #{instoreid,jdbcType=INTEGER},
+		note = #{note,jdbcType=VARCHAR},
+		price = #{price,jdbcType=DECIMAL},
+		costprice = #{costprice,jdbcType=DECIMAL},
+		rebate = #{rebate,jdbcType=DECIMAL},
+		othercost = #{othercost,jdbcType=DECIMAL},
+		latecost = #{latecost,jdbcType=DECIMAL},
+		salecost =
+		#{salecost,jdbcType=DECIMAL},
+		insurance = #{insurance,jdbcType=DECIMAL},
+		expensetax = #{expensetax,jdbcType=DECIMAL},
+		leavefactime = #{leavefactime,jdbcType=TIMESTAMP},
+		enginenum =
+		#{enginenum,jdbcType=VARCHAR},
+		checkstatus = #{checkstatus,jdbcType=VARCHAR},
+		shipname = #{shipname,jdbcType=VARCHAR},
+		voyage = #{voyage,jdbcType=VARCHAR},
+		containernum =
+		#{containernum,jdbcType=VARCHAR},
+		bookingnum = #{bookingnum,jdbcType=VARCHAR},
+		buyername = #{buyername,jdbcType=VARCHAR},
+		exportcorpname = #{exportcorpname,jdbcType=VARCHAR},
+		goalhaven =
+		#{goalhaven,jdbcType=VARCHAR},
+		receivingcorpname = #{receivingcorpname,jdbcType=VARCHAR},
+		goodname = #{goodname,jdbcType=VARCHAR},
+		roughweight = #{roughweight,jdbcType=VARCHAR},
+		starttime =
+		#{starttime,jdbcType=TIMESTAMP},
+		arrivetime = #{arrivetime,jdbcType=TIMESTAMP},
+		inbondedtime = #{inbondedtime,jdbcType=TIMESTAMP},
+		currency = #{currency,jdbcType=INTEGER},
+		country =
+		#{country,jdbcType=INTEGER},
+		contractid = #{contractid,jdbcType=INTEGER},
+		contractname = #{contractname,jdbcType=VARCHAR},
+		Tiretype = #{tiretype,jdbcType=VARCHAR},
+		seat = #{seat,jdbcType=INTEGER},
+		seatnum = #{seatnum,jdbcType=INTEGER},
+		fourtorep = #{fourtorep,jdbcType=DECIMAL},
+		brandprice = #{brandprice,jdbcType=DECIMAL},
+		modifytime = #{modifytime,jdbcType=TIMESTAMP},
+		niden1 =
+		#{niden1,jdbcType=VARCHAR},
+		niden2 = #{niden2,jdbcType=VARCHAR},
+		niden3 = #{niden3,jdbcType=VARCHAR},
+		niden4 = #{niden4,jdbcType=VARCHAR},
+		niden5 = #{niden5,jdbcType=VARCHAR},
+		address =
+		#{address,jdbcType=VARCHAR},
+		energytype = #{energytype,jdbcType=VARCHAR},
+		sellerprice = #{sellerprice,jdbcType=DECIMAL},
+		decorate = #{decorate,jdbcType=VARCHAR},
+		buyeruser =
+		#{buyeruser,jdbcType=VARCHAR},
+		purchasetime = #{purchasetime,jdbcType=TIMESTAMP},
+		realsale = #{realsale,jdbcType=INTEGER},
+		preinsuranceprice = #{preinsuranceprice,jdbcType=DECIMAL},
+		predrayageprice =
+		#{predrayageprice,jdbcType=DECIMAL},
+		prelicenseprice = #{prelicenseprice,jdbcType=DECIMAL},
+		preoilprice = #{preoilprice,jdbcType=DECIMAL},
+		surepreinsuranceprice =
+		#{surepreinsuranceprice,jdbcType=DECIMAL},
+		surepreoilprice = #{surepreoilprice,jdbcType=DECIMAL},
+		datatype = #{datatype,jdbcType=INTEGER},
+		needer = #{needer,jdbcType=VARCHAR},
+		mallContractCode =
+		#{mallcontractcode,jdbcType=VARCHAR},
+		mallordercode = #{mallordercode,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<select id="selectByCriteriaParamMap" resultMap="BaseResultMap" parameterType="map">
+		select
+		<include refid="Base_Column_List" />
+		from jnd_car
+		where 1=1
+		<if test="status != null">
+			and status = #{status}
+		</if>
+		<if test="buyname != null">
+			and buyname like concat('%',#{buyname},'%')
+		</if>
+		<if test="brand != null">
+			and brand like concat('%',#{brand},'%')
+		</if>
+		<if test="vin != null">
+			and vin like concat('%',#{vin},'%')
+		</if>
+		<if test="appointtime != null">
+			and DATE_FORMAT(appointtime,'%Y-%m-%d') = #{appointtime}
+		</if>
+		order by id desc limit #{start},#{pageSize}
+	</select>
+	<select id="countByCriteriaParamMap" resultType="int" parameterType="map">
+		select count(*) from jnd_car where 1=1
+		<if test="status != null">
+			and status = #{status}
+		</if>
+		<if test="buyname != null">
+			and buyname like concat('%',#{buyname},'%')
+		</if>
+		<if test="brand != null">
+			and brand like concat('%',#{brand},'%')
+		</if>
+		<if test="vin != null">
+			and vin like concat('%',#{vin},'%')
+		</if>
+		<if test="appointtime != null">
+			and DATE_FORMAT(appointtime,'%Y-%m-%d') = #{appointtime}
+		</if>
+	</select>
+	<select id="queryidByVin" resultType="int" parameterType="String">
+		select id from jnd_car where vin=#{vin}
+	</select>
+
+	<select id="selectcarPrice" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.jnd.Jndcar">
+		SELECT DISTINCT
+		currency,IFNULL(SUM(price),0)price,IFNULL(SUM(costprice),0)costprice
+		FROM `jnd_car`
+		where
+		<include refid="wherecase" />
+	</select>
+	<select id="vinVerify" parameterType="String" resultType="String">
+		select DISTINCT vin from jnd_car where vin=#{vin};
+	</select>
+	<select id="enginenumVerify" parameterType="String" resultType="String">
+		select DISTINCT enginenum from jnd_car where enginenum=#{enginenum};
+	</select>
+	<update id="updateByPrimaryKeyStatus1" parameterType="int">
+		update jnd_car set status1=null where id=#{id}
+	</update>
+	<update id="updatecarprice" parameterType="com.yyq.car.portal.common.model.jnd.Jndcar">
+		update jnd_car
+		<set>
+			<if test="preinsuranceprice != null">
+				preinsuranceprice = #{preinsuranceprice,jdbcType=DECIMAL},
+			</if>
+			<if test="predrayageprice != null">
+				predrayageprice = #{predrayageprice,jdbcType=DECIMAL},
+			</if>
+			<if test="prelicenseprice != null">
+				prelicenseprice = #{prelicenseprice,jdbcType=DECIMAL},
+			</if>
+			<if test="preoilprice != null">
+				preoilprice = #{preoilprice,jdbcType=DECIMAL},
+			</if>
+			<if test="insurance != null">
+				insurance= #{insurance,jdbcType=DECIMAL},
+			</if>
+			<if test="price != null">
+				price = #{price,jdbcType=DECIMAL},
+			</if>
+			<if test="costprice != null">
+				costprice= #{costprice,jdbcType=DECIMAL},
+			</if>
+		</set>
+		where contractid = #{contractid,jdbcType=INTEGER}
+	</update>
+	<select id="carNeedInStorageNum" resultType="int" parameterType="map">
+		SELECT COUNT(*) FROM `jnd_car` where 1=1
+		<if test="type == 1">
+			and `status`=0
+		</if>
+		<if test="type == 2">
+			and ( status1 is null and `status` BETWEEN 1 and 8 and datatype is null)
+			or( status1 is null and `status` BETWEEN 1 and 8 and datatype=1)
+		</if>
+		<if test="type == 3">
+			AND ((status=2 AND datatype=1 and fstatus is null) OR (status=2 AND datatype IS NULL and fstatus is null))
+		</if>
+		<if test="type == 4">
+			and status in(2,3,4)
+		</if>
+		<if test="type == 5">
+			and `status`=1
+		</if>
+		<if test="country !='' and country!=null">
+			and country=#{country}
+		</if>
+	</select>
+	<select id="matchingVin" parameterType="com.yyq.car.portal.common.model.jnd.Jndcar" resultType="com.yyq.car.portal.common.model.jnd.Jndcar">
+		select * from jnd_car where brand = #{brand} and
+		model = #{model} and
+		version = #{version}
+		and vin=#{vin} <!-- and mallordercode is null --> <!-- 不是商城采购的车 -->
+		and status not in(3,5,6)<!--未入中国库 -->
+	</select>
+</mapper>

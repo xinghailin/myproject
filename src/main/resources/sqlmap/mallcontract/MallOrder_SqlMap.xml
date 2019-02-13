@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.mallcontract.MallOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.mallcontract.MallOrder" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="paystatus" property="paystatus" jdbcType="INTEGER" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="totalprice" property="totalprice" jdbcType="DECIMAL" />
+    <result column="carstatus" property="carstatus" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, username, code, paystatus, num, totalprice, carstatus, status, createtime
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="username != null and username !=''" >
+       and username = #{username}
+    </if>
+    <if test="code != null and code !=''" >
+       and code = #{code}
+    </if>
+    <if test="paystatus != null and paystatus !=''" >
+       and paystatus = #{paystatus}
+    </if>
+    <if test="num != null and num !=''" >
+       and num = #{num}
+    </if>
+    <if test="totalprice != null and totalprice !=''" >
+       and totalprice = #{totalprice}
+    </if>
+    <if test="carstatus != null and carstatus !=''" >
+       and carstatus = #{carstatus}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.mallcontract.MallOrder" >
+    select 
+    <include refid="Base_Column_List" />
+    from mall_order
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.mallcontract.MallOrder" >
+    select count(*) from mall_order where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from mall_order
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from mall_order
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.mallcontract.MallOrder" >
+    insert into mall_order (id, username, code, 
+      paystatus, num, totalprice, 
+      carstatus, status, createtime
+      )
+    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, 
+      #{paystatus,jdbcType=INTEGER}, #{num,jdbcType=INTEGER}, #{totalprice,jdbcType=DECIMAL}, 
+      #{carstatus,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.mallcontract.MallOrder" >
+    insert into mall_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="paystatus != null" >
+        paystatus,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="totalprice != null" >
+        totalprice,
+      </if>
+      <if test="carstatus != null" >
+        carstatus,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="paystatus != null" >
+        #{paystatus,jdbcType=INTEGER},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="totalprice != null" >
+        #{totalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="carstatus != null" >
+        #{carstatus,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.mallcontract.MallOrder" >
+    update mall_order
+    <set >
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="paystatus != null" >
+        paystatus = #{paystatus,jdbcType=INTEGER},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="totalprice != null" >
+        totalprice = #{totalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="carstatus != null" >
+        carstatus = #{carstatus,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.mallcontract.MallOrder" >
+    update mall_order
+    set username = #{username,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR},
+      paystatus = #{paystatus,jdbcType=INTEGER},
+      num = #{num,jdbcType=INTEGER},
+      totalprice = #{totalprice,jdbcType=DECIMAL},
+      carstatus = #{carstatus,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

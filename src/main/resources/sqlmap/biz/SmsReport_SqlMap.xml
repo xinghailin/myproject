@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.biz.SmsReportMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.biz.SmsReport" >
+    <id column="uid" property="uid" jdbcType="VARCHAR" />
+    <result column="reportTime" property="reporttime" jdbcType="VARCHAR" />
+    <result column="notifyTime" property="notifytime" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="submitStatus" property="submitstatus" jdbcType="INTEGER" />
+    <result column="sendStatus" property="sendstatus" jdbcType="INTEGER" />
+    <result column="msgId" property="msgid" jdbcType="VARCHAR" />
+    <result column="statusDesc" property="statusdesc" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="contentType" property="contenttype" jdbcType="INTEGER" />
+    <result column="contentPrefix" property="contentprefix" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="modefyTime" property="modefytime" jdbcType="TIMESTAMP" />
+    <result column="payDate" property="paydate" jdbcType="DATE" />
+    <result column="contractId" property="contractid" jdbcType="INTEGER" />
+    <result column="payplanId" property="payplanid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    uid, reportTime, notifyTime, status, submitStatus, sendStatus, msgId, statusDesc, 
+    mobile, content, contentType, contentPrefix, createTime, modefyTime, payDate, contractId, 
+    payplanId
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="uid != null and uid !=''" >
+       and uid = #{uid}
+    </if>
+    <if test="reporttime != null and reporttime !=''" >
+       and reportTime = #{reporttime}
+    </if>
+    <if test="notifytime != null and notifytime !=''" >
+       and notifyTime = #{notifytime}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+    <if test="submitstatus != null and submitstatus !=''" >
+       and submitStatus = #{submitstatus}
+    </if>
+    <if test="sendstatus != null and sendstatus !=''" >
+       and sendStatus = #{sendstatus}
+    </if>
+    <if test="msgid != null and msgid !=''" >
+       and msgId = #{msgid}
+    </if>
+    <if test="statusdesc != null and statusdesc !=''" >
+       and statusDesc = #{statusdesc}
+    </if>
+    <if test="mobile != null and mobile !=''" >
+       and mobile  like concat('%',#{mobile},'%')
+    </if>
+    <if test="content != null and content !=''" >
+       and content = #{content}
+    </if>
+    <if test="contenttype != null and contenttype !=''" >
+       and contentType = #{contenttype}
+    </if>
+    <if test="contentprefix != null and contentprefix !=''" >
+       and contentPrefix = #{contentprefix}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       <![CDATA[ and DATE_FORMAT(createTime,'%Y-%m-%d') = DATE_FORMAT(#{createtime} ,'%Y-%m-%d') ]]>
+    </if>
+    <if test="modefytime != null and modefytime !=''" >
+       and modefyTime = #{modefytime}
+    </if>
+    <if test="paydate != null and paydate !=''" >
+       and payDate = #{paydate}
+    </if>
+    <if test="contractid != null and contractid !=''" >
+       and contractId = #{contractid}
+    </if>
+    <if test="payplanid != null and payplanid !=''" >
+       and payplanId = #{payplanid}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.biz.SmsReport" >
+    select 
+    <include refid="Base_Column_List" />
+    from sms_report
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.biz.SmsReport" >
+    select count(*) from sms_report where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sms_report
+    where uid = #{uid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sms_report
+    where uid = #{uid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.biz.SmsReport" >
+    insert into sms_report (uid, reportTime, notifyTime, 
+      status, submitStatus, sendStatus, 
+      msgId, statusDesc, mobile, 
+      content, contentType, contentPrefix, 
+      createTime, modefyTime, payDate, 
+      contractId, payplanId)
+    values (#{uid,jdbcType=VARCHAR}, #{reporttime,jdbcType=VARCHAR}, #{notifytime,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{submitstatus,jdbcType=INTEGER}, #{sendstatus,jdbcType=INTEGER}, 
+      #{msgid,jdbcType=VARCHAR}, #{statusdesc,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{contenttype,jdbcType=INTEGER}, #{contentprefix,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{modefytime,jdbcType=TIMESTAMP}, #{paydate,jdbcType=DATE}, 
+      #{contractid,jdbcType=INTEGER}, #{payplanid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.biz.SmsReport" >
+    insert into sms_report
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="reporttime != null" >
+        reportTime,
+      </if>
+      <if test="notifytime != null" >
+        notifyTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="submitstatus != null" >
+        submitStatus,
+      </if>
+      <if test="sendstatus != null" >
+        sendStatus,
+      </if>
+      <if test="msgid != null" >
+        msgId,
+      </if>
+      <if test="statusdesc != null" >
+        statusDesc,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="contenttype != null" >
+        contentType,
+      </if>
+      <if test="contentprefix != null" >
+        contentPrefix,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="modefytime != null" >
+        modefyTime,
+      </if>
+      <if test="paydate != null" >
+        payDate,
+      </if>
+      <if test="contractid != null" >
+        contractId,
+      </if>
+      <if test="payplanid != null" >
+        payplanId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uid != null" >
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="reporttime != null" >
+        #{reporttime,jdbcType=VARCHAR},
+      </if>
+      <if test="notifytime != null" >
+        #{notifytime,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="submitstatus != null" >
+        #{submitstatus,jdbcType=INTEGER},
+      </if>
+      <if test="sendstatus != null" >
+        #{sendstatus,jdbcType=INTEGER},
+      </if>
+      <if test="msgid != null" >
+        #{msgid,jdbcType=VARCHAR},
+      </if>
+      <if test="statusdesc != null" >
+        #{statusdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="contenttype != null" >
+        #{contenttype,jdbcType=INTEGER},
+      </if>
+      <if test="contentprefix != null" >
+        #{contentprefix,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modefytime != null" >
+        #{modefytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paydate != null" >
+        #{paydate,jdbcType=DATE},
+      </if>
+      <if test="contractid != null" >
+        #{contractid,jdbcType=INTEGER},
+      </if>
+      <if test="payplanid != null" >
+        #{payplanid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.biz.SmsReport" >
+    update sms_report
+    <set >
+      <if test="reporttime != null" >
+        reportTime = #{reporttime,jdbcType=VARCHAR},
+      </if>
+      <if test="notifytime != null" >
+        notifyTime = #{notifytime,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="submitstatus != null" >
+        submitStatus = #{submitstatus,jdbcType=INTEGER},
+      </if>
+      <if test="sendstatus != null" >
+        sendStatus = #{sendstatus,jdbcType=INTEGER},
+      </if>
+      <if test="msgid != null" >
+        msgId = #{msgid,jdbcType=VARCHAR},
+      </if>
+      <if test="statusdesc != null" >
+        statusDesc = #{statusdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="contenttype != null" >
+        contentType = #{contenttype,jdbcType=INTEGER},
+      </if>
+      <if test="contentprefix != null" >
+        contentPrefix = #{contentprefix,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modefytime != null" >
+        modefyTime = #{modefytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paydate != null" >
+        payDate = #{paydate,jdbcType=DATE},
+      </if>
+      <if test="contractid != null" >
+        contractId = #{contractid,jdbcType=INTEGER},
+      </if>
+      <if test="payplanid != null" >
+        payplanId = #{payplanid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uid = #{uid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.biz.SmsReport" >
+    update sms_report
+    set reportTime = #{reporttime,jdbcType=VARCHAR},
+      notifyTime = #{notifytime,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      submitStatus = #{submitstatus,jdbcType=INTEGER},
+      sendStatus = #{sendstatus,jdbcType=INTEGER},
+      msgId = #{msgid,jdbcType=VARCHAR},
+      statusDesc = #{statusdesc,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      contentType = #{contenttype,jdbcType=INTEGER},
+      contentPrefix = #{contentprefix,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      modefyTime = #{modefytime,jdbcType=TIMESTAMP},
+      payDate = #{paydate,jdbcType=DATE},
+      contractId = #{contractid,jdbcType=INTEGER},
+      payplanId = #{payplanid,jdbcType=VARCHAR}
+    where uid = #{uid,jdbcType=VARCHAR}
+  </update>
+</mapper>

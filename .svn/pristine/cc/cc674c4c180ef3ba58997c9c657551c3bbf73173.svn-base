@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.mall.MallshoppingcartMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.mall.Mallshoppingcart" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="areaid" property="areaid" jdbcType="INTEGER" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="areaname" property="areaname" jdbcType="VARCHAR" />
+    <result column="sourceid" property="sourceid" jdbcType="INTEGER" />
+    <result column="carprice" property="carprice" jdbcType="DECIMAL" />
+    <result column="issuingprice" property="issuingprice" jdbcType="DECIMAL" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="decorateprice" property="decorateprice" jdbcType="DECIMAL" />
+    <result column="downpay" property="downpay" jdbcType="DECIMAL" />
+    <result column="oversea4sprice" property="oversea4sprice" jdbcType="DECIMAL" />
+    <result column="favor" property="favor" jdbcType="DECIMAL" />
+    <result column="cmsn" property="cmsn" jdbcType="DECIMAL" />
+    <result column="overseadrayage" property="overseadrayage" jdbcType="DECIMAL" />
+    <result column="overseashotinsurance" property="overseashotinsurance" jdbcType="DECIMAL" />
+    <result column="seatransportprice" property="seatransportprice" jdbcType="DECIMAL" />
+    <result column="seatransportinsurance" property="seatransportinsurance" jdbcType="DECIMAL" />
+    <result column="totalprice" property="totalprice" jdbcType="DECIMAL" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="interests" property="interests" jdbcType="DECIMAL" />
+    <result column="serviceprice" property="serviceprice" jdbcType="DECIMAL" />
+    <result column="terminalhandlingcharges" property="terminalhandlingcharges" jdbcType="DECIMAL" />
+    <result column="customsclearancefee" property="customsclearancefee" jdbcType="DECIMAL" />
+    <result column="duties" property="duties" jdbcType="DECIMAL" />
+    <result column="displacement" property="displacement" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, username, areaid, unit, areaname, sourceid, carprice, issuingprice, num, decorateprice, 
+    downpay, oversea4sprice, favor, cmsn, overseadrayage, overseashotinsurance, seatransportprice, 
+    seatransportinsurance, totalprice, createtime, status, version, brand, model, interests, 
+    serviceprice, terminalhandlingcharges, customsclearancefee, duties, displacement, 
+    type
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="username != null and username !=''" >
+       and username = #{username}
+    </if>
+    <if test="areaid != null and areaid !=''" >
+       and areaid = #{areaid}
+    </if>
+    <if test="unit != null and unit !=''" >
+       and unit = #{unit}
+    </if>
+    <if test="areaname != null and areaname !=''" >
+       and areaname = #{areaname}
+    </if>
+    <if test="sourceid != null and sourceid !=''" >
+       and sourceid = #{sourceid}
+    </if>
+    <if test="carprice != null and carprice !=''" >
+       and carprice = #{carprice}
+    </if>
+    <if test="issuingprice != null and issuingprice !=''" >
+       and issuingprice = #{issuingprice}
+    </if>
+    <if test="num != null and num !=''" >
+       and num = #{num}
+    </if>
+    <if test="decorateprice != null and decorateprice !=''" >
+       and decorateprice = #{decorateprice}
+    </if>
+    <if test="downpay != null and downpay !=''" >
+       and downpay = #{downpay}
+    </if>
+    <if test="oversea4sprice != null and oversea4sprice !=''" >
+       and oversea4sprice = #{oversea4sprice}
+    </if>
+    <if test="favor != null and favor !=''" >
+       and favor = #{favor}
+    </if>
+    <if test="cmsn != null and cmsn !=''" >
+       and cmsn = #{cmsn}
+    </if>
+    <if test="overseadrayage != null and overseadrayage !=''" >
+       and overseadrayage = #{overseadrayage}
+    </if>
+    <if test="overseashotinsurance != null and overseashotinsurance !=''" >
+       and overseashotinsurance = #{overseashotinsurance}
+    </if>
+    <if test="seatransportprice != null and seatransportprice !=''" >
+       and seatransportprice = #{seatransportprice}
+    </if>
+    <if test="seatransportinsurance != null and seatransportinsurance !=''" >
+       and seatransportinsurance = #{seatransportinsurance}
+    </if>
+    <if test="totalprice != null and totalprice !=''" >
+       and totalprice = #{totalprice}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+    <if test="version != null and version !=''" >
+       and version = #{version}
+    </if>
+    <if test="brand != null and brand !=''" >
+       and brand = #{brand}
+    </if>
+    <if test="model != null and model !=''" >
+       and model = #{model}
+    </if>
+    <if test="interests != null and interests !=''" >
+       and interests = #{interests}
+    </if>
+    <if test="serviceprice != null and serviceprice !=''" >
+       and serviceprice = #{serviceprice}
+    </if>
+    <if test="terminalhandlingcharges != null and terminalhandlingcharges !=''" >
+       and terminalhandlingcharges = #{terminalhandlingcharges}
+    </if>
+    <if test="customsclearancefee != null and customsclearancefee !=''" >
+       and customsclearancefee = #{customsclearancefee}
+    </if>
+    <if test="duties != null and duties !=''" >
+       and duties = #{duties}
+    </if>
+    <if test="displacement != null and displacement !=''" >
+       and displacement = #{displacement}
+    </if>
+    <if test="type != null and type !=''" >
+       and type = #{type}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.mall.Mallshoppingcart" >
+    select 
+    <include refid="Base_Column_List" />
+    from mall_shoppingcart
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.mall.Mallshoppingcart" >
+    select count(*) from mall_shoppingcart where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from mall_shoppingcart
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from mall_shoppingcart
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.mall.Mallshoppingcart" >
+    insert into mall_shoppingcart (id, username, areaid, 
+      unit, areaname, sourceid, 
+      carprice, issuingprice, num, 
+      decorateprice, downpay, oversea4sprice, 
+      favor, cmsn, overseadrayage, 
+      overseashotinsurance, seatransportprice, 
+      seatransportinsurance, totalprice, createtime, 
+      status, version, brand, 
+      model, interests, serviceprice, 
+      terminalhandlingcharges, customsclearancefee, 
+      duties, displacement, type
+      )
+    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{areaid,jdbcType=INTEGER}, 
+      #{unit,jdbcType=VARCHAR}, #{areaname,jdbcType=VARCHAR}, #{sourceid,jdbcType=INTEGER}, 
+      #{carprice,jdbcType=DECIMAL}, #{issuingprice,jdbcType=DECIMAL}, #{num,jdbcType=INTEGER}, 
+      #{decorateprice,jdbcType=DECIMAL}, #{downpay,jdbcType=DECIMAL}, #{oversea4sprice,jdbcType=DECIMAL}, 
+      #{favor,jdbcType=DECIMAL}, #{cmsn,jdbcType=DECIMAL}, #{overseadrayage,jdbcType=DECIMAL}, 
+      #{overseashotinsurance,jdbcType=DECIMAL}, #{seatransportprice,jdbcType=DECIMAL}, 
+      #{seatransportinsurance,jdbcType=DECIMAL}, #{totalprice,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{version,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, 
+      #{model,jdbcType=VARCHAR}, #{interests,jdbcType=DECIMAL}, #{serviceprice,jdbcType=DECIMAL}, 
+      #{terminalhandlingcharges,jdbcType=DECIMAL}, #{customsclearancefee,jdbcType=DECIMAL}, 
+      #{duties,jdbcType=DECIMAL}, #{displacement,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.mall.Mallshoppingcart" >
+    insert into mall_shoppingcart
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="areaid != null" >
+        areaid,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="areaname != null" >
+        areaname,
+      </if>
+      <if test="sourceid != null" >
+        sourceid,
+      </if>
+      <if test="carprice != null" >
+        carprice,
+      </if>
+      <if test="issuingprice != null" >
+        issuingprice,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="decorateprice != null" >
+        decorateprice,
+      </if>
+      <if test="downpay != null" >
+        downpay,
+      </if>
+      <if test="oversea4sprice != null" >
+        oversea4sprice,
+      </if>
+      <if test="favor != null" >
+        favor,
+      </if>
+      <if test="cmsn != null" >
+        cmsn,
+      </if>
+      <if test="overseadrayage != null" >
+        overseadrayage,
+      </if>
+      <if test="overseashotinsurance != null" >
+        overseashotinsurance,
+      </if>
+      <if test="seatransportprice != null" >
+        seatransportprice,
+      </if>
+      <if test="seatransportinsurance != null" >
+        seatransportinsurance,
+      </if>
+      <if test="totalprice != null" >
+        totalprice,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="interests != null" >
+        interests,
+      </if>
+      <if test="serviceprice != null" >
+        serviceprice,
+      </if>
+      <if test="terminalhandlingcharges != null" >
+        terminalhandlingcharges,
+      </if>
+      <if test="customsclearancefee != null" >
+        customsclearancefee,
+      </if>
+      <if test="duties != null" >
+        duties,
+      </if>
+      <if test="displacement != null" >
+        displacement,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="areaid != null" >
+        #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceid != null" >
+        #{sourceid,jdbcType=INTEGER},
+      </if>
+      <if test="carprice != null" >
+        #{carprice,jdbcType=DECIMAL},
+      </if>
+      <if test="issuingprice != null" >
+        #{issuingprice,jdbcType=DECIMAL},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="decorateprice != null" >
+        #{decorateprice,jdbcType=DECIMAL},
+      </if>
+      <if test="downpay != null" >
+        #{downpay,jdbcType=DECIMAL},
+      </if>
+      <if test="oversea4sprice != null" >
+        #{oversea4sprice,jdbcType=DECIMAL},
+      </if>
+      <if test="favor != null" >
+        #{favor,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn != null" >
+        #{cmsn,jdbcType=DECIMAL},
+      </if>
+      <if test="overseadrayage != null" >
+        #{overseadrayage,jdbcType=DECIMAL},
+      </if>
+      <if test="overseashotinsurance != null" >
+        #{overseashotinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="seatransportprice != null" >
+        #{seatransportprice,jdbcType=DECIMAL},
+      </if>
+      <if test="seatransportinsurance != null" >
+        #{seatransportinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="totalprice != null" >
+        #{totalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="interests != null" >
+        #{interests,jdbcType=DECIMAL},
+      </if>
+      <if test="serviceprice != null" >
+        #{serviceprice,jdbcType=DECIMAL},
+      </if>
+      <if test="terminalhandlingcharges != null" >
+        #{terminalhandlingcharges,jdbcType=DECIMAL},
+      </if>
+      <if test="customsclearancefee != null" >
+        #{customsclearancefee,jdbcType=DECIMAL},
+      </if>
+      <if test="duties != null" >
+        #{duties,jdbcType=DECIMAL},
+      </if>
+      <if test="displacement != null" >
+        #{displacement,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.mall.Mallshoppingcart" >
+    update mall_shoppingcart
+    <set >
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="areaid != null" >
+        areaid = #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        areaname = #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceid != null" >
+        sourceid = #{sourceid,jdbcType=INTEGER},
+      </if>
+      <if test="carprice != null" >
+        carprice = #{carprice,jdbcType=DECIMAL},
+      </if>
+      <if test="issuingprice != null" >
+        issuingprice = #{issuingprice,jdbcType=DECIMAL},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="decorateprice != null" >
+        decorateprice = #{decorateprice,jdbcType=DECIMAL},
+      </if>
+      <if test="downpay != null" >
+        downpay = #{downpay,jdbcType=DECIMAL},
+      </if>
+      <if test="oversea4sprice != null" >
+        oversea4sprice = #{oversea4sprice,jdbcType=DECIMAL},
+      </if>
+      <if test="favor != null" >
+        favor = #{favor,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn != null" >
+        cmsn = #{cmsn,jdbcType=DECIMAL},
+      </if>
+      <if test="overseadrayage != null" >
+        overseadrayage = #{overseadrayage,jdbcType=DECIMAL},
+      </if>
+      <if test="overseashotinsurance != null" >
+        overseashotinsurance = #{overseashotinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="seatransportprice != null" >
+        seatransportprice = #{seatransportprice,jdbcType=DECIMAL},
+      </if>
+      <if test="seatransportinsurance != null" >
+        seatransportinsurance = #{seatransportinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="totalprice != null" >
+        totalprice = #{totalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="interests != null" >
+        interests = #{interests,jdbcType=DECIMAL},
+      </if>
+      <if test="serviceprice != null" >
+        serviceprice = #{serviceprice,jdbcType=DECIMAL},
+      </if>
+      <if test="terminalhandlingcharges != null" >
+        terminalhandlingcharges = #{terminalhandlingcharges,jdbcType=DECIMAL},
+      </if>
+      <if test="customsclearancefee != null" >
+        customsclearancefee = #{customsclearancefee,jdbcType=DECIMAL},
+      </if>
+      <if test="duties != null" >
+        duties = #{duties,jdbcType=DECIMAL},
+      </if>
+      <if test="displacement != null" >
+        displacement = #{displacement,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.mall.Mallshoppingcart" >
+    update mall_shoppingcart
+    set username = #{username,jdbcType=VARCHAR},
+      areaid = #{areaid,jdbcType=INTEGER},
+      unit = #{unit,jdbcType=VARCHAR},
+      areaname = #{areaname,jdbcType=VARCHAR},
+      sourceid = #{sourceid,jdbcType=INTEGER},
+      carprice = #{carprice,jdbcType=DECIMAL},
+      issuingprice = #{issuingprice,jdbcType=DECIMAL},
+      num = #{num,jdbcType=INTEGER},
+      decorateprice = #{decorateprice,jdbcType=DECIMAL},
+      downpay = #{downpay,jdbcType=DECIMAL},
+      oversea4sprice = #{oversea4sprice,jdbcType=DECIMAL},
+      favor = #{favor,jdbcType=DECIMAL},
+      cmsn = #{cmsn,jdbcType=DECIMAL},
+      overseadrayage = #{overseadrayage,jdbcType=DECIMAL},
+      overseashotinsurance = #{overseashotinsurance,jdbcType=DECIMAL},
+      seatransportprice = #{seatransportprice,jdbcType=DECIMAL},
+      seatransportinsurance = #{seatransportinsurance,jdbcType=DECIMAL},
+      totalprice = #{totalprice,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      version = #{version,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      interests = #{interests,jdbcType=DECIMAL},
+      serviceprice = #{serviceprice,jdbcType=DECIMAL},
+      terminalhandlingcharges = #{terminalhandlingcharges,jdbcType=DECIMAL},
+      customsclearancefee = #{customsclearancefee,jdbcType=DECIMAL},
+      duties = #{duties,jdbcType=DECIMAL},
+      displacement = #{displacement,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

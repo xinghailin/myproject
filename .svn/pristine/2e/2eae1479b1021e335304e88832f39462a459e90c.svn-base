@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.cif.PurchasebillMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.cif.Purchasebill" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="color" property="color" jdbcType="VARCHAR" />
+    <result column="nowhave" property="nowhave" jdbcType="VARCHAR" />
+    <result column="futuretime" property="futuretime" jdbcType="TIMESTAMP" />
+    <result column="bodyprice" property="bodyprice" jdbcType="DECIMAL" />
+    <result column="ticketpoint" property="ticketpoint" jdbcType="VARCHAR" />
+    <result column="tpprice" property="tpprice" jdbcType="DECIMAL" />
+    <result column="cnsystem" property="cnsystem" jdbcType="DECIMAL" />
+    <result column="decorateprice" property="decorateprice" jdbcType="DECIMAL" />
+    <result column="validtime" property="validtime" jdbcType="TIMESTAMP" />
+    <result column="offertime" property="offertime" jdbcType="TIMESTAMP" />
+    <result column="middleman" property="middleman" jdbcType="VARCHAR" />
+    <result column="channelprice" property="channelprice" jdbcType="DECIMAL" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="supplyname" property="supplyname" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="createman" property="createman" jdbcType="VARCHAR" />
+    <result column="createid" property="createid" jdbcType="INTEGER" />
+    <result column="offerprice" property="offerprice" jdbcType="DECIMAL" />
+    <result column="firstmonthpay" property="firstmonthpay" jdbcType="DECIMAL" />
+    <result column="everymonthpay" property="everymonthpay" jdbcType="DECIMAL" />
+    <result column="profit" property="profit" jdbcType="DECIMAL" />
+    <result column="isused" property="isused" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, brand, model, version,color, nowhave, futuretime, bodyprice, ticketpoint, tpprice, 
+    cnsystem, decorateprice, offertime, validtime, middleman, channelprice, num, supplyname, createtime, 
+    status, createman, createid, offerprice, firstmonthpay, everymonthpay, profit, isused
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="brand != null and brand !=''" >
+       and brand = #{brand}
+    </if>
+    <if test="model != null and model !=''" >
+       and model = #{model}
+    </if>
+    <if test="version != null and version !=''" >
+       and version = #{version}
+    </if>
+    <if test="nowhave != null and nowhave !=''" >
+       and nowhave = #{nowhave}
+    </if>
+    <if test="futuretime != null and futuretime !=''" >
+       and futuretime = #{futuretime}
+    </if>
+    <if test="bodyprice != null and bodyprice !=''" >
+       and bodyprice = #{bodyprice}
+    </if>
+    <if test="ticketpoint != null and ticketpoint !=''" >
+       and ticketpoint = #{ticketpoint}
+    </if>
+    <if test="tpprice != null and tpprice !=''" >
+       and tpprice = #{tpprice}
+    </if>
+    <if test="cnsystem != null and cnsystem !=''" >
+       and cnsystem = #{cnsystem}
+    </if>
+    <if test="decorateprice != null and decorateprice !=''" >
+       and decorateprice = #{decorateprice}
+    </if>
+    <if test="validtime != null and validtime !=''" >
+       and validtime = #{validtime}
+    </if>
+    <if test="middleman != null and middleman !=''" >
+       and middleman = #{middleman}
+    </if>
+    <if test="channelprice != null and channelprice !=''" >
+       and channelprice = #{channelprice}
+    </if>
+    <if test="num != null and num !=''" >
+       and num = #{num}
+    </if>
+    <if test="supplyname != null and supplyname !=''" >
+       and supplyname = #{supplyname}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="status != null and status !='' " >
+       and status = #{status}
+    </if>
+    <if test="createman != null and createman !=''" >
+       and createman = #{createman}
+    </if>
+    <if test="createid != null and createid !=''" >
+       and createid = #{createid}
+    </if>
+    <if test="offerprice != null and offerprice !=''" >
+       and offerprice = #{offerprice}
+    </if>
+    <if test="firstmonthpay != null and firstmonthpay !=''" >
+       and firstmonthpay = #{firstmonthpay}
+    </if>
+    <if test="everymonthpay != null and everymonthpay !=''" >
+       and everymonthpay = #{everymonthpay}
+    </if>
+    <if test="profit != null and profit !=''" >
+       and profit = #{profit}
+    </if>
+    <if test="isused != null and isused !='' and isused != 2" >
+       and isused = #{isused}
+    </if>
+     <if test="isused == 2" >
+       and isused is null
+    </if>
+    order by createtime desc
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.cif.Purchasebill" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_purchasebill
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.cif.Purchasebill" >
+    select count(*) from cif_purchasebill where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_purchasebill
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cif_purchasebill
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.cif.Purchasebill" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(122);
+    </selectKey>
+    insert into cif_purchasebill (id, brand, model, 
+      version, nowhave, futuretime, 
+      bodyprice, ticketpoint, tpprice, color,
+      cnsystem, decorateprice, validtime, 
+      middleman, channelprice, num, 
+      supplyname, createtime, status, 
+      createman, createid, offerprice, 
+      firstmonthpay, everymonthpay, profit, 
+      isused)
+    values (#{id,jdbcType=INTEGER}, #{brand,jdbcType=VARCHAR}, #{color,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, 
+      #{version,jdbcType=VARCHAR}, #{nowhave,jdbcType=VARCHAR}, #{futuretime,jdbcType=TIMESTAMP}, 
+      #{bodyprice,jdbcType=DECIMAL}, #{ticketpoint,jdbcType=VARCHAR}, #{tpprice,jdbcType=DECIMAL}, 
+      #{cnsystem,jdbcType=DECIMAL}, #{decorateprice,jdbcType=DECIMAL}, #{validtime,jdbcType=TIMESTAMP}, 
+      #{middleman,jdbcType=VARCHAR}, #{channelprice,jdbcType=DECIMAL}, #{num,jdbcType=INTEGER}, 
+      #{supplyname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, 
+      #{createman,jdbcType=VARCHAR}, #{createid,jdbcType=INTEGER}, #{offerprice,jdbcType=DECIMAL}, 
+      #{firstmonthpay,jdbcType=DECIMAL}, #{everymonthpay,jdbcType=DECIMAL}, #{profit,jdbcType=DECIMAL}, 
+      #{isused,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.cif.Purchasebill" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(122);
+    </selectKey>
+    insert into cif_purchasebill
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="color != null" >
+        color,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="nowhave != null" >
+        nowhave,
+      </if>
+      <if test="futuretime != null" >
+        futuretime,
+      </if>
+      <if test="bodyprice != null" >
+        bodyprice,
+      </if>
+      <if test="ticketpoint != null" >
+        ticketpoint,
+      </if>
+      <if test="tpprice != null" >
+        tpprice,
+      </if>
+      <if test="cnsystem != null" >
+        cnsystem,
+      </if>
+      <if test="decorateprice != null" >
+        decorateprice,
+      </if>
+      <if test="offertime != null" >
+        offertime,
+      </if>
+      <if test="validtime != null" >
+        validtime,
+      </if>
+      <if test="middleman != null" >
+        middleman,
+      </if>
+      <if test="channelprice != null" >
+        channelprice,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="supplyname != null" >
+        supplyname,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createman != null" >
+        createman,
+      </if>
+      <if test="createid != null" >
+        createid,
+      </if>
+      <if test="offerprice != null" >
+        offerprice,
+      </if>
+      <if test="firstmonthpay != null" >
+        firstmonthpay,
+      </if>
+      <if test="everymonthpay != null" >
+        everymonthpay,
+      </if>
+      <if test="profit != null" >
+        profit,
+      </if>
+      <if test="isused != null" >
+        isused,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null" >
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="nowhave != null" >
+        #{nowhave,jdbcType=VARCHAR},
+      </if>
+      <if test="futuretime != null" >
+        #{futuretime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bodyprice != null" >
+        #{bodyprice,jdbcType=DECIMAL},
+      </if>
+      <if test="ticketpoint != null" >
+        #{ticketpoint,jdbcType=VARCHAR},
+      </if>
+      <if test="tpprice != null" >
+        #{tpprice,jdbcType=DECIMAL},
+      </if>
+      <if test="cnsystem != null" >
+        #{cnsystem,jdbcType=DECIMAL},
+      </if>
+      <if test="decorateprice != null" >
+        #{decorateprice,jdbcType=DECIMAL},
+      </if>
+      <if test="offertime != null" >
+        #{offertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validtime != null" >
+        #{validtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="middleman != null" >
+        #{middleman,jdbcType=VARCHAR},
+      </if>
+      <if test="channelprice != null" >
+        #{channelprice,jdbcType=DECIMAL},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="supplyname != null" >
+        #{supplyname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createman != null" >
+        #{createman,jdbcType=VARCHAR},
+      </if>
+      <if test="createid != null" >
+        #{createid,jdbcType=INTEGER},
+      </if>
+      <if test="offerprice != null" >
+        #{offerprice,jdbcType=DECIMAL},
+      </if>
+      <if test="firstmonthpay != null" >
+        #{firstmonthpay,jdbcType=DECIMAL},
+      </if>
+      <if test="everymonthpay != null" >
+        #{everymonthpay,jdbcType=DECIMAL},
+      </if>
+      <if test="profit != null" >
+        #{profit,jdbcType=DECIMAL},
+      </if>
+      <if test="isused != null" >
+        #{isused,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.cif.Purchasebill" >
+    update cif_purchasebill
+    <set >
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null" >
+        color = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="nowhave != null" >
+        nowhave = #{nowhave,jdbcType=VARCHAR},
+      </if>
+      <if test="futuretime != null" >
+        futuretime = #{futuretime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bodyprice != null" >
+        bodyprice = #{bodyprice,jdbcType=DECIMAL},
+      </if>
+      <if test="ticketpoint != null" >
+        ticketpoint = #{ticketpoint,jdbcType=VARCHAR},
+      </if>
+      <if test="tpprice != null" >
+        tpprice = #{tpprice,jdbcType=DECIMAL},
+      </if>
+      <if test="cnsystem != null" >
+        cnsystem = #{cnsystem,jdbcType=DECIMAL},
+      </if>
+      <if test="decorateprice != null" >
+        decorateprice = #{decorateprice,jdbcType=DECIMAL},
+      </if>
+      <if test="validtime != null" >
+        validtime = #{validtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="middleman != null" >
+        middleman = #{middleman,jdbcType=VARCHAR},
+      </if>
+      <if test="channelprice != null" >
+        channelprice = #{channelprice,jdbcType=DECIMAL},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="supplyname != null" >
+        supplyname = #{supplyname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createman != null" >
+        createman = #{createman,jdbcType=VARCHAR},
+      </if>
+      <if test="createid != null" >
+        createid = #{createid,jdbcType=INTEGER},
+      </if>
+      <if test="offerprice != null" >
+        offerprice = #{offerprice,jdbcType=DECIMAL},
+      </if>
+      <if test="firstmonthpay != null" >
+        firstmonthpay = #{firstmonthpay,jdbcType=DECIMAL},
+      </if>
+      <if test="everymonthpay != null" >
+        everymonthpay = #{everymonthpay,jdbcType=DECIMAL},
+      </if>
+      <if test="profit != null" >
+        profit = #{profit,jdbcType=DECIMAL},
+      </if>
+      <if test="isused != null" >
+        isused = #{isused,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.cif.Purchasebill" >
+    update cif_purchasebill
+    set brand = #{brand,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+       color = #{color,jdbcType=VARCHAR},
+      nowhave = #{nowhave,jdbcType=VARCHAR},
+      futuretime = #{futuretime,jdbcType=TIMESTAMP},
+      bodyprice = #{bodyprice,jdbcType=DECIMAL},
+      ticketpoint = #{ticketpoint,jdbcType=VARCHAR},
+      tpprice = #{tpprice,jdbcType=DECIMAL},
+      cnsystem = #{cnsystem,jdbcType=DECIMAL},
+      decorateprice = #{decorateprice,jdbcType=DECIMAL},
+      validtime = #{validtime,jdbcType=TIMESTAMP},
+      middleman = #{middleman,jdbcType=VARCHAR},
+      channelprice = #{channelprice,jdbcType=DECIMAL},
+      num = #{num,jdbcType=INTEGER},
+      supplyname = #{supplyname,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR},
+      createman = #{createman,jdbcType=VARCHAR},
+      createid = #{createid,jdbcType=INTEGER},
+      offerprice = #{offerprice,jdbcType=DECIMAL},
+      firstmonthpay = #{firstmonthpay,jdbcType=DECIMAL},
+      everymonthpay = #{everymonthpay,jdbcType=DECIMAL},
+      profit = #{profit,jdbcType=DECIMAL},
+      isused = #{isused,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectByCriteriaBMV" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.cif.Purchasebill" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_purchasebill
+    where 1=1 
+    <if test="brand != null and brand !=''" >
+       and brand = #{brand}
+    </if>
+    <if test="model != null and model !=''" >
+       and model = #{model}
+    </if>
+    <if test="version != null and version !=''" >
+       and version = #{version}
+    </if>
+    <if test="nowhave != null and nowhave !=''" >
+       and nowhave = #{nowhave}
+    </if>
+    <if test="futuretime != null and futuretime !=''" >
+       and futuretime = #{futuretime}
+    </if>
+    <if test="validtime != null and validtime !=''" >
+       and validtime = #{validtime}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+  </select>
+  
+  <select id="selectOverdueLst" resultMap="BaseResultMap">
+    SELECT * FROM `cif_purchasebill` WHERE `status`='1' AND NOW()>validtime;
+  </select>
+  
+  <update id="updateOverdueLst">
+    UPDATE cif_purchasebill SET `status`='2'
+    WHERE `status`='1' AND NOW()>validtime
+  </update>
+</mapper>

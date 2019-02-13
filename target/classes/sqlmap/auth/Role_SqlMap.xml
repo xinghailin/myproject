@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.auth.RoleMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.auth.Role" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="APP_ID" property="appId" jdbcType="INTEGER" />
+    <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  	<resultMap id="BaseMenuResultMap" type="com.yyq.car.portal.common.model.auth.Menu">
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="MENU_NAME" property="menuName" jdbcType="VARCHAR" />
+		<result column="MENU_URL" property="menuUrl" jdbcType="VARCHAR" />
+		<result column="PARENT_ID" property="parentId" jdbcType="INTEGER" />
+	</resultMap>
+	
+  <sql id="Base_Column_List" >
+    ID, NAME, APP_ID, DESCRIPTION, CREATE_TIME
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and ID = #{id}
+    </if>
+    <if test="name != null and name !=''" >
+       and NAME like concat('%',#{name},'%')
+    </if>
+    <if test="appId != null and appId !='' and appId ==2" >
+       and APP_ID = 0
+    </if>
+    <if test="appId != null and appId !='' and appId ==1" >
+       and (APP_ID !=0 or APP_ID IS NULL)
+    </if>
+    <if test="description != null and description !=''" >
+       and DESCRIPTION like concat('%',#{description},'%')
+    </if>
+    <if test="createTime != null and createTime !=''" >
+       and CREATE_TIME = #{createTime}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.auth.Role" >
+    select 
+    <include refid="Base_Column_List" />
+    from auth_role
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.auth.Role" >
+    select count(*) from auth_role where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from auth_role
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from auth_role
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.auth.Role" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(201);
+    </selectKey>
+    insert into auth_role (ID, NAME, APP_ID, 
+      DESCRIPTION, CREATE_TIME)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{appId,jdbcType=INTEGER}, 
+      #{description,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.auth.Role" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(201);
+    </selectKey>
+    insert into auth_role
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="appId != null" >
+        APP_ID,
+      </if>
+      <if test="description != null" >
+        DESCRIPTION,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="appId != null" >
+        #{appId,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.auth.Role" >
+    update auth_role
+    <set >
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="appId==0">
+        APP_ID = #{appId,jdbcType=INTEGER},
+      </if>
+      <if test="appId==99" >
+        APP_ID = null,
+      </if>
+      <if test="description != null" >
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.auth.Role" >
+    update auth_role
+    set NAME = #{name,jdbcType=VARCHAR},
+      APP_ID = #{appId,jdbcType=INTEGER},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  
+   <delete id="deleteResourceByRoleId" parameterType="java.lang.Integer">
+  		DELETE FROM AUTH_ROLE_RESOURCE WHERE ROLE_ID = #{id,jdbcType=INTEGER}
+  </delete>
+	
+  <insert id="insertRoleResource" parameterType="map" >
+  		INSERT INTO AUTH_ROLE_RESOURCE (ROLE_ID, RESOURCE_ID) 
+  		VALUES (#{role,jdbcType=INTEGER}, #{resource,jdbcType=INTEGER})
+  </insert>
+  
+  
+  <insert id="insertRoleAccount" parameterType="map" >
+  		INSERT INTO auth_role_account (ROLE_ID, ACCOUNT_ID) 
+  		VALUES (#{roleId,jdbcType=INTEGER}, #{accountId,jdbcType=INTEGER})
+  </insert>
+  
+  <delete id="deleteByRoleAccount" parameterType="java.lang.Integer" >
+    delete from auth_role_account
+    where ACCOUNT_ID = #{accountId,jdbcType=INTEGER}
+  </delete>
+  
+  
+  <select id="selectByAccountId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  		SELECT c.ID, c.NAME, c.APP_ID, c.DESCRIPTION, c.CREATE_TIME
+		FROM cif_account a
+			INNER JOIN auth_role_account b ON a.ID = b.ACCOUNT_ID
+			INNER JOIN auth_role c ON b.ROLE_ID = c.ID
+		WHERE a.ID = #{accountId,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  		SELECT c.ID, c.NAME, c.APP_ID, c.DESCRIPTION, c.CREATE_TIME
+		FROM auth_user a
+			INNER JOIN auth_role_account b ON a.ID = b.ACCOUNT_ID
+			INNER JOIN auth_role c ON b.ROLE_ID = c.ID
+		WHERE a.ID = #{userId,jdbcType=INTEGER}
+  </select>
+  
+   <resultMap id="UfaBaseRoleResultMap" type="org.ufa.security.model.UfaBaseRole" >
+    <id column="ID" property="roleId" jdbcType="INTEGER" />
+    <result column="NAME" property="roleName" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <select id="selectAllUfaBaseRole" resultMap="UfaBaseRoleResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from auth_role
+  </select>
+  
+  <select id="selectMenuByRoleId" resultMap="BaseMenuResultMap"
+		parameterType="java.lang.Integer">
+		SELECT t1.*
+		FROM auth_menu t1, auth_role_menu t2
+		WHERE
+		t1.ID=t2.MENU_ID
+		and t2.ROLE_ID = #{roleId,jdbcType=INTEGER}
+	</select>
+ 	
+	<select id="selectAllMenu" resultMap="BaseMenuResultMap" >
+		SELECT t.* FROM auth_menu t
+	</select>
+	
+ 	<insert id="insertRoleMenu" parameterType="map">
+		INSERT INTO auth_role_menu (ROLE_ID, MENU_ID)
+		VALUES (#{roleId,jdbcType=INTEGER}, #{menuId,jdbcType=INTEGER})
+	</insert>
+	
+	<delete id="deleteByRoleMenu" parameterType="java.lang.Integer">
+		delete from auth_role_menu
+		where ROLE_ID = #{roleId,jdbcType=INTEGER}
+	</delete>
+	
+  	<select id="selectMenuByUserId" resultMap="BaseMenuResultMap"
+		parameterType="java.lang.Integer">
+	   SELECT DISTINCT t1.* from auth_menu t1 LEFT JOIN auth_role_menu t2 on t1.ID=t2.MENU_ID LEFT JOIN auth_role_account t3 on t3.ROLE_ID=t2.ROLE_ID  
+	   where t3.ACCOUNT_ID=#{userId,jdbcType=INTEGER} ORDER BY t1.ID
+	</select>
+	
+	<select id="countByNameForEdit" resultType="int" parameterType="com.yyq.car.portal.common.model.auth.Role" >
+    select count(*) from auth_role where 1=1
+    <if test="id != null and id !=''" >
+       and ID != #{id}
+    </if>
+    <if test="name != null and name !=''" >
+       and NAME = #{name}
+    </if>
+  </select>
+</mapper>

@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.jnd.jndfreightMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.jnd.jndfreight" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="drayage" property="drayage" jdbcType="DECIMAL" />
+    <result column="oceanfreight" property="oceanfreight" jdbcType="DECIMAL" />
+    <result column="elsecost1" property="elsecost1" jdbcType="DECIMAL" />
+    <result column="elsecost2" property="elsecost2" jdbcType="DECIMAL" />
+    <result column="proposer" property="proposer" jdbcType="VARCHAR" />
+    <result column="proposertime" property="proposertime" jdbcType="TIMESTAMP" />
+    <result column="verifier" property="verifier" jdbcType="VARCHAR" />
+    <result column="verifiertime" property="verifiertime" jdbcType="TIMESTAMP" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="reason" property="reason" jdbcType="VARCHAR" />
+    <result column="currency" property="currency" jdbcType="INTEGER" />
+    <result column="country" property="country" jdbcType="INTEGER" />
+    <result column="fourtorep" property="fourtorep" jdbcType="DECIMAL" />
+    <result column="brandprice" property="brandprice" jdbcType="DECIMAL" />
+    <result column="surepreinsuranceprice" property="surepreinsuranceprice" jdbcType="DECIMAL" />
+    <result column="surepreoilprice" property="surepreoilprice" jdbcType="DECIMAL" />
+    <result column="needer" property="needer" jdbcType="VARCHAR" />
+    <result column="mallContractCode" property="mallcontractcode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, drayage, oceanfreight, elsecost1, elsecost2, proposer, proposertime, verifier, 
+    verifiertime, num, type, reason, currency, country, fourtorep, brandprice, surepreinsuranceprice, 
+    surepreoilprice, needer, mallContractCode
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+ <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+      <if test="name != null and name !=''" >
+       and name like concat('%',#{name},'%')
+    </if>
+    <if test="drayage != null and drayage !=''" >
+       and drayage = #{drayage}
+    </if>
+    <if test="oceanfreight != null and oceanfreight !=''" >
+       and oceanfreight = #{oceanfreight}
+    </if>
+    <if test="elsecost1 != null and elsecost1 !=''" >
+       and elsecost1 = #{elsecost1}
+    </if>
+    <if test="elsecost2 != null and elsecost2 !=''" >
+       and elsecost2 = #{elsecost2}
+    </if>
+   <if test="proposer != null and proposer !=''" >
+       and proposer like concat('%',#{proposer},'%')
+    </if>
+    <if test="proposertime != null and proposertime !=''" >
+       and proposertime = #{proposertime}
+    </if>
+     <if test="verifier != null and verifier !=''" >
+       and verifier like concat('%',#{verifier},'%')
+    </if>
+    <if test="verifiertime != null and verifiertime !=''" >
+       and verifiertime = #{verifiertime}
+    </if>
+    <if test="num != null and num !=''" >
+       and num = #{num}
+    </if>
+    <if test="type != null and type !='' and type!=8" >
+       and type = #{type}
+    </if>
+    <if test="type ==8" >
+       and type !=4
+    </if>
+    <if test="reason != null and reason !=''" >
+       and reason = #{reason}
+    </if>
+    <if test="currency != null and currency !=''" >
+       and currency = #{currency}
+    </if>
+    <if test="country != null and country !=''" >
+       and country = #{country}
+    </if>
+    <if test="fourtorep != null and fourtorep !=''" >
+       and fourtorep = #{fourtorep}
+    </if>
+    <if test="brandprice != null and brandprice !=''" >
+       and brandprice = #{brandprice}
+    </if>
+    <if test="surepreinsuranceprice != null and surepreinsuranceprice !=''" >
+       and surepreinsuranceprice = #{surepreinsuranceprice}
+    </if>
+    <if test="surepreoilprice != null and surepreoilprice !=''" >
+       and surepreoilprice = #{surepreoilprice}
+    </if>
+     <if test="needer != null and needer !=''" >
+       and needer = #{needer}
+    </if>
+    <if test="mallcontractcode != null and mallcontractcode !=''" >
+       and mallContractCode like concat('%',#{mallcontractcode},'%')
+    </if>
+       ORDER BY id desc
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.jnd.jndfreight" >
+    select 
+    <include refid="Base_Column_List" />
+    from jnd_freight
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.jnd.jndfreight" >
+    select count(*) from jnd_freight where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from jnd_freight
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from jnd_freight
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.jnd.jndfreight" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(609);
+    </selectKey>
+    insert into jnd_freight (id, name, drayage, 
+      oceanfreight, elsecost1, elsecost2, 
+      proposer, proposertime, verifier, 
+      verifiertime, num, type, 
+      reason, currency, country, 
+      fourtorep, brandprice, surepreinsuranceprice, 
+      surepreoilprice, needer, mallContractCode
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{drayage,jdbcType=DECIMAL}, 
+      #{oceanfreight,jdbcType=DECIMAL}, #{elsecost1,jdbcType=DECIMAL}, #{elsecost2,jdbcType=DECIMAL}, 
+      #{proposer,jdbcType=VARCHAR}, #{proposertime,jdbcType=TIMESTAMP}, #{verifier,jdbcType=VARCHAR}, 
+      #{verifiertime,jdbcType=TIMESTAMP}, #{num,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, 
+      #{reason,jdbcType=VARCHAR}, #{currency,jdbcType=INTEGER}, #{country,jdbcType=INTEGER}, 
+      #{fourtorep,jdbcType=DECIMAL}, #{brandprice,jdbcType=DECIMAL}, #{surepreinsuranceprice,jdbcType=DECIMAL}, 
+      #{surepreoilprice,jdbcType=DECIMAL}, #{needer,jdbcType=VARCHAR}, #{mallcontractcode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.jnd.jndfreight" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(609);
+    </selectKey>
+    insert into jnd_freight
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="drayage != null" >
+        drayage,
+      </if>
+      <if test="oceanfreight != null" >
+        oceanfreight,
+      </if>
+      <if test="elsecost1 != null" >
+        elsecost1,
+      </if>
+      <if test="elsecost2 != null" >
+        elsecost2,
+      </if>
+      <if test="proposer != null" >
+        proposer,
+      </if>
+      <if test="proposertime != null" >
+        proposertime,
+      </if>
+      <if test="verifier != null" >
+        verifier,
+      </if>
+      <if test="verifiertime != null" >
+        verifiertime,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="reason != null" >
+        reason,
+      </if>
+      <if test="currency != null" >
+        currency,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="fourtorep != null" >
+        fourtorep,
+      </if>
+      <if test="brandprice != null" >
+        brandprice,
+      </if>
+      <if test="surepreinsuranceprice != null" >
+        surepreinsuranceprice,
+      </if>
+      <if test="surepreoilprice != null" >
+        surepreoilprice,
+      </if>
+      <if test="needer != null" >
+        needer,
+      </if>
+      <if test="mallcontractcode != null" >
+        mallContractCode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="drayage != null" >
+        #{drayage,jdbcType=DECIMAL},
+      </if>
+      <if test="oceanfreight != null" >
+        #{oceanfreight,jdbcType=DECIMAL},
+      </if>
+      <if test="elsecost1 != null" >
+        #{elsecost1,jdbcType=DECIMAL},
+      </if>
+      <if test="elsecost2 != null" >
+        #{elsecost2,jdbcType=DECIMAL},
+      </if>
+      <if test="proposer != null" >
+        #{proposer,jdbcType=VARCHAR},
+      </if>
+      <if test="proposertime != null" >
+        #{proposertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="verifier != null" >
+        #{verifier,jdbcType=VARCHAR},
+      </if>
+      <if test="verifiertime != null" >
+        #{verifiertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="reason != null" >
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=INTEGER},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=INTEGER},
+      </if>
+      <if test="fourtorep != null" >
+        #{fourtorep,jdbcType=DECIMAL},
+      </if>
+      <if test="brandprice != null" >
+        #{brandprice,jdbcType=DECIMAL},
+      </if>
+      <if test="surepreinsuranceprice != null" >
+        #{surepreinsuranceprice,jdbcType=DECIMAL},
+      </if>
+      <if test="surepreoilprice != null" >
+        #{surepreoilprice,jdbcType=DECIMAL},
+      </if>
+      <if test="needer != null" >
+        #{needer,jdbcType=VARCHAR},
+      </if>
+      <if test="mallcontractcode != null" >
+        #{mallcontractcode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.jnd.jndfreight" >
+    update jnd_freight
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="drayage != null" >
+        drayage = #{drayage,jdbcType=DECIMAL},
+      </if>
+      <if test="oceanfreight != null" >
+        oceanfreight = #{oceanfreight,jdbcType=DECIMAL},
+      </if>
+      <if test="elsecost1 != null" >
+        elsecost1 = #{elsecost1,jdbcType=DECIMAL},
+      </if>
+      <if test="elsecost2 != null" >
+        elsecost2 = #{elsecost2,jdbcType=DECIMAL},
+      </if>
+      <if test="proposer != null" >
+        proposer = #{proposer,jdbcType=VARCHAR},
+      </if>
+      <if test="proposertime != null" >
+        proposertime = #{proposertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="verifier != null" >
+        verifier = #{verifier,jdbcType=VARCHAR},
+      </if>
+      <if test="verifiertime != null" >
+        verifiertime = #{verifiertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="reason != null" >
+        reason = #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null" >
+        currency = #{currency,jdbcType=INTEGER},
+      </if>
+      <if test="country != null" >
+        country = #{country,jdbcType=INTEGER},
+      </if>
+      <if test="fourtorep != null" >
+        fourtorep = #{fourtorep,jdbcType=DECIMAL},
+      </if>
+      <if test="brandprice != null" >
+        brandprice = #{brandprice,jdbcType=DECIMAL},
+      </if>
+      <if test="surepreinsuranceprice != null" >
+        surepreinsuranceprice = #{surepreinsuranceprice,jdbcType=DECIMAL},
+      </if>
+      <if test="surepreoilprice != null" >
+        surepreoilprice = #{surepreoilprice,jdbcType=DECIMAL},
+      </if>
+      <if test="needer != null" >
+        needer = #{needer,jdbcType=VARCHAR},
+      </if>
+      <if test="mallcontractcode != null" >
+        mallContractCode = #{mallcontractcode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.jnd.jndfreight" >
+    update jnd_freight
+    set name = #{name,jdbcType=VARCHAR},
+      drayage = #{drayage,jdbcType=DECIMAL},
+      oceanfreight = #{oceanfreight,jdbcType=DECIMAL},
+      elsecost1 = #{elsecost1,jdbcType=DECIMAL},
+      elsecost2 = #{elsecost2,jdbcType=DECIMAL},
+      proposer = #{proposer,jdbcType=VARCHAR},
+      proposertime = #{proposertime,jdbcType=TIMESTAMP},
+      verifier = #{verifier,jdbcType=VARCHAR},
+      verifiertime = #{verifiertime,jdbcType=TIMESTAMP},
+      num = #{num,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER},
+      reason = #{reason,jdbcType=VARCHAR},
+      currency = #{currency,jdbcType=INTEGER},
+      country = #{country,jdbcType=INTEGER},
+      fourtorep = #{fourtorep,jdbcType=DECIMAL},
+      brandprice = #{brandprice,jdbcType=DECIMAL},
+      surepreinsuranceprice = #{surepreinsuranceprice,jdbcType=DECIMAL},
+      surepreoilprice = #{surepreoilprice,jdbcType=DECIMAL},
+      needer = #{needer,jdbcType=VARCHAR},
+      mallContractCode = #{mallcontractcode,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+   <select id="carFreightApplyAuditNum" resultType="int">
+  SELECT count(*) FROM `jnd_freight` where type=1;
+  </select>
+</mapper>

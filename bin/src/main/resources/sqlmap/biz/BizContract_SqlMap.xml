@@ -1,0 +1,2079 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.biz.BizcontractMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.biz.Bizcontract" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="infoid" property="infoid" jdbcType="INTEGER" />
+    <result column="filecode" property="filecode" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="principle" property="principle" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="bname" property="bname" jdbcType="VARCHAR" />
+    <result column="baddress" property="baddress" jdbcType="VARCHAR" />
+    <result column="companyname" property="companyname" jdbcType="VARCHAR" />
+    <result column="bphone" property="bphone" jdbcType="VARCHAR" />
+    <result column="identify" property="identify" jdbcType="VARCHAR" />
+    <result column="corpcode" property="corpcode" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="outcolor" property="outcolor" jdbcType="VARCHAR" />
+    <result column="incolor" property="incolor" jdbcType="VARCHAR" />
+    <result column="config" property="config" jdbcType="VARCHAR" />
+    <result column="transprice" property="transprice" jdbcType="DECIMAL" />
+    <result column="saleprice" property="saleprice" jdbcType="DECIMAL" />
+    <result column="downpay" property="downpay" jdbcType="DECIMAL" />
+    <result column="realdownpay" property="realdownpay" jdbcType="DECIMAL" />
+    <result column="insurance1" property="insurance1" jdbcType="DECIMAL" />
+    <result column="insurance" property="insurance" jdbcType="DECIMAL" />
+    <result column="insurancesure" property="insurancesure" jdbcType="DECIMAL" />
+    <result column="cinsurance1" property="cinsurance1" jdbcType="DECIMAL" />
+    <result column="cinsurance" property="cinsurance" jdbcType="DECIMAL" />
+    <result column="CarDamageInsurance" property="cardamageinsurance" jdbcType="DECIMAL" />
+    <result column="TheftRobberyinsurance" property="theftrobberyinsurance" jdbcType="DECIMAL" />
+    <result column="Glassinsurance" property="glassinsurance" jdbcType="DECIMAL" />
+    <result column="Catacausisinsurance" property="catacausisinsurance" jdbcType="DECIMAL" />
+    <result column="Thirdinsurance" property="thirdinsurance" jdbcType="DECIMAL" />
+    <result column="Scratchinsurance" property="scratchinsurance" jdbcType="DECIMAL" />
+    <result column="CarPersonnelinsurance" property="carpersonnelinsurance" jdbcType="DECIMAL" />
+    <result column="Wadinginsurance" property="wadinginsurance" jdbcType="DECIMAL" />
+    <result column="VehicleAndVesselTax" property="vehicleandvesseltax" jdbcType="DECIMAL" />
+    <result column="purchasetax" property="purchasetax" jdbcType="DECIMAL" />
+    <result column="plateprice" property="plateprice" jdbcType="DECIMAL" />
+    <result column="qualityprice1" property="qualityprice1" jdbcType="DECIMAL" />
+    <result column="qualityprice" property="qualityprice" jdbcType="DECIMAL" />
+    <result column="delayprice" property="delayprice" jdbcType="DECIMAL" />
+    <result column="decorateprice" property="decorateprice" jdbcType="DECIMAL" />
+    <result column="finance" property="finance" jdbcType="VARCHAR" />
+    <result column="salecontract" property="salecontract" jdbcType="VARCHAR" />
+    <result column="reportbill" property="reportbill" jdbcType="VARCHAR" />
+    <result column="downposbill" property="downposbill" jdbcType="VARCHAR" />
+    <result column="note" property="note" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="shopname" property="shopname" jdbcType="VARCHAR" />
+    <result column="sellername" property="sellername" jdbcType="VARCHAR" />
+    <result column="reportinsurance" property="reportinsurance" jdbcType="DECIMAL" />
+    <result column="qualitytotalprice" property="qualitytotalprice" jdbcType="DECIMAL" />
+    <result column="reportpromise" property="reportpromise" jdbcType="DECIMAL" />
+    <result column="reportstatus" property="reportstatus" jdbcType="VARCHAR" />
+    <result column="reporttime" property="reporttime" jdbcType="TIMESTAMP" />
+    <result column="zeropur" property="zeropur" jdbcType="VARCHAR" />
+    <result column="checkresult" property="checkresult" jdbcType="VARCHAR" />
+    <result column="carid" property="carid" jdbcType="INTEGER" />
+    <result column="vin" property="vin" jdbcType="VARCHAR" />
+    <result column="changecarid" property="changecarid" jdbcType="INTEGER" />
+    <result column="changevin" property="changevin" jdbcType="VARCHAR" />
+    <result column="refundreason" property="refundreason" jdbcType="VARCHAR" />
+    <result column="finalpay" property="finalpay" jdbcType="DECIMAL" />
+    <result column="realfinalpay" property="realfinalpay" jdbcType="DECIMAL" />
+    <result column="financerealdownpay" property="financerealdownpay" jdbcType="DECIMAL" />
+    <result column="handbook" property="handbook" jdbcType="VARCHAR" />
+    <result column="carkey" property="carkey" jdbcType="VARCHAR" />
+    <result column="threecer" property="threecer" jdbcType="VARCHAR" />
+    <result column="billthree" property="billthree" jdbcType="VARCHAR" />
+    <result column="insurancebill" property="insurancebill" jdbcType="VARCHAR" />
+    <result column="delaybill" property="delaybill" jdbcType="VARCHAR" />
+    <result column="qualitybill" property="qualitybill" jdbcType="VARCHAR" />
+    <result column="productcer" property="productcer" jdbcType="VARCHAR" />
+    <result column="carplate" property="carplate" jdbcType="VARCHAR" />
+    <result column="platebill" property="platebill" jdbcType="VARCHAR" />
+    <result column="totalreceiveprice" property="totalreceiveprice" jdbcType="DECIMAL" />
+    <result column="sellid" property="sellid" jdbcType="INTEGER" />
+    <result column="shopid" property="shopid" jdbcType="INTEGER" />
+    <result column="status2" property="status2" jdbcType="INTEGER" />
+    <result column="repairmoney" property="repairmoney" jdbcType="DECIMAL" />
+    <result column="balance" property="balance" jdbcType="DECIMAL" />
+    <result column="refundcause" property="refundcause" jdbcType="VARCHAR" />
+    <result column="qualitypriceyear" property="qualitypriceyear" jdbcType="VARCHAR" />
+    <result column="qualitypricenature" property="qualitypricenature" jdbcType="VARCHAR" />
+    <result column="materialoutboundtime" property="materialoutboundtime" jdbcType="TIMESTAMP" />
+      
+    <result column="submitstatus" property="submitstatus" jdbcType="INTEGER" />
+    <result column="sendstatus" property="sendstatus" jdbcType="INTEGER" />
+    <result column="smssubmittime" property="smssubmittime" jdbcType="TIMESTAMP" />
+    <result column="smsuid" property="smsuid" jdbcType="VARCHAR" />
+    <result column="smsmsgid" property="smsmsgid" jdbcType="VARCHAR" />
+    <result column="smsmodifytime" property="smsmodifytime" jdbcType="TIMESTAMP" />
+    <result column="shopnopassreason" property="shopnopassreason" jdbcType="VARCHAR" />
+    <result column="accidentExcessReduction" property="accidentExcessReduction" jdbcType="DECIMAL" />
+    <result column="insurance1time" property="insurance1time" jdbcType="TIMESTAMP" />
+        <result column="insurance1type" property="insurance1type" jdbcType="INTEGER" />
+    
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, infoid, filecode, name, address, principle, phone, bname, baddress, companyname, 
+    bphone, identify, corpcode, brand, model, version, outcolor, incolor, config, transprice, 
+    saleprice, downpay, realdownpay, insurance1, insurance, insurancesure, cinsurance1, 
+    cinsurance, CarDamageInsurance, TheftRobberyinsurance, Glassinsurance, Catacausisinsurance, 
+    Thirdinsurance, Scratchinsurance, CarPersonnelinsurance, Wadinginsurance, VehicleAndVesselTax, 
+    purchasetax, plateprice, qualityprice1, qualityprice, delayprice, decorateprice, 
+    finance, salecontract, reportbill, downposbill, note, status, createtime, shopname, 
+    sellername, reportinsurance, qualitytotalprice, reportpromise, reportstatus, reporttime, 
+    zeropur, checkresult, carid, vin, changecarid, changevin, refundreason, finalpay, 
+    realfinalpay, financerealdownpay, handbook, carkey, threecer, billthree, insurancebill, 
+    delaybill, qualitybill, productcer, carplate, platebill, totalreceiveprice, sellid, 
+    shopid, status2, repairmoney, balance, refundcause,qualitypriceyear, qualitypricenature,materialoutboundtime,
+    submitstatus,sendstatus,smssubmittime,smsuid,smsmsgid,smsmodifytime,shopnopassreason,
+    accidentExcessReduction,insurance1time,insurance1type
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="infoid != null and infoid !=''" >
+       and infoid = #{infoid}
+    </if>
+    <if test="filecode != null and filecode !=''" >
+       and filecode = #{filecode}
+    </if>
+    <if test="name != null and name !=''" >
+       and name = #{name}
+    </if>
+    <if test="address != null and address !=''" >
+       and address = #{address}
+    </if>
+    <if test="principle != null and principle !=''" >
+       and principle = #{principle}
+    </if>
+    <if test="phone != null and phone !=''" >
+       and phone = #{phone}
+    </if>
+    <if test="bname != null and bname !=''" >
+       and bname = #{bname}
+    </if>
+    <if test="baddress != null and baddress !=''" >
+       and baddress = #{baddress}
+    </if>
+    <if test="companyname != null and companyname !=''" >
+       and companyname = #{companyname}
+    </if>
+    <if test="bphone != null and bphone !=''" >
+       and bphone = #{bphone}
+    </if>
+    <if test="identify != null and identify !=''" >
+       and identify = #{identify}
+    </if>
+    <if test="corpcode != null and corpcode !=''" >
+       and corpcode = #{corpcode}
+    </if>
+    <if test="brand != null and brand !=''" >
+       and brand = #{brand}
+    </if>
+    <if test="model != null and model !=''" >
+       and model = #{model}
+    </if>
+    <if test="version != null and version !=''" >
+       and version = #{version}
+    </if>
+    <if test="outcolor != null and outcolor !=''" >
+       and outcolor = #{outcolor}
+    </if>
+    <if test="incolor != null and incolor !=''" >
+       and incolor = #{incolor}
+    </if>
+    <if test="config != null and config !=''" >
+       and config = #{config}
+    </if>
+    <if test="transprice != null and transprice !=''" >
+       and transprice = #{transprice}
+    </if>
+    <if test="saleprice != null and saleprice !=''" >
+       and saleprice = #{saleprice}
+    </if>
+    <if test="downpay != null and downpay !=''" >
+       and downpay = #{downpay}
+    </if>
+    <if test="realdownpay != null and realdownpay !=''" >
+       and realdownpay = #{realdownpay}
+    </if>
+    <if test="insurance1 != null and insurance1 !=''" >
+       and insurance1 = #{insurance1}
+    </if>
+    <if test="insurance != null and insurance !=''" >
+       and insurance = #{insurance}
+    </if>
+    <if test="insurancesure != null and insurancesure !=''" >
+       and insurancesure = #{insurancesure}
+    </if>
+    <if test="cinsurance1 != null and cinsurance1 !=''" >
+       and cinsurance1 = #{cinsurance1}
+    </if>
+    <if test="cinsurance != null and cinsurance !=''" >
+       and cinsurance = #{cinsurance}
+    </if>
+    <if test="cardamageinsurance != null and cardamageinsurance !=''" >
+       and CarDamageInsurance = #{cardamageinsurance}
+    </if>
+    <if test="theftrobberyinsurance != null and theftrobberyinsurance !=''" >
+       and TheftRobberyinsurance = #{theftrobberyinsurance}
+    </if>
+    <if test="glassinsurance != null and glassinsurance !=''" >
+       and Glassinsurance = #{glassinsurance}
+    </if>
+    <if test="catacausisinsurance != null and catacausisinsurance !=''" >
+       and Catacausisinsurance = #{catacausisinsurance}
+    </if>
+    <if test="thirdinsurance != null and thirdinsurance !=''" >
+       and Thirdinsurance = #{thirdinsurance}
+    </if>
+    <if test="scratchinsurance != null and scratchinsurance !=''" >
+       and Scratchinsurance = #{scratchinsurance}
+    </if>
+    <if test="carpersonnelinsurance != null and carpersonnelinsurance !=''" >
+       and CarPersonnelinsurance = #{carpersonnelinsurance}
+    </if>
+    <if test="wadinginsurance != null and wadinginsurance !=''" >
+       and Wadinginsurance = #{wadinginsurance}
+    </if>
+    <if test="vehicleandvesseltax != null and vehicleandvesseltax !=''" >
+       and VehicleAndVesselTax = #{vehicleandvesseltax}
+    </if>
+    <if test="purchasetax != null and purchasetax !=''" >
+       and purchasetax = #{purchasetax}
+    </if>
+    <if test="plateprice != null and plateprice !=''" >
+       and plateprice = #{plateprice}
+    </if>
+    <if test="qualityprice1 != null and qualityprice1 !=''" >
+       and qualityprice1 = #{qualityprice1}
+    </if>
+    <if test="qualityprice != null and qualityprice !=''" >
+       and qualityprice = #{qualityprice}
+    </if>
+    <if test="delayprice != null and delayprice !=''" >
+       and delayprice = #{delayprice}
+    </if>
+    <if test="decorateprice != null and decorateprice !=''" >
+       and decorateprice = #{decorateprice}
+    </if>
+    <if test="finance != null and finance !=''" >
+       and finance = #{finance}
+    </if>
+    <if test="salecontract != null and salecontract !=''" >
+       and salecontract = #{salecontract}
+    </if>
+    <if test="reportbill != null and reportbill !=''" >
+       and reportbill = #{reportbill}
+    </if>
+    <if test="downposbill != null and downposbill !=''" >
+       and downposbill = #{downposbill}
+    </if>
+    <if test="note != null and note !=''" >
+       and note = #{note}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="shopname != null and shopname !=''" >
+       and shopname = #{shopname}
+    </if>
+    <if test="sellername != null and sellername !=''" >
+       and sellername = #{sellername}
+    </if>
+    <if test="reportinsurance != null and reportinsurance !=''" >
+       and reportinsurance = #{reportinsurance}
+    </if>
+    <if test="qualitytotalprice != null and qualitytotalprice !=''" >
+       and qualitytotalprice = #{qualitytotalprice}
+    </if>
+    <if test="reportpromise != null and reportpromise !=''" >
+       and reportpromise = #{reportpromise}
+    </if>
+    <if test="reportstatus != null and reportstatus !=''" >
+       and reportstatus = #{reportstatus}
+    </if>
+    <if test="reporttime != null and reporttime !=''" >
+       and reporttime = #{reporttime}
+    </if>
+    <if test="zeropur != null and zeropur !=''" >
+       and zeropur = #{zeropur}
+    </if>
+    <if test="checkresult != null and checkresult !=''" >
+       and checkresult = #{checkresult}
+    </if>
+    <if test="carid != null and carid !=''" >
+       and carid = #{carid}
+    </if>
+    <if test="vin != null and vin !=''" >
+       and vin = #{vin}
+    </if>
+    <if test="changecarid != null and changecarid !=''" >
+       and changecarid = #{changecarid}
+    </if>
+    <if test="changevin != null and changevin !=''" >
+       and changevin = #{changevin}
+    </if>
+    <if test="refundreason != null and refundreason !=''" >
+       and refundreason = #{refundreason}
+    </if>
+    <if test="finalpay != null and finalpay !=''" >
+       and finalpay = #{finalpay}
+    </if>
+    <if test="realfinalpay != null and realfinalpay !=''" >
+       and realfinalpay = #{realfinalpay}
+    </if>
+    <if test="financerealdownpay != null and financerealdownpay !=''" >
+       and financerealdownpay = #{financerealdownpay}
+    </if>
+    <if test="handbook != null and handbook !=''" >
+       and handbook = #{handbook}
+    </if>
+    <if test="carkey != null and carkey !=''" >
+       and carkey = #{carkey}
+    </if>
+    <if test="threecer != null and threecer !=''" >
+       and threecer = #{threecer}
+    </if>
+    <if test="billthree != null and billthree !=''" >
+       and billthree = #{billthree}
+    </if>
+    <if test="insurancebill != null and insurancebill !=''" >
+       and insurancebill = #{insurancebill}
+    </if>
+    <if test="delaybill != null and delaybill !=''" >
+       and delaybill = #{delaybill}
+    </if>
+    <if test="qualitybill != null and qualitybill !=''" >
+       and qualitybill = #{qualitybill}
+    </if>
+    <if test="productcer != null and productcer !=''" >
+       and productcer = #{productcer}
+    </if>
+    <if test="carplate != null and carplate !=''" >
+       and carplate = #{carplate}
+    </if>
+    <if test="platebill != null and platebill !=''" >
+       and platebill = #{platebill}
+    </if>
+    <if test="totalreceiveprice != null and totalreceiveprice !=''" >
+       and totalreceiveprice = #{totalreceiveprice}
+    </if>
+    <if test="sellid != null and sellid !=''" >
+       and sellid = #{sellid}
+    </if>
+    <if test="shopid != null and shopid !=''" >
+       and shopid = #{shopid}
+    </if>
+    <if test="status2 != null and status2 !=''" >
+       and status2 = #{status2}
+    </if>
+    <if test="repairmoney != null and repairmoney !=''" >
+       and repairmoney = #{repairmoney}
+    </if>
+    <if test="balance != null and balance !=''" >
+       and balance = #{balance}
+    </if>
+    <if test="refundcause != null and refundcause !=''" >
+       and refundcause = #{refundcause}
+    </if>
+     <if test="qualitypriceyear != null and qualitypriceyear !=''" >
+       and qualitypriceyear = #{qualitypriceyear}
+    </if>
+     <if test="qualitypricenature != null and qualitypricenature !=''" >
+       and qualitypricenature = #{qualitypricenature}
+    </if>
+    <if test="materialoutboundtime != null and materialoutboundtime !=''" >
+       and materialoutboundtime = #{materialoutboundtime}
+    </if>
+    <if test="accidentExcessReduction != null and accidentExcessReduction !=''" >
+       and accidentExcessReduction = #{accidentExcessReduction}
+    </if>
+    <if test="insurance1time != null and insurance1time !=''" >
+       and insurance1time = #{insurance1time}
+    </if><if test="insurance1type != null and insurance1type !=''" >
+       and insurance1type = #{insurance1type}
+    </if>
+   
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.biz.Bizcontract" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_contract
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.biz.Bizcontract" >
+    select count(*) from biz_contract where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_contract
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from biz_contract
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.biz.Bizcontract" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(401);
+    </selectKey>
+    insert into biz_contract (id, infoid, filecode, 
+      name, address, principle, 
+      phone, bname, baddress, 
+      companyname, bphone, identify, 
+      corpcode, brand, model, 
+      version, outcolor, incolor, 
+      config, transprice, saleprice, 
+      downpay, realdownpay, insurance1, 
+      insurance, insurancesure, cinsurance1, 
+      cinsurance, CarDamageInsurance, TheftRobberyinsurance, 
+      Glassinsurance, Catacausisinsurance, Thirdinsurance, 
+      Scratchinsurance, CarPersonnelinsurance, 
+      Wadinginsurance, VehicleAndVesselTax, purchasetax, 
+      plateprice, qualityprice1, qualityprice, 
+      delayprice, decorateprice, finance, 
+      salecontract, reportbill, downposbill, 
+      note, status, createtime, 
+      shopname, sellername, reportinsurance, 
+      qualitytotalprice, reportpromise, reportstatus, 
+      reporttime, zeropur, checkresult, 
+      carid, vin, changecarid, 
+      changevin, refundreason, finalpay, 
+      realfinalpay, financerealdownpay, handbook, 
+      carkey, threecer, billthree, 
+      insurancebill, delaybill, qualitybill, 
+      productcer, carplate, platebill, 
+      totalreceiveprice, sellid, shopid, 
+      status2, repairmoney, balance, 
+      refundcause,qualitypriceyear qualitypricenature,materialoutboundtime,accidentExcessReduction, insurance1time,insurance1type)
+    values (#{id,jdbcType=INTEGER}, #{infoid,jdbcType=INTEGER}, #{filecode,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{principle,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{bname,jdbcType=VARCHAR}, #{baddress,jdbcType=VARCHAR}, 
+      #{companyname,jdbcType=VARCHAR}, #{bphone,jdbcType=VARCHAR}, #{identify,jdbcType=VARCHAR}, 
+      #{corpcode,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, 
+      #{version,jdbcType=VARCHAR}, #{outcolor,jdbcType=VARCHAR}, #{incolor,jdbcType=VARCHAR}, 
+      #{config,jdbcType=VARCHAR}, #{transprice,jdbcType=DECIMAL}, #{saleprice,jdbcType=DECIMAL}, 
+      #{downpay,jdbcType=DECIMAL}, #{realdownpay,jdbcType=DECIMAL}, #{insurance1,jdbcType=DECIMAL}, 
+      #{insurance,jdbcType=DECIMAL}, #{insurancesure,jdbcType=DECIMAL}, #{cinsurance1,jdbcType=DECIMAL}, 
+      #{cinsurance,jdbcType=DECIMAL}, #{cardamageinsurance,jdbcType=DECIMAL}, #{theftrobberyinsurance,jdbcType=DECIMAL}, 
+      #{glassinsurance,jdbcType=DECIMAL}, #{catacausisinsurance,jdbcType=DECIMAL}, #{thirdinsurance,jdbcType=DECIMAL}, 
+      #{scratchinsurance,jdbcType=DECIMAL}, #{carpersonnelinsurance,jdbcType=DECIMAL}, 
+      #{wadinginsurance,jdbcType=DECIMAL}, #{vehicleandvesseltax,jdbcType=DECIMAL}, #{purchasetax,jdbcType=DECIMAL}, 
+      #{plateprice,jdbcType=DECIMAL}, #{qualityprice1,jdbcType=DECIMAL}, #{qualityprice,jdbcType=DECIMAL}, 
+      #{delayprice,jdbcType=DECIMAL}, #{decorateprice,jdbcType=DECIMAL}, #{finance,jdbcType=VARCHAR}, 
+      #{salecontract,jdbcType=VARCHAR}, #{reportbill,jdbcType=VARCHAR}, #{downposbill,jdbcType=VARCHAR}, 
+      #{note,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{shopname,jdbcType=VARCHAR}, #{sellername,jdbcType=VARCHAR}, #{reportinsurance,jdbcType=DECIMAL}, 
+      #{qualitytotalprice,jdbcType=DECIMAL}, #{reportpromise,jdbcType=DECIMAL}, #{reportstatus,jdbcType=VARCHAR}, 
+      #{reporttime,jdbcType=TIMESTAMP}, #{zeropur,jdbcType=VARCHAR}, #{checkresult,jdbcType=VARCHAR}, 
+      #{carid,jdbcType=INTEGER}, #{vin,jdbcType=VARCHAR}, #{changecarid,jdbcType=INTEGER}, 
+      #{changevin,jdbcType=VARCHAR}, #{refundreason,jdbcType=VARCHAR}, #{finalpay,jdbcType=DECIMAL}, 
+      #{realfinalpay,jdbcType=DECIMAL}, #{financerealdownpay,jdbcType=DECIMAL}, #{handbook,jdbcType=VARCHAR}, 
+      #{carkey,jdbcType=VARCHAR}, #{threecer,jdbcType=VARCHAR}, #{billthree,jdbcType=VARCHAR}, 
+      #{insurancebill,jdbcType=VARCHAR}, #{delaybill,jdbcType=VARCHAR}, #{qualitybill,jdbcType=VARCHAR}, 
+      #{productcer,jdbcType=VARCHAR}, #{carplate,jdbcType=VARCHAR}, #{platebill,jdbcType=VARCHAR}, 
+      #{totalreceiveprice,jdbcType=DECIMAL}, #{sellid,jdbcType=INTEGER}, #{shopid,jdbcType=INTEGER}, 
+      #{status2,jdbcType=INTEGER}, #{repairmoney,jdbcType=DECIMAL}, #{balance,jdbcType=DECIMAL}, 
+      #{refundcause,jdbcType=VARCHAR}, 
+      #{qualitypriceyear,jdbcType=VARCHAR}, 
+      #{qualitypricenature,jdbcType=VARCHAR}, 
+      #{materialoutboundtime,jdbcType=TIMESTAMP}, #{accidentExcessReduction,jdbcType=DECIMAL},
+       #{insurance1time,jdbcType=TIMESTAMP}, #{insurance1type,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.biz.Bizcontract" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(401);
+    </selectKey>
+    insert into biz_contract
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="infoid != null" >
+        infoid,
+      </if>
+      <if test="filecode != null" >
+        filecode,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="principle != null" >
+        principle,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="bname != null" >
+        bname,
+      </if>
+      <if test="baddress != null" >
+        baddress,
+      </if>
+      <if test="companyname != null" >
+        companyname,
+      </if>
+      <if test="bphone != null" >
+        bphone,
+      </if>
+      <if test="identify != null" >
+        identify,
+      </if>
+      <if test="corpcode != null" >
+        corpcode,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="outcolor != null" >
+        outcolor,
+      </if>
+      <if test="incolor != null" >
+        incolor,
+      </if>
+      <if test="config != null" >
+        config,
+      </if>
+      <if test="transprice != null" >
+        transprice,
+      </if>
+      <if test="saleprice != null" >
+        saleprice,
+      </if>
+      <if test="downpay != null" >
+        downpay,
+      </if>
+      <if test="realdownpay != null" >
+        realdownpay,
+      </if>
+      <if test="insurance1 != null" >
+        insurance1,
+      </if>
+      <if test="insurance != null" >
+        insurance,
+      </if>
+      <if test="insurancesure != null" >
+        insurancesure,
+      </if>
+      <if test="cinsurance1 != null" >
+        cinsurance1,
+      </if>
+      <if test="cinsurance != null" >
+        cinsurance,
+      </if>
+      <if test="cardamageinsurance != null" >
+        CarDamageInsurance,
+      </if>
+      <if test="theftrobberyinsurance != null" >
+        TheftRobberyinsurance,
+      </if>
+      <if test="glassinsurance != null" >
+        Glassinsurance,
+      </if>
+      <if test="catacausisinsurance != null" >
+        Catacausisinsurance,
+      </if>
+      <if test="thirdinsurance != null" >
+        Thirdinsurance,
+      </if>
+      <if test="scratchinsurance != null" >
+        Scratchinsurance,
+      </if>
+      <if test="carpersonnelinsurance != null" >
+        CarPersonnelinsurance,
+      </if>
+      <if test="wadinginsurance != null" >
+        Wadinginsurance,
+      </if>
+      <if test="vehicleandvesseltax != null" >
+        VehicleAndVesselTax,
+      </if>
+      <if test="purchasetax != null" >
+        purchasetax,
+      </if>
+      <if test="plateprice != null" >
+        plateprice,
+      </if>
+      <if test="qualityprice1 != null" >
+        qualityprice1,
+      </if>
+      <if test="qualityprice != null" >
+        qualityprice,
+      </if>
+      <if test="delayprice != null" >
+        delayprice,
+      </if>
+      <if test="decorateprice != null" >
+        decorateprice,
+      </if>
+      <if test="finance != null" >
+        finance,
+      </if>
+      <if test="salecontract != null" >
+        salecontract,
+      </if>
+      <if test="reportbill != null" >
+        reportbill,
+      </if>
+      <if test="downposbill != null" >
+        downposbill,
+      </if>
+      <if test="note != null" >
+        note,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="shopname != null" >
+        shopname,
+      </if>
+      <if test="sellername != null" >
+        sellername,
+      </if>
+      <if test="reportinsurance != null" >
+        reportinsurance,
+      </if>
+      <if test="qualitytotalprice != null" >
+        qualitytotalprice,
+      </if>
+      <if test="reportpromise != null" >
+        reportpromise,
+      </if>
+      <if test="reportstatus != null" >
+        reportstatus,
+      </if>
+      <if test="reporttime != null" >
+        reporttime,
+      </if>
+      <if test="zeropur != null" >
+        zeropur,
+      </if>
+      <if test="checkresult != null" >
+        checkresult,
+      </if>
+      <if test="carid != null" >
+        carid,
+      </if>
+      <if test="vin != null" >
+        vin,
+      </if>
+      <if test="changecarid != null" >
+        changecarid,
+      </if>
+      <if test="changevin != null" >
+        changevin,
+      </if>
+      <if test="refundreason != null" >
+        refundreason,
+      </if>
+      <if test="finalpay != null" >
+        finalpay,
+      </if>
+      <if test="realfinalpay != null" >
+        realfinalpay,
+      </if>
+      <if test="financerealdownpay != null" >
+        financerealdownpay,
+      </if>
+      <if test="handbook != null" >
+        handbook,
+      </if>
+      <if test="carkey != null" >
+        carkey,
+      </if>
+      <if test="threecer != null" >
+        threecer,
+      </if>
+      <if test="billthree != null" >
+        billthree,
+      </if>
+      <if test="insurancebill != null" >
+        insurancebill,
+      </if>
+      <if test="delaybill != null" >
+        delaybill,
+      </if>
+      <if test="qualitybill != null" >
+        qualitybill,
+      </if>
+      <if test="productcer != null" >
+        productcer,
+      </if>
+      <if test="carplate != null" >
+        carplate,
+      </if>
+      <if test="platebill != null" >
+        platebill,
+      </if>
+      <if test="totalreceiveprice != null" >
+        totalreceiveprice,
+      </if>
+      <if test="sellid != null" >
+        sellid,
+      </if>
+      <if test="shopid != null" >
+        shopid,
+      </if>
+      <if test="status2 != null" >
+        status2,
+      </if>
+      <if test="repairmoney != null" >
+        repairmoney,
+      </if>
+      <if test="balance != null" >
+        balance,
+      </if>
+      <if test="refundcause != null" >
+        refundcause,
+      </if>
+      <if test="qualitypriceyear != null" >
+        qualitypriceyear,
+      </if>
+      <if test="qualitypricenature != null" >
+        qualitypricenature,
+      </if>
+      <if test="materialoutboundtime != null" >
+        materialoutboundtime,
+      </if>
+       <if test="accidentExcessReduction != null" >
+        accidentExcessReduction,
+      </if> 
+       <if test="insurance1time != null" >
+        insurance1time,
+      </if> 
+       <if test="insurance1type != null" >
+        insurance1type,
+      </if>   
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="infoid != null" >
+        #{infoid,jdbcType=INTEGER},
+      </if>
+      <if test="filecode != null" >
+        #{filecode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="principle != null" >
+        #{principle,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="bname != null" >
+        #{bname,jdbcType=VARCHAR},
+      </if>
+      <if test="baddress != null" >
+        #{baddress,jdbcType=VARCHAR},
+      </if>
+      <if test="companyname != null" >
+        #{companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="bphone != null" >
+        #{bphone,jdbcType=VARCHAR},
+      </if>
+      <if test="identify != null" >
+        #{identify,jdbcType=VARCHAR},
+      </if>
+      <if test="corpcode != null" >
+        #{corpcode,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="outcolor != null" >
+        #{outcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="incolor != null" >
+        #{incolor,jdbcType=VARCHAR},
+      </if>
+      <if test="config != null" >
+        #{config,jdbcType=VARCHAR},
+      </if>
+      <if test="transprice != null" >
+        #{transprice,jdbcType=DECIMAL},
+      </if>
+      <if test="saleprice != null" >
+        #{saleprice,jdbcType=DECIMAL},
+      </if>
+      <if test="downpay != null" >
+        #{downpay,jdbcType=DECIMAL},
+      </if>
+      <if test="realdownpay != null" >
+        #{realdownpay,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance1 != null" >
+        #{insurance1,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance != null" >
+        #{insurance,jdbcType=DECIMAL},
+      </if>
+      <if test="insurancesure != null" >
+        #{insurancesure,jdbcType=DECIMAL},
+      </if>
+      <if test="cinsurance1 != null" >
+        #{cinsurance1,jdbcType=DECIMAL},
+      </if>
+      <if test="cinsurance != null" >
+        #{cinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="cardamageinsurance != null" >
+        #{cardamageinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="theftrobberyinsurance != null" >
+        #{theftrobberyinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="glassinsurance != null" >
+        #{glassinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="catacausisinsurance != null" >
+        #{catacausisinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="thirdinsurance != null" >
+        #{thirdinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="scratchinsurance != null" >
+        #{scratchinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="carpersonnelinsurance != null" >
+        #{carpersonnelinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="wadinginsurance != null" >
+        #{wadinginsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="vehicleandvesseltax != null" >
+        #{vehicleandvesseltax,jdbcType=DECIMAL},
+      </if>
+      <if test="purchasetax != null" >
+        #{purchasetax,jdbcType=DECIMAL},
+      </if>
+      <if test="plateprice != null" >
+        #{plateprice,jdbcType=DECIMAL},
+      </if>
+      <if test="qualityprice1 != null" >
+        #{qualityprice1,jdbcType=DECIMAL},
+      </if>
+      <if test="qualityprice != null" >
+        #{qualityprice,jdbcType=DECIMAL},
+      </if>
+      <if test="delayprice != null" >
+        #{delayprice,jdbcType=DECIMAL},
+      </if>
+      <if test="decorateprice != null" >
+        #{decorateprice,jdbcType=DECIMAL},
+      </if>
+      <if test="finance != null" >
+        #{finance,jdbcType=VARCHAR},
+      </if>
+      <if test="salecontract != null" >
+        #{salecontract,jdbcType=VARCHAR},
+      </if>
+      <if test="reportbill != null" >
+        #{reportbill,jdbcType=VARCHAR},
+      </if>
+      <if test="downposbill != null" >
+        #{downposbill,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null" >
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shopname != null" >
+        #{shopname,jdbcType=VARCHAR},
+      </if>
+      <if test="sellername != null" >
+        #{sellername,jdbcType=VARCHAR},
+      </if>
+      <if test="reportinsurance != null" >
+        #{reportinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="qualitytotalprice != null" >
+        #{qualitytotalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="reportpromise != null" >
+        #{reportpromise,jdbcType=DECIMAL},
+      </if>
+      <if test="reportstatus != null" >
+        #{reportstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="reporttime != null" >
+        #{reporttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zeropur != null" >
+        #{zeropur,jdbcType=VARCHAR},
+      </if>
+      <if test="checkresult != null" >
+        #{checkresult,jdbcType=VARCHAR},
+      </if>
+      <if test="carid != null" >
+        #{carid,jdbcType=INTEGER},
+      </if>
+      <if test="vin != null" >
+        #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="changecarid != null" >
+        #{changecarid,jdbcType=INTEGER},
+      </if>
+      <if test="changevin != null" >
+        #{changevin,jdbcType=VARCHAR},
+      </if>
+      <if test="refundreason != null" >
+        #{refundreason,jdbcType=VARCHAR},
+      </if>
+      <if test="finalpay != null" >
+        #{finalpay,jdbcType=DECIMAL},
+      </if>
+      <if test="realfinalpay != null" >
+        #{realfinalpay,jdbcType=DECIMAL},
+      </if>
+      <if test="financerealdownpay != null" >
+        #{financerealdownpay,jdbcType=DECIMAL},
+      </if>
+      <if test="handbook != null" >
+        #{handbook,jdbcType=VARCHAR},
+      </if>
+      <if test="carkey != null" >
+        #{carkey,jdbcType=VARCHAR},
+      </if>
+      <if test="threecer != null" >
+        #{threecer,jdbcType=VARCHAR},
+      </if>
+      <if test="billthree != null" >
+        #{billthree,jdbcType=VARCHAR},
+      </if>
+      <if test="insurancebill != null" >
+        #{insurancebill,jdbcType=VARCHAR},
+      </if>
+      <if test="delaybill != null" >
+        #{delaybill,jdbcType=VARCHAR},
+      </if>
+      <if test="qualitybill != null" >
+        #{qualitybill,jdbcType=VARCHAR},
+      </if>
+      <if test="productcer != null" >
+        #{productcer,jdbcType=VARCHAR},
+      </if>
+      <if test="carplate != null" >
+        #{carplate,jdbcType=VARCHAR},
+      </if>
+      <if test="platebill != null" >
+        #{platebill,jdbcType=VARCHAR},
+      </if>
+      <if test="totalreceiveprice != null" >
+        #{totalreceiveprice,jdbcType=DECIMAL},
+      </if>
+      <if test="sellid != null" >
+        #{sellid,jdbcType=INTEGER},
+      </if>
+      <if test="shopid != null" >
+        #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="status2 != null" >
+        #{status2,jdbcType=INTEGER},
+      </if>
+      <if test="repairmoney != null" >
+        #{repairmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="balance != null" >
+        #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="refundcause != null" >
+        #{refundcause,jdbcType=VARCHAR},
+      </if>
+      <if test="qualitypriceyear != null" >
+        #{qualitypriceyear,jdbcType=VARCHAR},
+      </if>
+      <if test="qualitypricenature != null" >
+        #{qualitypricenature,jdbcType=VARCHAR},
+      </if>
+      <if test="materialoutboundtime != null" >
+        #{materialoutboundtime,jdbcType=TIMESTAMP},
+      </if> 
+      <if test="accidentExcessReduction != null" >
+        #{accidentExcessReduction,jdbcType=DECIMAL},
+      </if>  
+      <if test="insurance1time != null" >
+        #{insurance1time,jdbcType=TIMESTAMP},
+      </if> 
+      <if test="insurance1type != null" >
+        #{insurance1type,jdbcType=INTEGER},
+      </if>      
+         
+      
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.biz.Bizcontract" >
+    update biz_contract
+    <set >
+      <if test="infoid != null" >
+        infoid = #{infoid,jdbcType=INTEGER},
+      </if>
+      <if test="filecode != null" >
+        filecode = #{filecode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="principle != null" >
+        principle = #{principle,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="bname != null" >
+        bname = #{bname,jdbcType=VARCHAR},
+      </if>
+      <if test="baddress != null" >
+        baddress = #{baddress,jdbcType=VARCHAR},
+      </if>
+      <if test="companyname != null" >
+        companyname = #{companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="bphone != null" >
+        bphone = #{bphone,jdbcType=VARCHAR},
+      </if>
+      <if test="identify != null" >
+        identify = #{identify,jdbcType=VARCHAR},
+      </if>
+      <if test="corpcode != null" >
+        corpcode = #{corpcode,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="outcolor != null" >
+        outcolor = #{outcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="incolor != null" >
+        incolor = #{incolor,jdbcType=VARCHAR},
+      </if>
+      <if test="config != null" >
+        config = #{config,jdbcType=VARCHAR},
+      </if>
+      <if test="transprice != null" >
+        transprice = #{transprice,jdbcType=DECIMAL},
+      </if>
+      <if test="saleprice != null" >
+        saleprice = #{saleprice,jdbcType=DECIMAL},
+      </if>
+      <if test="downpay != null" >
+        downpay = #{downpay,jdbcType=DECIMAL},
+      </if>
+      <if test="realdownpay != null" >
+        realdownpay = #{realdownpay,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance1 != null" >
+        insurance1 = #{insurance1,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance != null" >
+        insurance = #{insurance,jdbcType=DECIMAL},
+      </if>
+      <if test="insurancesure != null" >
+        insurancesure = #{insurancesure,jdbcType=DECIMAL},
+      </if>
+      <if test="cinsurance1 != null" >
+        cinsurance1 = #{cinsurance1,jdbcType=DECIMAL},
+      </if>
+      <if test="cinsurance != null" >
+        cinsurance = #{cinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="cardamageinsurance != null" >
+        CarDamageInsurance = #{cardamageinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="theftrobberyinsurance != null" >
+        TheftRobberyinsurance = #{theftrobberyinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="glassinsurance != null" >
+        Glassinsurance = #{glassinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="catacausisinsurance != null" >
+        Catacausisinsurance = #{catacausisinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="thirdinsurance != null" >
+        Thirdinsurance = #{thirdinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="scratchinsurance != null" >
+        Scratchinsurance = #{scratchinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="carpersonnelinsurance != null" >
+        CarPersonnelinsurance = #{carpersonnelinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="wadinginsurance != null" >
+        Wadinginsurance = #{wadinginsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="vehicleandvesseltax != null" >
+        VehicleAndVesselTax = #{vehicleandvesseltax,jdbcType=DECIMAL},
+      </if>
+      <if test="purchasetax != null" >
+        purchasetax = #{purchasetax,jdbcType=DECIMAL},
+      </if>
+      <if test="plateprice != null" >
+        plateprice = #{plateprice,jdbcType=DECIMAL},
+      </if>
+      <if test="qualityprice1 != null" >
+        qualityprice1 = #{qualityprice1,jdbcType=DECIMAL},
+      </if>
+      <if test="qualityprice != null" >
+        qualityprice = #{qualityprice,jdbcType=DECIMAL},
+      </if>
+      <if test="delayprice != null" >
+        delayprice = #{delayprice,jdbcType=DECIMAL},
+      </if>
+      <if test="decorateprice != null" >
+        decorateprice = #{decorateprice,jdbcType=DECIMAL},
+      </if>
+      <if test="finance != null" >
+        finance = #{finance,jdbcType=VARCHAR},
+      </if>
+      <if test="salecontract != null" >
+        salecontract = #{salecontract,jdbcType=VARCHAR},
+      </if>
+      <if test="reportbill != null" >
+        reportbill = #{reportbill,jdbcType=VARCHAR},
+      </if>
+      <if test="downposbill != null" >
+        downposbill = #{downposbill,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null" >
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shopname != null" >
+        shopname = #{shopname,jdbcType=VARCHAR},
+      </if>
+      <if test="sellername != null" >
+        sellername = #{sellername,jdbcType=VARCHAR},
+      </if>
+      <if test="reportinsurance != null" >
+        reportinsurance = #{reportinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="qualitytotalprice != null" >
+        qualitytotalprice = #{qualitytotalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="reportpromise != null" >
+        reportpromise = #{reportpromise,jdbcType=DECIMAL},
+      </if>
+      <if test="reportstatus != null" >
+        reportstatus = #{reportstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="reporttime != null" >
+        reporttime = #{reporttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zeropur != null" >
+        zeropur = #{zeropur,jdbcType=VARCHAR},
+      </if>
+      <if test="checkresult != null" >
+        checkresult = #{checkresult,jdbcType=VARCHAR},
+      </if>
+      <if test="carid != null" >
+        carid = #{carid,jdbcType=INTEGER},
+      </if>
+      <if test="vin != null" >
+        vin = #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="changecarid != null" >
+        changecarid = #{changecarid,jdbcType=INTEGER},
+      </if>
+      <if test="changevin != null" >
+        changevin = #{changevin,jdbcType=VARCHAR},
+      </if>
+      <if test="refundreason != null" >
+        refundreason = #{refundreason,jdbcType=VARCHAR},
+      </if>
+      <if test="finalpay != null" >
+        finalpay = #{finalpay,jdbcType=DECIMAL},
+      </if>
+      <if test="realfinalpay != null" >
+        realfinalpay = #{realfinalpay,jdbcType=DECIMAL},
+      </if>
+      <if test="financerealdownpay != null" >
+        financerealdownpay = #{financerealdownpay,jdbcType=DECIMAL},
+      </if>
+      <if test="handbook != null" >
+        handbook = #{handbook,jdbcType=VARCHAR},
+      </if>
+      <if test="carkey != null" >
+        carkey = #{carkey,jdbcType=VARCHAR},
+      </if>
+      <if test="threecer != null" >
+        threecer = #{threecer,jdbcType=VARCHAR},
+      </if>
+      <if test="billthree != null" >
+        billthree = #{billthree,jdbcType=VARCHAR},
+      </if>
+      <if test="insurancebill != null" >
+        insurancebill = #{insurancebill,jdbcType=VARCHAR},
+      </if>
+      <if test="delaybill != null" >
+        delaybill = #{delaybill,jdbcType=VARCHAR},
+      </if>
+      <if test="qualitybill != null" >
+        qualitybill = #{qualitybill,jdbcType=VARCHAR},
+      </if>
+      <if test="productcer != null" >
+        productcer = #{productcer,jdbcType=VARCHAR},
+      </if>
+      <if test="carplate != null" >
+        carplate = #{carplate,jdbcType=VARCHAR},
+      </if>
+      <if test="platebill != null" >
+        platebill = #{platebill,jdbcType=VARCHAR},
+      </if>
+      <if test="totalreceiveprice != null" >
+        totalreceiveprice = #{totalreceiveprice,jdbcType=DECIMAL},
+      </if>
+      <if test="sellid != null" >
+        sellid = #{sellid,jdbcType=INTEGER},
+      </if>
+      <if test="shopid != null" >
+        shopid = #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="status2 != null" >
+        status2 = #{status2,jdbcType=INTEGER},
+      </if>
+      <if test="repairmoney != null" >
+        repairmoney = #{repairmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="balance != null" >
+        balance = #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="refundcause != null" >
+        refundcause = #{refundcause,jdbcType=VARCHAR},
+      </if> 
+      <if test="qualitypriceyear != null" >
+        qualitypriceyear = #{qualitypriceyear,jdbcType=VARCHAR},
+      </if> 
+      <if test="qualitypricenature != null" >
+        qualitypricenature = #{qualitypricenature,jdbcType=VARCHAR},
+      </if> 
+         <if test="materialoutboundtime != null" >
+        materialoutboundtime = #{materialoutboundtime,jdbcType=TIMESTAMP},
+      </if> 
+      
+      
+      
+      <if test="submitstatus != null" >
+          submitstatus = #{submitstatus,jdbcType=INTEGER},
+      </if>
+      <if test="sendstatus != null" >
+        sendstatus = #{sendstatus,jdbcType=INTEGER},
+      </if>
+      <if test="smssubmittime != null" >
+        smssubmittime = #{smssubmittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="smsuid != null" >
+        smsuid = #{smsuid,jdbcType=VARCHAR},
+      </if>
+      <if test="smsmsgid != null" >
+       smsmsgid =  #{smsmsgid,jdbcType=VARCHAR},
+      </if>
+      <if test="smsmodifytime != null" >
+        smsmodifytime = #{smsmodifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shopnopassreason != null" >
+        shopnopassreason = #{shopnopassreason,jdbcType=VARCHAR},
+      </if>
+        <if test="accidentExcessReduction != null" >
+        accidentExcessReduction = #{accidentExcessReduction,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance1time != null" >
+        insurance1time = #{insurance1time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insurance1type != null" >
+        insurance1type = #{insurance1type,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.biz.Bizcontract" >
+    update biz_contract
+    set infoid = #{infoid,jdbcType=INTEGER},
+      filecode = #{filecode,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      principle = #{principle,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      bname = #{bname,jdbcType=VARCHAR},
+      baddress = #{baddress,jdbcType=VARCHAR},
+      companyname = #{companyname,jdbcType=VARCHAR},
+      bphone = #{bphone,jdbcType=VARCHAR},
+      identify = #{identify,jdbcType=VARCHAR},
+      corpcode = #{corpcode,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      outcolor = #{outcolor,jdbcType=VARCHAR},
+      incolor = #{incolor,jdbcType=VARCHAR},
+      config = #{config,jdbcType=VARCHAR},
+      transprice = #{transprice,jdbcType=DECIMAL},
+      saleprice = #{saleprice,jdbcType=DECIMAL},
+      downpay = #{downpay,jdbcType=DECIMAL},
+      realdownpay = #{realdownpay,jdbcType=DECIMAL},
+      insurance1 = #{insurance1,jdbcType=DECIMAL},
+      insurance = #{insurance,jdbcType=DECIMAL},
+      insurancesure = #{insurancesure,jdbcType=DECIMAL},
+      cinsurance1 = #{cinsurance1,jdbcType=DECIMAL},
+      cinsurance = #{cinsurance,jdbcType=DECIMAL},
+      CarDamageInsurance = #{cardamageinsurance,jdbcType=DECIMAL},
+      TheftRobberyinsurance = #{theftrobberyinsurance,jdbcType=DECIMAL},
+      Glassinsurance = #{glassinsurance,jdbcType=DECIMAL},
+      Catacausisinsurance = #{catacausisinsurance,jdbcType=DECIMAL},
+      Thirdinsurance = #{thirdinsurance,jdbcType=DECIMAL},
+      Scratchinsurance = #{scratchinsurance,jdbcType=DECIMAL},
+      CarPersonnelinsurance = #{carpersonnelinsurance,jdbcType=DECIMAL},
+      Wadinginsurance = #{wadinginsurance,jdbcType=DECIMAL},
+      VehicleAndVesselTax = #{vehicleandvesseltax,jdbcType=DECIMAL},
+      purchasetax = #{purchasetax,jdbcType=DECIMAL},
+      plateprice = #{plateprice,jdbcType=DECIMAL},
+      qualityprice1 = #{qualityprice1,jdbcType=DECIMAL},
+      qualityprice = #{qualityprice,jdbcType=DECIMAL},
+      delayprice = #{delayprice,jdbcType=DECIMAL},
+      decorateprice = #{decorateprice,jdbcType=DECIMAL},
+      finance = #{finance,jdbcType=VARCHAR},
+      salecontract = #{salecontract,jdbcType=VARCHAR},
+      reportbill = #{reportbill,jdbcType=VARCHAR},
+      downposbill = #{downposbill,jdbcType=VARCHAR},
+      note = #{note,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      shopname = #{shopname,jdbcType=VARCHAR},
+      sellername = #{sellername,jdbcType=VARCHAR},
+      reportinsurance = #{reportinsurance,jdbcType=DECIMAL},
+      qualitytotalprice = #{qualitytotalprice,jdbcType=DECIMAL},
+      reportpromise = #{reportpromise,jdbcType=DECIMAL},
+      reportstatus = #{reportstatus,jdbcType=VARCHAR},
+      reporttime = #{reporttime,jdbcType=TIMESTAMP},
+      zeropur = #{zeropur,jdbcType=VARCHAR},
+      checkresult = #{checkresult,jdbcType=VARCHAR},
+      carid = #{carid,jdbcType=INTEGER},
+      vin = #{vin,jdbcType=VARCHAR},
+      changecarid = #{changecarid,jdbcType=INTEGER},
+      changevin = #{changevin,jdbcType=VARCHAR},
+      refundreason = #{refundreason,jdbcType=VARCHAR},
+      finalpay = #{finalpay,jdbcType=DECIMAL},
+      realfinalpay = #{realfinalpay,jdbcType=DECIMAL},
+      financerealdownpay = #{financerealdownpay,jdbcType=DECIMAL},
+      handbook = #{handbook,jdbcType=VARCHAR},
+      carkey = #{carkey,jdbcType=VARCHAR},
+      threecer = #{threecer,jdbcType=VARCHAR},
+      billthree = #{billthree,jdbcType=VARCHAR},
+      insurancebill = #{insurancebill,jdbcType=VARCHAR},
+      delaybill = #{delaybill,jdbcType=VARCHAR},
+      qualitybill = #{qualitybill,jdbcType=VARCHAR},
+      productcer = #{productcer,jdbcType=VARCHAR},
+      carplate = #{carplate,jdbcType=VARCHAR},
+      platebill = #{platebill,jdbcType=VARCHAR},
+      totalreceiveprice = #{totalreceiveprice,jdbcType=DECIMAL},
+      sellid = #{sellid,jdbcType=INTEGER},
+      shopid = #{shopid,jdbcType=INTEGER},
+      status2 = #{status2,jdbcType=INTEGER},
+      repairmoney = #{repairmoney,jdbcType=DECIMAL},
+      balance = #{balance,jdbcType=DECIMAL},
+      refundcause = #{refundcause,jdbcType=VARCHAR},
+      qualitypriceyear = #{qualitypriceyear,jdbcType=VARCHAR},
+      qualitypricenature = #{qualitypricenature,jdbcType=VARCHAR},
+      materialoutboundtime = #{materialoutboundtime,jdbcType=TIMESTAMP},
+      accidentExcessReduction = #{accidentExcessReduction,jdbcType=DECIMAL},
+      insurance1time = #{insurance1time,jdbcType=TIMESTAMP},
+      insurance1type = #{insurance1type,jdbcType=INTEGER}
+    
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="selectByMap" resultType="map" parameterType="map" >
+SELECT
+	a.*, b.clientype
+FROM
+	biz_contract a
+JOIN biz_clientinfo b ON a.infoid = b.id where 1=1 
+	<if test="node != null and node !=''" >
+	<if test='node == "1"' >
+      and (a.`status` is null or a.`status` in(1,2))
+    </if>
+    <if test='node == "2"' ><!--61金融门店确认审批  -->
+      and a.`status` in(1,3,61)
+    </if>
+    <if test='node == "3"' >
+      and a.finance=1 and a.`status` in(4,51,52,53)
+    </if>
+    <if test='node == "4"' >
+      and a.finance=1 and a.`status` in(51,54,55,56)
+    </if>
+    <if test='node == "5"' >
+      and a.finance=2 and a.`status` in(3,30)
+    </if>
+    </if>
+    <if test="filecode != null and filecode !=''" >
+       and a.filecode like concat('%',#{filecode},'%')
+    </if>
+    <if test="name != null and name !=''" >
+       and a.name like concat('%',#{name},'%')
+    </if>
+    <if test="bname != null and bname !=''" >
+       and a.bname like concat('%',#{bname},'%')
+    </if>
+    <if test="identify != null and identify !=''" >
+       and a.identify like concat('%',#{identify},'%')
+    </if>
+    <if test="clientype != null and clientype !=''" >
+       and b.clientype = #{clientype}
+    </if>
+    <if test="sellid != null and sellid !=''" >
+       and a.sellid = #{sellid}
+    </if>
+    <if test="shopid != null and shopid !=''" >
+       and a.shopid = #{shopid}
+    </if>
+     <if test="status==60" >
+       and a.status=8 and a.status2 in(1,3,4,5)
+    </if>
+     <if test="status == 70" ><!-- 金融合同添加列表查询的数据  -->
+       and a.status=62 and a.status2=1
+    </if>
+    <if test="status == 80" ><!-- 保险报价显示的信息 -->
+       and a.status in(30,7,8)
+    </if> 
+     <if test="status == 90" ><!-- 金融合同选车 -->
+       and a.status in(3,62) and a.finance=1 and a.status2 is null
+    </if> 
+    order by a.createtime desc
+    limit #{start},#{size}
+  </select>
+  <select id="countByMap" resultType="int" parameterType="map" >
+    select count(*) from `biz_contract` a
+JOIN biz_clientinfo b ON a.infoid = b.id where 1=1 
+	<if test="node != null and node !=''" >
+	<if test='node == "1"' >
+      and (a.`status` is null or a.`status` in(1,2))
+    </if>
+    <if test='node == "2"' ><!--61金融门店确认审批  -->
+      and a.`status` in(1,3,61)
+    </if>
+    <if test='node == "3"' >
+      and a.finance=1 and a.`status` in(4,51,52,53)
+    </if>
+    <if test='node == "4"' >
+      and a.finance=1 and a.`status` in(51,54,55,56)
+    </if>
+    <if test='node == "5"' >
+      and a.finance=2 and a.`status` in(3,30)
+    </if>
+    </if>
+    <if test="filecode != null and filecode !=''" >
+       and a.filecode like concat('%',#{filecode},'%')
+    </if>
+    <if test="name != null and name !=''" >
+       and a.name like concat('%',#{name},'%')
+    </if>
+    <if test="bname != null and bname !=''" >
+       and a.bname like concat('%',#{bname},'%')
+    </if>
+    <if test="identify != null and identify !=''" >
+       and a.identify like concat('%',#{identify},'%')
+    </if>
+    <if test="clientype != null and clientype !=''" >
+       and b.clientype = #{clientype}
+    </if>
+    <if test="sellid != null and sellid !=''" >
+       and a.sellid = #{sellid}
+    </if>
+    <if test="shopid != null and shopid !=''" >
+       and a.shopid = #{shopid}
+    </if>
+      <if test="status==60" >
+       and a.status=8 and a.status2 in(1,3,4,5)
+    </if>
+    <if test="status ==70" ><!-- 金融合同添加列表查询的数据  -->
+      and a.status=62 and a.status2=1
+    </if>
+    <if test="status ==80" ><!-- 保险报价显示的信息 -->
+       and a.status in(30,7,8)
+    </if> 
+     <if test="status == 90" ><!-- 金融合同选车 -->
+       and a.status in(3,62) and a.finance=1 and a.status2 is null
+    </if> 
+  </select>
+  	 <!--  查询出来符合发送    保险短信的-->
+  <select id="selectByCriteriaforSMS" resultMap="BaseResultMap" parameterType="java.util.List"  >
+    select 
+    <include refid="Base_Column_List" />
+    from   biz_contract  contract
+    where  1=1 
+      and contract.issendstatus=1 
+      and contract.finance = 1 
+        
+      <![CDATA[ and DATE_FORMAT(contract.materialoutboundtime,'%Y-%m-%d')  ]]>
+       in
+	  <foreach collection="list" index="index" item="item" open="(" separator="," close=")" >
+	    #{item}
+	  </foreach>    
+  </select>
+  <!-- 更新发送短信状态 -->
+   <update id="updateBySmsUidSelective" parameterType="com.yyq.car.portal.common.model.biz.Bizcontract" >
+    update biz_contract
+    <set >
+    
+      <if test="sendstatus != null" >
+        sendstatus = #{sendstatus,jdbcType=INTEGER},
+      </if>
+      <if test="smsmsgid != null" >
+       smsmsgid =  #{smsmsgid,jdbcType=VARCHAR},
+      </if>
+      <if test="smsmodifytime != null" >
+        smsmodifytime = #{smsmodifytime,jdbcType=TIMESTAMP},
+      </if>
+      
+    </set>
+     where smsuid = #{smsuid,jdbcType=VARCHAR} 
+  </update>
+  
+  
+  
+   <update id="updateByPrimaryKeyandstatusnull" parameterType="com.yyq.car.portal.common.model.biz.Bizcontract" >
+    update biz_contract
+    <set >
+      <if test="infoid != null" >
+        infoid = #{infoid,jdbcType=INTEGER},
+      </if>
+      <if test="filecode != null" >
+        filecode = #{filecode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="principle != null" >
+        principle = #{principle,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="bname != null" >
+        bname = #{bname,jdbcType=VARCHAR},
+      </if>
+      <if test="baddress != null" >
+        baddress = #{baddress,jdbcType=VARCHAR},
+      </if>
+      <if test="companyname != null" >
+        companyname = #{companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="bphone != null" >
+        bphone = #{bphone,jdbcType=VARCHAR},
+      </if>
+      <if test="identify != null" >
+        identify = #{identify,jdbcType=VARCHAR},
+      </if>
+      <if test="corpcode != null" >
+        corpcode = #{corpcode,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="outcolor != null" >
+        outcolor = #{outcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="incolor != null" >
+        incolor = #{incolor,jdbcType=VARCHAR},
+      </if>
+      <if test="config != null" >
+        config = #{config,jdbcType=VARCHAR},
+      </if>
+      <if test="transprice != null" >
+        transprice = #{transprice,jdbcType=DECIMAL},
+      </if>
+      <if test="saleprice != null" >
+        saleprice = #{saleprice,jdbcType=DECIMAL},
+      </if>
+      <if test="downpay != null" >
+        downpay = #{downpay,jdbcType=DECIMAL},
+      </if>
+      <if test="realdownpay != null" >
+        realdownpay = #{realdownpay,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance1 != null" >
+        insurance1 = #{insurance1,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance != null" >
+        insurance = #{insurance,jdbcType=DECIMAL},
+      </if>
+      <if test="insurancesure != null" >
+        insurancesure = #{insurancesure,jdbcType=DECIMAL},
+      </if>
+      <if test="cinsurance1 != null" >
+        cinsurance1 = #{cinsurance1,jdbcType=DECIMAL},
+      </if>
+      <if test="cinsurance != null" >
+        cinsurance = #{cinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="cardamageinsurance != null" >
+        CarDamageInsurance = #{cardamageinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="theftrobberyinsurance != null" >
+        TheftRobberyinsurance = #{theftrobberyinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="glassinsurance != null" >
+        Glassinsurance = #{glassinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="catacausisinsurance != null" >
+        Catacausisinsurance = #{catacausisinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="thirdinsurance != null" >
+        Thirdinsurance = #{thirdinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="scratchinsurance != null" >
+        Scratchinsurance = #{scratchinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="carpersonnelinsurance != null" >
+        CarPersonnelinsurance = #{carpersonnelinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="wadinginsurance != null" >
+        Wadinginsurance = #{wadinginsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="vehicleandvesseltax != null" >
+        VehicleAndVesselTax = #{vehicleandvesseltax,jdbcType=DECIMAL},
+      </if>
+      <if test="purchasetax != null" >
+        purchasetax = #{purchasetax,jdbcType=DECIMAL},
+      </if>
+      <if test="plateprice != null" >
+        plateprice = #{plateprice,jdbcType=DECIMAL},
+      </if>
+      <if test="qualityprice1 != null" >
+        qualityprice1 = #{qualityprice1,jdbcType=DECIMAL},
+      </if>
+      <if test="qualityprice != null" >
+        qualityprice = #{qualityprice,jdbcType=DECIMAL},
+      </if>
+      <if test="delayprice != null" >
+        delayprice = #{delayprice,jdbcType=DECIMAL},
+      </if>
+      <if test="decorateprice != null" >
+        decorateprice = #{decorateprice,jdbcType=DECIMAL},
+      </if>
+      <if test="finance != null" >
+        finance = #{finance,jdbcType=VARCHAR},
+      </if>
+      <if test="salecontract != null" >
+        salecontract = #{salecontract,jdbcType=VARCHAR},
+      </if>
+      <if test="reportbill != null" >
+        reportbill = #{reportbill,jdbcType=VARCHAR},
+      </if>
+      <if test="downposbill != null" >
+        downposbill = #{downposbill,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null" >
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+       
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shopname != null" >
+        shopname = #{shopname,jdbcType=VARCHAR},
+      </if>
+      <if test="sellername != null" >
+        sellername = #{sellername,jdbcType=VARCHAR},
+      </if>
+      <if test="reportinsurance != null" >
+        reportinsurance = #{reportinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="qualitytotalprice != null" >
+        qualitytotalprice = #{qualitytotalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="reportpromise != null" >
+        reportpromise = #{reportpromise,jdbcType=DECIMAL},
+      </if>
+      <if test="reportstatus != null" >
+        reportstatus = #{reportstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="reporttime != null" >
+        reporttime = #{reporttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zeropur != null" >
+        zeropur = #{zeropur,jdbcType=VARCHAR},
+      </if>
+      <if test="checkresult != null" >
+        checkresult = #{checkresult,jdbcType=VARCHAR},
+      </if>
+      <if test="carid != null" >
+        carid = #{carid,jdbcType=INTEGER},
+      </if>
+      <if test="vin != null" >
+        vin = #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="changecarid != null" >
+        changecarid = #{changecarid,jdbcType=INTEGER},
+      </if>
+      <if test="changevin != null" >
+        changevin = #{changevin,jdbcType=VARCHAR},
+      </if>
+      <if test="refundreason != null" >
+        refundreason = #{refundreason,jdbcType=VARCHAR},
+      </if>
+      <if test="finalpay != null" >
+        finalpay = #{finalpay,jdbcType=DECIMAL},
+      </if>
+      <if test="realfinalpay != null" >
+        realfinalpay = #{realfinalpay,jdbcType=DECIMAL},
+      </if>
+      <if test="financerealdownpay != null" >
+        financerealdownpay = #{financerealdownpay,jdbcType=DECIMAL},
+      </if>
+      <if test="handbook != null" >
+        handbook = #{handbook,jdbcType=VARCHAR},
+      </if>
+      <if test="carkey != null" >
+        carkey = #{carkey,jdbcType=VARCHAR},
+      </if>
+      <if test="threecer != null" >
+        threecer = #{threecer,jdbcType=VARCHAR},
+      </if>
+      <if test="billthree != null" >
+        billthree = #{billthree,jdbcType=VARCHAR},
+      </if>
+      <if test="insurancebill != null" >
+        insurancebill = #{insurancebill,jdbcType=VARCHAR},
+      </if>
+      <if test="delaybill != null" >
+        delaybill = #{delaybill,jdbcType=VARCHAR},
+      </if>
+      <if test="qualitybill != null" >
+        qualitybill = #{qualitybill,jdbcType=VARCHAR},
+      </if>
+      <if test="productcer != null" >
+        productcer = #{productcer,jdbcType=VARCHAR},
+      </if>
+      <if test="carplate != null" >
+        carplate = #{carplate,jdbcType=VARCHAR},
+      </if>
+      <if test="platebill != null" >
+        platebill = #{platebill,jdbcType=VARCHAR},
+      </if>
+      <if test="totalreceiveprice != null" >
+        totalreceiveprice = #{totalreceiveprice,jdbcType=DECIMAL},
+      </if>
+      <if test="sellid != null" >
+        sellid = #{sellid,jdbcType=INTEGER},
+      </if>
+      <if test="shopid != null" >
+        shopid = #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="status2 != null" >
+        status2 = #{status2,jdbcType=INTEGER},
+      </if>
+      <if test="repairmoney != null" >
+        repairmoney = #{repairmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="balance != null" >
+        balance = #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="refundcause != null" >
+        refundcause = #{refundcause,jdbcType=VARCHAR},
+      </if> 
+      <if test="qualitypriceyear != null" >
+        qualitypriceyear = #{qualitypriceyear,jdbcType=VARCHAR},
+      </if> 
+      <if test="qualitypricenature != null" >
+        qualitypricenature = #{qualitypricenature,jdbcType=VARCHAR},
+      </if> 
+         <if test="materialoutboundtime != null" >
+        materialoutboundtime = #{materialoutboundtime,jdbcType=TIMESTAMP},
+      </if> 
+      <if test="submitstatus != null" >
+          submitstatus = #{submitstatus,jdbcType=INTEGER},
+      </if>
+      <if test="sendstatus != null" >
+        sendstatus = #{sendstatus,jdbcType=INTEGER},
+      </if>
+      <if test="smssubmittime != null" >
+        smssubmittime = #{smssubmittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="smsuid != null" >
+        smsuid = #{smsuid,jdbcType=VARCHAR},
+      </if>
+      <if test="smsmsgid != null" >
+       smsmsgid =  #{smsmsgid,jdbcType=VARCHAR},
+      </if>
+      <if test="smsmodifytime != null" >
+        smsmodifytime = #{smsmodifytime,jdbcType=TIMESTAMP},
+      </if>
+        <if test="accidentExcessReduction != null" >
+        accidentExcessReduction = #{accidentExcessReduction,jdbcType=DECIMAL},
+      </if>
+      
+        shopnopassreason = null,
+        status = null,
+ 
+
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+   <!-- 风控进件总览 -->
+     <select id="selectpandectByMap" resultType="map" parameterType="map" >
+SELECT
+	a.*, b.clientype
+FROM
+	biz_contract a
+JOIN biz_clientinfo b ON a.infoid = b.id where 1=1 
+     and a.finance=1 and a.status in(3,6,7,8,51,52,53,54,55,56,61,62,63)
+    <if test="filecode != null and filecode !=''" >
+       and a.filecode like concat('%',#{filecode},'%')
+    </if>
+    <if test="bphone != null and bphone !=''" >
+       and a.bphone like concat('%',#{bphone},'%')
+    </if>
+    <if test="bname != null and bname !=''" >
+       and a.bname like concat('%',#{bname},'%')
+    </if>
+    <if test="identify != null and identify !=''" >
+       and a.identify like concat('%',#{identify},'%')
+    </if>
+    order by a.createtime desc
+    limit #{start},#{size}
+  </select>
+  <select id="countpandectByMap" resultType="int" parameterType="map" >
+    select count(*) from `biz_contract` a
+JOIN biz_clientinfo b ON a.infoid = b.id where 1=1 
+	and a.finance=1 and a.status in(3,6,7,8,51,52,53,54,55,56,61,62,63)
+    <if test="filecode != null and filecode !=''" >
+       and a.filecode like concat('%',#{filecode},'%')
+    </if>
+    <if test="bphone != null and bphone !=''" >
+       and a.bphone like concat('%',#{bphone},'%')
+    </if>
+    <if test="bname != null and bname !=''" >
+       and a.bname like concat('%',#{bname},'%')
+    </if>
+    <if test="identify != null and identify !=''" >
+       and a.identify like concat('%',#{identify},'%')
+    </if>
+   
+  
+  </select>
+  
+  
+  
+  
+      <select id="selectAllByMap" resultType="map" parameterType="map" >
+SELECT
+	a.*, b.clientype
+FROM
+	biz_contract a
+JOIN biz_clientinfo b ON a.infoid = b.id where 1=1 
+	<if test="node != null and node !=''" >
+	<if test='node == "1"' >
+      and (a.`status` is null or a.`status` in(1,2))
+    </if>
+    <if test='node == "2"' ><!--61金融门店确认审批  -->
+      and a.`status` in(1,3,61)
+    </if>
+    <if test='node == "3"' >
+      and a.finance=1 and a.`status` in(4,51,52,53)
+    </if>
+    <if test='node == "4"' >
+      and a.finance=1 and a.`status` in(51,54,55,56)
+    </if>
+    <if test='node == "5"' >
+      and a.finance=2 and a.`status` in(3,30)
+    </if>
+    </if>
+    <if test="filecode != null and filecode !=''" >
+       and a.filecode like concat('%',#{filecode},'%')
+    </if>
+    <if test="name != null and name !=''" >
+       and a.name like concat('%',#{name},'%')
+    </if>
+    <if test="bname != null and bname !=''" >
+       and a.bname like concat('%',#{bname},'%')
+    </if>
+    <if test="identify != null and identify !=''" >
+       and a.identify like concat('%',#{identify},'%')
+    </if>
+    <if test="clientype != null and clientype !=''" >
+       and b.clientype = #{clientype}
+    </if>
+    <if test="sellid != null and sellid !=''" >
+       and a.sellid = #{sellid}
+    </if>
+
+     <if test="status==60" >
+       and a.status=8 and a.status2 in(1,3,4,5)
+    </if>
+     <if test="status == 70" ><!-- 金融合同添加列表查询的数据  -->
+       and a.status=62 and a.status2=1
+    </if>
+    <if test="status == 80" ><!-- 保险报价显示的信息 -->
+       and a.status in(30,7,8)
+    </if> 
+     <if test="status == 90" ><!-- 金融合同选车 -->
+       and a.status in(3,62) and a.finance=1 and a.status2 is null
+    </if> 
+    <if test="shopids != null and shopids !=''" >
+      and a.shopid in
+     <foreach collection="shopids" index="index" item="item" open="(" separator="," close=")" >
+	    #{item}
+	  </foreach>
+	  </if> 
+    order by a.createtime desc
+    limit #{start},#{size}
+  </select>
+  <select id="countAllByMap" resultType="int" parameterType="map" >
+    select count(*) from `biz_contract` a
+JOIN biz_clientinfo b ON a.infoid = b.id where 1=1 
+	<if test="node != null and node !=''" >
+	<if test='node == "1"' >
+      and (a.`status` is null or a.`status` in(1,2))
+    </if>
+    <if test='node == "2"' ><!--61金融门店确认审批  -->
+      and a.`status` in(1,3,61)
+    </if>
+    <if test='node == "3"' >
+      and a.finance=1 and a.`status` in(4,51,52,53)
+    </if>
+    <if test='node == "4"' >
+      and a.finance=1 and a.`status` in(51,54,55,56)
+    </if>
+    <if test='node == "5"' >
+      and a.finance=2 and a.`status` in(3,30)
+    </if>
+    </if>
+    <if test="filecode != null and filecode !=''" >
+       and a.filecode like concat('%',#{filecode},'%')
+    </if>
+    <if test="name != null and name !=''" >
+       and a.name like concat('%',#{name},'%')
+    </if>
+    <if test="bname != null and bname !=''" >
+       and a.bname like concat('%',#{bname},'%')
+    </if>
+    <if test="identify != null and identify !=''" >
+       and a.identify like concat('%',#{identify},'%')
+    </if>
+    <if test="clientype != null and clientype !=''" >
+       and b.clientype = #{clientype}
+    </if>
+    <if test="sellid != null and sellid !=''" >
+       and a.sellid = #{sellid}
+    </if>
+      <if test="status==60" >
+       and a.status=8 and a.status2 in(1,3,4,5)
+    </if>
+     <if test="status==100" ><!--统计材料出库/全款回款/金融首付/结算数量  -->
+       and a.status=8 and a.status2 in(1,3,4,5)
+    </if>
+     <if test="status==110" ><!--统计材料出库/全款回款/金融首付/结算  任务数量  -->
+       and a.status=8 and a.status2 in(1,3,4)
+    </if>
+    <if test="status ==70" ><!-- 金融合同添加列表查询的数据  -->
+      and a.status=62 and a.status2=1
+    </if>
+    <if test="status ==80" ><!-- 保险报价显示的信息 -->
+       and a.status in(30,7,8)
+    </if> 
+    <if test="status ==120" ><!-- 统计需要保险报价 任务数量 -->
+       and  (a.status =7 and a.finance=1)or (a.`status`=30 and a.finance=2)
+    </if> 
+     <if test="status == 90" ><!-- 金融合同选车 -->
+       and a.status in(3,62) and a.finance=1 and a.status2 is null
+    </if> 
+     <if test="shopids != null and shopids !=''" >
+       and a.shopid in
+     <foreach collection="shopids" index="index" item="item" open="(" separator="," close=")" >
+	    #{item}
+	  </foreach>
+	 </if> 
+  </select>
+  
+  <select id="countTaskByMap" resultType="int" parameterType="map" >
+    select count(*) from `biz_contract` a
+JOIN biz_clientinfo b ON a.infoid = b.id where 1=1 
+    <if test="sellid != null and sellid !=''" >
+       and a.sellid = #{sellid}
+    </if>
+    <if test="shopid != null and shopid !=''" >
+       and a.shopid = #{shopid}
+    </if>
+    <if test="node==0" ><!--统计 2.0销售合同-列表 待办任务数量  -->
+       AND (
+	(a.finance = 1 AND a.`status` = 1)
+	OR (a.`status` IN(22, 52, 54, 55))
+	OR (
+		a.`status` = 8
+		AND a.finance = 2
+		AND a.status2 IS NULL
+	)
+	OR (
+		a.`status` = 62
+		AND a.finance = 1
+		AND a.status2 IS NULL
+	)
+)
+    </if>
+    <if test="node==1" ><!--统计 3.0销售合同-门店部-审核 待办任务数量  -->
+       AND a.`status` IS NULL
+    </if>
+    <if test="node==2" ><!--统计 4.0销售合同-定金到账-审核 待办任务数量  -->
+       AND (
+	(a.`status` = 1 AND a.finance = 2)
+	OR a.`status` = 61
+)
+    </if>
+    <if test="node==3" ><!--统计 5.0销售合同-风控进件-初审 待办任务数量  -->
+       AND (a.`status` = 4 AND a.finance = 1)
+    </if>
+    <if test="node==4" ><!--统计 5.1销售合同-风控进件-复审 待办任务数量  -->
+       AND (a.`status` = 51 AND a.finance = 1)
+    </if>
+    <if test="node==5" ><!--统计 4.2全款合同选车 待办任务数量  -->
+       AND (a.`status` = 3 AND a.finance = 2)
+    </if>
+  </select>
+</mapper>

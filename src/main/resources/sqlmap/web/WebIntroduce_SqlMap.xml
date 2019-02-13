@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.web.IntroduceMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.web.Introduce" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="position" property="position" jdbcType="INTEGER" />
+    <result column="language" property="language" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="modifytime" property="modifytime" jdbcType="TIMESTAMP" />
+    <result column="createuser" property="createuser" jdbcType="INTEGER" />
+    <result column="modifyuser" property="modifyuser" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, content, position, language, createtime, modifytime, createuser, modifyuser
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="content != null and content !=''" >
+       and content = #{content}
+    </if>
+    <if test="position != null and position !=''" >
+       and position = #{position}
+    </if>
+    <if test="language != null and language !=''" >
+       and language = #{language}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="modifytime != null and modifytime !=''" >
+       and modifytime = #{modifytime}
+    </if>
+    <if test="createuser != null and createuser !=''" >
+       and createuser = #{createuser}
+    </if>
+    <if test="modifyuser != null and modifyuser !=''" >
+       and modifyuser = #{modifyuser}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.web.Introduce" >
+    select 
+    <include refid="Base_Column_List" />
+    from web_introduce
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.web.Introduce" >
+    select count(*) from web_introduce where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from web_introduce
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from web_introduce
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.web.Introduce" >
+    insert into web_introduce (id, content, position, 
+      language, createtime, modifytime, 
+      createuser, modifyuser)
+    values (#{id,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{position,jdbcType=INTEGER}, 
+      #{language,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{modifytime,jdbcType=TIMESTAMP}, 
+      #{createuser,jdbcType=INTEGER}, #{modifyuser,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.web.Introduce" >
+    insert into web_introduce
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="position != null" >
+        position,
+      </if>
+      <if test="language != null" >
+        language,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="modifytime != null" >
+        modifytime,
+      </if>
+      <if test="createuser != null" >
+        createuser,
+      </if>
+      <if test="modifyuser != null" >
+        modifyuser,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=INTEGER},
+      </if>
+      <if test="language != null" >
+        #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifytime != null" >
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuser != null" >
+        #{createuser,jdbcType=INTEGER},
+      </if>
+      <if test="modifyuser != null" >
+        #{modifyuser,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.web.Introduce" >
+    update web_introduce
+    <set >
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null" >
+        position = #{position,jdbcType=INTEGER},
+      </if>
+      <if test="language != null" >
+        language = #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifytime != null" >
+        modifytime = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuser != null" >
+        createuser = #{createuser,jdbcType=INTEGER},
+      </if>
+      <if test="modifyuser != null" >
+        modifyuser = #{modifyuser,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.web.Introduce" >
+    update web_introduce
+    set content = #{content,jdbcType=VARCHAR},
+      position = #{position,jdbcType=INTEGER},
+      language = #{language,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      modifytime = #{modifytime,jdbcType=TIMESTAMP},
+      createuser = #{createuser,jdbcType=INTEGER},
+      modifyuser = #{modifyuser,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

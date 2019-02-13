@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.cif.MeetMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.cif.Meet" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="carTypeId" property="carTypeId" jdbcType="INTEGER" />
+    <result column="carType" property="cartype" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="seeTime" property="seetime" jdbcType="TIMESTAMP" />
+    <result column="shop" property="shop" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="detail" property="detail" jdbcType="VARCHAR" />
+    <result column="sellerPhone" property="sellerphone" jdbcType="VARCHAR" />
+    <result column="sellerName" property="sellername" jdbcType="VARCHAR" />
+     <result column="shopId" property="shopId" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, userId, carTypeId, carType, name, phone, sex, seeTime, shop, address, status, detail, sellerPhone, 
+    sellerName, createTime
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="userid != null and userid !=''" >
+       and userId = #{userid}
+    </if>
+    <if test="carTypeId != null and carTypeId !=''" >
+       and carTypeId = #{carTypeId}
+    </if>
+    <if test="cartype != null and cartype !=''" >
+       and carType like concat('%',#{carType},'%')
+    </if>
+    <if test="name != null and name !=''" >
+       and name like concat('%',#{name},'%')
+    </if>
+    <if test="phone != null and phone !=''" >
+       and phone like concat('%',#{phone},'%')
+    </if>
+     <if test="shopId != null and shopId !=''" >
+       and shopId = #{shopId}
+    </if>
+    <if test="sex != null and sex !=''" >
+       and sex = #{sex}
+    </if>
+    <if test="seetime != null and seetime !=''" >
+       and seeTime = #{seetime}
+    </if>
+    <if test="shop != null and shop !=''" >
+       and shop = #{shop}
+    </if>
+    <if test="address != null and address !=''" >
+       and address = #{address}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+    <if test="detail != null and detail !=''" >
+       and detail = #{detail}
+    </if>
+    <if test="sellerphone != null and sellerphone !=''" >
+       and sellerPhone = #{sellerphone}
+    </if>
+    <if test="sellername != null and sellername !=''" >
+       and sellerName = #{sellername}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createTime = #{createtime}
+    </if>
+    order by id desc
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.cif.Meet" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_meet
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.cif.Meet" >
+    select count(*) from cif_meet where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_meet
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cif_meet
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.cif.Meet" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(118);
+    </selectKey>
+    insert into cif_meet (id, userId, carType, 
+      name, phone, sex, seeTime, 
+      shop, address, status, 
+      detail, sellerPhone, sellerName, 
+      createTime)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{cartype,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{seetime,jdbcType=TIMESTAMP}, 
+      #{shop,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{detail,jdbcType=VARCHAR}, #{sellerphone,jdbcType=VARCHAR}, #{sellername,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.cif.Meet" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(118);
+    </selectKey>
+    insert into cif_meet
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="carTypeId != null" >
+        carTypeId,
+      </if>
+      <if test="cartype != null" >
+        carType,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="seetime != null" >
+        seeTime,
+      </if>
+      <if test="shop != null" >
+        shop,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="detail != null" >
+        detail,
+      </if>
+      <if test="sellerphone != null" >
+        sellerPhone,
+      </if>
+      <if test="sellername != null" >
+        sellerName,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="shopId != null" >
+        shopId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="carTypeId != null" >
+        #{carTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="cartype != null" >
+        #{cartype,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="seetime != null" >
+        #{seetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shop != null" >
+        #{shop,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="detail != null" >
+        #{detail,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerphone != null" >
+        #{sellerphone,jdbcType=VARCHAR},
+      </if>
+      <if test="sellername != null" >
+        #{sellername,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.cif.Meet" >
+    update cif_meet
+    <set >
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="cartype != null" >
+        carType = #{cartype,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="seetime != null" >
+        seeTime = #{seetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shop != null" >
+        shop = #{shop,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="detail != null" >
+        detail = #{detail,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerphone != null" >
+        sellerPhone = #{sellerphone,jdbcType=VARCHAR},
+      </if>
+      <if test="sellername != null" >
+        sellerName = #{sellername,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.cif.Meet" >
+    update cif_meet
+    set userId = #{userid,jdbcType=INTEGER},
+      carType = #{cartype,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      seeTime = #{seetime,jdbcType=TIMESTAMP},
+      shop = #{shop,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      detail = #{detail,jdbcType=VARCHAR},
+      sellerPhone = #{sellerphone,jdbcType=VARCHAR},
+      sellerName = #{sellername,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+ 
+ <select id="selectByPhone" resultType="map" parameterType="com.yyq.car.portal.common.model.cif.Meet" >
+    select a.id,a.carType,a.name,DATE_FORMAT(a.seeTime,'%Y-%m-%d') see,a.shop,a.address,a.sellerName,a.sellerPhone,b.cover_pic pic
+    from cif_meet a JOIN pro_car_type b ON a.carTypeId=b.id
+    where a.phone=#{phone,jdbcType=VARCHAR} ORDER BY a.createTime DESC 
+  </select>
+  
+  <select id="selectMeetLstByAccId" resultType="map" parameterType="map" >
+    select id,carType,name,DATE_FORMAT(seeTime,'%Y-%m-%d') see,shop,address,sellerName,sellerPhone
+    from cif_meet where userId=#{accountId,jdbcType=INTEGER} ORDER BY createTime DESC 
+    <if test="page != null and page !=''" >
+       LIMIT #{page,jdbcType=INTEGER},#{size,jdbcType=INTEGER}
+    </if>
+  </select>
+  <select id="countMeetLstByAccId" resultType="int" parameterType="map" >
+    select count(1) from cif_meet where userId=#{accountId,jdbcType=INTEGER}
+  </select>
+</mapper>

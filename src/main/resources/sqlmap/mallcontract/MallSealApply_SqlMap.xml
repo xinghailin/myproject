@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.mallcontract.MallSealApplyMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.mallcontract.MallSealApply" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="contracttype" property="contracttype" jdbcType="INTEGER" />
+    <result column="contractfilename" property="contractfilename" jdbcType="VARCHAR" />
+    <result column="tempcontractfilename" property="tempcontractfilename" jdbcType="VARCHAR" />
+    <result column="finalcontractfilename" property="finalcontractfilename" jdbcType="VARCHAR" />
+    <result column="applyer" property="applyer" jdbcType="VARCHAR" />
+    <result column="organtype" property="organtype" jdbcType="VARCHAR" />
+    <result column="applytime" property="applytime" jdbcType="TIMESTAMP" />
+    <result column="auditer1" property="auditer1" jdbcType="VARCHAR" />
+    <result column="auditime1" property="auditime1" jdbcType="TIMESTAMP" />
+    <result column="sealer" property="sealer" jdbcType="VARCHAR" />
+    <result column="sealtime" property="sealtime" jdbcType="TIMESTAMP" />
+    <result column="sealstatus" property="sealstatus" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="reason" property="reason" jdbcType="VARCHAR" />
+    <result column="uploadstatus" property="uploadstatus" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.yyq.car.portal.common.model.mallcontract.MallSealApply" extends="BaseResultMap" >
+    <result column="orderids" property="orderids" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="code != null and code !=''" >
+       and code like concat('%',#{code},'%')
+    </if>
+    <if test="contracttype != null and contracttype !=''" >
+       and contracttype = #{contracttype}
+    </if>
+    <if test="contractfilename != null and contractfilename !=''" >
+       and contractfilename = #{contractfilename}
+    </if>
+    <if test="tempcontractfilename != null and tempcontractfilename !=''" >
+       and tempcontractfilename = #{tempcontractfilename}
+    </if>
+    <if test="finalcontractfilename != null and finalcontractfilename !=''" >
+       and finalcontractfilename = #{finalcontractfilename}
+    </if>
+    <if test="applyer != null and applyer !=''" >
+       and applyer = #{applyer}
+    </if>
+    <if test="organtype != null and organtype !=''" >
+       and organtype = #{organtype}
+    </if>
+    <if test="applytime != null and applytime !=''" >
+       and applytime = #{applytime}
+    </if>
+    <if test="auditer1 != null and auditer1 !=''" >
+       and auditer1 = #{auditer1}
+    </if>
+    <if test="auditime1 != null and auditime1 !=''" >
+       and auditime1 = #{auditime1}
+    </if>
+    <if test="sealer != null and sealer !=''" >
+       and sealer = #{sealer}
+    </if>
+    <if test="sealtime != null and sealtime !=''" >
+       <![CDATA[ and DATE_FORMAT(sealtime,'%Y-%m-%d') = DATE_FORMAT(#{sealtime} ,'%Y-%m-%d') ]]>
+    </if>
+    <if test="sealstatus != null and sealstatus !=''" >
+       and sealstatus = #{sealstatus}
+    </if>
+    <if test="username != null and username !=''" >
+       and username like concat('%',#{username},'%') 
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+    <if test="remarks != null and remarks !=''" >
+       and remarks = #{remarks}
+    </if>
+    <if test="reason != null and reason !=''" >
+       and reason = #{reason}
+    </if>
+    <if test="uploadstatus != null and uploadstatus !=''" >
+       and uploadstatus = #{uploadstatus}
+    </if>
+	<if test="orderids != null and orderids !=''" >
+       and orderids like concat('%',#{orderids},'%') 
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="ResultMapWithBLOBs" parameterType="com.yyq.car.portal.common.model.mallcontract.MallSealApply" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from mall_seal_apply
+    where 
+    <include refid="wherecase" />
+    order by createtime desc
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.mallcontract.MallSealApply" >
+    select count(*) from mall_seal_apply where 
+    <include refid="wherecase" />
+  </select>
+  <sql id="Base_Column_List" >
+    id, code, contracttype, contractfilename, tempcontractfilename, finalcontractfilename, 
+    applyer, organtype, applytime, auditer1, auditime1, sealer, sealtime, sealstatus, 
+    username, createtime, status, remarks, reason, uploadstatus
+  </sql>
+  <sql id="Blob_Column_List" >
+    orderids
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from mall_seal_apply
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from mall_seal_apply
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.mallcontract.MallSealApply" >
+    insert into mall_seal_apply (id, code, contracttype, 
+      contractfilename, tempcontractfilename, 
+      finalcontractfilename, applyer, organtype, 
+      applytime, auditer1, auditime1, 
+      sealer, sealtime, sealstatus, 
+      username, createtime, status, 
+      remarks, reason, uploadstatus, 
+      orderids)
+    values (#{id,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{contracttype,jdbcType=INTEGER}, 
+      #{contractfilename,jdbcType=VARCHAR}, #{tempcontractfilename,jdbcType=VARCHAR}, 
+      #{finalcontractfilename,jdbcType=VARCHAR}, #{applyer,jdbcType=VARCHAR}, #{organtype,jdbcType=VARCHAR}, 
+      #{applytime,jdbcType=TIMESTAMP}, #{auditer1,jdbcType=VARCHAR}, #{auditime1,jdbcType=TIMESTAMP}, 
+      #{sealer,jdbcType=VARCHAR}, #{sealtime,jdbcType=TIMESTAMP}, #{sealstatus,jdbcType=INTEGER}, 
+      #{username,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
+      #{remarks,jdbcType=VARCHAR}, #{reason,jdbcType=VARCHAR}, #{uploadstatus,jdbcType=INTEGER}, 
+      #{orderids,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.mallcontract.MallSealApply" >
+    insert into mall_seal_apply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="contracttype != null" >
+        contracttype,
+      </if>
+      <if test="contractfilename != null" >
+        contractfilename,
+      </if>
+      <if test="tempcontractfilename != null" >
+        tempcontractfilename,
+      </if>
+      <if test="finalcontractfilename != null" >
+        finalcontractfilename,
+      </if>
+      <if test="applyer != null" >
+        applyer,
+      </if>
+      <if test="organtype != null" >
+        organtype,
+      </if>
+      <if test="applytime != null" >
+        applytime,
+      </if>
+      <if test="auditer1 != null" >
+        auditer1,
+      </if>
+      <if test="auditime1 != null" >
+        auditime1,
+      </if>
+      <if test="sealer != null" >
+        sealer,
+      </if>
+      <if test="sealtime != null" >
+        sealtime,
+      </if>
+      <if test="sealstatus != null" >
+        sealstatus,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="reason != null" >
+        reason,
+      </if>
+      <if test="uploadstatus != null" >
+        uploadstatus,
+      </if>
+      <if test="orderids != null" >
+        orderids,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="contracttype != null" >
+        #{contracttype,jdbcType=INTEGER},
+      </if>
+      <if test="contractfilename != null" >
+        #{contractfilename,jdbcType=VARCHAR},
+      </if>
+      <if test="tempcontractfilename != null" >
+        #{tempcontractfilename,jdbcType=VARCHAR},
+      </if>
+      <if test="finalcontractfilename != null" >
+        #{finalcontractfilename,jdbcType=VARCHAR},
+      </if>
+      <if test="applyer != null" >
+        #{applyer,jdbcType=VARCHAR},
+      </if>
+      <if test="organtype != null" >
+        #{organtype,jdbcType=VARCHAR},
+      </if>
+      <if test="applytime != null" >
+        #{applytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditer1 != null" >
+        #{auditer1,jdbcType=VARCHAR},
+      </if>
+      <if test="auditime1 != null" >
+        #{auditime1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sealer != null" >
+        #{sealer,jdbcType=VARCHAR},
+      </if>
+      <if test="sealtime != null" >
+        #{sealtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sealstatus != null" >
+        #{sealstatus,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null" >
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadstatus != null" >
+        #{uploadstatus,jdbcType=INTEGER},
+      </if>
+      <if test="orderids != null" >
+        #{orderids,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.mallcontract.MallSealApply" >
+    update mall_seal_apply
+    <set >
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="contracttype != null" >
+        contracttype = #{contracttype,jdbcType=INTEGER},
+      </if>
+      <if test="contractfilename != null" >
+        contractfilename = #{contractfilename,jdbcType=VARCHAR},
+      </if>
+      <if test="tempcontractfilename != null" >
+        tempcontractfilename = #{tempcontractfilename,jdbcType=VARCHAR},
+      </if>
+      <if test="finalcontractfilename != null" >
+        finalcontractfilename = #{finalcontractfilename,jdbcType=VARCHAR},
+      </if>
+      <if test="applyer != null" >
+        applyer = #{applyer,jdbcType=VARCHAR},
+      </if>
+      <if test="organtype != null" >
+        organtype = #{organtype,jdbcType=VARCHAR},
+      </if>
+      <if test="applytime != null" >
+        applytime = #{applytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditer1 != null" >
+        auditer1 = #{auditer1,jdbcType=VARCHAR},
+      </if>
+      <if test="auditime1 != null" >
+        auditime1 = #{auditime1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sealer != null" >
+        sealer = #{sealer,jdbcType=VARCHAR},
+      </if>
+      <if test="sealtime != null" >
+        sealtime = #{sealtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sealstatus != null" >
+        sealstatus = #{sealstatus,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null" >
+        reason = #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadstatus != null" >
+        uploadstatus = #{uploadstatus,jdbcType=INTEGER},
+      </if>
+      <if test="orderids != null" >
+        orderids = #{orderids,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yyq.car.portal.common.model.mallcontract.MallSealApply" >
+    update mall_seal_apply
+    set code = #{code,jdbcType=VARCHAR},
+      contracttype = #{contracttype,jdbcType=INTEGER},
+      contractfilename = #{contractfilename,jdbcType=VARCHAR},
+      tempcontractfilename = #{tempcontractfilename,jdbcType=VARCHAR},
+      finalcontractfilename = #{finalcontractfilename,jdbcType=VARCHAR},
+      applyer = #{applyer,jdbcType=VARCHAR},
+      organtype = #{organtype,jdbcType=VARCHAR},
+      applytime = #{applytime,jdbcType=TIMESTAMP},
+      auditer1 = #{auditer1,jdbcType=VARCHAR},
+      auditime1 = #{auditime1,jdbcType=TIMESTAMP},
+      sealer = #{sealer,jdbcType=VARCHAR},
+      sealtime = #{sealtime,jdbcType=TIMESTAMP},
+      sealstatus = #{sealstatus,jdbcType=INTEGER},
+      username = #{username,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      reason = #{reason,jdbcType=VARCHAR},
+      uploadstatus = #{uploadstatus,jdbcType=INTEGER},
+      orderids = #{orderids,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.mallcontract.MallSealApply" >
+    update mall_seal_apply
+    set code = #{code,jdbcType=VARCHAR},
+      contracttype = #{contracttype,jdbcType=INTEGER},
+      contractfilename = #{contractfilename,jdbcType=VARCHAR},
+      tempcontractfilename = #{tempcontractfilename,jdbcType=VARCHAR},
+      finalcontractfilename = #{finalcontractfilename,jdbcType=VARCHAR},
+      applyer = #{applyer,jdbcType=VARCHAR},
+      organtype = #{organtype,jdbcType=VARCHAR},
+      applytime = #{applytime,jdbcType=TIMESTAMP},
+      auditer1 = #{auditer1,jdbcType=VARCHAR},
+      auditime1 = #{auditime1,jdbcType=TIMESTAMP},
+      sealer = #{sealer,jdbcType=VARCHAR},
+      sealtime = #{sealtime,jdbcType=TIMESTAMP},
+      sealstatus = #{sealstatus,jdbcType=INTEGER},
+      username = #{username,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      reason = #{reason,jdbcType=VARCHAR},
+      uploadstatus = #{uploadstatus,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

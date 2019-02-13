@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.comm.BrandMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.comm.Brand" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="PARENT_ID" property="parentId" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="TYPE" property="type" jdbcType="INTEGER" />
+    <result column="INITIAL" property="initial" jdbcType="CHAR" />
+    <result column="LOGO_URL" property="logoUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, NAME, STATUS, PARENT_ID, CREATE_TIME, TYPE, INITIAL, LOGO_URL
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and ID = #{id}
+    </if>
+    <if test="name != null and name !=''" >
+       and NAME = #{name}
+    </if>
+    <if test="status != null and status !=''" >
+       and STATUS = #{status}
+    </if>
+    <if test="parentId != null and parentId !=''" >
+       and PARENT_ID = #{parentId}
+    </if>
+    <if test="createTime != null and createTime !=''" >
+       and CREATE_TIME = #{createTime}
+    </if>
+    <if test="type != null and type !=''" >
+       and TYPE = #{type}
+    </if>
+    <if test="initial != null and initial !=''" >
+       and INITIAL = #{initial}
+    </if>
+    <if test="logoUrl != null and logoUrl !=''" >
+       and LOGO_URL = #{logoUrl}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.comm.Brand" >
+    select 
+    <include refid="Base_Column_List" />
+    from comm_brand
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.comm.Brand" >
+    select count(*) from comm_brand where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from comm_brand
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from comm_brand
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.comm.Brand" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(314);
+    </selectKey>
+    insert into comm_brand (ID, NAME, STATUS, 
+      PARENT_ID, CREATE_TIME, TYPE, 
+      INITIAL, LOGO_URL)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{parentId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{type,jdbcType=INTEGER}, 
+      #{initial,jdbcType=CHAR}, #{logoUrl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.comm.Brand" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(314);
+    </selectKey>
+    insert into comm_brand
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="parentId != null" >
+        PARENT_ID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="initial != null" >
+        INITIAL,
+      </if>
+      <if test="logoUrl != null" >
+        LOGO_URL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="initial != null" >
+        #{initial,jdbcType=CHAR},
+      </if>
+      <if test="logoUrl != null" >
+        #{logoUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.comm.Brand" >
+    update comm_brand
+    <set >
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null" >
+        PARENT_ID = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="initial != null" >
+        INITIAL = #{initial,jdbcType=CHAR},
+      </if>
+      <if test="logoUrl != null" >
+        LOGO_URL = #{logoUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.comm.Brand" >
+    update comm_brand
+    set NAME = #{name,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=INTEGER},
+      PARENT_ID = #{parentId,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      TYPE = #{type,jdbcType=INTEGER},
+      INITIAL = #{initial,jdbcType=CHAR},
+      LOGO_URL = #{logoUrl,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  
+  
+  <select id="getBrands" resultType="map">
+  	SELECT br.id ,br.`NAME` brandName FROM comm_brand br ORDER BY br.`NAME`
+  </select>
+  
+  <select id="queryMembersByBrandId" resultType="map">
+  	SELECT b.ID id,b.`NAME` name FROM cif_brand_relate a JOIN cif_member b
+ON a.MEMBER_ID=b.ID AND a.BRAND_ID=#{id,jdbcType=INTEGER} 
+  </select>
+  
+</mapper>

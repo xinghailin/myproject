@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.comm.RecommendMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.comm.Recommend" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="typeId" property="typeid" jdbcType="INTEGER" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="pic" property="pic" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="uri" property="uri" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="everyMonthPay" property="everyMonthPay" jdbcType="VARCHAR" />
+    <result column="firstMonthPay" property="firstMonthPay" jdbcType="VARCHAR" />
+    <result column="firstpay" property="firstpay" jdbcType="VARCHAR" />
+    <result column="oneMonthPay" property="oneMonthPay" jdbcType="VARCHAR" />
+    <result column="thirteenthMonthPay" property="thirteenthMonthPay" jdbcType="VARCHAR" />
+    <result column="fourteenthMonthPay" property="fourteenthMonthPay" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, typeId, brand, model, version, pic, sort, uri, createTime,everyMonthPay,firstMonthPay,firstpay,oneMonthPay,thirteenthMonthPay,fourteenthMonthPay
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="typeid != null and typeid !=''" >
+       and typeId = #{typeid}
+    </if>
+    <if test="brand != null and brand !=''" >
+       and brand like concat('%',#{brand},'%')
+    </if>
+    <if test="model != null and model !=''" >
+       and model like concat('%',#{model},'%')
+    </if>
+    <if test="version != null and version !=''" >
+       and version like concat('%',#{version},'%')
+    </if>
+    <if test="pic != null and pic !=''" >
+       and pic = #{pic}
+    </if>
+    <if test="sort != null and sort !=''" >
+       and sort = #{sort}
+    </if>
+    <if test="uri != null and uri !=''" >
+       and uri = #{uri}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createTime = #{createtime}
+    </if>
+     <if test="everyMonthPay != null and everyMonthPay !=''" >
+       and everyMonthPay = #{everyMonthPay}
+    </if>
+     <if test="firstMonthPay != null and firstMonthPay !=''" >
+       and firstMonthPay = #{firstMonthPay}
+    </if>
+     <if test="firstpay != null and firstpay !=''" >
+       and firstpay = #{firstpay}
+    </if>
+    <if test="oneMonthPay != null and oneMonthPay !=''" >
+       and oneMonthPay = #{oneMonthPay}
+    </if>
+    <if test="thirteenthMonthPay != null and thirteenthMonthPay !=''" >
+       and thirteenthMonthPay = #{thirteenthMonthPay}
+    </if>
+    <if test="fourteenthMonthPay != null and fourteenthMonthPay !=''" >
+       and fourteenthMonthPay = #{fourteenthMonthPay}
+    </if>
+   ORDER BY sort
+   
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.comm.Recommend" >
+    select 
+    <include refid="Base_Column_List" />
+    from comm_recommend
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.comm.Recommend" >
+    select count(*) from comm_recommend where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from comm_recommend
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from comm_recommend
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.comm.Recommend" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(317);
+    </selectKey>
+    insert into comm_recommend (id, typeId, brand, 
+      model, version, pic, 
+      sort, uri, createTime,everyMonthPay,firstMonthPay,firstpay,oneMonthPay,thirteenthMonthPay,fourteenthMonthPay
+      )
+    values (#{id,jdbcType=INTEGER}, #{typeid,jdbcType=INTEGER}, #{brand,jdbcType=VARCHAR}, 
+      #{model,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, 
+      #{sort,jdbcType=INTEGER}, #{uri,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP},
+      #{everyMonthPay,jdbcType=VARCHAR},#{firstMonthPay,jdbcType=VARCHAR},#{firstpay,jdbcType=VARCHAR}
+      ,#{oneMonthPay,jdbcType=VARCHAR}
+      ,#{thirteenthMonthPay,jdbcType=VARCHAR},#{fourteenthMonthPay,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.comm.Recommend" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(317);
+    </selectKey>
+    insert into comm_recommend
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="typeid != null" >
+        typeId,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="pic != null" >
+        pic,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="uri != null" >
+        uri,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="firstMonthPay != null" >
+        firstMonthPay,
+      </if>
+      <if test="everyMonthPay != null" >
+        everyMonthPay,
+      </if>
+      <if test="firstpay != null" >
+        firstpay,
+      </if>
+       <if test="oneMonthPay != null" >
+        oneMonthPay,
+      </if>
+       <if test="thirteenthMonthPay != null" >
+        thirteenthMonthPay,
+      </if>
+       <if test="fourteenthMonthPay != null" >
+        fourteenthMonthPay,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="typeid != null" >
+        #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null" >
+        #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="uri != null" >
+        #{uri,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+       <if test="firstMonthPay != null" >
+        #{firstMonthPay,jdbcType=VARCHAR},
+      </if>
+       <if test="everyMonthPay != null" >
+        #{everyMonthPay,jdbcType=VARCHAR},
+      </if>
+        <if test="firstpay != null" >
+        #{firstpay,jdbcType=VARCHAR},
+      </if>
+      <if test="oneMonthPay != null" >
+        #{oneMonthPay,jdbcType=VARCHAR},
+      </if>
+      <if test="thirteenthMonthPay != null" >
+        #{thirteenthMonthPay,jdbcType=VARCHAR},
+      </if>
+      <if test="thirteenthMonthPay != null" >
+        #{thirteenthMonthPay,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.comm.Recommend" >
+    update comm_recommend
+    <set >
+      <if test="typeid != null" >
+        typeId = #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null" >
+        pic = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="uri != null" >
+        uri = #{uri,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstMonthPay != null" >
+        firstMonthPay = #{firstMonthPay,jdbcType=VARCHAR},
+      </if>
+      <if test="everyMonthPay != null" >
+        everyMonthPay = #{everyMonthPay,jdbcType=VARCHAR},
+      </if>
+       <if test="firstpay != null" >
+        firstpay = #{firstpay,jdbcType=VARCHAR},
+      </if>
+        <if test="oneMonthPay != null" >
+        oneMonthPay = #{oneMonthPay,jdbcType=VARCHAR},
+      </if>
+      
+        <if test="thirteenthMonthPay != null" >
+        thirteenthMonthPay = #{thirteenthMonthPay,jdbcType=VARCHAR},
+      </if>
+        <if test="fourteenthMonthPay != null" >
+        fourteenthMonthPay = #{fourteenthMonthPay,jdbcType=VARCHAR},
+      </if>
+    </set>
+     where id = #{id,jdbcType=INTEGER}
+  </update>
+   <update id="updateByTypeidSelective" parameterType="com.yyq.car.portal.common.model.comm.Recommend" >
+    update comm_recommend
+    <set >
+      <if test="typeid != null" >
+        typeId = #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null" >
+        pic = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="uri != null" >
+        uri = #{uri,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstMonthPay != null" >
+        firstMonthPay = #{firstMonthPay,jdbcType=VARCHAR},
+      </if>
+      <if test="everyMonthPay != null" >
+        everyMonthPay = #{everyMonthPay,jdbcType=VARCHAR},
+      </if>
+      <if test="firstpay != null" >
+        firstpay = #{firstpay,jdbcType=VARCHAR},
+      </if>
+       <if test="oneMonthPay != null" >
+        oneMonthPay = #{oneMonthPay,jdbcType=VARCHAR},
+      </if>
+       <if test="thirteenthMonthPay != null" >
+        thirteenthMonthPay = #{thirteenthMonthPay,jdbcType=VARCHAR},
+      </if>
+       <if test="fourteenthMonthPay != null" >
+        fourteenthMonthPay = #{fourteenthMonthPay,jdbcType=VARCHAR},
+      </if>
+    </set>
+     where typeId = #{typeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.comm.Recommend" >
+    update comm_recommend
+    set typeId = #{typeid,jdbcType=INTEGER},
+      brand = #{brand,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      pic = #{pic,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      uri = #{uri,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+       firstMonthPay = #{firstMonthPay,jdbcType=VARCHAR},
+        everyMonthPay = #{everyMonthPay,jdbcType=VARCHAR},
+        firstpay = #{firstpay,jdbcType=VARCHAR},
+        oneMonthPay = #{oneMonthPay,jdbcType=VARCHAR},
+        thirteenthMonthPay = #{thirteenthMonthPay,jdbcType=VARCHAR},
+        fourteenthMonthPay = #{fourteenthMonthPay,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+   <select id="APPselectBySort" resultType="map" parameterType="map" >
+   select 
+    typeId id,brand,model,pic,sort,min(cast(everyMonthPay as UNSIGNED INTEGER))everyMonthPay,firstpay,typeId
+    from comm_recommend
+	GROUP BY model,brand
+    order by sort desc,createTime DESC limit #{page,jdbcType=INTEGER},#{size,jdbcType=INTEGER}
+  </select>
+  <select id="selectBySort" resultType="map" parameterType="map" >
+    select 
+    a.typeId id,a.brand,a.model,a.version vs,a.pic,a.sort,a.everyMonthPay pay,a.firstMonthPay,b.firstpay
+    from comm_recommend a JOIN pro_car_type b ON a.typeId=b.id
+    order by a.sort desc,a.createTime DESC limit #{page,jdbcType=INTEGER},#{size,jdbcType=INTEGER}
+  </select>
+  <select id="queryByTypeId" resultType="Integer" parameterType="java.lang.Integer" >
+  select  DISTINCT typeid from comm_recommend where typeid=#{typeid}
+  </select>
+  <select id="countByBrandAndModel" resultType="Integer" parameterType="com.yyq.car.portal.common.model.comm.Recommend" >
+  select count(*) from comm_recommend where brand =#{brand} and model=#{model}
+  </select>
+</mapper>

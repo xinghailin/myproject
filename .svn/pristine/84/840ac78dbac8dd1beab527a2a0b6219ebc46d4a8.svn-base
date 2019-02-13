@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.biz.BizriskfileMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.biz.Bizriskfile" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="riskid" property="riskid" jdbcType="INTEGER" />
+    <result column="contractid" property="contractid" jdbcType="INTEGER" />
+    <result column="filecode" property="filecode" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, riskid, contractid, filecode, address, type, createtime
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="riskid != null and riskid !=''" >
+       and riskid = #{riskid}
+    </if>
+    <if test="contractid != null and contractid !=''" >
+       and contractid = #{contractid}
+    </if>
+    <if test="filecode != null and filecode !=''" >
+       and filecode = #{filecode}
+    </if>
+    <if test="address != null and address !=''" >
+       and address = #{address}
+    </if>
+    <if test="type != null and type !=''" >
+       and type = #{type}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.biz.Bizriskfile" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_riskfile
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.biz.Bizriskfile" >
+    select count(*) from biz_riskfile where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_riskfile
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from biz_riskfile
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.biz.Bizriskfile" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(405);
+    </selectKey>
+    insert into biz_riskfile (id, riskid, contractid, 
+      filecode, address, type, 
+      createtime)
+    values (#{id,jdbcType=INTEGER}, #{riskid,jdbcType=INTEGER}, #{contractid,jdbcType=INTEGER}, 
+      #{filecode,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.biz.Bizriskfile" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(405);
+    </selectKey>
+    insert into biz_riskfile
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="riskid != null" >
+        riskid,
+      </if>
+      <if test="contractid != null" >
+        contractid,
+      </if>
+      <if test="filecode != null" >
+        filecode,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="riskid != null" >
+        #{riskid,jdbcType=INTEGER},
+      </if>
+      <if test="contractid != null" >
+        #{contractid,jdbcType=INTEGER},
+      </if>
+      <if test="filecode != null" >
+        #{filecode,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.biz.Bizriskfile" >
+    update biz_riskfile
+    <set >
+      <if test="riskid != null" >
+        riskid = #{riskid,jdbcType=INTEGER},
+      </if>
+      <if test="contractid != null" >
+        contractid = #{contractid,jdbcType=INTEGER},
+      </if>
+      <if test="filecode != null" >
+        filecode = #{filecode,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.biz.Bizriskfile" >
+    update biz_riskfile
+    set riskid = #{riskid,jdbcType=INTEGER},
+      contractid = #{contractid,jdbcType=INTEGER},
+      filecode = #{filecode,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.cif.OfferbillMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.cif.Offerbill" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="needid" property="needid" jdbcType="INTEGER" />
+    <result column="allprice" property="allprice" jdbcType="DECIMAL" />
+    <result column="firstPay" property="firstpay" jdbcType="DECIMAL" />
+    <result column="secondPay" property="secondpay" jdbcType="DECIMAL" />
+    <result column="thirteenthPay" property="thirteenthpay" jdbcType="DECIMAL" />
+    <result column="fourteenthPay" property="fourteenthpay" jdbcType="DECIMAL" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="district" property="district" jdbcType="VARCHAR" />
+    <result column="areaprice" property="areaprice" jdbcType="DECIMAL" />
+    <result column="validtime" property="validtime" jdbcType="VARCHAR" />
+    
+    <result column="bodyprice" property="bodyprice" jdbcType="DECIMAL" />
+    <result column="tpprice" property="tpprice" jdbcType="DECIMAL" />
+    <result column="cnsystem" property="cnsystem" jdbcType="DECIMAL" />
+    <result column="decorateprice" property="decorateprice" jdbcType="DECIMAL" />
+    <result column="middleman" property="middleman" jdbcType="DECIMAL" />
+    <result column="channelprice" property="channelprice" jdbcType="DECIMAL" />
+    <result column="finpri" property="finpri" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, needid, allprice, firstPay, secondPay, thirteenthPay, fourteenthPay, createtime, 
+    district, areaprice, validtime,bodyprice,tpprice,cnsystem,decorateprice,middleman,channelprice,finpri
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="needid != null and needid !=''" >
+       and needid = #{needid}
+    </if>
+    <if test="allprice != null and allprice !=''" >
+       and allprice = #{allprice}
+    </if>
+    <if test="firstpay != null and firstpay !=''" >
+       and firstPay = #{firstpay}
+    </if>
+    <if test="secondpay != null and secondpay !=''" >
+       and secondPay = #{secondpay}
+    </if>
+    <if test="thirteenthpay != null and thirteenthpay !=''" >
+       and thirteenthPay = #{thirteenthpay}
+    </if>
+    <if test="fourteenthpay != null and fourteenthpay !=''" >
+       and fourteenthPay = #{fourteenthpay}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="district != null and district !=''" >
+       and district = #{district}
+    </if>
+    <if test="areaprice != null and areaprice !=''" >
+       and areaprice = #{areaprice}
+    </if>
+    <if test="validtime != null and validtime !=''" >
+       and validtime = #{validtime}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.cif.Offerbill" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_offerbill
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.cif.Offerbill" >
+    select count(*) from cif_offerbill where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_offerbill
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cif_offerbill
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.cif.Offerbill" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(123);
+    </selectKey>
+    insert into cif_offerbill (id, needid, allprice, 
+      firstPay, secondPay, thirteenthPay, 
+      fourteenthPay, createtime, district, 
+      areaprice, validtime)
+    values (#{id,jdbcType=INTEGER}, #{needid,jdbcType=INTEGER}, #{allprice,jdbcType=DECIMAL}, 
+      #{firstpay,jdbcType=DECIMAL}, #{secondpay,jdbcType=DECIMAL}, #{thirteenthpay,jdbcType=DECIMAL}, 
+      #{fourteenthpay,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, #{district,jdbcType=VARCHAR}, 
+      #{areaprice,jdbcType=DECIMAL}, #{validtime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.cif.Offerbill" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(123);
+    </selectKey>
+    insert into cif_offerbill
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="needid != null" >
+        needid,
+      </if>
+      <if test="allprice != null" >
+        allprice,
+      </if>
+      <if test="firstpay != null" >
+        firstPay,
+      </if>
+      <if test="secondpay != null" >
+        secondPay,
+      </if>
+      <if test="thirteenthpay != null" >
+        thirteenthPay,
+      </if>
+      <if test="fourteenthpay != null" >
+        fourteenthPay,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="district != null" >
+        district,
+      </if>
+      <if test="areaprice != null" >
+        areaprice,
+      </if>
+      <if test="validtime != null" >
+        validtime,
+      </if>
+      <if test="bodyprice != null" >
+        bodyprice,
+      </if>
+      <if test="tpprice != null" >
+        tpprice,
+      </if>
+      <if test="cnsystem != null" >
+        cnsystem,
+      </if>
+      <if test="decorateprice != null" >
+        decorateprice,
+      </if>
+      <if test="middleman != null" >
+        middleman,
+      </if>
+      <if test="channelprice != null" >
+        channelprice,
+      </if>
+      <if test="finpri != null" >
+        finpri,
+      </if>
+      <if test="remainprice != null" >
+        remainprice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="needid != null" >
+        #{needid,jdbcType=INTEGER},
+      </if>
+      <if test="allprice != null" >
+        #{allprice,jdbcType=DECIMAL},
+      </if>
+      <if test="firstpay != null" >
+        #{firstpay,jdbcType=DECIMAL},
+      </if>
+      <if test="secondpay != null" >
+        #{secondpay,jdbcType=DECIMAL},
+      </if>
+      <if test="thirteenthpay != null" >
+        #{thirteenthpay,jdbcType=DECIMAL},
+      </if>
+      <if test="fourteenthpay != null" >
+        #{fourteenthpay,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="district != null" >
+        #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="areaprice != null" >
+        #{areaprice,jdbcType=DECIMAL},
+      </if>
+      <if test="validtime != null" >
+        #{validtime,jdbcType=VARCHAR},
+      </if>
+      <if test="bodyprice != null" >
+        #{bodyprice,jdbcType=DECIMAL},
+      </if>
+      <if test="tpprice != null" >
+        #{tpprice,jdbcType=DECIMAL},
+      </if>
+      <if test="cnsystem != null" >
+        #{cnsystem,jdbcType=DECIMAL},
+      </if>
+      <if test="decorateprice != null" >
+        #{decorateprice,jdbcType=DECIMAL},
+      </if>
+      <if test="middleman != null" >
+        #{middleman,jdbcType=VARCHAR},
+      </if>
+      <if test="channelprice != null" >
+        #{channelprice,jdbcType=DECIMAL},
+      </if>
+      <if test="finpri != null" >
+        #{finpri,jdbcType=DECIMAL},
+      </if>
+      <if test="remainprice != null" >
+        #{remainprice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.cif.Offerbill" >
+    update cif_offerbill
+    <set >
+      <if test="needid != null" >
+        needid = #{needid,jdbcType=INTEGER},
+      </if>
+      <if test="allprice != null" >
+        allprice = #{allprice,jdbcType=DECIMAL},
+      </if>
+      <if test="firstpay != null" >
+        firstPay = #{firstpay,jdbcType=DECIMAL},
+      </if>
+      <if test="secondpay != null" >
+        secondPay = #{secondpay,jdbcType=DECIMAL},
+      </if>
+      <if test="thirteenthpay != null" >
+        thirteenthPay = #{thirteenthpay,jdbcType=DECIMAL},
+      </if>
+      <if test="fourteenthpay != null" >
+        fourteenthPay = #{fourteenthpay,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="district != null" >
+        district = #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="areaprice != null" >
+        areaprice = #{areaprice,jdbcType=DECIMAL},
+      </if>
+      <if test="validtime != null" >
+        validtime = #{validtime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.cif.Offerbill" >
+    update cif_offerbill
+    set needid = #{needid,jdbcType=INTEGER},
+      allprice = #{allprice,jdbcType=DECIMAL},
+      firstPay = #{firstpay,jdbcType=DECIMAL},
+      secondPay = #{secondpay,jdbcType=DECIMAL},
+      thirteenthPay = #{thirteenthpay,jdbcType=DECIMAL},
+      fourteenthPay = #{fourteenthpay,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      district = #{district,jdbcType=VARCHAR},
+      areaprice = #{areaprice,jdbcType=DECIMAL},
+      validtime = #{validtime,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

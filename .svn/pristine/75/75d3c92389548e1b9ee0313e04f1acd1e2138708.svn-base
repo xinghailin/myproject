@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.biz.BizclientinfoMapper">
+	<resultMap id="BaseResultMap"
+		type="com.yyq.car.portal.common.model.biz.Bizclientinfo">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="filecode" property="filecode" jdbcType="VARCHAR" />
+		<result column="shopid" property="shopid" jdbcType="INTEGER" />
+		<result column="shopname" property="shopname" jdbcType="VARCHAR" />
+		<result column="clientype" property="clientype" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="identify" property="identify" jdbcType="VARCHAR" />
+		<result column="phone" property="phone" jdbcType="VARCHAR" />
+		<result column="companyname" property="companyname" jdbcType="VARCHAR" />
+		<result column="bizlicense" property="bizlicense" jdbcType="VARCHAR" />
+		<result column="principle" property="principle" jdbcType="VARCHAR" />
+		<result column="comeshoptime" property="comeshoptime" jdbcType="TIMESTAMP" />
+		<result column="initials" property="initials" jdbcType="VARCHAR" />
+		<result column="brand" property="brand" jdbcType="VARCHAR" />
+		<result column="model" property="model" jdbcType="VARCHAR" />
+		<result column="version" property="version" jdbcType="VARCHAR" />
+		<result column="heartprice" property="heartprice" jdbcType="VARCHAR" />
+		<result column="color" property="color" jdbcType="VARCHAR" />
+		<result column="nowcar" property="nowcar" jdbcType="VARCHAR" />
+		<result column="oldintroduce" property="oldintroduce" jdbcType="VARCHAR" />
+		<result column="haslicense" property="haslicense" jdbcType="VARCHAR" />
+		<result column="clevel" property="clevel" jdbcType="VARCHAR" />
+		<result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+		<result column="status" property="status" jdbcType="VARCHAR" />
+		<result column="sellid" property="sellid" jdbcType="INTEGER" />
+		<result column="sellername" property="sellername" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, filecode, shopid, shopname, clientype, name, identify, phone,
+		companyname, bizlicense,
+		principle, comeshoptime, initials, brand, model, version, heartprice, color,
+		nowcar,
+		oldintroduce, haslicense, clevel, createtime, status, sellid, sellername
+	</sql>
+	<sql id="wherecase">
+		1=1
+		<if test="id != null and id !=''">
+			and id = #{id}
+		</if>
+		<if test="filecode != null and filecode !=''">
+			and filecode = #{filecode}
+		</if>
+		<if test="shopid != null and shopid !=''">
+			and shopid = #{shopid}
+		</if>
+		<if test="shopname != null and shopname !=''">
+			and shopname = #{shopname}
+		</if>
+		<if test="clientype != null and clientype !=''">
+			and clientype = #{clientype}
+		</if>
+		<if test="name != null and name !=''">
+			and name = #{name}
+		</if>
+		<if test="identify != null and identify !=''">
+			and identify = #{identify}
+		</if>
+		<if test="phone != null and phone !=''">
+			and phone = #{phone}
+		</if>
+		<if test="companyname != null and companyname !=''">
+			and companyname = #{companyname}
+		</if>
+		<if test="bizlicense != null and bizlicense !=''">
+			and bizlicense = #{bizlicense}
+		</if>
+		<if test="principle != null and principle !=''">
+			and principle = #{principle}
+		</if>
+		<if test="comeshoptime != null and comeshoptime !=''">
+			and comeshoptime = #{comeshoptime}
+		</if>
+		<if test="initials != null and initials !=''">
+			and initials = #{initials}
+		</if>
+		<if test="brand != null and brand !=''">
+			and brand = #{brand}
+		</if>
+		<if test="model != null and model !=''">
+			and model = #{model}
+		</if>
+		<if test="version != null and version !=''">
+			and version = #{version}
+		</if>
+		<if test="heartprice != null and heartprice !=''">
+			and heartprice = #{heartprice}
+		</if>
+		<if test="color != null and color !=''">
+			and color = #{color}
+		</if>
+		<if test="nowcar != null and nowcar !=''">
+			and nowcar = #{nowcar}
+		</if>
+		<if test="oldintroduce != null and oldintroduce !=''">
+			and oldintroduce = #{oldintroduce}
+		</if>
+		<if test="haslicense != null and haslicense !=''">
+			and haslicense = #{haslicense}
+		</if>
+		<if test="clevel != null and clevel !=''">
+			and clevel = #{clevel}
+		</if>
+		<if test="createtime != null and createtime !=''">
+			and createtime = #{createtime}
+		</if>
+		<if test="status != null and status !=''">
+			and status = #{status}
+		</if>
+		<if test="sellid != null and sellid !=''">
+			and sellid = #{sellid}
+		</if>
+		<if test="sellername != null and sellername !=''">
+			and sellername = #{sellername}
+		</if>
+	</sql>
+	<select id="selectByCriteria" resultMap="BaseResultMap"
+		parameterType="com.yyq.car.portal.common.model.biz.Bizclientinfo">
+		select
+		<include refid="Base_Column_List" />
+		from biz_clientinfo
+		where
+		<include refid="wherecase" />
+	</select>
+	<select id="countByCriteria" resultType="int"
+		parameterType="com.yyq.car.portal.common.model.biz.Bizclientinfo">
+		select count(*) from biz_clientinfo where
+		<include refid="wherecase" />
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from biz_clientinfo
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from biz_clientinfo
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.yyq.car.portal.common.model.biz.Bizclientinfo">
+		<selectKey resultType="java.lang.Integer" keyProperty="id"
+			order="BEFORE">
+			SELECT NEXTVAL(400);
+		</selectKey>
+		insert into biz_clientinfo (id, filecode, shopid,
+		shopname, clientype, name,
+		identify, phone, companyname,
+		bizlicense, principle, comeshoptime,
+		initials, brand, model,
+		version, heartprice, color,
+		nowcar, oldintroduce, haslicense,
+		clevel, createtime, status,
+		sellid, sellername)
+		values (#{id,jdbcType=INTEGER}, #{filecode,jdbcType=VARCHAR},
+		#{shopid,jdbcType=INTEGER},
+		#{shopname,jdbcType=VARCHAR}, #{clientype,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+		#{identify,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR},
+		#{companyname,jdbcType=VARCHAR},
+		#{bizlicense,jdbcType=VARCHAR}, #{principle,jdbcType=VARCHAR}, #{comeshoptime,jdbcType=TIMESTAMP},
+		#{initials,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR},
+		#{model,jdbcType=VARCHAR},
+		#{version,jdbcType=VARCHAR}, #{heartprice,jdbcType=VARCHAR}, #{color,jdbcType=VARCHAR},
+		#{nowcar,jdbcType=VARCHAR}, #{oldintroduce,jdbcType=VARCHAR},
+		#{haslicense,jdbcType=VARCHAR},
+		#{clevel,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR},
+		#{sellid,jdbcType=INTEGER}, #{sellername,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.biz.Bizclientinfo">
+		<selectKey resultType="java.lang.Integer" keyProperty="id"
+			order="BEFORE">
+			SELECT NEXTVAL(400);
+		</selectKey>
+		insert into biz_clientinfo
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			id,
+			<if test="filecode != null">
+				filecode,
+			</if>
+			<if test="shopid != null">
+				shopid,
+			</if>
+			<if test="shopname != null">
+				shopname,
+			</if>
+			<if test="clientype != null">
+				clientype,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="identify != null">
+				identify,
+			</if>
+			<if test="phone != null">
+				phone,
+			</if>
+			<if test="companyname != null">
+				companyname,
+			</if>
+			<if test="bizlicense != null">
+				bizlicense,
+			</if>
+			<if test="principle != null">
+				principle,
+			</if>
+			<if test="comeshoptime != null">
+				comeshoptime,
+			</if>
+			<if test="initials != null">
+				initials,
+			</if>
+			<if test="brand != null">
+				brand,
+			</if>
+			<if test="model != null">
+				model,
+			</if>
+			<if test="version != null">
+				version,
+			</if>
+			<if test="heartprice != null">
+				heartprice,
+			</if>
+			<if test="color != null">
+				color,
+			</if>
+			<if test="nowcar != null">
+				nowcar,
+			</if>
+			<if test="oldintroduce != null">
+				oldintroduce,
+			</if>
+			<if test="haslicense != null">
+				haslicense,
+			</if>
+			<if test="clevel != null">
+				clevel,
+			</if>
+			<if test="createtime != null">
+				createtime,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="sellid != null">
+				sellid,
+			</if>
+			<if test="sellername != null">
+				sellername,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			#{id,jdbcType=INTEGER},
+			<if test="filecode != null">
+				#{filecode,jdbcType=VARCHAR},
+			</if>
+			<if test="shopid != null">
+				#{shopid,jdbcType=INTEGER},
+			</if>
+			<if test="shopname != null">
+				#{shopname,jdbcType=VARCHAR},
+			</if>
+			<if test="clientype != null">
+				#{clientype,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="identify != null">
+				#{identify,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null">
+				#{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="companyname != null">
+				#{companyname,jdbcType=VARCHAR},
+			</if>
+			<if test="bizlicense != null">
+				#{bizlicense,jdbcType=VARCHAR},
+			</if>
+			<if test="principle != null">
+				#{principle,jdbcType=VARCHAR},
+			</if>
+			<if test="comeshoptime != null">
+				#{comeshoptime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="initials != null">
+				#{initials,jdbcType=VARCHAR},
+			</if>
+			<if test="brand != null">
+				#{brand,jdbcType=VARCHAR},
+			</if>
+			<if test="model != null">
+				#{model,jdbcType=VARCHAR},
+			</if>
+			<if test="version != null">
+				#{version,jdbcType=VARCHAR},
+			</if>
+			<if test="heartprice != null">
+				#{heartprice,jdbcType=VARCHAR},
+			</if>
+			<if test="color != null">
+				#{color,jdbcType=VARCHAR},
+			</if>
+			<if test="nowcar != null">
+				#{nowcar,jdbcType=VARCHAR},
+			</if>
+			<if test="oldintroduce != null">
+				#{oldintroduce,jdbcType=VARCHAR},
+			</if>
+			<if test="haslicense != null">
+				#{haslicense,jdbcType=VARCHAR},
+			</if>
+			<if test="clevel != null">
+				#{clevel,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=VARCHAR},
+			</if>
+			<if test="sellid != null">
+				#{sellid,jdbcType=INTEGER},
+			</if>
+			<if test="sellername != null">
+				#{sellername,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.biz.Bizclientinfo">
+		update biz_clientinfo
+		<set>
+			<if test="filecode != null">
+				filecode = #{filecode,jdbcType=VARCHAR},
+			</if>
+			<if test="shopid != null">
+				shopid = #{shopid,jdbcType=INTEGER},
+			</if>
+			<if test="shopname != null">
+				shopname = #{shopname,jdbcType=VARCHAR},
+			</if>
+			<if test="clientype != null">
+				clientype = #{clientype,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="identify != null">
+				identify = #{identify,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null">
+				phone = #{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="companyname != null">
+				companyname = #{companyname,jdbcType=VARCHAR},
+			</if>
+			<if test="bizlicense != null">
+				bizlicense = #{bizlicense,jdbcType=VARCHAR},
+			</if>
+			<if test="principle != null">
+				principle = #{principle,jdbcType=VARCHAR},
+			</if>
+			<if test="comeshoptime != null">
+				comeshoptime = #{comeshoptime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="initials != null">
+				initials = #{initials,jdbcType=VARCHAR},
+			</if>
+			<if test="brand != null">
+				brand = #{brand,jdbcType=VARCHAR},
+			</if>
+			<if test="model != null">
+				model = #{model,jdbcType=VARCHAR},
+			</if>
+			<if test="version != null">
+				version = #{version,jdbcType=VARCHAR},
+			</if>
+			<if test="heartprice != null">
+				heartprice = #{heartprice,jdbcType=VARCHAR},
+			</if>
+			<if test="color != null">
+				color = #{color,jdbcType=VARCHAR},
+			</if>
+			<if test="nowcar != null">
+				nowcar = #{nowcar,jdbcType=VARCHAR},
+			</if>
+			<if test="oldintroduce != null">
+				oldintroduce = #{oldintroduce,jdbcType=VARCHAR},
+			</if>
+			<if test="haslicense != null">
+				haslicense = #{haslicense,jdbcType=VARCHAR},
+			</if>
+			<if test="clevel != null">
+				clevel = #{clevel,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				createtime = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=VARCHAR},
+			</if>
+			<if test="sellid != null">
+				sellid = #{sellid,jdbcType=INTEGER},
+			</if>
+			<if test="sellername != null">
+				sellername = #{sellername,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.biz.Bizclientinfo">
+		update biz_clientinfo
+		set filecode = #{filecode,jdbcType=VARCHAR},
+		shopid = #{shopid,jdbcType=INTEGER},
+		shopname = #{shopname,jdbcType=VARCHAR},
+		clientype = #{clientype,jdbcType=VARCHAR},
+		name = #{name,jdbcType=VARCHAR},
+		identify = #{identify,jdbcType=VARCHAR},
+		phone = #{phone,jdbcType=VARCHAR},
+		companyname = #{companyname,jdbcType=VARCHAR},
+		bizlicense = #{bizlicense,jdbcType=VARCHAR},
+		principle = #{principle,jdbcType=VARCHAR},
+		comeshoptime = #{comeshoptime,jdbcType=TIMESTAMP},
+		initials = #{initials,jdbcType=VARCHAR},
+		brand = #{brand,jdbcType=VARCHAR},
+		model = #{model,jdbcType=VARCHAR},
+		version = #{version,jdbcType=VARCHAR},
+		heartprice = #{heartprice,jdbcType=VARCHAR},
+		color = #{color,jdbcType=VARCHAR},
+		nowcar = #{nowcar,jdbcType=VARCHAR},
+		oldintroduce = #{oldintroduce,jdbcType=VARCHAR},
+		haslicense = #{haslicense,jdbcType=VARCHAR},
+		clevel = #{clevel,jdbcType=VARCHAR},
+		createtime = #{createtime,jdbcType=TIMESTAMP},
+		status = #{status,jdbcType=VARCHAR},
+		sellid = #{sellid,jdbcType=INTEGER},
+		sellername = #{sellername,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<sql id="wherecaselike">
+		1=1
+		<if test="shopid != null and shopid !=''">
+			and shopid = #{shopid}
+		</if>
+		<if test="name != null and name !=''">
+			and name like concat('%',#{name},'%')
+		</if>
+		<if test="phone != null and phone !=''">
+			and phone like concat('%',#{phone},'%')
+		</if>
+		<if test="clientype != null and clientype !=''">
+			and clientype = #{clientype}
+		</if>
+		<if test="sellid != null and sellid !=''">
+			and sellid = #{sellid}
+		</if>
+		<if test="clevel != null and clevel !=''">
+			and clevel = #{clevel}
+		</if>
+		<if test="comeshoptime != null and comeshoptime !=''">
+			and comeshoptime = #{comeshoptime}
+		</if>
+	</sql>
+
+	<select id="selectByCriterialike" resultMap="BaseResultMap"
+		parameterType="com.yyq.car.portal.common.model.biz.Bizclientinfo">
+		select
+		<include refid="Base_Column_List" />
+		from biz_clientinfo
+		where
+		<include refid="wherecaselike" />
+		order by createtime desc
+	</select>
+	<select id="countByCriterialike" resultType="int"
+		parameterType="com.yyq.car.portal.common.model.biz.Bizclientinfo">
+		select count(*) from biz_clientinfo where
+		<include refid="wherecaselike" />
+	</select>
+
+	<insert id="insertSelectiveWithKey" parameterType="com.yyq.car.portal.common.model.biz.Bizclientinfo">
+		insert into biz_clientinfo
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			id,
+			<if test="filecode != null">
+				filecode,
+			</if>
+			<if test="shopid != null">
+				shopid,
+			</if>
+			<if test="shopname != null">
+				shopname,
+			</if>
+			<if test="clientype != null">
+				clientype,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="identify != null">
+				identify,
+			</if>
+			<if test="phone != null">
+				phone,
+			</if>
+			<if test="companyname != null">
+				companyname,
+			</if>
+			<if test="bizlicense != null">
+				bizlicense,
+			</if>
+			<if test="principle != null">
+				principle,
+			</if>
+			<if test="comeshoptime != null">
+				comeshoptime,
+			</if>
+			<if test="initials != null">
+				initials,
+			</if>
+			<if test="brand != null">
+				brand,
+			</if>
+			<if test="model != null">
+				model,
+			</if>
+			<if test="version != null">
+				version,
+			</if>
+			<if test="heartprice != null">
+				heartprice,
+			</if>
+			<if test="color != null">
+				color,
+			</if>
+			<if test="nowcar != null">
+				nowcar,
+			</if>
+			<if test="oldintroduce != null">
+				oldintroduce,
+			</if>
+			<if test="haslicense != null">
+				haslicense,
+			</if>
+			<if test="clevel != null">
+				clevel,
+			</if>
+			<if test="createtime != null">
+				createtime,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="sellid != null">
+				sellid,
+			</if>
+			<if test="sellername != null">
+				sellername,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			#{id,jdbcType=INTEGER},
+			<if test="filecode != null">
+				#{filecode,jdbcType=VARCHAR},
+			</if>
+			<if test="shopid != null">
+				#{shopid,jdbcType=INTEGER},
+			</if>
+			<if test="shopname != null">
+				#{shopname,jdbcType=VARCHAR},
+			</if>
+			<if test="clientype != null">
+				#{clientype,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="identify != null">
+				#{identify,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null">
+				#{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="companyname != null">
+				#{companyname,jdbcType=VARCHAR},
+			</if>
+			<if test="bizlicense != null">
+				#{bizlicense,jdbcType=VARCHAR},
+			</if>
+			<if test="principle != null">
+				#{principle,jdbcType=VARCHAR},
+			</if>
+			<if test="comeshoptime != null">
+				#{comeshoptime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="initials != null">
+				#{initials,jdbcType=VARCHAR},
+			</if>
+			<if test="brand != null">
+				#{brand,jdbcType=VARCHAR},
+			</if>
+			<if test="model != null">
+				#{model,jdbcType=VARCHAR},
+			</if>
+			<if test="version != null">
+				#{version,jdbcType=VARCHAR},
+			</if>
+			<if test="heartprice != null">
+				#{heartprice,jdbcType=VARCHAR},
+			</if>
+			<if test="color != null">
+				#{color,jdbcType=VARCHAR},
+			</if>
+			<if test="nowcar != null">
+				#{nowcar,jdbcType=VARCHAR},
+			</if>
+			<if test="oldintroduce != null">
+				#{oldintroduce,jdbcType=VARCHAR},
+			</if>
+			<if test="haslicense != null">
+				#{haslicense,jdbcType=VARCHAR},
+			</if>
+			<if test="clevel != null">
+				#{clevel,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=VARCHAR},
+			</if>
+			<if test="sellid != null">
+				#{sellid,jdbcType=INTEGER},
+			</if>
+			<if test="sellername != null">
+				#{sellername,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+  
+  
+  
+  
+    <select id="selectAllByCriterialike" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.biz.Bizclientinfo" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_clientinfo
+    where   
+     shopid in
+     <foreach collection="shopids" index="index" item="item" open="(" separator="," close=")" >
+	    #{item}
+	  </foreach>
+      and
+    <include refid="wherecaselike" />
+	order by createtime desc
+  </select>
+  <select id="countAllByCriterialike" resultType="int" parameterType="com.yyq.car.portal.common.model.biz.Bizclientinfo" >
+    select count(*) 
+    from biz_clientinfo
+      where   
+        shopid in
+     <foreach collection="shopids" index="index" item="item" open="(" separator="," close=")" >
+	    #{item}
+	  </foreach>
+      and
+    <include refid="wherecaselike" />
+  </select>
+  
+  
+</mapper>

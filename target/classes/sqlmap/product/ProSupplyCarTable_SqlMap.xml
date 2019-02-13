@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.product.prosupplycartableMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.product.prosupplycartable" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="protocolurl" property="protocolurl" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="shopid" property="shopid" jdbcType="INTEGER" />
+    <result column="shopname" property="shopname" jdbcType="VARCHAR" />
+    <result column="signingdate" property="signingdate" jdbcType="TIMESTAMP" />
+    <result column="duedate" property="duedate" jdbcType="TIMESTAMP" />
+    <result column="exceedmoney" property="exceedmoney" jdbcType="DECIMAL" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="nopasscause" property="nopasscause" jdbcType="VARCHAR" />
+      <result column="financialtype" property="financialtype" jdbcType="INTEGER" />
+    
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, protocolurl, createtime, shopid, shopname, signingdate, duedate, exceedmoney,
+    status,nopasscause,financialtype
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="name != null and name !=''" >
+       and name like concat('%',#{name},'%')
+    </if>
+    <if test="protocolurl != null and protocolurl !=''" >
+       and protocolurl = #{protocolurl}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="shopid != null and shopid !=''" >
+       and shopid = #{shopid}
+    </if>
+    <if test="shopname != null and shopname !=''" >
+       and shopname like concat('%',#{shopname},'%')
+    </if>
+    <if test="signingdate != null and signingdate !=''" >
+       and signingdate = #{signingdate}
+    </if>
+    <if test="duedate != null and duedate !=''" >
+       and duedate = #{duedate}
+    </if>
+    <if test="exceedmoney != null and exceedmoney !=''" >
+       and exceedmoney = #{exceedmoney}
+    </if>
+    <if test="status != null and status !='' and status!=66 and status!=60" >
+       and status = #{status}
+    </if> 
+    <if test="status==66" >
+       and status in(4,5,6,7)
+    </if> 
+     <if test="status==60" >
+       and status in(6,7)
+    </if> 
+    <if test="financialtype != null and financialtype !=''" >
+       and financialtype = #{financialtype}
+    </if>
+    ORDER BY createtime DESC
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.product.prosupplycartable" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_supply_car_table
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.product.prosupplycartable" >
+    select count(*) from pro_supply_car_table where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_supply_car_table
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pro_supply_car_table
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.product.prosupplycartable" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(613);
+    </selectKey>
+    insert into pro_supply_car_table (id, name, protocolurl, 
+      createtime, shopid, shopname, 
+      signingdate, duedate, exceedmoney, 
+      status,nopasscause,financialtype)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{protocolurl,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{shopid,jdbcType=INTEGER}, #{shopname,jdbcType=VARCHAR}, 
+      #{signingdate,jdbcType=TIMESTAMP}, #{duedate,jdbcType=TIMESTAMP}, #{exceedmoney,jdbcType=DECIMAL}, 
+      #{status,jdbcType=INTEGER}, #{nopasscause,jdbcType=VARCHAR}, #{financialtype,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.product.prosupplycartable" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(613);
+    </selectKey>
+    insert into pro_supply_car_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="protocolurl != null" >
+        protocolurl,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="shopid != null" >
+        shopid,
+      </if>
+      <if test="shopname != null" >
+        shopname,
+      </if>
+      <if test="signingdate != null" >
+        signingdate,
+      </if>
+      <if test="duedate != null" >
+        duedate,
+      </if>
+      <if test="exceedmoney != null" >
+        exceedmoney,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="nopasscause != null" >
+        nopasscause,
+      </if>
+      <if test="financialtype != null" >
+        financialtype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="protocolurl != null" >
+        #{protocolurl,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shopid != null" >
+        #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="shopname != null" >
+        #{shopname,jdbcType=VARCHAR},
+      </if>
+      <if test="signingdate != null" >
+        #{signingdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="duedate != null" >
+        #{duedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="exceedmoney != null" >
+        #{exceedmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+       <if test="nopasscause != null" >
+        #{nopasscause,jdbcType=VARCHAR},
+      </if>
+      <if test="financialtype != null" >
+        #{financialtype,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.product.prosupplycartable" >
+    update pro_supply_car_table
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="protocolurl != null" >
+        protocolurl = #{protocolurl,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shopid != null" >
+        shopid = #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="shopname != null" >
+        shopname = #{shopname,jdbcType=VARCHAR},
+      </if>
+      <if test="signingdate != null" >
+        signingdate = #{signingdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="duedate != null" >
+        duedate = #{duedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="exceedmoney != null" >
+        exceedmoney = #{exceedmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+       <if test="nopasscause != null" >
+        nopasscause = #{nopasscause,jdbcType=VARCHAR},
+      </if>
+      <if test="financialtype != null" >
+        financialtype = #{financialtype,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.product.prosupplycartable" >
+    update pro_supply_car_table
+    set name = #{name,jdbcType=VARCHAR},
+      protocolurl = #{protocolurl,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      shopid = #{shopid,jdbcType=INTEGER},
+      shopname = #{shopname,jdbcType=VARCHAR},
+      signingdate = #{signingdate,jdbcType=TIMESTAMP},
+      duedate = #{duedate,jdbcType=TIMESTAMP},
+      exceedmoney = #{exceedmoney,jdbcType=DECIMAL},
+      status = #{status,jdbcType=INTEGER},
+      nopasscause = #{nopasscause,jdbcType=VARCHAR},
+      financialtype = #{financialtype,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  
+  
+  <select id="selectAllByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.product.prosupplycartable" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_supply_car_table
+    where 1=1 
+     and shopid in
+	  <foreach collection="shopids" index="index" item="item" open="(" separator="," close=")" >
+	    #{item}
+	  </foreach> 
+    and 
+    <include refid="wherecase" />
+
+  </select>
+  <select id="countAllByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.product.prosupplycartable" >
+    select count(*) from pro_supply_car_table 
+    where 1=1
+     and shopid in
+	  <foreach collection="shopids" index="index" item="item" open="(" separator="," close=")" >
+	    #{item}
+	  </foreach>
+     and 
+      <include refid="wherecase" />
+
+  </select>
+  <select id="countSupplyCarTable" resultType="int"  parameterType="map">
+  select count(*) from pro_supply_car_table 
+    where 1=1
+    <if test="status ==10" >
+       and status=1
+      </if>
+      <if test="status ==20" >
+       and status in(4,5)
+      </if>
+       <if test="status ==30" >
+       and status=6 and shopid=#{shopid}
+      </if>
+  </select>
+</mapper>

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.biz.BizShopTermMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.biz.BizShopTerm" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="totalmoney" property="totalmoney" jdbcType="DECIMAL" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="note" property="note" jdbcType="VARCHAR" />
+    <result column="principal" property="principal" jdbcType="VARCHAR" />
+    <result column="big_scale" property="bigScale" jdbcType="DECIMAL" />
+    <result column="shop_first_creat_time" property="shopFirstCreatTime" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, totalmoney, type, createtime, note, principal, big_scale, shop_first_creat_time
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="name != null and name !=''" >
+       and name = #{name}
+    </if>
+    <if test="totalmoney != null and totalmoney !=''" >
+       and totalmoney = #{totalmoney}
+    </if>
+    <if test="type != null and type !=''" >
+       and type = #{type}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="note != null and note !=''" >
+       and note = #{note}
+    </if>
+    <if test="principal != null and principal !=''" >
+       and principal = #{principal}
+    </if>
+    <if test="bigScale != null and bigScale !=''" >
+       and big_scale = #{bigScale}
+    </if>
+    <if test="shopFirstCreatTime != null and shopFirstCreatTime !=''" >
+       and shop_first_creat_time = #{shopFirstCreatTime}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.biz.BizShopTerm" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_shopterm
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.biz.BizShopTerm" >
+    select count(*) from biz_shopterm where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_shopterm
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from biz_shopterm
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.biz.BizShopTerm" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(408);
+    </selectKey>
+    insert into biz_shopterm (id, name, totalmoney, 
+      type, createtime, note, 
+      principal, big_scale, shop_first_creat_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{totalmoney,jdbcType=DECIMAL}, 
+      #{type,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{note,jdbcType=VARCHAR}, 
+      #{principal,jdbcType=VARCHAR}, #{bigScale,jdbcType=DECIMAL}, #{shopFirstCreatTime,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.biz.BizShopTerm" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(408);
+    </selectKey>
+    insert into biz_shopterm
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="totalmoney != null" >
+        totalmoney,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="note != null" >
+        note,
+      </if>
+      <if test="principal != null" >
+        principal,
+      </if>
+      <if test="bigScale != null" >
+        big_scale,
+      </if>
+      <if test="shopFirstCreatTime != null" >
+        shop_first_creat_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="totalmoney != null" >
+        #{totalmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="note != null" >
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null" >
+        #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="bigScale != null" >
+        #{bigScale,jdbcType=DECIMAL},
+      </if>
+      <if test="shopFirstCreatTime != null" >
+        #{shopFirstCreatTime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.biz.BizShopTerm" >
+    update biz_shopterm
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="totalmoney != null" >
+        totalmoney = #{totalmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="note != null" >
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null" >
+        principal = #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="bigScale != null" >
+        big_scale = #{bigScale,jdbcType=DECIMAL},
+      </if>
+      <if test="shopFirstCreatTime != null" >
+        shop_first_creat_time = #{shopFirstCreatTime,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.biz.BizShopTerm" >
+    update biz_shopterm
+    set name = #{name,jdbcType=VARCHAR},
+      totalmoney = #{totalmoney,jdbcType=DECIMAL},
+      type = #{type,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      note = #{note,jdbcType=VARCHAR},
+      principal = #{principal,jdbcType=VARCHAR},
+      big_scale = #{bigScale,jdbcType=DECIMAL},
+      shop_first_creat_time = #{shopFirstCreatTime,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+<!--    分组中采购金融信息             start -->
+
+
+  <sql id="wherepurchasingfinancecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and shopterm.id like concat('%',#{id},'%')
+    </if>
+    <if test="name != null and name !=''" >
+       and shopterm.name like concat('%',#{name},'%')  
+    </if>
+    <if test="totalmoney != null and totalmoney !=''" >
+       and shopterm.totalmoney = #{totalmoney}
+    </if>
+    <if test="principal != null and principal !=''" >
+       and shopterm.principal like concat('%',#{principal},'%')  
+    </if>
+  </sql>
+  
+   <select id="selectByShopTermDto" resultType="com.yyq.car.portal.common.dto.BizShopTermDto" parameterType="com.yyq.car.portal.common.dto.BizShopTermDto" >
+    select 
+    shopterm.id,shopterm.name,shopterm.big_scale bigScale, shopterm.principal,shopterm.totalmoney, ifnull(sum(car.contractprice),0)   realmoney ,(shopterm.totalmoney*10000 - ifnull(sum(car.contractprice),0) )  beleftmoney
+    from biz_shopterm  shopterm 
+    LEFT JOIN pro_shop shop on shop.termid = shopterm.id
+   <!--  LEFT JOIN pro_car car on car.SHOP_ID = shop.id -->
+   LEFT JOIN
+   (
+	select id,SALE_STATUS,SHOP_ID,IFNULL(purchasesettlementprice,contractprice) contractprice from pro_car
+	) car
+	ON car.SHOP_ID = shop.id
+    where 
+    <include refid="wherepurchasingfinancecase" />
+    and shopterm.type = 2
+	and shop.finance_type = 2
+	and car.SALE_STATUS is null
+	GROUP BY shopterm.id
+    LIMIT #{start},#{pageSize}
+  </select>
+  <select id="countByShopTermDto" resultType="int" parameterType="com.yyq.car.portal.common.dto.BizShopTermDto" >
+   select count(*) from (
+    select 	shopterm.id
+    from biz_shopterm shopterm 
+    LEFT JOIN pro_shop shop on shop.termid = shopterm.id
+    LEFT JOIN pro_car car on car.SHOP_ID = shop.id
+    where 
+    <include refid="wherepurchasingfinancecase" />
+    and shopterm.type = 2
+	and shop.finance_type = 2
+	and car.SALE_STATUS is null
+	GROUP BY shopterm.id ) b
+  </select>
+  <!--    分组中采购金融信息           end -->
+  
+  <select id="selectBaseByMap" resultType="map" parameterType="map" >
+	SELECT * FROM `biz_shopterm` where 1=1 
+    <if test="name != null and name !=''" >
+       and name like concat('%',#{name},'%')
+    </if>
+    order by createtime desc
+    limit #{start},#{size}
+  </select>
+  <select id="countBaseByMap" resultType="int" parameterType="map" >
+    select count(*) from `biz_shopterm` where 1=1 
+    <if test="name != null and name !=''" >
+       and name like concat('%',#{name},'%')
+    </if>
+  </select>
+</mapper>

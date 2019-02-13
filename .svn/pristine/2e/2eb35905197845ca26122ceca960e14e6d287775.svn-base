@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.web.PurchaseareapicnameMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.web.Purchaseareapicname" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="pic_name" property="picName" jdbcType="VARCHAR" />
+    <result column="language" property="language" jdbcType="VARCHAR" />
+    <result column="parent_id" property="parentId" jdbcType="VARCHAR" />
+    <result column="parent_parent_id" property="parentParentId" jdbcType="VARCHAR" />
+    <result column="parent_group_id" property="parentGroupId" jdbcType="VARCHAR" />
+    <result column="parent_title_type" property="parentTitleType" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, pic_name, language, parent_id, parent_parent_id, parent_group_id, parent_title_type
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="picName != null and picName !=''" >
+       and pic_name = #{picName}
+    </if>
+    <if test="language != null and language !=''" >
+       and language = #{language}
+    </if>
+    <if test="parentId != null and parentId !=''" >
+       and parent_id = #{parentId}
+    </if>
+    <if test="parentParentId != null and parentParentId !=''" >
+       and parent_parent_id = #{parentParentId}
+    </if>
+    <if test="parentGroupId != null and parentGroupId !=''" >
+       and parent_group_id = #{parentGroupId}
+    </if>
+    <if test="parentTitleType != null and parentTitleType !=''" >
+       and parent_title_type = #{parentTitleType}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.web.Purchaseareapicname" >
+    select 
+    <include refid="Base_Column_List" />
+    from web_purchase_area_pic_name
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.web.Purchaseareapicname" >
+    select count(*) from web_purchase_area_pic_name where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from web_purchase_area_pic_name
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from web_purchase_area_pic_name
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.web.Purchaseareapicname" >
+    insert into web_purchase_area_pic_name (id, pic_name, language, 
+      parent_id, parent_parent_id, parent_group_id, 
+      parent_title_type)
+    values (#{id,jdbcType=VARCHAR}, #{picName,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, 
+      #{parentId,jdbcType=VARCHAR}, #{parentParentId,jdbcType=VARCHAR}, #{parentGroupId,jdbcType=VARCHAR}, 
+      #{parentTitleType,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.web.Purchaseareapicname" >
+    insert into web_purchase_area_pic_name
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="picName != null" >
+        pic_name,
+      </if>
+      <if test="language != null" >
+        language,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="parentParentId != null" >
+        parent_parent_id,
+      </if>
+      <if test="parentGroupId != null" >
+        parent_group_id,
+      </if>
+      <if test="parentTitleType != null" >
+        parent_title_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="picName != null" >
+        #{picName,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null" >
+        #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="parentParentId != null" >
+        #{parentParentId,jdbcType=VARCHAR},
+      </if>
+      <if test="parentGroupId != null" >
+        #{parentGroupId,jdbcType=VARCHAR},
+      </if>
+      <if test="parentTitleType != null" >
+        #{parentTitleType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.web.Purchaseareapicname" >
+    update web_purchase_area_pic_name
+    <set >
+      <if test="picName != null" >
+        pic_name = #{picName,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null" >
+        language = #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="parentParentId != null" >
+        parent_parent_id = #{parentParentId,jdbcType=VARCHAR},
+      </if>
+      <if test="parentGroupId != null" >
+        parent_group_id = #{parentGroupId,jdbcType=VARCHAR},
+      </if>
+      <if test="parentTitleType != null" >
+        parent_title_type = #{parentTitleType,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.web.Purchaseareapicname" >
+    update web_purchase_area_pic_name
+    set pic_name = #{picName,jdbcType=VARCHAR},
+      language = #{language,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=VARCHAR},
+      parent_parent_id = #{parentParentId,jdbcType=VARCHAR},
+      parent_group_id = #{parentGroupId,jdbcType=VARCHAR},
+      parent_title_type = #{parentTitleType,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

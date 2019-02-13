@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.biz.BizzeropurchaseMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.biz.Bizzeropurchase" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="contractid" property="contractid" jdbcType="INTEGER" />
+    <result column="initials" property="initials" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="outcolor" property="outcolor" jdbcType="VARCHAR" />
+    <result column="incolor" property="incolor" jdbcType="VARCHAR" />
+    <result column="config" property="config" jdbcType="VARCHAR" />
+    <result column="costprice" property="costprice" jdbcType="DECIMAL" />
+    <result column="settleprice" property="settleprice" jdbcType="DECIMAL" />
+    <result column="vin" property="vin" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, contractid, initials, brand, model, version, outcolor, incolor, config, costprice, settleprice, 
+    vin, status, createtime
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="contractid != null and contractid !=''" >
+       and contractid = #{contractid}
+    </if>
+    <if test="initials != null and initials !=''" >
+       and initials = #{initials}
+    </if>
+    <if test="brand != null and brand !=''" >
+       and brand = #{brand}
+    </if>
+    <if test="model != null and model !=''" >
+       and model = #{model}
+    </if>
+    <if test="version != null and version !=''" >
+       and version = #{version}
+    </if>
+    <if test="outcolor != null and outcolor !=''" >
+       and outcolor = #{outcolor}
+    </if>
+    <if test="incolor != null and incolor !=''" >
+       and incolor = #{incolor}
+    </if>
+    <if test="costprice != null and costprice !=''" >
+       and costprice = #{costprice}
+    </if>
+    <if test="settleprice != null and settleprice !=''" >
+       and settleprice = #{settleprice}
+    </if>
+    <if test="vin != null and vin !=''" >
+       and vin = #{vin}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.biz.Bizzeropurchase" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_zeropurchase
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.biz.Bizzeropurchase" >
+    select count(*) from biz_zeropurchase where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_zeropurchase
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from biz_zeropurchase
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.biz.Bizzeropurchase" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(407);
+    </selectKey>
+    insert into biz_zeropurchase (id, contractid, initials, 
+      brand, model, version, 
+      outcolor, incolor, config, costprice, 
+      settleprice, vin, status, 
+      createtime)
+    values (#{id,jdbcType=INTEGER}, #{contractid,jdbcType=INTEGER}, #{initials,jdbcType=VARCHAR}, 
+      #{brand,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}, 
+      #{outcolor,jdbcType=VARCHAR}, #{incolor,jdbcType=VARCHAR}, #{config,jdbcType=VARCHAR},#{costprice,jdbcType=DECIMAL}, 
+      #{settleprice,jdbcType=DECIMAL}, #{vin,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.biz.Bizzeropurchase" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(407);
+    </selectKey>
+    insert into biz_zeropurchase
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="contractid != null" >
+        contractid,
+      </if>
+      <if test="initials != null" >
+        initials,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="outcolor != null" >
+        outcolor,
+      </if>
+      <if test="incolor != null" >
+        incolor,
+      </if>
+      <if test="config != null" >
+        config,
+      </if>
+      <if test="costprice != null" >
+        costprice,
+      </if>
+      <if test="settleprice != null" >
+        settleprice,
+      </if>
+      <if test="vin != null" >
+        vin,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="contractid != null" >
+        #{contractid,jdbcType=INTEGER},
+      </if>
+      <if test="initials != null" >
+        #{initials,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="outcolor != null" >
+        #{outcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="incolor != null" >
+        #{incolor,jdbcType=VARCHAR},
+      </if>
+      <if test="config != null" >
+        #{config,jdbcType=VARCHAR},
+      </if>
+      <if test="costprice != null" >
+        #{costprice,jdbcType=DECIMAL},
+      </if>
+      <if test="settleprice != null" >
+        #{settleprice,jdbcType=DECIMAL},
+      </if>
+      <if test="vin != null" >
+        #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.biz.Bizzeropurchase" >
+    update biz_zeropurchase
+    <set >
+      <if test="contractid != null" >
+        contractid = #{contractid,jdbcType=INTEGER},
+      </if>
+      <if test="initials != null" >
+        initials = #{initials,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="outcolor != null" >
+        outcolor = #{outcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="incolor != null" >
+        incolor = #{incolor,jdbcType=VARCHAR},
+      </if>
+      <if test="costprice != null" >
+        costprice = #{costprice,jdbcType=DECIMAL},
+      </if>
+      <if test="settleprice != null" >
+        settleprice = #{settleprice,jdbcType=DECIMAL},
+      </if>
+      <if test="vin != null" >
+        vin = #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.biz.Bizzeropurchase" >
+    update biz_zeropurchase
+    set contractid = #{contractid,jdbcType=INTEGER},
+      initials = #{initials,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      outcolor = #{outcolor,jdbcType=VARCHAR},
+      incolor = #{incolor,jdbcType=VARCHAR},
+      costprice = #{costprice,jdbcType=DECIMAL},
+      settleprice = #{settleprice,jdbcType=DECIMAL},
+      vin = #{vin,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectByMap" resultType="map" parameterType="map" >
+SELECT a.*,b.filecode,b.shopname FROM `biz_zeropurchase` a JOIN biz_contract b ON a.contractid=b.id where 1=1 
+    <if test="filecode != null and filecode !=''" >
+       and b.filecode like concat('%',#{filecode},'%')
+    </if>
+    <if test="vin != null and vin !=''" >
+       and a.vin like concat('%',#{vin},'%')
+    </if>
+    <if test="brand != null and brand !=''" >
+       and a.brand like concat('%',#{brand},'%')
+    </if>
+    <if test="status != null and status !='' and status !=0" >
+       and a.status = #{status,jdbcType=VARCHAR}
+    </if>
+    <if test="status != null and status !='' and status ==0" >
+       and a.status = null
+    </if>
+    order by a.createtime desc
+    limit #{start},#{size}
+  </select>
+  <select id="countByMap" resultType="int" parameterType="map" >
+    select count(*) from `biz_zeropurchase` a JOIN biz_contract b ON a.contractid=b.id where 1=1 
+    <if test="filecode != null and filecode !=''" >
+       and b.filecode like concat('%',#{filecode},'%')
+    </if>
+    <if test="vin != null and vin !=''" >
+       and a.vin like concat('%',#{vin},'%')
+    </if>
+    <if test="brand != null and brand !=''" >
+       and a.brand like concat('%',#{brand},'%')
+    </if>
+    <if test="status != null and status !='' and status !=0" >
+       and a.status = #{status,jdbcType=VARCHAR}
+    </if>
+    <if test="status != null and status !='' and status ==0" >
+       and a.status = null
+    </if>
+  </select>
+  
+  <select id="selectBaseByMap" resultType="map" parameterType="map" >
+SELECT * FROM `biz_zeropurchase` where 1=1 
+    <if test="vin != null and vin !=''" >
+       and vin like concat('%',#{vin},'%')
+    </if>
+    <if test="brand != null and brand !=''" >
+       and brand like concat('%',#{brand},'%')
+    </if>
+    <if test="status != null and status !='' and status !=8" >
+       and status = #{status,jdbcType=VARCHAR}
+    </if>
+    <if test="status != null and status !='' and status ==8" >
+       and status IS NOT NULL
+    </if>
+    order by createtime desc
+    limit #{start},#{size}
+  </select>
+  <select id="countBaseByMap" resultType="int" parameterType="map" >
+    select count(*) from `biz_zeropurchase` where 1=1 
+    <if test="vin != null and vin !=''" >
+       and vin like concat('%',#{vin},'%')
+    </if>
+    <if test="brand != null and brand !=''" >
+       and brand like concat('%',#{brand},'%')
+    </if>
+    <if test="status != null and status !='' and status !=8" >
+       and status = #{status,jdbcType=VARCHAR}
+    </if>
+    <if test="status != null and status !='' and status ==8" >
+       and status IS NOT NULL
+    </if>
+  </select>
+  
+  <select id="countTaskByNode" resultType="int" parameterType="map" >
+SELECT
+	COUNT(1)
+FROM
+	`biz_zeropurchase`
+WHERE
+	<if test="node == 1" >
+        `status` IS NULL or `status`=4
+    </if>
+    <if test="node == 2" >
+        `status` =1
+    </if>
+  </select>
+</mapper>

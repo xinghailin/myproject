@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.mallcontract.MallCarorderDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.mallcontract.MallCarorderDetail" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="sourceid" property="sourceid" jdbcType="INTEGER" />
+    <result column="skucode" property="skucode" jdbcType="VARCHAR" />
+    <result column="ordercode" property="ordercode" jdbcType="VARCHAR" />
+    <result column="subordercode" property="subordercode" jdbcType="VARCHAR" />
+    <result column="contractcode" property="contractcode" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="verifier" property="verifier" jdbcType="VARCHAR" />
+    <result column="verifystatus" property="verifystatus" jdbcType="INTEGER" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="receivedmoney" property="receivedmoney" jdbcType="DECIMAL" />
+    <result column="currency" property="currency" jdbcType="INTEGER" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="rate" property="rate" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sourceid, skucode, ordercode, subordercode, contractcode, createtime, verifier, 
+    verifystatus, description, receivedmoney, currency, unit, rate
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="sourceid != null and sourceid !=''" >
+       and sourceid = #{sourceid}
+    </if>
+    <if test="skucode != null and skucode !=''" >
+       and skucode = #{skucode}
+    </if>
+    <if test="ordercode != null and ordercode !=''" >
+       and ordercode = #{ordercode}
+    </if>
+    <if test="subordercode != null and subordercode !=''" >
+       and subordercode = #{subordercode}
+    </if>
+    <if test="contractcode != null and contractcode !=''" >
+       and contractcode = #{contractcode}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="verifier != null and verifier !=''" >
+       and verifier = #{verifier}
+    </if>
+    <if test="verifystatus != null and verifystatus !=''" >
+       and verifystatus = #{verifystatus}
+    </if>
+    <if test="description != null and description !=''" >
+       and description = #{description}
+    </if>
+    <if test="receivedmoney != null and receivedmoney !=''" >
+       and receivedmoney = #{receivedmoney}
+    </if>
+    <if test="currency != null and currency !=''" >
+       and currency = #{currency}
+    </if>
+    <if test="unit != null and unit !=''" >
+       and unit = #{unit}
+    </if>
+    <if test="rate != null and rate !=''" >
+       and rate = #{rate}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.mallcontract.MallCarorderDetail" >
+    select 
+    <include refid="Base_Column_List" />
+    from mall_carorder_detail
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.mallcontract.MallCarorderDetail" >
+    select count(*) from mall_carorder_detail where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from mall_carorder_detail
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from mall_carorder_detail
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.mallcontract.MallCarorderDetail" >
+    insert into mall_carorder_detail (id, sourceid, skucode, 
+      ordercode, subordercode, contractcode, 
+      createtime, verifier, verifystatus, 
+      description, receivedmoney, currency, 
+      unit, rate)
+    values (#{id,jdbcType=VARCHAR}, #{sourceid,jdbcType=INTEGER}, #{skucode,jdbcType=VARCHAR}, 
+      #{ordercode,jdbcType=VARCHAR}, #{subordercode,jdbcType=VARCHAR}, #{contractcode,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{verifier,jdbcType=VARCHAR}, #{verifystatus,jdbcType=INTEGER}, 
+      #{description,jdbcType=VARCHAR}, #{receivedmoney,jdbcType=DECIMAL}, #{currency,jdbcType=INTEGER}, 
+      #{unit,jdbcType=VARCHAR}, #{rate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.mallcontract.MallCarorderDetail" >
+    insert into mall_carorder_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sourceid != null" >
+        sourceid,
+      </if>
+      <if test="skucode != null" >
+        skucode,
+      </if>
+      <if test="ordercode != null" >
+        ordercode,
+      </if>
+      <if test="subordercode != null" >
+        subordercode,
+      </if>
+      <if test="contractcode != null" >
+        contractcode,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="verifier != null" >
+        verifier,
+      </if>
+      <if test="verifystatus != null" >
+        verifystatus,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="receivedmoney != null" >
+        receivedmoney,
+      </if>
+      <if test="currency != null" >
+        currency,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="rate != null" >
+        rate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceid != null" >
+        #{sourceid,jdbcType=INTEGER},
+      </if>
+      <if test="skucode != null" >
+        #{skucode,jdbcType=VARCHAR},
+      </if>
+      <if test="ordercode != null" >
+        #{ordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="subordercode != null" >
+        #{subordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="contractcode != null" >
+        #{contractcode,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="verifier != null" >
+        #{verifier,jdbcType=VARCHAR},
+      </if>
+      <if test="verifystatus != null" >
+        #{verifystatus,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="receivedmoney != null" >
+        #{receivedmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=INTEGER},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="rate != null" >
+        #{rate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.mallcontract.MallCarorderDetail" >
+    update mall_carorder_detail
+    <set >
+      <if test="sourceid != null" >
+        sourceid = #{sourceid,jdbcType=INTEGER},
+      </if>
+      <if test="skucode != null" >
+        skucode = #{skucode,jdbcType=VARCHAR},
+      </if>
+      <if test="ordercode != null" >
+        ordercode = #{ordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="subordercode != null" >
+        subordercode = #{subordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="contractcode != null" >
+        contractcode = #{contractcode,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="verifier != null" >
+        verifier = #{verifier,jdbcType=VARCHAR},
+      </if>
+      <if test="verifystatus != null" >
+        verifystatus = #{verifystatus,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="receivedmoney != null" >
+        receivedmoney = #{receivedmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="currency != null" >
+        currency = #{currency,jdbcType=INTEGER},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="rate != null" >
+        rate = #{rate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.mallcontract.MallCarorderDetail" >
+    update mall_carorder_detail
+    set sourceid = #{sourceid,jdbcType=INTEGER},
+      skucode = #{skucode,jdbcType=VARCHAR},
+      ordercode = #{ordercode,jdbcType=VARCHAR},
+      subordercode = #{subordercode,jdbcType=VARCHAR},
+      contractcode = #{contractcode,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      verifier = #{verifier,jdbcType=VARCHAR},
+      verifystatus = #{verifystatus,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      receivedmoney = #{receivedmoney,jdbcType=DECIMAL},
+      currency = #{currency,jdbcType=INTEGER},
+      unit = #{unit,jdbcType=VARCHAR},
+      rate = #{rate,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <select id="selectForOrderstatus" resultType="map" parameterType="java.lang.String" >
+    SELECT skucode,MAX(verifystatus) step FROM `mall_carorder_detail` WHERE subordercode=#{subordercode,jdbcType=VARCHAR} GROUP BY skucode
+  </select>
+</mapper>

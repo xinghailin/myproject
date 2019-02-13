@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.cif.BargainMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.cif.Bargain" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="INITIATOR_ID" property="initiatorId" jdbcType="VARCHAR" />
+    <result column="MONEY" property="money" jdbcType="DECIMAL" />
+    <result column="WEIXIN_ID" property="weixinId" jdbcType="VARCHAR" />
+    <result column="WEIXIN_PIC" property="weixinPic" jdbcType="VARCHAR" />
+    <result column="PHONE" property="phone" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="STATE" property="state" jdbcType="INTEGER" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="comefrom" property="comefrom" jdbcType="VARCHAR" />
+    <result column="talk" property="talk" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, INITIATOR_ID, MONEY, WEIXIN_ID, WEIXIN_PIC, PHONE, CREATE_TIME, STATE, country,province,city,name,sex,comefrom,talk
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and ID = #{id}
+    </if>
+    <if test="initiatorId != null and initiatorId !=''" >
+       and INITIATOR_ID = #{initiatorId}
+    </if>
+    <if test="money != null and money !=''" >
+       and MONEY = #{money}
+    </if>
+    <if test="weixinId != null and weixinId !=''" >
+       and WEIXIN_ID = #{weixinId}
+    </if>
+    <if test="weixinPic != null and weixinPic !=''" >
+       and WEIXIN_PIC = #{weixinPic}
+    </if>
+    <if test="phone != null and phone !=''" >
+       and PHONE = #{phone}
+    </if>
+    <if test="createTime != null and createTime !=''" >
+       and CREATE_TIME = #{createTime}
+    </if>
+    <if test="state != null and state !=''" >
+       and STATE = #{state}
+    </if>
+    <if test="country != null and country !=''" >
+       and country = #{country}
+    </if>
+    <if test="sex != null and sex !=''" >
+       and sex = #{sex}
+    </if>
+    <if test="city != null and city !=''" >
+       and city = #{city}
+    </if>
+    <if test="name != null and name !=''" >
+       and name = #{name}
+    </if>
+    <if test="comefrom != null and comefrom !=''" >
+       and comefrom = #{comefrom}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.cif.Bargain" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_bargain
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.cif.Bargain" >
+    select count(*) from cif_bargain where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_bargain
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cif_bargain
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.cif.Bargain" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(120);
+    </selectKey>
+    insert into cif_bargain (ID, INITIATOR_ID, MONEY, 
+      WEIXIN_ID, WEIXIN_PIC, PHONE, 
+      CREATE_TIME, STATE, country, 
+      sex, city, name, comefrom
+      )
+    values (#{id,jdbcType=INTEGER}, #{initiatorId,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, 
+      #{weixinId,jdbcType=VARCHAR}, #{weixinPic,jdbcType=VARCHAR}, #{phone,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}, #{country,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{comefrom,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.cif.Bargain" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(120);
+    </selectKey>
+    insert into cif_bargain
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,
+      <if test="initiatorId != null" >
+        INITIATOR_ID,
+      </if>
+      <if test="money != null" >
+        MONEY,
+      </if>
+      <if test="weixinId != null" >
+        WEIXIN_ID,
+      </if>
+      <if test="weixinPic != null" >
+        WEIXIN_PIC,
+      </if>
+      <if test="phone != null" >
+        PHONE,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="state != null" >
+        STATE,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="comefrom != null" >
+        comefrom,
+      </if>
+      <if test="talk != null" >
+        talk,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="initiatorId != null" >
+        #{initiatorId,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="weixinId != null" >
+        #{weixinId,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinPic != null" >
+        #{weixinPic,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="comefrom != null" >
+        #{comefrom,jdbcType=VARCHAR},
+      </if>
+      <if test="talk != null" >
+        #{talk,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.cif.Bargain" >
+    update cif_bargain
+    <set >
+      <if test="initiatorId != null" >
+        INITIATOR_ID = #{initiatorId,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        MONEY = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="weixinId != null" >
+        WEIXIN_ID = #{weixinId,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinPic != null" >
+        WEIXIN_PIC = #{weixinPic,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        PHONE = #{phone,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        STATE = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="country != null" >
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="comefrom != null" >
+        comefrom = #{comefrom,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.cif.Bargain" >
+    update cif_bargain
+    set INITIATOR_ID = #{initiatorId,jdbcType=VARCHAR},
+      MONEY = #{money,jdbcType=DECIMAL},
+      WEIXIN_ID = #{weixinId,jdbcType=VARCHAR},
+      WEIXIN_PIC = #{weixinPic,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      STATE = #{state,jdbcType=INTEGER},
+      country = #{country,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      comefrom = #{comefrom,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <!-- 统计我是否砍过-->
+  <select id="selectFriend" resultType="com.yyq.car.portal.common.model.cif.Bargain" parameterType="com.yyq.car.portal.common.model.cif.Bargain" >
+ select STATE state,MONEY money from cif_bargain where INITIATOR_ID=#{initiatorId} and WEIXIN_ID=#{weixinId}
+  </select>
+  <!-- 计算已经砍价的总钱数 -->
+  <select id="selectAllMoney" resultType="DECIMAL" parameterType="String" >
+  select SUM(money) money from cif_bargain WHERE INITIATOR_ID=#{initiatorId}
+  </select>
+  <!--根据时间排序查询详情  -->
+  <select id="selectBargain" resultMap="BaseResultMap" parameterType="String" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_bargain
+    where INITIATOR_ID = #{initiatorId}
+    ORDER BY CREATE_TIME DESC
+  </select>
+  <!--统计已经砍了多少人  -->
+  <select id="countBargainNum" resultType="int" parameterType="String">
+  select count(*) from cif_bargain where INITIATOR_ID=#{initiatorId}
+  </select>
+  
+</mapper>

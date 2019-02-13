@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.biz.BizriskMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.biz.Bizrisk" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="contractid" property="contractid" jdbcType="INTEGER" />
+    <result column="filecode" property="filecode" jdbcType="VARCHAR" />
+    <result column="applybill" property="applybill" jdbcType="VARCHAR" />
+    <result column="idfront" property="idfront" jdbcType="VARCHAR" />
+    <result column="idside" property="idside" jdbcType="VARCHAR" />
+    <result column="driverprove" property="driverprove" jdbcType="VARCHAR" />
+    <result column="workprove" property="workprove" jdbcType="VARCHAR" />
+    <result column="marryprove" property="marryprove" jdbcType="VARCHAR" />
+    <result column="aproveprice" property="aproveprice" jdbcType="DECIMAL" />
+    <result column="missmoney" property="missmoney" jdbcType="DECIMAL" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="repairreason" property="repairreason" jdbcType="VARCHAR" />
+    <result column="refusereason" property="refusereason" jdbcType="VARCHAR" />
+    <result column="dontagreereason" property="dontagreereason" jdbcType="VARCHAR" />
+    <result column="approvaltableurl" property="approvaltableurl" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="missmoney" property="missmoney" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, contractid, filecode, applybill, idfront, idside, driverprove, workprove, marryprove, 
+    aproveprice, missmoney, status, repairreason, refusereason, dontagreereason, approvaltableurl, createtime
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="contractid != null and contractid !=''" >
+       and contractid = #{contractid}
+    </if>
+    <if test="filecode != null and filecode !=''" >
+       and filecode = #{filecode}
+    </if>
+    <if test="applybill != null and applybill !=''" >
+       and applybill = #{applybill}
+    </if>
+    <if test="idfront != null and idfront !=''" >
+       and idfront = #{idfront}
+    </if>
+    <if test="idside != null and idside !=''" >
+       and idside = #{idside}
+    </if>
+    <if test="driverprove != null and driverprove !=''" >
+       and driverprove = #{driverprove}
+    </if>
+    <if test="workprove != null and workprove !=''" >
+       and workprove = #{workprove}
+    </if>
+    <if test="marryprove != null and marryprove !=''" >
+       and marryprove = #{marryprove}
+    </if>
+    <if test="aproveprice != null and aproveprice !=''" >
+       and aproveprice = #{aproveprice}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+    <if test="repairreason != null and repairreason !=''" >
+       and repairreason = #{repairreason}
+    </if>
+    <if test="refusereason != null and refusereason !=''" >
+       and refusereason = #{refusereason}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.biz.Bizrisk" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_risk
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.biz.Bizrisk" >
+    select count(*) from biz_risk where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_risk
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from biz_risk
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.biz.Bizrisk" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(404);
+    </selectKey>
+    insert into biz_risk (id, contractid, filecode, 
+      applybill, idfront, idside, 
+      driverprove, workprove, marryprove, 
+      aproveprice, status, repairreason, 
+      refusereason, createtime,missmoney)
+    values (#{id,jdbcType=INTEGER}, #{contractid,jdbcType=INTEGER}, #{filecode,jdbcType=VARCHAR}, 
+      #{applybill,jdbcType=VARCHAR}, #{idfront,jdbcType=VARCHAR}, #{idside,jdbcType=VARCHAR}, 
+      #{driverprove,jdbcType=VARCHAR}, #{workprove,jdbcType=VARCHAR}, #{marryprove,jdbcType=VARCHAR}, 
+      #{aproveprice,jdbcType=DECIMAL}, #{status,jdbcType=VARCHAR}, #{repairreason,jdbcType=VARCHAR}, 
+      #{refusereason,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{missmoney,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.biz.Bizrisk" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(404);
+    </selectKey>
+    insert into biz_risk
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="contractid != null" >
+        contractid,
+      </if>
+      <if test="filecode != null" >
+        filecode,
+      </if>
+      <if test="applybill != null" >
+        applybill,
+      </if>
+      <if test="idfront != null" >
+        idfront,
+      </if>
+      <if test="idside != null" >
+        idside,
+      </if>
+      <if test="driverprove != null" >
+        driverprove,
+      </if>
+      <if test="workprove != null" >
+        workprove,
+      </if>
+      <if test="marryprove != null" >
+        marryprove,
+      </if>
+      <if test="aproveprice != null" >
+        aproveprice,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="repairreason != null" >
+        repairreason,
+      </if>
+      <if test="refusereason != null" >
+        refusereason,
+      </if>
+      <if test="approvaltableurl != null" >
+        approvaltableurl,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+       <if test="missmoney != null" >
+        missmoney,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="contractid != null" >
+        #{contractid,jdbcType=INTEGER},
+      </if>
+      <if test="filecode != null" >
+        #{filecode,jdbcType=VARCHAR},
+      </if>
+      <if test="applybill != null" >
+        #{applybill,jdbcType=VARCHAR},
+      </if>
+      <if test="idfront != null" >
+        #{idfront,jdbcType=VARCHAR},
+      </if>
+      <if test="idside != null" >
+        #{idside,jdbcType=VARCHAR},
+      </if>
+      <if test="driverprove != null" >
+        #{driverprove,jdbcType=VARCHAR},
+      </if>
+      <if test="workprove != null" >
+        #{workprove,jdbcType=VARCHAR},
+      </if>
+      <if test="marryprove != null" >
+        #{marryprove,jdbcType=VARCHAR},
+      </if>
+      <if test="aproveprice != null" >
+        #{aproveprice,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="repairreason != null" >
+        #{repairreason,jdbcType=VARCHAR},
+      </if>
+      <if test="refusereason != null" >
+        #{refusereason,jdbcType=VARCHAR},
+      </if>
+      <if test="approvaltableurl != null" >
+        #{approvaltableurl,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="missmoney != null" >
+        #{missmoney,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.biz.Bizrisk" >
+    update biz_risk
+    <set >
+      <if test="contractid != null" >
+        contractid = #{contractid,jdbcType=INTEGER},
+      </if>
+      <if test="filecode != null" >
+        filecode = #{filecode,jdbcType=VARCHAR},
+      </if>
+      <if test="applybill != null" >
+        applybill = #{applybill,jdbcType=VARCHAR},
+      </if>
+      <if test="idfront != null" >
+        idfront = #{idfront,jdbcType=VARCHAR},
+      </if>
+      <if test="idside != null" >
+        idside = #{idside,jdbcType=VARCHAR},
+      </if>
+      <if test="driverprove != null" >
+        driverprove = #{driverprove,jdbcType=VARCHAR},
+      </if>
+      <if test="workprove != null" >
+        workprove = #{workprove,jdbcType=VARCHAR},
+      </if>
+      <if test="marryprove != null" >
+        marryprove = #{marryprove,jdbcType=VARCHAR},
+      </if>
+      <if test="aproveprice != null" >
+        aproveprice = #{aproveprice,jdbcType=DECIMAL},
+      </if>
+      <if test="missmoney != null" >
+        missmoney = #{missmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="repairreason != null" >
+        repairreason = #{repairreason,jdbcType=VARCHAR},
+      </if>
+      <if test="refusereason != null" >
+        refusereason = #{refusereason,jdbcType=VARCHAR},
+      </if>
+      <if test="dontagreereason != null" >
+        dontagreereason = #{dontagreereason,jdbcType=VARCHAR},
+      </if>
+      <if test="approvaltableurl != null" >
+        approvaltableurl = #{approvaltableurl,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="missmoney != null" >
+        missmoney = #{missmoney,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.biz.Bizrisk" >
+    update biz_risk
+    set contractid = #{contractid,jdbcType=INTEGER},
+      filecode = #{filecode,jdbcType=VARCHAR},
+      applybill = #{applybill,jdbcType=VARCHAR},
+      idfront = #{idfront,jdbcType=VARCHAR},
+      idside = #{idside,jdbcType=VARCHAR},
+      driverprove = #{driverprove,jdbcType=VARCHAR},
+      workprove = #{workprove,jdbcType=VARCHAR},
+      marryprove = #{marryprove,jdbcType=VARCHAR},
+      aproveprice = #{aproveprice,jdbcType=DECIMAL},
+      status = #{status,jdbcType=VARCHAR},
+      repairreason = #{repairreason,jdbcType=VARCHAR},
+      refusereason = #{refusereason,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      missmoney = #{missmoney,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <update id="setMarriageNullByPrimaryKey" parameterType="java.lang.Integer" >
+    update biz_risk
+    set marryprove = null
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

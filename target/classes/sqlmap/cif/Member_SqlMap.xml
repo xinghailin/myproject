@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.cif.MemberMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.cif.Member" >
+    <result column="ID" property="id" jdbcType="INTEGER" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="SEX" property="sex" jdbcType="VARCHAR" />
+    <result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
+    <result column="CONTACT" property="contact" jdbcType="VARCHAR" />
+    <result column="AVATAR" property="avatar" jdbcType="VARCHAR" />
+    <result column="PROVINCE" property="province" jdbcType="VARCHAR" />
+    <result column="AREA" property="area" jdbcType="VARCHAR" />
+    <result column="TYPE" property="memberType" jdbcType="VARCHAR" />
+    <result column="M_TYPE" property="mType" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+    <result column="IDENTITY" property="identify" jdbcType="VARCHAR" />
+    <result column="AUTH" property="auth" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID,NAME,SEX,MOBILE,CONTACT,AVATAR,PROVINCE,AREA,TYPE,M_TYPE,CREATE_TIME,ADDRESS,IDENTITY,AUTH
+  </sql>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.cif.Member" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(102);
+    </selectKey>
+    insert into cif_member (ID,NAME,SEX,MOBILE,CONTACT,STYLE,AVATAR,PROVINCE,AREA,TYPE,M_TYPE,CREATE_TIME)
+    values (#{id,jdbcType=INTEGER}, #{sex,jdbcType=VARCHAR},#{education,jdbcType=INTEGER},#{mobile,jdbcType=VARCHAR},#{contact,jdbcType=VARCHAR},#{style,jdbcType=VARCHAR},
+    #{avatar,jdbcType=VARCHAR},#{province,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{memberType,jdbcType=INTEGER}, #{mType,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and ID = #{id}
+    </if>
+    <if test="name != null and name !=''" >
+       and NAME = #{name}
+    </if>
+    <if test="sex != null and sex !=''" >
+       and SEX = #{sex}
+    </if>
+    <if test="mobile != null and mobile !=''" >
+       and MOBILE = #{mobile}
+    </if>
+    <if test="contact != null and contact !=''" >
+       and CONTACT = #{contact}
+    </if>
+    <if test="province != null and province !=''" >
+       and PROVINCE = #{province}
+    </if>
+    <if test="area != null and area !=''" >
+       and AREA = #{area}
+    </if>
+    <if test="memberType != null and memberType !=''" >
+       and TYPE = #{memberType}
+    </if>
+    <if test="mType != null and mType !=''" >
+       and M_TYPE = #{mType}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.cif.Member" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_member where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cif_member
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.cif.Member" >
+    select count(*) from cif_member where 
+    <include refid="wherecase" />
+  </select>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.cif.Member" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(102);
+    </selectKey>
+    insert into cif_member
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="sex != null" >
+        SEX,
+      </if>
+      <if test="mobile != null" >
+        MOBILE,
+      </if>
+      <if test="contact != null" >
+        CONTACT,
+      </if>
+      <if test="person != null" >
+        CONTACT_PERSON,
+      </if>
+      <if test="style != null" >
+        STYLE,
+      </if>
+      <if test="avatar != null" >
+        AVATAR,
+      </if>
+      <if test="province != null" >
+        PROVINCE,
+      </if>
+      <if test="area != null" >
+        AREA,
+      </if>
+      <if test="businessScope != null" >
+        BUSINESS_SCOPE,
+      </if>
+      <if test="memberType != null" >
+        TYPE,
+      </if>
+      <if test="mType != null" >
+        M_TYPE,
+      </if>
+      <if test="isYp != null" >
+        IS_YP,
+      </if>
+      <if test="code != null" >
+        CODE,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="address != null" >
+        ADDRESS,
+      </if>
+      
+      <if test="house != null" >
+        RELATED_HOUSE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="contact != null" >
+        #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="person != null" >
+        #{person,jdbcType=VARCHAR},
+      </if>
+      <if test="style != null" >
+         #{style,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null" >
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="businessScope != null" >
+       #{businessScope,jdbcType=VARCHAR},
+      </if>
+      <if test="memberType != null" >
+       #{memberType,jdbcType=VARCHAR},
+      </if>
+      <if test="mType != null" >
+        #{mType,jdbcType=VARCHAR},
+      </if>
+      <if test="isYp != null" >
+        #{isYp,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="address!=null">
+      	 #{address,jdbcType=VARCHAR},
+      </if>
+      
+      <if test="house !=null">
+      	 #{house,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cif_member
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <update id="updateAvatarByMemberId" parameterType="map">
+	update cif_member set AVATAR=#{avatar,jdbcType=VARCHAR} where id=#{memberId,jdbcType=INTEGER}	
+  </update>
+  <update id="updateMobileByPrimaryKey" parameterType="com.yyq.car.portal.common.model.cif.Member" >
+    update cif_member
+    set MOBILE = #{mobile,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.cif.Member">
+		update cif_member
+		<set>
+		 <if test="name != null">
+			NAME = #{name,jdbcType=VARCHAR},
+		 </if>
+		 <if test="sex != null">
+			SEX = #{sex,jdbcType=INTEGER},
+		 </if>
+		 <if test="mobile != null">
+			MOBILE = #{mobile,jdbcType=VARCHAR},
+		 </if>
+	      <if test="contact != null" >
+	        CONTACT= #{contact,jdbcType=VARCHAR},
+	      </if>
+	      <if test="person != null" >
+	        CONTACT_PERSON= #{person,jdbcType=VARCHAR},
+	      </if>
+	      <if test="style != null" >
+	        STYLE= #{style,jdbcType=VARCHAR},
+	      </if>
+	      <if test="avatar != null" >
+	        AVATAR= #{avatar,jdbcType=VARCHAR},
+	      </if>
+	      <if test="province != null" >
+	        PROVINCE= #{province,jdbcType=VARCHAR},
+	      </if>
+	      <if test="area != null" >
+	        AREA= #{area,jdbcType=VARCHAR},
+	      </if>
+	      <if test="businessScope != null" >
+	        BUSINESS_SCOPE= #{businessScope,jdbcType=VARCHAR},
+	      </if>
+	      <if test="memberType != null" >
+	        TYPE= #{memberType,jdbcType=VARCHAR},
+	      </if>
+	      <if test="mType != null" >
+	        M_TYPE= #{mType,jdbcType=INTEGER},
+	      </if>
+	      <if test="createTime != null" >
+	        CREATE_TIME= #{createTime,jdbcType=TIMESTAMP},
+	      </if>		
+	      <if test="address !=null">
+	      	ADDRESS = #{address,jdbcType=VARCHAR},
+	      </if>
+	      <if test="house != null" >
+	        RELATED_HOUSE= #{house,jdbcType=VARCHAR},
+	      </if>
+	      <if test="alipayAcc != null" >
+	        ALIPAY_ACC= #{alipayAcc,jdbcType=VARCHAR},
+	      </if>
+	      <if test="identify != null" >
+	        IDENTITY= #{identify,jdbcType=VARCHAR},
+	      </if>
+	      <if test="idUp != null" >
+	        ID_UP= #{idUp,jdbcType=INTEGER},
+	      </if>
+	      <if test="idDown != null" >
+	        ID_DOWN= #{idDown,jdbcType=VARCHAR},
+	      </if>
+	      <if test="idHand != null" >
+	        ID_HAND= #{idHand,jdbcType=TIMESTAMP},
+	      </if>		
+	      <if test="sellCode !=null">
+	      	SELL_CODE = #{sellCode,jdbcType=VARCHAR},
+	      </if>
+	      <if test="balance !=null">
+	      	BALANCE = #{balance,jdbcType=DECIMAL},
+	      </if>
+	      <if test="auth !=null">
+	      	AUTH = #{auth,jdbcType=VARCHAR},
+	      </if>
+		</set>
+		where ID = #{id,jdbcType=INTEGER}
+	</update>
+	
+  <select id="selectByAccountId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+   	SELECT
+		m.*
+	FROM
+		cif_account a,
+		cif_member m
+	WHERE
+		a.CUSTOMER_ID = m.ID
+	AND a.ID = #{accountId,jdbcType=INTEGER}
+  </select> 
+  <sql id="wherecaseMs" >
+    <if test="mobile != null and mobile !=''" >
+       and m.MOBILE like concat('%',#{mobile},'%')
+    </if>
+    <if test="contact != null and contact !=''" >
+       and m.CONTACT like concat('%',#{contact},'%')
+    </if>
+    <if test="name != null and name !=''" >
+       and m.`NAME` like concat('%',#{name},'%')
+    </if>
+    <if test="type != null and type !=''" >
+       and m.TYPE = #{type}
+    </if>
+    <if test="yp != null and yp !=''" >
+       and m.IS_YP = #{yp}
+    </if>
+    <if test="mType != null and mType !=''" >
+       and m.M_TYPE = #{mType}
+    </if>
+  </sql>
+  <!-- MS端根据编码统计正常会员记录数 -->
+  <select id="countAbleMemberByCode" resultType="int" parameterType="map">
+    select count(*)
+    from cif_member a join cif_account b on a.id=b.customer_id
+    where b.status!=2 <if test="type != null and type !='' ">
+      and a.type=#{type} 
+    </if><if test="code != null and code !='' ">
+      and a.code=#{code} 
+    </if>
+  </select>
+  
+  <select id="selectByCriteriaHouse" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    m.ID,m.NAME,m.SEX,m.MOBILE,m.CONTACT,m.PROVINCE,AREA,m.ALIPAY_ACC,m.IDENTITY,m.ID_UP,m.ID_DOWN,m.ID_HAND,m.SELL_CODE,m.AUTH,h.HOUSE_NAME RELATED_HOUSE
+    from cif_member m LEFT JOIN product_house h ON m.RELATED_HOUSE=h.ID where 
+     1=1 
+    <if test="memberType != null and memberType !=''" >
+       and m.TYPE = #{memberType}
+    </if>
+    <if test="mobile != null and mobile !=''" >
+       and m.MOBILE = #{mobile}
+    </if>
+    <if test="province != null and province !=''" >
+       and m.PROVINCE = #{province}
+    </if>
+    <if test="area != null and area !=''" >
+       and m.AREA = #{area}
+    </if>
+    <if test="house != null and house !=''" >
+       and m.RELATED_HOUSE = #{house}
+    </if>
+    <if test="auth != null and auth !='' and auth !=3" >
+       and AUTH = #{auth}
+    </if>
+    <if test="auth ==3" >
+       and (AUTH IS NULL OR AUTH ='')
+    </if>
+    order by m.CREATE_TIME desc
+    limit #{start},#{pageSize}
+  </select>
+  
+  <select id="countByCriteriaHouse" resultType="int" parameterType="map" >
+    select count(*)
+    from cif_member  where 
+     1=1 
+    <if test="memberType != null and memberType !=''" >
+       and TYPE = #{memberType}
+    </if>
+    <if test="mobile != null and mobile !=''" >
+       and MOBILE = #{mobile}
+    </if>
+    <if test="province != null and province !=''" >
+       and PROVINCE = #{province}
+    </if>
+    <if test="area != null and area !=''" >
+       and AREA = #{area}
+    </if>
+    <if test="house != null and house !=''" >
+       and RELATED_HOUSE = #{house}
+    </if>
+    <if test="auth != null and auth !='' and auth !=3" >
+       and AUTH = #{auth}
+    </if>
+    <if test="auth ==3" >
+       and (AUTH IS NULL OR AUTH ='')
+    </if>	
+  </select>
+  
+  <select id="selectByCriteriaHistory" resultType="map" parameterType="map" >
+    select 
+    m.ID id,m.NAME name,m.SEX sex,m.MOBILE mobile,m.CONTACT contact,m.SELL_CODE sellcode,m.CODE code,h.HOUSE_NAME house,h.ADDRESS address
+    from cif_member m LEFT JOIN product_house h ON m.RELATED_HOUSE=h.ID where 
+     1=1 
+    <if test="memberType != null and memberType !=''" >
+       and m.TYPE = #{memberType}
+    </if>
+    <if test="name != null and name !=''" >
+       and m.`NAME` like concat('%',#{name},'%')
+    </if>
+    <if test="contact != null and contact !=''" >
+       and m.CONTACT = #{contact}
+    </if>
+    <if test="house != null and house !=''" >
+       and m.RELATED_HOUSE = #{house}
+    </if>
+    <if test="address != null and address !=''" >
+       and h.ADDRESS like concat('%',#{address},'%')
+    </if>
+    order by m.CREATE_TIME desc
+    limit #{start},#{pageSize}
+  </select>
+  
+  <select id="countByCriteriaHistory" resultType="int" parameterType="map" >
+    select count(*)
+    from cif_member m LEFT JOIN product_house h ON m.RELATED_HOUSE=h.ID where 
+     1=1 
+    <if test="memberType != null and memberType !=''" >
+       and m.TYPE = #{memberType}
+    </if>
+    <if test="name != null and name !=''" >
+       and m.`NAME` like concat('%',#{name},'%')
+    </if>
+    <if test="contact != null and contact !=''" >
+       and m.CONTACT = #{contact}
+    </if>
+    <if test="house != null and house !=''" >
+       and m.RELATED_HOUSE = #{house}
+    </if>
+    <if test="address != null and address !=''" >
+       and h.ADDRESS like concat('%',#{address},'%')
+    </if>	
+  </select>
+  
+  <select id="selectByCriteriaHistoryWhIndex" resultType="map" parameterType="map" >
+    select 
+    m.ID id,m.NAME name,m.SEX sex,m.MOBILE mobile,m.CONTACT contact,m.SELL_CODE sellcode,m.CODE code,h.HOUSE_NAME house,h.ADDRESS address
+    from cif_member m LEFT JOIN product_house h ON m.RELATED_HOUSE=h.ID where m.ID =#{id}
+  </select>
+</mapper>

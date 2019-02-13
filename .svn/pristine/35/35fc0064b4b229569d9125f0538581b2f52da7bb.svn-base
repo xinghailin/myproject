@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.product.OutRepositoryMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.product.OutRepository" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CAR_ID" property="carId" jdbcType="INTEGER" />
+    <result column="CONID" property="conid" jdbcType="INTEGER" />
+    <result column="CHANGED" property="changed" jdbcType="INTEGER" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="REFUND_REASON" property="refundReason" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, CAR_ID, CONID, CHANGED, REMARK, STATUS, CREATE_TIME,REFUND_REASON
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and ID = #{id}
+    </if>
+    <if test="carId != null and carId !=''" >
+       and CAR_ID = #{carId}
+    </if>
+    <if test="conid != null and conid !=''" >
+       and CONID = #{conid}
+    </if>
+    <if test="changed != null and changed !=''" >
+       and CHANGED = #{changed}
+    </if>
+    <if test="remark != null and remark !=''" >
+       and REMARK = #{remark}
+    </if>
+    <if test="status != null and status !=''" >
+       and STATUS = #{status}
+    </if>
+    <if test="createTime != null and createTime !=''" >
+       and CREATE_TIME = #{createTime}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.product.OutRepository" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_out_repository
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.product.OutRepository" >
+    select count(*) from pro_out_repository where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_out_repository
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pro_out_repository
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.product.OutRepository" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(605);
+    </selectKey>
+    insert into pro_out_repository (ID, CAR_ID, CONID, 
+      CHANGED, REMARK, STATUS, 
+      CREATE_TIME)
+    values (#{id,jdbcType=INTEGER}, #{carId,jdbcType=INTEGER}, #{conid,jdbcType=INTEGER}, 
+      #{changed,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.product.OutRepository" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(605);
+    </selectKey>
+    insert into pro_out_repository
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,
+      <if test="carId != null" >
+        CAR_ID,
+      </if>
+      <if test="conid != null" >
+        CONID,
+      </if>
+      <if test="changed != null" >
+        CHANGED,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="carId != null" >
+        #{carId,jdbcType=INTEGER},
+      </if>
+      <if test="conid != null" >
+        #{conid,jdbcType=INTEGER},
+      </if>
+      <if test="changed != null" >
+        #{changed,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.product.OutRepository" >
+    update pro_out_repository
+    <set >
+      <if test="carId != null" >
+        CAR_ID = #{carId,jdbcType=INTEGER},
+      </if>
+      <if test="conid != null" >
+        CONID = #{conid,jdbcType=INTEGER},
+      </if>
+      <if test="changed != null" >
+        CHANGED = #{changed,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refundReason != null" >
+        REFUND_REASON = #{refundReason,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.product.OutRepository" >
+    update pro_out_repository
+    set CAR_ID = #{carId,jdbcType=INTEGER},
+      CONID = #{conid,jdbcType=INTEGER},
+      CHANGED = #{changed,jdbcType=INTEGER},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

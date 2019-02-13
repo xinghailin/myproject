@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <!--TODO:MAVEN命令行运行参数:-->
+    <!--TODO:必须在portal-common目录下运行mvn-->
+    <!-- org.mybatis.generator:mybatis-generator-maven-plugin:1.3.2:generate -Dmybatis.generator.overwrite=true -Dmybatis.generator.verbose=true -Dmybatis.generator.configurationFile=E:\portal-common\src\test\resources\mybatisGenerator.xml -->
+
+    <!--TODO:根据每个人的环境自行改!!!-->
+    <classPathEntry location="D:/MavenRepository/mysql/mysql-connector-java/5.1.35/mysql-connector-java-5.1.35.jar" />
+    <!-- <classPathEntry location="E:/Java/jar_bak/mysql-connector-java-5.1.30.jar"/> -->
+    <context id="yyq_car" targetRuntime="MyBatis3">
+     
+        <plugin type="com.yyq.car.portal.common.plugin.RenameFileNamePlugin">
+            <property name="searchString" value="CONTENT_|content_|AUTH_|auth_|CIF_|cif_|COMM_|comm_|TMP_|tmp_"/>
+            <property name="replaceString" value=""/>
+            <property name="prefix" value=""/>
+            <property name="suffix" value="_SqlMap.xml"/>
+        </plugin>
+
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+
+        <plugin type="com.yyq.car.portal.common.plugin.AddAnnotationsAndImportsPlugin">
+            <property name="imports" value="org.ufa.mybatis.stereotype.UfaMapper"/>
+            <property name="annotations" value="@UfaMapper"/>
+        </plugin>
+
+        <!--插件:SQL Map添加WhereCase-->
+        <plugin type="com.yyq.car.portal.common.plugin.AddWhereCasePlugin"></plugin>
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.25.12:3306/yyq_car" userId="yyq_car" password="12345">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <javaModelGenerator targetPackage="com.yyq.car.portal.common.model.mallcontract"
+	targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <sqlMapGenerator targetPackage="sqlmap.mallcontract" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.yyq.car.portal.common.mapper.mallcontract" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator> 
+    <!--   <javaModelGenerator targetPackage="com.yyq.car.portal.common.model.comm" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <sqlMapGenerator targetPackage="sqlmap.comm" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.yyq.car.portal.common.mapper.comm" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator> -->
+       <table tableName="mall_carorder_detail" domainObjectName="MallCarorderDetail" 
+       enableCountByExample="false" 
+       enableUpdateByExample="false" 
+       enableDeleteByExample="false" 
+       enableSelectByExample="false"
+       selectByExampleQueryId="false">
+ <!--    <generatedKey column="id" sqlStatement="SELECT NEXTVAL(609);"/>  -->
+        </table>
+      <!-- <table tableName="cif_bargain" domainObjectName="Bargain" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+             <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(120);"/> 
+        </table> -->
+        <!--  <table tableName="comm_bargain_config" domainObjectName="BargainConfig" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+          <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(120);"/> 
+        </table>   -->
+        <!-- <table tableName="pro_car_type_pic" domainObjectName="CarTypePic" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(608);"/>
+        </table>
+        <table tableName="pro_store" domainObjectName="Store" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(604);"/>
+        </table>
+        <table tableName="pro_car_transfer" domainObjectName="CarTransfer" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(602);"/>
+        </table>
+        <table tableName="pro_shop" domainObjectName="Shop" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(603);"/>
+        </table>
+         <table tableName="pro_store" domainObjectName="Store" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(604);"/>
+        </table> -->
+     <!--todo:不要删除: 模块CIF 配置-->
+     <!-- 	<javaModelGenerator targetPackage="com.yyq.car.portal.common.model.cif" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <sqlMapGenerator targetPackage="sqlmap.cif" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.yyq.car.portal.common.mapper.cif" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <table tableName="CIF_ACCOUNT" domainObjectName="Account" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(101);"/>
+        </table>     
+		<table tableName="CIF_MEMBER" domainObjectName="Member" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(102);"/>
+        </table> 
+        <table tableName="CIF_LOGIN" domainObjectName="Login" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(103);"/>
+        </table>
+      <table tableName="cif_member_coupon" domainObjectName="MemberCoupon" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(110);"/>
+        </table> 
+        <table tableName="cif_member_focus" domainObjectName="MemberFocus" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(106);"/>
+        </table> 
+        <table tableName="cif_member_integral" domainObjectName="MemberIntegral" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(107);"/>
+        </table> 
+        <table tableName="cif_member_task" domainObjectName="MemberTask" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(108);"/>
+        </table> 
+        <table tableName="cif_task_detail" domainObjectName="MemberTaskDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(109);"/>
+        </table>
+         <table tableName="cif_account_favorites" domainObjectName="AccountFavorites" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(105);"/>
+        </table> 
+        <table tableName="cif_account_product" domainObjectName="AccountProduct" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(104);"/>
+        </table> 
+        -->
+
+        <!--todo:不要删除: 模块AUTH 配置
+        <javaModelGenerator targetPackage="com.yyq.cloud.portal.common.model.auth" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <sqlMapGenerator targetPackage="sqlmap.auth" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.yyq.cloud.portal.common.mapper.auth" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <table tableName="AUTH_USER" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+                selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(206);"/>
+        </table>-->
+      <!-- 
+        <table tableName="AUTH_ROLE" domainObjectName="Role" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+                selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(201);"/>
+        </table>
+       <table tableName="AUTH_RESOURCE" domainObjectName="Resource" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+           <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(202);"/>
+        </table>
+        <table tableName="AUTH_LOGIN_ROLE" domainObjectName="LoginRole" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(203);"/>
+        </table>
+        <table tableName="AUTH_ROLE_ACCOUNT" domainObjectName="RoleAccount" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(204);"/>
+        </table>
+         <table tableName="AUTH_ROLE_RESOURCE" domainObjectName="RoleResource" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(205);"/>
+        </table>
+        
+         -->
+      <!--todo:不要删除:模块 通用COMM 配置 -->
+        <!--<javaModelGenerator targetPackage="com.yyq.cloud.portal.common.model.comm" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <sqlMapGenerator targetPackage="sqlmap.comm" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.yyq.cloud.portal.common.mapper.comm" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <table tableName="comm_app_version" domainObjectName="AppVersion" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(310);"/>
+        </table>
+     
+      <table tableName="comm_message" domainObjectName="Message" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(309);"/>
+     </table>
+     <table tableName="comm_feedback" domainObjectName="FeedBack" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(308);"/>
+        </table>
+       <table tableName="comm_label" domainObjectName="LabelComm" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(307);"/>
+        </table>
+        <table tableName="COMM_MESSAGE_TEMPLATE" domainObjectName="MessageTemplate" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(301);"/>
+        </table>
+       <table tableName="COMM_SHORT_MESSAGE" domainObjectName="ShortMessage" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(302);"/>
+        </table>
+        <table tableName="COMM_SITE_MESSAGE" domainObjectName="SiteMessage" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(303);"/>
+        </table>
+        <table tableName="COMM_CONTENT_CHANNEL" domainObjectName="ContentChannel" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(304);"/>
+        </table>
+        <table tableName="COMM_AUTH_CODE" domainObjectName="AuthCode" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(305);"/>
+        </table> 
+        <table tableName="COMM_MASTERDATA" domainObjectName="MasterData" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(306);"/>
+        </table>
+        -->
+        
+        
+         
+       <!-- todo:不要删除:模块 内容管理CONTENT 配置-->
+       <!--  <javaModelGenerator targetPackage="com.yyq.cloud.portal.common.model.content" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <sqlMapGenerator targetPackage="sqlmap.content" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.yyq.cloud.portal.common.mapper.content" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <table tableName="content_recommend" domainObjectName="ContentRecommend" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+            selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(408);"/>
+        </table>
+      
+          <table tableName="CONTENT_APP" domainObjectName="ContentAPP" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+            selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(404);"/>
+        </table>
+        <table tableName="CONTENT_PRODUCT" domainObjectName="ContentProduct" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+            selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(402);"/>
+        </table>
+       <table tableName="CONTENT_jnd" domainObjectName="Contentjnd" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+            selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(401);"/>
+        </table>
+         
+        <table tableName="CONTENT_COUPON" domainObjectName="ContentCoupon" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+            selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(403);"/>
+        </table>
+     
+        <table tableName="CONTENT_SCENIC" domainObjectName="ContentScenic" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+            selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(405);"/>
+        </table>
+       <table tableName="CONTENT_SCENIC_jnd" domainObjectName="Contentjnd" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+            selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(406);"/>
+        </table>
+        <table tableName="CONTENT_INDEX" domainObjectName="ContentIndex" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+            selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(407);"/>
+        </table>
+         -->
+        
+        <!-- 
+        <javaModelGenerator targetPackage="com.yyq.cloud.portal.common.model.task" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <sqlMapGenerator targetPackage="sqlmap.task" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.yyq.cloud.portal.common.mapper.task" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+         <table tableName="task_step_log" domainObjectName="TaskStepLog" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(505);"/>
+        </table> -->
+       <!-- 
+        <table tableName="task_answer" domainObjectName="TaskAnswer" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(501);"/>
+        </table> 
+         <table tableName="task_detail" domainObjectName="TaskDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(502);"/>
+        </table> 
+        <table tableName="task_questions" domainObjectName="TaskQuestions" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(503);"/>
+        </table>     
+		<table tableName="task_step" domainObjectName="TaskStep" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(504);"/>
+        </table> 
+        
+        -->
+         <!-- 
+         <javaModelGenerator targetPackage="com.yyq.cloud.portal.common.model.jnd" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <sqlMapGenerator targetPackage="sqlmap.jnd" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.yyq.cloud.portal.common.mapper.jnd" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <table tableName="jnd_area" domainObjectName="jndArea" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="ID" sqlStatement="SELECT NEXTVAL(601);"/>
+        </table>  -->
+    </context> 
+</generatorConfiguration>

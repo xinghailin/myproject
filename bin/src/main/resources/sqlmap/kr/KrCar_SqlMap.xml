@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.kr.KrcarMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.kr.Krcar" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="poolid" property="poolid" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="vin" property="vin" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="disprice" property="disprice" jdbcType="DECIMAL" />
+    <result column="outcolor" property="outcolor" jdbcType="VARCHAR" />
+    <result column="incolor" property="incolor" jdbcType="VARCHAR" />
+    <result column="cert1" property="cert1" jdbcType="VARCHAR" />
+    <result column="cert2" property="cert2" jdbcType="VARCHAR" />
+    <result column="cert3" property="cert3" jdbcType="VARCHAR" />
+    <result column="batnum" property="batnum" jdbcType="INTEGER" />
+    <result column="note" property="note" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="auditor" property="auditor" jdbcType="VARCHAR" />
+    <result column="intime" property="intime" jdbcType="TIMESTAMP" />
+    <result column="nopassreason" property="nopassreason" jdbcType="VARCHAR" />
+    <result column="outor" property="outor" jdbcType="VARCHAR" />
+    <result column="outtime" property="outtime" jdbcType="TIMESTAMP" />
+    <result column="remaindays" property="remaindays" jdbcType="INTEGER" />
+    <result column="remainstatus" property="remainstatus" jdbcType="INTEGER" />
+     <result column="tasktime" property="tasktime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, poolid, brand, model, version, vin, price, disprice, outcolor, incolor, cert1, 
+    cert2, cert3, batnum, note, status, creator, createtime, auditor, intime, nopassreason, 
+    outor, outtime, remainstatus
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="poolid != null and poolid !=''" >
+       and poolid = #{poolid}
+    </if>
+    <if test="brand != null and brand !=''" >
+      and brand like concat('%',#{brand},'%')
+    </if>
+    <if test="model != null and model !=''" >
+       and model like concat('%',#{model},'%')
+    </if>
+    <if test="version != null and version !=''" >
+       and version like concat('%',#{version},'%')
+    </if>
+    <if test="vin != null and vin !=''" >
+       and vin like concat('%',#{vin},'%')
+    </if>
+    <if test="price != null and price !=''" >
+       and price = #{price}
+    </if>
+    <if test="disprice != null and disprice !=''" >
+       and disprice = #{disprice}
+    </if>
+    <if test="outcolor != null and outcolor !=''" >
+       and outcolor = #{outcolor}
+    </if>
+    <if test="incolor != null and incolor !=''" >
+       and incolor = #{incolor}
+    </if>
+    <if test="cert1 != null and cert1 !=''" >
+       and cert1 = #{cert1}
+    </if>
+    <if test="cert2 != null and cert2 !=''" >
+       and cert2 = #{cert2}
+    </if>
+    <if test="cert3 != null and cert3 !=''" >
+       and cert3 = #{cert3}
+    </if>
+    <if test="batnum != null and batnum !=''" >
+       and batnum = #{batnum}
+    </if>
+    <if test="note != null and note !=''" >
+       and note = #{note}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+    <if test="creator != null and creator !=''" >
+       and creator = #{creator}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="auditor != null and auditor !=''" >
+       and auditor = #{auditor}
+    </if>
+    <if test="intime != null and intime !=''" >
+      <![CDATA[ and DATE_FORMAT(intime,'%Y-%m-%d') = DATE_FORMAT(#{intime} ,'%Y-%m-%d') ]]>
+    </if>
+    <if test="nopassreason != null and nopassreason !=''" >
+       and nopassreason = #{nopassreason}
+    </if>
+    <if test="outor != null and outor !=''" >
+       and outor = #{outor}
+    </if>
+    <if test="outtime != null and outtime !=''" >
+       and outtime = #{outtime}
+    </if>
+    <if test="remaindays != null and remaindays !=''" >
+       and remaindays = #{remaindays}
+    </if>
+      <if test="remainstatus != null and remainstatus !=''" >
+       and remainstatus = #{remainstatus}
+    </if>
+  </sql>
+  
+   <sql id="wherecasecoulum" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and car.id = #{id}
+    </if>
+    <if test="poolid != null and poolid !=''" >
+       and car.poolid = #{poolid}
+    </if>
+    <if test="brand != null and brand !=''" >
+      and car.brand like concat('%',#{brand},'%')
+    </if>
+    <if test="model != null and model !=''" >
+       and car.model like concat('%',#{model},'%')
+    </if>
+    <if test="version != null and version !=''" >
+       and car.version like concat('%',#{version},'%')
+    </if>
+    <if test="vin != null and vin !=''" >
+       and car.vin like concat('%',#{vin},'%')
+    </if>
+    <if test="price != null and price !=''" >
+       and car.price = #{price}
+    </if>
+    <if test="disprice != null and disprice !=''" >
+       and car.disprice = #{disprice}
+    </if>
+    <if test="outcolor != null and outcolor !=''" >
+       and car.outcolor = #{outcolor}
+    </if>
+    <if test="incolor != null and incolor !=''" >
+       and car.incolor = #{incolor}
+    </if>
+    <if test="cert1 != null and cert1 !=''" >
+       and car.cert1 = #{cert1}
+    </if>
+    <if test="cert2 != null and cert2 !=''" >
+       and car.cert2 = #{cert2}
+    </if>
+    <if test="cert3 != null and cert3 !=''" >
+       and car.cert3 = #{cert3}
+    </if>
+    <if test="batnum != null and batnum !=''" >
+       and car.batnum = #{batnum}
+    </if>
+    <if test="note != null and note !=''" >
+       and car.note = #{note}
+    </if>
+    <if test="status != null and status !=''" >
+       and car.status = #{status}
+    </if>
+    <if test="creator != null and creator !=''" >
+       and car.creator = #{creator}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and car.createtime = #{createtime}
+    </if>
+    <if test="auditor != null and auditor !=''" >
+       and car.auditor = #{auditor}
+    </if>
+    <if test="intime != null and intime !=''" >
+      <![CDATA[ and DATE_FORMAT(car.intime,'%Y-%m-%d') = DATE_FORMAT(#{intime} ,'%Y-%m-%d') ]]>
+    </if>
+    <if test="nopassreason != null and nopassreason !=''" >
+       and car.nopassreason = #{nopassreason}
+    </if>
+    <if test="outor != null and outor !=''" >
+       and car.outor = #{outor}
+    </if>
+    <if test="outtime != null and outtime !=''" >
+       and car.outtime = #{outtime}
+    </if>
+    <if test="remaindays != null and remaindays !=''" >
+       and car.remaindays = #{remaindays}
+    </if>
+     <!--  <if test="remainstatus != null and remainstatus !=''" >
+       and car.remainstatus = #{remainstatus}
+    </if> -->
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.kr.Krcar" >
+    select 
+    <include refid="Base_Column_List" />
+    from kr_car
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.kr.Krcar" >
+    select count(*) from kr_car where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from kr_car
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from kr_car
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.kr.Krcar" >
+    insert into kr_car (id, poolid, brand, 
+      model, version, vin, 
+      price, disprice, outcolor, 
+      incolor, cert1, cert2, 
+      cert3, batnum, note, 
+      status, creator, createtime, 
+      auditor, intime, nopassreason, 
+      outor, outtime, remaindays, 
+      remainstatus)
+    values (#{id,jdbcType=VARCHAR}, #{poolid,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, 
+      #{model,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}, #{vin,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DECIMAL}, #{disprice,jdbcType=DECIMAL}, #{outcolor,jdbcType=VARCHAR}, 
+      #{incolor,jdbcType=VARCHAR}, #{cert1,jdbcType=VARCHAR}, #{cert2,jdbcType=VARCHAR}, 
+      #{cert3,jdbcType=VARCHAR}, #{batnum,jdbcType=INTEGER}, #{note,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{creator,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{auditor,jdbcType=VARCHAR}, #{intime,jdbcType=TIMESTAMP}, #{nopassreason,jdbcType=VARCHAR}, 
+      #{outor,jdbcType=VARCHAR}, #{outtime,jdbcType=TIMESTAMP}, #{remaindays,jdbcType=INTEGER}, 
+      #{remainstatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.kr.Krcar" >
+    insert into kr_car
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="poolid != null" >
+        poolid,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="vin != null" >
+        vin,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="disprice != null" >
+        disprice,
+      </if>
+      <if test="outcolor != null" >
+        outcolor,
+      </if>
+      <if test="incolor != null" >
+        incolor,
+      </if>
+      <if test="cert1 != null" >
+        cert1,
+      </if>
+      <if test="cert2 != null" >
+        cert2,
+      </if>
+      <if test="cert3 != null" >
+        cert3,
+      </if>
+      <if test="batnum != null" >
+        batnum,
+      </if>
+      <if test="note != null" >
+        note,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="auditor != null" >
+        auditor,
+      </if>
+      <if test="intime != null" >
+        intime,
+      </if>
+      <if test="nopassreason != null" >
+        nopassreason,
+      </if>
+      <if test="outor != null" >
+        outor,
+      </if>
+      <if test="outtime != null" >
+        outtime,
+      </if>
+      <if test="remaindays != null" >
+        remaindays,
+      </if>
+      <if test="remainstatus != null" >
+        remainstatus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="poolid != null" >
+        #{poolid,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null" >
+        #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="disprice != null" >
+        #{disprice,jdbcType=DECIMAL},
+      </if>
+      <if test="outcolor != null" >
+        #{outcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="incolor != null" >
+        #{incolor,jdbcType=VARCHAR},
+      </if>
+      <if test="cert1 != null" >
+        #{cert1,jdbcType=VARCHAR},
+      </if>
+      <if test="cert2 != null" >
+        #{cert2,jdbcType=VARCHAR},
+      </if>
+      <if test="cert3 != null" >
+        #{cert3,jdbcType=VARCHAR},
+      </if>
+      <if test="batnum != null" >
+        #{batnum,jdbcType=INTEGER},
+      </if>
+      <if test="note != null" >
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditor != null" >
+        #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="intime != null" >
+        #{intime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nopassreason != null" >
+        #{nopassreason,jdbcType=VARCHAR},
+      </if>
+      <if test="outor != null" >
+        #{outor,jdbcType=VARCHAR},
+      </if>
+      <if test="outtime != null" >
+        #{outtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remaindays != null" >
+        #{remaindays,jdbcType=INTEGER},
+      </if>
+      <if test="remainstatus != null" >
+        #{remainstatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.kr.Krcar" >
+    update kr_car
+    <set >
+      <if test="poolid != null" >
+        poolid = #{poolid,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null" >
+        vin = #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="disprice != null" >
+        disprice = #{disprice,jdbcType=DECIMAL},
+      </if>
+      <if test="outcolor != null" >
+        outcolor = #{outcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="incolor != null" >
+        incolor = #{incolor,jdbcType=VARCHAR},
+      </if>
+      <if test="cert1 != null" >
+        cert1 = #{cert1,jdbcType=VARCHAR},
+      </if>
+      <if test="cert2 != null" >
+        cert2 = #{cert2,jdbcType=VARCHAR},
+      </if>
+      <if test="cert3 != null" >
+        cert3 = #{cert3,jdbcType=VARCHAR},
+      </if>
+      <if test="batnum != null" >
+        batnum = #{batnum,jdbcType=INTEGER},
+      </if>
+      <if test="note != null" >
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditor != null" >
+        auditor = #{auditor,jdbcType=VARCHAR},
+      </if>
+      <if test="intime != null" >
+        intime = #{intime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nopassreason != null" >
+        nopassreason = #{nopassreason,jdbcType=VARCHAR},
+      </if>
+      <if test="outor != null" >
+        outor = #{outor,jdbcType=VARCHAR},
+      </if>
+      <if test="outtime != null" >
+        outtime = #{outtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remaindays != null" >
+        remaindays = #{remaindays,jdbcType=INTEGER},
+      </if>
+      <if test="remainstatus != null" >
+        remainstatus = #{remainstatus,jdbcType=INTEGER},
+      </if>
+      <if test="tasktime != null" >
+        tasktime = #{tasktime,jdbcType=TIMESTAMP},
+      </if> 
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.kr.Krcar" >
+    update kr_car
+    set poolid = #{poolid,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      vin = #{vin,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      disprice = #{disprice,jdbcType=DECIMAL},
+      outcolor = #{outcolor,jdbcType=VARCHAR},
+      incolor = #{incolor,jdbcType=VARCHAR},
+      cert1 = #{cert1,jdbcType=VARCHAR},
+      cert2 = #{cert2,jdbcType=VARCHAR},
+      cert3 = #{cert3,jdbcType=VARCHAR},
+      batnum = #{batnum,jdbcType=INTEGER},
+      note = #{note,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      creator = #{creator,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      auditor = #{auditor,jdbcType=VARCHAR},
+      intime = #{intime,jdbcType=TIMESTAMP},
+      nopassreason = #{nopassreason,jdbcType=VARCHAR},
+      outor = #{outor,jdbcType=VARCHAR},
+      outtime = #{outtime,jdbcType=TIMESTAMP},
+      remaindays = #{remaindays,jdbcType=INTEGER},
+      remainstatus = #{remainstatus,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  
+  <select id="findSummoneyByIds" resultType="String" parameterType="java.util.List" >
+    select sum(disprice) from kr_car where 1 = 1 
+    and id in
+     <foreach collection="list" index="index" item="item" open="(" separator="," close=")" >
+	    #{item}
+	  </foreach>  
+  </select>
+
+	<update id="updateOurCarByids" parameterType="java.util.Map">
+		update kr_car
+		set
+		status = 4,
+		outor = #{outor},
+		outtime = #{outtime}
+		where 1 = 1 
+		and id in
+		<foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+		
+	</update>
+  
+    <select id="findSummoneyByPoolid" resultType="String" parameterType="com.yyq.car.portal.common.model.kr.Krcar" >
+    select sum(disprice) from kr_car
+     where <include refid="wherecase" />
+  </select>
+  
+  
+  
+   <!-- 资产库列表 -->
+    <select id="lookAllByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.kr.Krcar" >
+    select 
+    <include refid="column_List" />
+    from kr_car car
+    LEFT JOIN kr_pool pool on car.poolid = pool.id
+    where  
+     1= 1 and car.status in (2 ,4) 
+     
+    <if test="outtimestatus != null and outtimestatus !=''" >
+         and car.remainstatus = 6
+       <if test="outtimestatus ==1" >
+          <![CDATA[ and car.remaindays >=0 ]]>
+       </if>
+       <if test="outtimestatus ==2" >
+          <![CDATA[ and car.remaindays < 0 ]]>
+       </if>
+    </if>
+    
+     and
+    <include refid="wherecasecoulum" />
+    order by car.remaindays asc
+    LIMIT #{start},#{pageSize}
+  </select>
+  <select id="countlookAllByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.kr.Krcar" >
+    select count(*) 
+    from kr_car car
+    LEFT JOIN kr_pool pool on car.poolid = pool.id
+    where 
+       1= 1 and car.status in (2 ,4) 
+    <if test="outtimestatus != null and outtimestatus !=''" >
+         and car.remainstatus = 6
+       <if test="outtimestatus ==1" >
+          <![CDATA[ and car.remaindays >=0 ]]>
+       </if>
+       <if test="outtimestatus ==2" >
+          <![CDATA[ and car.remaindays < 0 ]]>
+       </if>
+    </if>
+    and
+    <include refid="wherecasecoulum" />
+  </select>
+  
+  
+   <select id="lookcheckByParameter" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.kr.Krcar" >
+    select 
+    <include refid="column_List" />
+    from kr_car car 
+    LEFT JOIN kr_pool pool on car.poolid = pool.id
+    where  
+     1= 1 and car.status in (2 ,3) and
+    <include refid="wherecasecoulum" />
+    order by car.createtime desc
+    LIMIT #{start},#{pageSize}
+  </select>
+  <select id="countlookcheckByParameter" resultType="int" parameterType="com.yyq.car.portal.common.model.kr.Krcar" >
+    select count(*) 
+     from kr_car car 
+    LEFT JOIN kr_pool pool on car.poolid = pool.id
+    where 
+       1= 1 and car.status in (2 ,3) and
+    <include refid="wherecasecoulum" />
+  </select>
+  
+  
+  <!-- 入库审核列表 -->
+    <select id="checkByParameter" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.kr.Krcar" >
+    select 
+    <include refid="column_List" />
+    from kr_car car
+     LEFT JOIN kr_pool pool on car.poolid = pool.id
+    where 
+    <include refid="wherecasecoulum" />
+    order by car.createtime desc
+    LIMIT #{start},#{pageSize}
+  </select>
+  <select id="countcheckByParameter" resultType="int" parameterType="com.yyq.car.portal.common.model.kr.Krcar" >
+    select count(*) 
+    from   kr_car car
+     LEFT JOIN kr_pool pool on car.poolid = pool.id
+     where
+    <include refid="wherecasecoulum" />
+  </select>
+  
+  
+<!-- 出库审核表 -->
+ <select id="outByParameter" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.kr.Krcar" >
+    select 
+    <include refid="column_List" />
+     from   kr_car car
+     LEFT JOIN kr_pool pool on car.poolid = pool.id
+    where 
+    <include refid="wherecasecoulum" />
+    LIMIT #{start},#{pageSize}
+  </select>
+  <select id="countoutByParameter" resultType="int" parameterType="com.yyq.car.portal.common.model.kr.Krcar" >
+    select count(*)  
+     from   kr_car car
+     LEFT JOIN kr_pool pool on car.poolid = pool.id
+     where 
+    <include refid="wherecasecoulum" />
+    
+  </select>
+   <sql id="column_List" >
+    car.id, car.poolid, car.brand, car.model, car.version, car.vin, car.price, car.disprice, car.outcolor, car.incolor, car.cert1, 
+    car.cert2, car.cert3,car. batnum, car.note, car.status, car.creator, car.createtime, car.auditor, car.intime, car.nopassreason, 
+    car.outor, car.outtime, car.remainstatus,car.remaindays,pool.name poolname,pool.loantime loantime
+  </sql>
+  
+  <select id="selectPrimaryByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.kr.Krcar" >
+    select 
+    <include refid="Base_Column_List" />
+    from kr_car
+    where 
+    <include refid="wherecase" />
+  </select>
+  
+  <select id="findLstByIds" resultMap="BaseResultMap" parameterType="java.util.List" >
+    select * from kr_car where id in
+     <foreach collection="list" index="index" item="item" open="(" separator="," close=")" >
+	    #{item}
+	  </foreach>  
+  </select>
+  
+  <select id="countinpool" resultType="int" parameterType="string">
+    select count(*) from kr_car where status!=3 and vin = #{vin}
+  </select>
+</mapper>

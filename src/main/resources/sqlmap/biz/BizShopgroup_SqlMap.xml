@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.biz.BizShopGroupMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.biz.BizShopGroup" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="hostid" property="hostid" jdbcType="INTEGER" />
+    <result column="hostname" property="hostname" jdbcType="VARCHAR" />
+    <result column="assistant1id" property="assistant1id" jdbcType="INTEGER" />
+    <result column="assistant1name" property="assistant1name" jdbcType="VARCHAR" />
+    <result column="assistant2id" property="assistant2id" jdbcType="INTEGER" />
+    <result column="assistant2name" property="assistant2name" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="modifytime" property="modifytime" jdbcType="TIMESTAMP" />
+    <result column="createuser" property="createuser" jdbcType="INTEGER" />
+    <result column="modifyuser" property="modifyuser" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, hostid, hostname, assistant1id, assistant1name, assistant2id, assistant2name, 
+    createtime, modifytime, createuser, modifyuser
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="name != null and name !=''" >
+       and name  like concat('%',#{name},'%')
+    </if>
+    <if test="hostid != null and hostid !=''" >
+       and hostid = #{hostid}
+    </if>
+    <if test="hostname != null and hostname !=''" >
+       and hostname = #{hostname}
+    </if>
+    <if test="assistant1id != null and assistant1id !=''" >
+       and assistant1id = #{assistant1id}
+    </if>
+    <if test="assistant1name != null and assistant1name !=''" >
+       and assistant1name = #{assistant1name}
+    </if>
+    <if test="assistant2id != null and assistant2id !=''" >
+       and assistant2id = #{assistant2id}
+    </if>
+    <if test="assistant2name != null and assistant2name !=''" >
+       and assistant2name = #{assistant2name}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="modifytime != null and modifytime !=''" >
+       and modifytime = #{modifytime}
+    </if>
+    <if test="createuser != null and createuser !=''" >
+       and createuser = #{createuser}
+    </if>
+    <if test="modifyuser != null and modifyuser !=''" >
+       and modifyuser = #{modifyuser}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.biz.BizShopGroup" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_shopgroup
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.biz.BizShopGroup" >
+    select count(*) from biz_shopgroup where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_shopgroup
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from biz_shopgroup
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.biz.BizShopGroup" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(414);
+    </selectKey>
+    insert into biz_shopgroup (id, name, hostid, 
+      hostname, assistant1id, assistant1name, 
+      assistant2id, assistant2name, createtime, 
+      modifytime, createuser, modifyuser
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{hostid,jdbcType=INTEGER}, 
+      #{hostname,jdbcType=VARCHAR}, #{assistant1id,jdbcType=INTEGER}, #{assistant1name,jdbcType=VARCHAR}, 
+      #{assistant2id,jdbcType=INTEGER}, #{assistant2name,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{modifytime,jdbcType=TIMESTAMP}, #{createuser,jdbcType=INTEGER}, #{modifyuser,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.biz.BizShopGroup" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(414);
+    </selectKey>
+    insert into biz_shopgroup
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="hostid != null" >
+        hostid,
+      </if>
+      <if test="hostname != null" >
+        hostname,
+      </if>
+      <if test="assistant1id != null" >
+        assistant1id,
+      </if>
+      <if test="assistant1name != null" >
+        assistant1name,
+      </if>
+      <if test="assistant2id != null" >
+        assistant2id,
+      </if>
+      <if test="assistant2name != null" >
+        assistant2name,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="modifytime != null" >
+        modifytime,
+      </if>
+      <if test="createuser != null" >
+        createuser,
+      </if>
+      <if test="modifyuser != null" >
+        modifyuser,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="hostid != null" >
+        #{hostid,jdbcType=INTEGER},
+      </if>
+      <if test="hostname != null" >
+        #{hostname,jdbcType=VARCHAR},
+      </if>
+      <if test="assistant1id != null" >
+        #{assistant1id,jdbcType=INTEGER},
+      </if>
+      <if test="assistant1name != null" >
+        #{assistant1name,jdbcType=VARCHAR},
+      </if>
+      <if test="assistant2id != null" >
+        #{assistant2id,jdbcType=INTEGER},
+      </if>
+      <if test="assistant2name != null" >
+        #{assistant2name,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifytime != null" >
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuser != null" >
+        #{createuser,jdbcType=INTEGER},
+      </if>
+      <if test="modifyuser != null" >
+        #{modifyuser,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.biz.BizShopGroup" >
+    update biz_shopgroup
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="hostid != null" >
+        hostid = #{hostid,jdbcType=INTEGER},
+      </if>
+      <if test="hostname != null" >
+        hostname = #{hostname,jdbcType=VARCHAR},
+      </if>
+      <if test="assistant1id != null" >
+        assistant1id = #{assistant1id,jdbcType=INTEGER},
+      </if>
+      <if test="assistant1name != null" >
+        assistant1name = #{assistant1name,jdbcType=VARCHAR},
+      </if>
+      <if test="assistant2id != null" >
+        assistant2id = #{assistant2id,jdbcType=INTEGER},
+      </if>
+      <if test="assistant2name != null" >
+        assistant2name = #{assistant2name,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifytime != null" >
+        modifytime = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createuser != null" >
+        createuser = #{createuser,jdbcType=INTEGER},
+      </if>
+      <if test="modifyuser != null" >
+        modifyuser = #{modifyuser,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.biz.BizShopGroup" >
+    update biz_shopgroup
+    set name = #{name,jdbcType=VARCHAR},
+      hostid = #{hostid,jdbcType=INTEGER},
+      hostname = #{hostname,jdbcType=VARCHAR},
+      assistant1id = #{assistant1id,jdbcType=INTEGER},
+      assistant1name = #{assistant1name,jdbcType=VARCHAR},
+      assistant2id = #{assistant2id,jdbcType=INTEGER},
+      assistant2name = #{assistant2name,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      modifytime = #{modifytime,jdbcType=TIMESTAMP},
+      createuser = #{createuser,jdbcType=INTEGER},
+      modifyuser = #{modifyuser,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  
+    <select id="selectByFullName" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.biz.BizShopGroup" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_shopgroup
+    where 
+     1=1 
+    <if test="name != null and name !=''" >
+       and name = #{name}  
+    </if>
+  </select>
+  
+</mapper>

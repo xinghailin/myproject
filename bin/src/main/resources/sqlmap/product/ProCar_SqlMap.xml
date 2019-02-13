@@ -1,0 +1,1888 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.product.CarMapper">
+	<resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.product.Car">
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="BRAND" property="brand" jdbcType="VARCHAR" />
+		<result column="MODEL" property="model" jdbcType="VARCHAR" />
+		<result column="version" property="version" jdbcType="VARCHAR" />
+		<result column="ENGINE_NUM" property="engineNum" jdbcType="VARCHAR" />
+		<result column="LEN_WID_HEI" property="lenWidHei" jdbcType="VARCHAR" />
+		<result column="DISPLACEMENT" property="displacement" jdbcType="VARCHAR" />
+		<result column="OIL_WEAR" property="oilWear" jdbcType="VARCHAR" />
+		<result column="DISCHARGE" property="discharge" jdbcType="VARCHAR" />
+		<result column="WEIGHT" property="weight" jdbcType="VARCHAR" />
+		<result column="LEVEL" property="level" jdbcType="VARCHAR" />
+		<result column="GEARBOX" property="gearbox" jdbcType="VARCHAR" />
+		<result column="ENERGY_TYPE" property="energyType" jdbcType="VARCHAR" />
+		<result column="OUTLOOK_COLOR" property="outlookColor"
+			jdbcType="VARCHAR" />
+		<result column="INNER_COLOR" property="innerColor" jdbcType="VARCHAR" />
+		<result column="VIN" property="vin" jdbcType="VARCHAR" />
+		<result column="BUY_PRICE" property="buyPrice" jdbcType="DECIMAL" />
+		<result column="sellerprice" property="sellerprice" jdbcType="DECIMAL" />
+		<result column="BUY_NAME" property="buyName" jdbcType="VARCHAR" />
+		<result column="SALE_PRICE" property="salePrice" jdbcType="DECIMAL" />
+		<result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+		<result column="SHOP_RELATED" property="shopRelated" jdbcType="CHAR" />
+		<result column="STATUS" property="status" jdbcType="INTEGER" />
+		<result column="IS_STORED" property="isStored" jdbcType="INTEGER" />
+		<result column="BUYER_ID" property="buyerId" jdbcType="INTEGER" />
+		<result column="CONTRACT_ID" property="contractId" jdbcType="INTEGER" />
+		<result column="IDEN1" property="iden1" jdbcType="VARCHAR" />
+		<result column="IDEN2" property="iden2" jdbcType="VARCHAR" />
+		<result column="IDEN3" property="iden3" jdbcType="VARCHAR" />
+		<result column="iden5" property="iden5" jdbcType="VARCHAR" />
+		<result column="IDEN4" property="iden4" jdbcType="VARCHAR" />
+		<result column="PIC1" property="pic1" jdbcType="VARCHAR" />
+		<result column="PIC2" property="pic2" jdbcType="VARCHAR" />
+		<result column="PIC3" property="pic3" jdbcType="VARCHAR" />
+		<result column="PIC4" property="pic4" jdbcType="VARCHAR" />
+		<result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="LEAVEFACTORY_TIME" property="leaveFactoryTime"
+			jdbcType="TIMESTAMP" />
+		<result column="REASON" property="reason" jdbcType="VARCHAR" />
+
+		<result column="MOVE_STATUS" property="moveStatus" jdbcType="INTEGER" />
+		<result column="OUT_STATUS" property="outStatus" jdbcType="INTEGER" />
+
+		<result column="SHOP_ID" property="shopId" jdbcType="INTEGER" />
+		<result column="STORE_ID" property="storeId" jdbcType="INTEGER" />
+		<result column="STORE_TYPE" property="storeType" jdbcType="INTEGER" />
+		<result column="CAR_ADDRESS" property="carAddress" jdbcType="VARCHAR" />
+		<result column="LOW_PRICE" property="lowPrice" jdbcType="DECIMAL" />
+
+		<result column="DECORATE" property="decorate" jdbcType="VARCHAR" />
+		<result column="REALSALE" property="realSale" jdbcType="INTEGER" />
+		<result column="SALE_STATUS" property="saleStatus" jdbcType="INTEGER" />
+
+		<result column="SALETIME" property="saletime" jdbcType="TIMESTAMP" />
+
+		<result column="PURCHASE_TIME" property="purchaseTime"
+			jdbcType="TIMESTAMP" />
+		<result column="O_PRICE" property="oPrice" jdbcType="DECIMAL" />
+		<result column="buyerName" property="buyerName" jdbcType="VARCHAR" />
+		<result column="jndcar" property="jndcar" jdbcType="INTEGER" />
+		<result column="gpsprice" property="gpsprice" jdbcType="DECIMAL" />
+		<result column="signingdate" property="signingdate" jdbcType="TIMESTAMP" />
+		<result column="duedate" property="duedate" jdbcType="TIMESTAMP" />
+		<result column="supplycarstatus" property="supplycarstatus"
+			jdbcType="INTEGER" />
+		<result column="typeinsettleprice" property="typeinsettleprice"
+			jdbcType="DECIMAL" />
+		<result column="settlementprice" property="settlementprice"
+			jdbcType="DECIMAL" />
+		<result column="contractprice" property="contractprice"
+			jdbcType="DECIMAL" />
+		<result column="config" property="config" jdbcType="VARCHAR" />
+		<result column="financialtype" property="financialtype"
+			jdbcType="INTEGER" />
+		<result column="contractpricetime" property="contractpricetime"
+			jdbcType="TIMESTAMP" />
+
+		<result column="zeropurid" property="zeropurid" jdbcType="INTEGER" />
+		<result column="creatorid" property="creatorid" jdbcType="INTEGER" />
+		<result column="purchasesettlementprice" property="purchasesettlementprice"
+			jdbcType="DECIMAL" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		ID, BRAND, MODEL, ENGINE_NUM, LEN_WID_HEI, DISPLACEMENT,
+		OIL_WEAR,
+		DISCHARGE, WEIGHT,
+		LEVEL, GEARBOX, ENERGY_TYPE, OUTLOOK_COLOR,
+		INNER_COLOR, VIN, BUY_PRICE,
+		BUY_NAME,SALE_PRICE,
+		ADDRESS, SHOP_RELATED,
+		STATUS, IS_STORED, BUYER_ID, CONTRACT_ID, IDEN1, IDEN2,
+		IDEN3,
+		IDEN4,
+		PIC1, PIC2, PIC3,iden5, PIC4, CREATE_TIME,
+		LEAVEFACTORY_TIME,REASON,MOVE_STATUS,OUT_STATUS,
+		SHOP_ID,STORE_ID,STORE_TYPE,CAR_ADDRESS,LOW_PRICE,DECORATE,REALSALE,SALE_STATUS,SALETIME,
+		PURCHASE_TIME,O_PRICE,buyerName,version,sellerprice,jndcar,gpsprice,signingdate,duedate,
+		supplycarstatus,typeinsettleprice,settlementprice,contractprice,config,
+		financialtype,contractpricetime,zeropurid,creatorid,purchasesettlementprice
+
+	</sql>
+	<sql id="wherecase">
+		1=1
+		<if test="id != null and id !=''">
+			and ID = #{id}
+		</if>
+		<if test="version != null and version !=''">
+			and version like concat('%',#{version},'%')
+		</if>
+		<if test="brand != null and brand !=''">
+			and BRAND like concat('%',#{brand},'%')
+		</if>
+		<if test="model != null and model !=''">
+			and MODEL like concat('%',#{model},'%')
+		</if>
+		<if test="engineNum != null and engineNum !=''">
+			and ENGINE_NUM like concat('%',#{engineNum},'%')
+		</if>
+		<if test="lenWidHei != null and lenWidHei !=''">
+			and LEN_WID_HEI = #{lenWidHei}
+		</if>
+		<if test="displacement != null and displacement !=''">
+			and DISPLACEMENT = #{displacement}
+		</if>
+		<if test="oilWear != null and oilWear !=''">
+			and OIL_WEAR = #{oilWear}
+		</if>
+		<if test="discharge != null and discharge !=''">
+			and DISCHARGE = #{discharge}
+		</if>
+		<if test="weight != null and weight !=''">
+			and WEIGHT = #{weight}
+		</if>
+		<if test="level != null and level !=''">
+			and LEVEL = #{level}
+		</if>
+		<if test="gearbox != null and gearbox !=''">
+			and GEARBOX = #{gearbox}
+		</if>
+		<if test="energyType != null and energyType !=''">
+			and ENERGY_TYPE = #{energyType}
+		</if>
+		<if test="outlookColor != null and outlookColor !=''">
+			and OUTLOOK_COLOR = #{outlookColor}
+		</if>
+		<if test="innerColor != null and innerColor !=''">
+			and INNER_COLOR = #{innerColor}
+		</if>
+		<if test="vin != null and vin !=''">
+			and VIN like concat('%',#{vin},'%')
+		</if>
+		<if test="buyPrice != null and buyPrice !=''">
+			and BUY_PRICE = #{buyPrice}
+		</if>
+		<if test="sellerprice != null and sellerprice !=''">
+			and sellerprice = #{sellerprice}
+		</if>
+		<if test="salePrice != null and salePrice !=''">
+			and SALE_PRICE = #{salePrice}
+		</if>
+		<if test="address != null and address !=''">
+			and ADDRESS = #{address}
+		</if>
+		<if test="carAddress != null and carAddress !=''">
+			and CAR_ADDRESS LIKE CONCAT('%',#{carAddress},'%')
+		</if>
+		<if test="shopRelated != null and shopRelated !=''">
+			and SHOP_RELATED = #{shopRelated}
+		</if>
+		<if test="status != null and status !='' and status != 6 and status!=100">
+			and STATUS = #{status}
+		</if>
+		<if test="status ==100"><!--临时数据用来查询可以批发销售的车 -->
+			and OUT_STATUS IS NULL
+			AND REALSALE = 1
+			AND IS_STORED = 1
+			and
+			financialtype is null and SALE_STATUS is null and supplycarstatus is
+			null
+		</if>
+		<if test="status != null and status !='' and status == 6 and status!=100">
+			and (STATUS = 1 OR STATUS = 3)
+		</if>
+		<if test="isStored != null and isStored !='' and isStored!=6">
+			and IS_STORED = #{isStored}
+		</if>
+		<if test="isStored != null and isStored !='' and isStored==6">
+			and IS_STORED in(2,3)
+		</if>
+		<if test="buyerId != null and buyerId !=''">
+			and BUYER_ID = #{buyerId}
+		</if>
+		<if test="contractId != null and contractId !=''">
+			and CONTRACT_ID = #{contractId}
+		</if>
+		<if test="iden1 != null and iden1 !=''">
+			and IDEN1 = #{iden1}
+		</if>
+		<if test="iden2 != null and iden2 !=''">
+			and IDEN2 = #{iden2}
+		</if>
+		<if test="iden3 != null and iden3 !=''">
+			and IDEN3 = #{iden3}
+		</if>
+		<if test="iden5 != null and iden5 !=''">
+			and iden5 = #{iden5}
+		</if>
+		<if test="iden4 != null and iden4 !=''">
+			and IDEN4 = #{iden4}
+		</if>
+		<if test="pic1 != null and pic1 !=''">
+			and PIC1 = #{pic1}
+		</if>
+		<if test="pic2 != null and pic2 !=''">
+			and PIC2 = #{pic2}
+		</if>
+		<if test="pic3 != null and pic3 !=''">
+			and PIC3 = #{pic3}
+		</if>
+		<if test="pic4 != null and pic4 !=''">
+			and PIC4 = #{pic4}
+		</if>
+		<if test="createTime != null and createTime !=''">
+			and CREATE_TIME = #{createTime}
+		</if>
+		<if test="leaveFactoryTime != null and leaveFactoryTime !=''">
+			and LEAVEFACTORY_TIME = #{leaveFactoryTime}
+		</if>
+		<if test="shopId != null and shopId !=''">
+			and SHOP_ID = #{shopId}
+		</if>
+		<if test="decorate != null and decorate !=''">
+			and DECORATE LIKE CONCAT('%',#{decorate},'%')
+		</if>
+		<if test="realSale != null and realSale !=''">
+			and REALSALE = #{realSale}
+		</if>
+		<if
+			test="outStatus != null and outStatus !='' and outStatus != 66 and outStatus != 99">
+			and OUT_STATUS = #{outStatus}
+		</if>
+		<if test="outStatus != null and outStatus !='' and outStatus==66">
+			and OUT_STATUS is null
+		</if>
+		<if test="outStatus != null and outStatus !='' and outStatus==99">
+			and (OUT_STATUS IS NULL OR 6>OUT_STATUS)
+		</if>
+		<if
+			test="saleStatus != null and saleStatus !='' and saleStatus != 66 and saleStatus != 100">
+			and SALE_STATUS = #{saleStatus}
+		</if>
+		<if test="saleStatus != null and saleStatus !='' and saleStatus==66">
+			and SALE_STATUS is null
+		</if>
+		<if test="saleStatus != null and saleStatus !='' and saleStatus==100">
+			and (SALE_STATUS IS NULL OR 4>SALE_STATUS)
+		</if>
+		<if test="purchaseTime != null and purchaseTime !=''">
+			and PURCHASE_TIME = #{purchaseTime}
+		</if>
+		<if test="oPrice != null and oPrice !=''">
+			and O_PRICE = #{oPrice}
+		</if>
+		<if test="buyerName != null and buyerName !=''">
+			and buyerName = #{buyerName}
+		</if>
+		<if test="jndcar != null and jndcar !=''">
+			and jndcar = #{jndcar}
+		</if>
+		<if test="gpsprice != null and gpsprice !=''">
+			and gpsprice = #{gpsprice}
+		</if>
+		<if test="signingdate != null and signingdate !=''">
+			and signingdate = #{signingdate}
+		</if>
+		<if test="duedate != null and duedate !=''">
+			and duedate = #{duedate}
+		</if>
+		<if test="supplycarstatus != null and supplycarstatus !=''">
+			and supplycarstatus = #{supplycarstatus}
+		</if>
+		<if test="settlementprice != null and settlementprice !=''">
+			and settlementprice = #{settlementprice}
+		</if>
+		<if test="contractprice != null and contractprice !=''">
+			and contractprice = #{contractprice}
+		</if>
+		<if test="config != null and config !=''">
+			and config = #{config}
+		</if>
+		<if test="financialtype != null and financialtype !=''">
+			and financialtype = #{financialtype}
+		</if>
+		<if test="contractpricetime != null and contractpricetime !=''">
+			and contractpricetime = #{contractpricetime}
+		</if>
+		<if test="zeropurid != null and zeropurid !=''">
+			and zeropurid = #{zeropurid}
+		</if>
+		<if test="creatorid != null and creatorid !=''">
+			and creatorid = #{creatorid}
+		</if>
+		<if test="purchasesettlementprice != null and purchasesettlementprice !=''">
+			and purchasesettlementprice = #{purchasesettlementprice}
+		</if>
+		order by ID desc
+	</sql>
+	<select id="selectByCriteria" resultMap="BaseResultMap"
+		parameterType="com.yyq.car.portal.common.model.product.Car">
+		select
+		<include refid="Base_Column_List" />
+		from pro_car
+		where
+		<include refid="wherecase" />
+	</select>
+	<select id="countByCriteria" resultType="int"
+		parameterType="com.yyq.car.portal.common.model.product.Car">
+		select count(*) from pro_car where
+		<include refid="wherecase" />
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from pro_car
+		where ID = #{id,jdbcType=INTEGER}
+	</select>
+
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		pro_car
+		where ID = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.yyq.car.portal.common.model.product.Car">
+		<selectKey resultType="java.lang.Integer" keyProperty="id"
+			order="BEFORE">
+			SELECT NEXTVAL(601);
+		</selectKey>
+		insert into pro_car (ID, BRAND, MODEL,
+		ENGINE_NUM, LEN_WID_HEI,
+		DISPLACEMENT,
+		OIL_WEAR, DISCHARGE, WEIGHT,
+		LEVEL, GEARBOX, ENERGY_TYPE,
+		OUTLOOK_COLOR, INNER_COLOR, VIN,
+		BUY_PRICE, SALE_PRICE, ADDRESS,
+		SHOP_RELATED, STATUS, IS_STORED,
+		BUYER_ID, CONTRACT_ID, IDEN1,
+		IDEN2,
+		IDEN3, IDEN4, ,sellerprice,
+		PIC1, PIC2, PIC3,iden5, PIC4, version,
+		CREATE_TIME,LEAVEFACTORY_TIME,PURCHASE_TIME,O_PRICE,jndcar,gpsprice,
+		signingdate,duedate,supplycarstatus,settlementprice,contractprice,config,financialtype,contractpricetime,purchasesettlementprice)
+		values (#{id,jdbcType=INTEGER},
+		#{brand,jdbcType=VARCHAR},#{version,jdbcType=VARCHAR},
+		#{model,jdbcType=VARCHAR},
+		#{engineNum,jdbcType=VARCHAR},
+		#{lenWidHei,jdbcType=VARCHAR}, #{displacement,jdbcType=VARCHAR},
+		#{oilWear,jdbcType=VARCHAR}, #{discharge,jdbcType=VARCHAR},
+		#{weight,jdbcType=VARCHAR},
+		#{level,jdbcType=VARCHAR},
+		#{gearbox,jdbcType=VARCHAR}, #{energyType,jdbcType=VARCHAR},
+		#{outlookColor,jdbcType=VARCHAR}, #{innerColor,jdbcType=VARCHAR},
+		#{vin,jdbcType=VARCHAR},
+		#{buyPrice,jdbcType=DECIMAL},
+		#{salePrice,jdbcType=DECIMAL}, #{sellerprice,jdbcType=DECIMAL},
+		#{address,jdbcType=VARCHAR},
+		#{shopRelated,jdbcType=CHAR},
+		#{status,jdbcType=INTEGER}, #{isStored,jdbcType=INTEGER},
+		#{buyerId,jdbcType=INTEGER}, #{contractId,jdbcType=INTEGER},
+		#{iden1,jdbcType=VARCHAR},
+		#{iden2,jdbcType=VARCHAR},
+		#{iden3,jdbcType=VARCHAR},
+		#{iden5,jdbcType=VARCHAR},#{iden4,jdbcType=VARCHAR},
+		#{pic1,jdbcType=VARCHAR}, #{pic2,jdbcType=VARCHAR},
+		#{pic3,jdbcType=VARCHAR}, #{pic4,jdbcType=VARCHAR},
+		#{createTime,jdbcType=TIMESTAMP},#{leaveFactoryTime,jdbcType=TIMESTAMP},
+		#{purchaseTime,jdbcType=TIMESTAMP},#{oPrice,jdbcType=DECIMAL},
+		#{buyerName,jdbcType=VARCHAR},
+		#{jndcar,jdbcType=VARCHAR},#{gpsprice,jdbcType=DECIMAL},#{signingdate,jdbcType=TIMESTAMP},
+		#{duedate,jdbcType=TIMESTAMP}
+		,#{supplycarstatus,jdbcType=INTEGER},#{settlementprice,jdbcType=DECIMAL},
+		#{contractprice,jdbcType=DECIMAL},
+		#{config,jdbcType=VARCHAR},#{financialtype,jdbcType=INTEGER},
+		#{contractpricetime,jdbcType=TIMESTAMP},#{purchasesettlementprice,jdbcType=DECIMAL})
+	</insert>
+	<insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.product.Car">
+		<selectKey resultType="java.lang.Integer" keyProperty="id"
+			order="BEFORE">
+			SELECT NEXTVAL(601);
+		</selectKey>
+		insert into pro_car
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			ID,
+			<if test="brand != null">
+				BRAND,
+			</if>
+			<if test="model != null">
+				MODEL,
+			</if>
+			<if test="version != null">
+				version,
+			</if>
+			<if test="engineNum != null">
+				ENGINE_NUM,
+			</if>
+			<if test="lenWidHei != null">
+				LEN_WID_HEI,
+			</if>
+			<if test="displacement != null">
+				DISPLACEMENT,
+			</if>
+			<if test="oilWear != null">
+				OIL_WEAR,
+			</if>
+			<if test="discharge != null">
+				DISCHARGE,
+			</if>
+			<if test="weight != null">
+				WEIGHT,
+			</if>
+			<if test="level != null">
+				LEVEL,
+			</if>
+			<if test="gearbox != null">
+				GEARBOX,
+			</if>
+			<if test="energyType != null">
+				ENERGY_TYPE,
+			</if>
+			<if test="outlookColor != null">
+				OUTLOOK_COLOR,
+			</if>
+			<if test="innerColor != null">
+				INNER_COLOR,
+			</if>
+			<if test="vin != null">
+				VIN,
+			</if>
+			<if test="buyPrice != null">
+				BUY_PRICE,
+			</if>
+			<if test="sellerprice != null">
+				sellerprice,
+			</if>
+			<if test="salePrice != null">
+				SALE_PRICE,
+			</if>
+			<if test="lowPrice != null">
+				LOW_PRICE,
+			</if>
+			<if test="address != null">
+				ADDRESS,
+			</if>
+			<if test="shopRelated != null">
+				SHOP_RELATED,
+			</if>
+			<if test="status != null">
+				STATUS,
+			</if>
+			<if test="isStored != null">
+				IS_STORED,
+			</if>
+			<if test="buyerId != null">
+				BUYER_ID,
+			</if>
+			<if test="buyName != null">
+				BUY_NAME,
+			</if>
+			<if test="contractId != null">
+				CONTRACT_ID,
+			</if>
+			<if test="iden1 != null">
+				IDEN1,
+			</if>
+			<if test="iden2 != null">
+				IDEN2,
+			</if>
+			<if test="iden3 != null">
+				IDEN3,
+			</if>
+			<if test="iden5 != null">
+				iden5,
+			</if>
+			<if test="iden4 != null">
+				IDEN4,
+			</if>
+			<if test="pic1 != null">
+				PIC1,
+			</if>
+			<if test="pic2 != null">
+				PIC2,
+			</if>
+			<if test="pic3 != null">
+				PIC3,
+			</if>
+			<if test="pic4 != null">
+				PIC4,
+			</if>
+			<if test="createTime != null">
+				CREATE_TIME,
+			</if>
+			<if test="leaveFactoryTime != null">
+				LEAVEFACTORY_TIME,
+			</if>
+			<if test="shopId != null">
+				SHOP_ID,
+			</if>
+			<if test="storeId != null">
+				STORE_ID,
+			</if>
+			<if test="storeType != null">
+				STORE_TYPE,
+			</if>
+			<if test="carAddress != null">
+				CAR_ADDRESS,
+			</if>
+			<if test="decorate != null">
+				DECORATE,
+			</if>
+			<if test="realSale != null">
+				REALSALE,
+			</if>
+			<if test="purchaseTime != null">
+				PURCHASE_TIME,
+			</if>
+			<if test="oPrice != null">
+				O_PRICE,
+			</if>
+			<if test="buyerName != null">
+				buyerName,
+			</if>
+			<if test="jndcar != null">
+				jndcar,
+			</if>
+			<if test="gpsprice != null">
+				gpsprice,
+			</if>
+			<if test="signingdate != null">
+				signingdate,
+			</if>
+			<if test="duedate != null">
+				duedate,
+			</if>
+			<if test="supplycarstatus != null">
+				supplycarstatus,
+			</if>
+			<if test="typeinsettleprice != null">
+				typeinsettleprice,
+			</if>
+			<if test="settlementprice != null">
+				settlementprice,
+			</if>
+			<if test="contractprice != null">
+				contractprice,
+			</if>
+			<if test="config != null">
+				config,
+			</if>
+			<if test="financialtype != null">
+				financialtype,
+			</if>
+			<if test="contractpricetime != null">
+				contractpricetime,
+			</if>
+			<if test="zeropurid != null">
+				zeropurid,
+			</if>
+			<if test="creatorid != null">
+				creatorid,
+			</if>
+			<if test="purchasesettlementprice != null">
+				purchasesettlementprice,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			#{id,jdbcType=INTEGER},
+			<if test="brand != null">
+				#{brand,jdbcType=VARCHAR},
+			</if>
+			<if test="model != null">
+				#{model,jdbcType=VARCHAR},
+			</if>
+			<if test="version != null">
+				#{version,jdbcType=VARCHAR},
+			</if>
+			<if test="engineNum != null">
+				#{engineNum,jdbcType=VARCHAR},
+			</if>
+			<if test="lenWidHei != null">
+				#{lenWidHei,jdbcType=VARCHAR},
+			</if>
+			<if test="displacement != null">
+				#{displacement,jdbcType=VARCHAR},
+			</if>
+			<if test="oilWear != null">
+				#{oilWear,jdbcType=VARCHAR},
+			</if>
+			<if test="discharge != null">
+				#{discharge,jdbcType=VARCHAR},
+			</if>
+			<if test="weight != null">
+				#{weight,jdbcType=VARCHAR},
+			</if>
+			<if test="level != null">
+				#{level,jdbcType=VARCHAR},
+			</if>
+			<if test="gearbox != null">
+				#{gearbox,jdbcType=VARCHAR},
+			</if>
+			<if test="energyType != null">
+				#{energyType,jdbcType=VARCHAR},
+			</if>
+			<if test="outlookColor != null">
+				#{outlookColor,jdbcType=VARCHAR},
+			</if>
+			<if test="innerColor != null">
+				#{innerColor,jdbcType=VARCHAR},
+			</if>
+			<if test="vin != null">
+				#{vin,jdbcType=VARCHAR},
+			</if>
+			<if test="buyPrice != null">
+				#{buyPrice,jdbcType=DECIMAL},
+			</if>
+			<if test="sellerprice != null">
+				#{sellerprice,jdbcType=DECIMAL},
+			</if>
+			<if test="salePrice != null">
+				#{salePrice,jdbcType=DECIMAL},
+			</if>
+			<if test="lowPrice != null">
+				#{lowPrice,jdbcType=DECIMAL},
+			</if>
+			<if test="address != null">
+				#{address,jdbcType=VARCHAR},
+			</if>
+			<if test="shopRelated != null">
+				#{shopRelated,jdbcType=CHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=INTEGER},
+			</if>
+			<if test="isStored != null">
+				#{isStored,jdbcType=INTEGER},
+			</if>
+			<if test="buyerId != null">
+				#{buyerId,jdbcType=INTEGER},
+			</if>
+			<if test="buyName != null">
+				#{buyName,jdbcType=VARCHAR},
+			</if>
+			<if test="contractId != null">
+				#{contractId,jdbcType=INTEGER},
+			</if>
+			<if test="iden1 != null">
+				#{iden1,jdbcType=VARCHAR},
+			</if>
+			<if test="iden2 != null">
+				#{iden2,jdbcType=VARCHAR},
+			</if>
+			<if test="iden3 != null">
+				#{iden3,jdbcType=VARCHAR},
+			</if>
+			<if test="iden5 != null">
+				#{iden5,jdbcType=VARCHAR},
+			</if>
+			<if test="iden4 != null">
+				#{iden4,jdbcType=VARCHAR},
+			</if>
+			<if test="pic1 != null">
+				#{pic1,jdbcType=VARCHAR},
+			</if>
+			<if test="pic2 != null">
+				#{pic2,jdbcType=VARCHAR},
+			</if>
+			<if test="pic3 != null">
+				#{pic3,jdbcType=VARCHAR},
+			</if>
+			<if test="pic4 != null">
+				#{pic4,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="leaveFactoryTime != null">
+				#{leaveFactoryTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="shopId != null">
+				#{shopId,jdbcType=INTEGER},
+			</if>
+			<if test="storeId != null">
+				#{storeId,jdbcType=INTEGER},
+			</if>
+			<if test="storeType != null">
+				#{storeType,jdbcType=INTEGER},
+			</if>
+			<if test="carAddress != null">
+				#{carAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="decorate != null">
+				#{decorate,jdbcType=VARCHAR},
+			</if>
+			<if test="realSale != null">
+				#{realSale,jdbcType=INTEGER},
+			</if>
+			<if test="purchaseTime != null">
+				#{purchaseTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="oPrice != null">
+				#{oPrice,jdbcType=DECIMAL},
+			</if>
+			<if test="buyerName != null">
+				#{buyerName,jdbcType=VARCHAR},
+			</if>
+			<if test="jndcar != null">
+				#{jndcar,jdbcType=VARCHAR},
+			</if>
+			<if test="gpsprice != null">
+				#{gpsprice,jdbcType=DECIMAL},
+			</if>
+			<if test="signingdate != null">
+				#{signingdate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="duedate != null">
+				#{duedate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="supplycarstatus != null">
+				#{supplycarstatus,jdbcType=INTEGER},
+			</if>
+			<if test="typeinsettleprice != null">
+				#{typeinsettleprice,jdbcType=DECIMAL},
+			</if>
+			<if test="settlementprice != null">
+				#{settlementprice,jdbcType=DECIMAL},
+			</if>
+			<if test="contractprice != null">
+				#{contractprice,jdbcType=DECIMAL},
+			</if>
+			<if test="config != null">
+				#{config,jdbcType=VARCHAR},
+			</if>
+			<if test="financialtype != null">
+				#{financialtype,jdbcType=INTEGER},
+			</if>
+			<if test="contractpricetime != null">
+				#{contractpricetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="zeropurid != null">
+				#{zeropurid,jdbcType=INTEGER},
+			</if>
+			<if test="creatorid != null">
+				#{creatorid,jdbcType=INTEGER},
+			</if>
+			<if test="purchasesettlementprice != null">
+				#{purchasesettlementprice,jdbcType=DECIMAL},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.product.Car">
+		update pro_car
+		<set>
+			<!-- <if test="brand != null and brand != ''" > BRAND = #{brand,jdbcType=VARCHAR}, 
+				</if> <if test="model != null and model != ''" > MODEL = #{model,jdbcType=VARCHAR}, 
+				</if> <if test="engineNum != null and engineNum != ''" > ENGINE_NUM = #{engineNum,jdbcType=VARCHAR}, 
+				</if> <if test="lenWidHei != null and lenWidHei != ''" > LEN_WID_HEI = #{lenWidHei,jdbcType=VARCHAR}, 
+				</if> <if test="displacement != null and displacement != ''" > DISPLACEMENT 
+				= #{displacement,jdbcType=VARCHAR}, </if> <if test="oilWear != null and oilWear 
+				!= ''" > OIL_WEAR = #{oilWear,jdbcType=VARCHAR}, </if> <if test="discharge 
+				!= null and discharge != ''" > DISCHARGE = #{discharge,jdbcType=VARCHAR}, 
+				</if> <if test="weight != null and weight != ''" > WEIGHT = #{weight,jdbcType=VARCHAR}, 
+				</if> <if test="level != null and level != ''" > LEVEL = #{level,jdbcType=VARCHAR}, 
+				</if> <if test="gearbox != null and gearbox != ''" > GEARBOX = #{gearbox,jdbcType=VARCHAR}, 
+				</if> <if test="energyType != null and energyType != ''" > ENERGY_TYPE = 
+				#{energyType,jdbcType=VARCHAR}, </if> <if test="outlookColor != null and 
+				outlookColor != ''" > OUTLOOK_COLOR = #{outlookColor,jdbcType=VARCHAR}, </if> 
+				<if test="innerColor != null and innerColor != ''" > INNER_COLOR = #{innerColor,jdbcType=VARCHAR}, 
+				</if> <if test="vin != null and vin != ''" > VIN = #{vin,jdbcType=VARCHAR}, 
+				</if> <if test="buyPrice != null" > BUY_PRICE = #{buyPrice,jdbcType=DECIMAL}, 
+				</if> <if test="salePrice != null" > SALE_PRICE = #{salePrice,jdbcType=DECIMAL}, 
+				</if> <if test="lowPrice != null" > LOW_PRICE = #{lowPrice,jdbcType=DECIMAL}, 
+				</if> <if test="address != null and address != ''" > ADDRESS = #{address,jdbcType=VARCHAR}, 
+				</if> <if test="shopRelated != null and shopRelated != ''" > SHOP_RELATED 
+				= #{shopRelated,jdbcType=CHAR}, </if> <if test="status != null" > STATUS 
+				= #{status,jdbcType=INTEGER}, </if> <if test="isStored != null" > IS_STORED 
+				= #{isStored,jdbcType=INTEGER}, </if> <if test="buyerId != null" > BUYER_ID 
+				= #{buyerId,jdbcType=INTEGER}, </if> <if test="buyName != null and buyName 
+				!= ''" > BUY_NAME = #{buyName,jdbcType=VARCHAR}, </if> <if test="contractId 
+				!= null" > CONTRACT_ID = #{contractId,jdbcType=INTEGER}, </if> <if test="iden1 
+				!= null" > IDEN1 = #{iden1,jdbcType=VARCHAR}, </if> <if test="iden2 != null 
+				and iden2 != ''" > IDEN2 = #{iden2,jdbcType=VARCHAR}, </if> <if test="iden3 
+				!= null and iden3 != ''" > IDEN3 = #{iden3,jdbcType=VARCHAR}, </if> <if test="iden4 
+				!= null and iden4 != ''" > IDEN4 = #{iden4,jdbcType=VARCHAR}, </if> <if test="pic1 
+				!= null and pic1 != ''" > PIC1 = #{pic1,jdbcType=VARCHAR}, </if> <if test="pic2 
+				!= null and pic2 != ''" > PIC2 = #{pic2,jdbcType=VARCHAR}, </if> <if test="pic3 
+				!= null and pic3 != ''" > PIC3 = #{pic3,jdbcType=VARCHAR}, </if> <if test="pic4 
+				!= null and pic4 != ''" > PIC4 = #{pic4,jdbcType=VARCHAR}, </if> <if test="createTime 
+				!= null" > CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}, </if> <if test="leaveFactoryTime 
+				!= null" > LEAVEFACTORY_TIME = #{leaveFactoryTime,jdbcType=TIMESTAMP}, </if> 
+				<if test="reason != null and reason != ''" > REASON = #{reason,jdbcType=VARCHAR}, 
+				</if> <if test="moveStatus != null" > MOVE_STATUS = #{moveStatus,jdbcType=INTEGER}, 
+				</if> <if test="outStatus != null" > OUT_STATUS = #{outStatus,jdbcType=INTEGER}, 
+				</if> <if test="shopId != null" > SHOP_ID = #{shopId,jdbcType=INTEGER}, </if> 
+				<if test="storeId != null" > STORE_ID = #{storeId,jdbcType=INTEGER}, </if> 
+				<if test="storeType != null" > STORE_TYPE = #{storeType,jdbcType=INTEGER}, 
+				</if> <if test="carAddress != null and carAddress != ''" > CAR_ADDRESS = 
+				#{carAddress}, </if> -->
+			<if test="brand != null">
+				BRAND = #{brand,jdbcType=VARCHAR},
+			</if>
+			<if test="model != null">
+				MODEL = #{model,jdbcType=VARCHAR},
+			</if>
+			<if test="version != null">
+				version = #{version,jdbcType=VARCHAR},
+			</if>
+			<if test="engineNum != null">
+				ENGINE_NUM = #{engineNum,jdbcType=VARCHAR},
+			</if>
+			<if test="lenWidHei != null">
+				LEN_WID_HEI = #{lenWidHei,jdbcType=VARCHAR},
+			</if>
+			<if test="displacement != null">
+				DISPLACEMENT = #{displacement,jdbcType=VARCHAR},
+			</if>
+			<if test="oilWear != null">
+				OIL_WEAR = #{oilWear,jdbcType=VARCHAR},
+			</if>
+			<if test="discharge != null">
+				DISCHARGE = #{discharge,jdbcType=VARCHAR},
+			</if>
+			<if test="weight != null">
+				WEIGHT = #{weight,jdbcType=VARCHAR},
+			</if>
+			<if test="level != null">
+				LEVEL = #{level,jdbcType=VARCHAR},
+			</if>
+			<if test="gearbox != null">
+				GEARBOX = #{gearbox,jdbcType=VARCHAR},
+			</if>
+			<if test="energyType != null">
+				ENERGY_TYPE = #{energyType,jdbcType=VARCHAR},
+			</if>
+			<if test="outlookColor != null">
+				OUTLOOK_COLOR = #{outlookColor,jdbcType=VARCHAR},
+			</if>
+			<if test="innerColor != null">
+				INNER_COLOR = #{innerColor,jdbcType=VARCHAR},
+			</if>
+			<if test="vin != null">
+				VIN = #{vin,jdbcType=VARCHAR},
+			</if>
+			<if test="buyPrice != null">
+				BUY_PRICE = #{buyPrice,jdbcType=DECIMAL},
+			</if>
+			<if test="salePrice != null">
+				SALE_PRICE = #{salePrice,jdbcType=DECIMAL},
+			</if>
+			<if test="sellerprice != null">
+				sellerprice = #{sellerprice,jdbcType=DECIMAL},
+			</if>
+			<if test="lowPrice != null">
+				LOW_PRICE = #{lowPrice,jdbcType=DECIMAL},
+			</if>
+			<if test="address != null">
+				ADDRESS = #{address,jdbcType=VARCHAR},
+			</if>
+			<if test="shopRelated != null">
+				SHOP_RELATED = #{shopRelated,jdbcType=CHAR},
+			</if>
+			<if test="status != null">
+				STATUS = #{status,jdbcType=INTEGER},
+			</if>
+			<if test="isStored != null">
+				IS_STORED = #{isStored,jdbcType=INTEGER},
+			</if>
+			<if test="buyerId != null">
+				BUYER_ID = #{buyerId,jdbcType=INTEGER},
+			</if>
+			<if test="buyName != null">
+				BUY_NAME = #{buyName,jdbcType=VARCHAR},
+			</if>
+			<if test="contractId != null">
+				CONTRACT_ID = #{contractId,jdbcType=INTEGER},
+			</if>
+			<if test="iden1 != null">
+				IDEN1 = #{iden1,jdbcType=VARCHAR},
+			</if>
+			<if test="iden2 != null and iden2 != ''">
+				IDEN2 = #{iden2,jdbcType=VARCHAR},
+			</if>
+			<if test="iden3 != null and iden3 != ''">
+				IDEN3 = #{iden3,jdbcType=VARCHAR},
+			</if>
+			<if test="iden5!= null and iden5 != ''">
+				iden5 = #{iden5,jdbcType=VARCHAR},
+			</if>
+			<if test="iden4 != null and iden4 != ''">
+				IDEN4 = #{iden4,jdbcType=VARCHAR},
+			</if>
+			<if test="pic1 != null and pic1 != ''">
+				PIC1 = #{pic1,jdbcType=VARCHAR},
+			</if>
+			<if test="pic2 != null and pic2 != ''">
+				PIC2 = #{pic2,jdbcType=VARCHAR},
+			</if>
+			<if test="pic3 != null and pic3 != ''">
+				PIC3 = #{pic3,jdbcType=VARCHAR},
+			</if>
+			<if test="pic4 != null and pic4 != ''">
+				PIC4 = #{pic4,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="leaveFactoryTime != null">
+				LEAVEFACTORY_TIME =
+				#{leaveFactoryTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="reason != null">
+				REASON = #{reason,jdbcType=VARCHAR},
+			</if>
+			<if test="moveStatus != null">
+				MOVE_STATUS = #{moveStatus,jdbcType=INTEGER},
+			</if>
+			<if test="outStatus != null">
+				OUT_STATUS = #{outStatus,jdbcType=INTEGER},
+			</if>
+			<if test="shopId != null">
+				SHOP_ID = #{shopId,jdbcType=INTEGER},
+			</if>
+			<if test="storeId != null">
+				STORE_ID = #{storeId,jdbcType=INTEGER},
+			</if>
+			<if test="storeType != null">
+				STORE_TYPE = #{storeType,jdbcType=INTEGER},
+			</if>
+			<if test="carAddress != null">
+				CAR_ADDRESS = #{carAddress},
+			</if>
+			<if test="decorate != null">
+				DECORATE = #{decorate},
+			</if>
+			<if test="saleStatus != null">
+				SALE_STATUS = #{saleStatus},
+			</if>
+			<if test="saletime != null">
+				SALETIME = #{saletime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="purchaseTime != null">
+				PURCHASE_TIME = #{purchaseTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="oPrice != null">
+				O_PRICE = #{oPrice,jdbcType=DECIMAL},
+			</if>
+			<if test="buyerName != null">
+				buyerName = #{buyerName,jdbcType=VARCHAR},
+			</if>
+			<if test="jndcar != null">
+				jndcar = #{jndcar,jdbcType=VARCHAR},
+			</if>
+			<if test="gpsprice != null">
+				gpsprice = #{gpsprice,jdbcType=DECIMAL},
+			</if>
+			<if test="signingdate != null">
+				signingdate = #{signingdate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="duedate != null">
+				duedate = #{duedate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="supplycarstatus != null">
+				supplycarstatus = #{supplycarstatus,jdbcType=INTEGER},
+			</if>
+			<if test="settlementprice != null">
+				settlementprice = #{settlementprice,jdbcType=DECIMAL},
+			</if>
+			<if test="contractprice != null">
+				contractprice = #{contractprice,jdbcType=DECIMAL},
+			</if>
+			<if test="financialtype != null">
+				financialtype = #{financialtype,jdbcType=INTEGER},
+			</if>
+			<if test="contractpricetime != null">
+				contractpricetime =
+				#{contractpricetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="purchasesettlementprice != null">
+				purchasesettlementprice =
+				#{purchasesettlementprice,jdbcType=DECIMAL},
+			</if>
+
+		</set>
+		where ID = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.product.Car">
+		update pro_car
+		set
+		BRAND = #{brand,jdbcType=VARCHAR},
+		MODEL = #{model,jdbcType=VARCHAR},
+		version = #{version,jdbcType=VARCHAR},
+		ENGINE_NUM =
+		#{engineNum,jdbcType=VARCHAR},
+		LEN_WID_HEI =
+		#{lenWidHei,jdbcType=VARCHAR},
+		DISPLACEMENT =
+		#{displacement,jdbcType=VARCHAR},
+		OIL_WEAR =
+		#{oilWear,jdbcType=VARCHAR},
+		DISCHARGE = #{discharge,jdbcType=VARCHAR},
+		WEIGHT = #{weight,jdbcType=VARCHAR},
+		LEVEL = #{level,jdbcType=VARCHAR},
+		GEARBOX = #{gearbox,jdbcType=VARCHAR},
+		ENERGY_TYPE =
+		#{energyType,jdbcType=VARCHAR},
+		OUTLOOK_COLOR =
+		#{outlookColor,jdbcType=VARCHAR},
+		INNER_COLOR =
+		#{innerColor,jdbcType=VARCHAR},
+		VIN = #{vin,jdbcType=VARCHAR},
+		BUY_PRICE = #{buyPrice,jdbcType=DECIMAL},
+		SALE_PRICE =
+		#{salePrice,jdbcType=DECIMAL},
+		sellerprice =
+		#{sellerprice,jdbcType=DECIMAL},
+		ADDRESS = #{address,jdbcType=VARCHAR},
+		SHOP_RELATED = #{shopRelated,jdbcType=CHAR},
+		STATUS =
+		#{status,jdbcType=INTEGER},
+		IS_STORED = #{isStored,jdbcType=INTEGER},
+		BUYER_ID = #{buyerId,jdbcType=INTEGER},
+		CONTRACT_ID =
+		#{contractId,jdbcType=INTEGER},
+		IDEN1 = #{iden1,jdbcType=VARCHAR},
+		IDEN2 = #{iden2,jdbcType=VARCHAR},
+		IDEN3 = #{iden3,jdbcType=VARCHAR},
+		iden5 = #{iden5,jdbcType=VARCHAR},
+		IDEN4 = #{iden4,jdbcType=VARCHAR},
+		PIC1 = #{pic1,jdbcType=VARCHAR},
+		PIC2 = #{pic2,jdbcType=VARCHAR},
+		PIC3 =
+		#{pic3,jdbcType=VARCHAR},
+		PIC4 = #{pic4,jdbcType=VARCHAR},
+		CREATE_TIME =
+		#{createTime,jdbcType=TIMESTAMP},
+		LEAVEFACTORY_TIME =
+		#{purchaseTime,jdbcType=TIMESTAMP},
+		PURCHASE_TIME =
+		#{purchaseTime,jdbcType=TIMESTAMP},
+		buyerName =
+		#{buyerName,jdbcType=VARCHAR},
+		O_PRICE = #{oPrice,jdbcType=DECIMAL},
+		jndcar = #{jndcar,jdbcType=INTEGER} ,
+		gpsprice =
+		#{gpsprice,jdbcType=DECIMAL} ,
+		signingdate =
+		#{signingdate,jdbcType=TIMESTAMP} ,
+		duedate =
+		#{duedate,jdbcType=TIMESTAMP} ,
+		supplycarstatus =
+		#{supplycarstatus,jdbcType=INTEGER} ,
+		settlementprice =
+		#{settlementprice,jdbcType=DECIMAL} ,
+		contractprice =
+		#{contractprice,jdbcType=DECIMAL},
+		config = #{config,jdbcType=VARCHAR},
+		financialtype = #{financialtype,jdbcType=INTEGER}
+		,
+		contractpricetime =
+		#{contractpricetime,jdbcType=TIMESTAMP} ,
+		purchasesettlementprice =
+		#{purchasesettlementprice,jdbcType=DECIMAL}
+		where ID =
+		#{id,jdbcType=INTEGER}
+	</update>
+
+	<!-- 获取指定车辆信息 -->
+	<select id="selectCarInfoById" parameterType="int" resultType="map">
+		SELECT
+		c.id AS cId,
+		c.O_PRICE AS oPrice,
+		c.version version,
+		c.sellerprice
+		sellerprice,
+		(DATE_FORMAT(c.PURCHASE_TIME,'%Y-%m-%d')) AS purchaseTime,
+		s.`NAME` AS sName,s.`ADDRESS` AS sAddress,s.`TEL` AS
+		sTel,s.`PRI_PHONE` AS
+		sPhone,
+		s.PRINCIPAL sPerson,c.`ENGINE_NUM`
+		enginNum,c.`VIN` AS vin,c.`BRAND` AS brand,
+		c.`MODEL` AS
+		model,c.`LEN_WID_HEI` AS
+		lwh,(DATE_FORMAT(c.`LEAVEFACTORY_TIME`,'%Y-%m-%d')) AS lfDate,
+		c.`DISPLACEMENT` AS displaceMent,c.`OIL_WEAR` AS oil,c.`DISCHARGE` AS
+		discharge,
+		c.`WEIGHT` AS weight,c.`LEVEL` AS cLevel,c.`GEARBOX` AS
+		gearbox,c.`ENERGY_TYPE`
+		AS energyType,
+		c.`OUTLOOK_COLOR` AS
+		outColor,c.`INNER_COLOR` AS innerColor,c.`BUY_PRICE` AS buyPrice,
+		c.`BUY_NAME` AS buyName,t.`ADDRESS` AS storeAddress,c.`LOW_PRICE` AS
+		lowPrice,c.CAR_ADDRESS as carAddress,c.DECORATE as
+		decorate,c.iden5,c.IDEN1,c.IDEN2,c.IDEN3,c.IDEN4
+		FROM pro_car c
+		LEFT
+		JOIN pro_shop s ON c.`SHOP_RELATED` = s.`ID`
+		LEFT JOIN pro_store t ON
+		c.`STORE_ID` = t.`ID`
+		WHERE c.`ID` = #{id}
+	</select>
+
+	<select id="countByParam" resultType="int"
+		parameterType="com.yyq.car.portal.common.model.product.Car">
+		select count(*) from pro_car where IS_STORED = 1
+		<if test="engineNum != null and engineNum !=''">
+			and ENGINE_NUM = #{engineNum,jdbcType=VARCHAR}
+		</if>
+		<if test="vin != null and vin !=''">
+			and VIN = #{vin,jdbcType=VARCHAR}
+		</if>
+		<if test="brand != null and brand !=''">
+			and BRAND = #{brand,jdbcType=VARCHAR}
+		</if>
+		<if test="model != null and model !=''">
+			and MODEL = #{model,jdbcType=VARCHAR}
+		</if>
+		<if test="id != null and id !=''">
+			and ID != #{id,jdbcType=VARCHAR}
+		</if>
+	</select>
+
+	<update id="updateByPrimaryKeySelectiveForEdit" parameterType="com.yyq.car.portal.common.model.product.Car">
+		update pro_car
+		<set>
+			<if test="brand != null">
+				BRAND = #{brand,jdbcType=VARCHAR},
+			</if>
+			<if test="model != null">
+				MODEL = #{model,jdbcType=VARCHAR},
+			</if>
+			<if test="version != null">
+				version = #{version,jdbcType=VARCHAR},
+			</if>
+			<if test="engineNum != null">
+				ENGINE_NUM = #{engineNum,jdbcType=VARCHAR},
+			</if>
+			<if test="outlookColor != null">
+				OUTLOOK_COLOR = #{outlookColor,jdbcType=VARCHAR},
+			</if>
+			<if test="innerColor != null">
+				INNER_COLOR = #{innerColor,jdbcType=VARCHAR},
+			</if>
+			<if test="vin != null">
+				VIN = #{vin,jdbcType=VARCHAR},
+			</if>
+			<if test="buyPrice != null">
+				BUY_PRICE = #{buyPrice,jdbcType=DECIMAL},
+			</if>
+			<if test="oPrice == null">
+				O_PRICE = null,
+			</if>
+			<if test="salePrice != null">
+				SALE_PRICE = #{salePrice,jdbcType=DECIMAL},
+			</if>
+			<if test="salePrice == null">
+				SALE_PRICE = null,
+			</if>
+			<if test="sellerprice != null">
+				sellerprice = #{sellerprice,jdbcType=DECIMAL},
+			</if>
+			<if test="sellerprice == null">
+				sellerprice = null,
+			</if>
+			<if test="typeinsettleprice == null">
+				typeinsettleprice = null,
+			</if>
+			<if test="typeinsettleprice != null">
+				typeinsettleprice =
+				#{typeinsettleprice,jdbcType=DECIMAL},
+			</if>
+			<if test="settlementprice == null">
+				settlementprice = null,
+			</if>
+			<if test="settlementprice != null">
+				settlementprice = #{settlementprice,jdbcType=DECIMAL},
+			</if>
+			<if test="lowPrice != null">
+				LOW_PRICE = #{lowPrice,jdbcType=DECIMAL},
+			</if>
+			<if test="lowPrice == null">
+				LOW_PRICE = null,
+			</if>
+			<if test="address != null">
+				ADDRESS = #{address,jdbcType=VARCHAR},
+			</if>
+			<if test="shopRelated != null">
+				SHOP_RELATED = #{shopRelated,jdbcType=CHAR},
+			</if>
+			<if test="status != null">
+				STATUS = #{status,jdbcType=INTEGER},
+			</if>
+			<if test="isStored != null">
+				IS_STORED = #{isStored,jdbcType=INTEGER},
+			</if>
+			<if test="buyerId != null">
+				BUYER_ID = #{buyerId,jdbcType=INTEGER},
+			</if>
+			<if test="buyName != null">
+				BUY_NAME = #{buyName,jdbcType=VARCHAR},
+			</if>
+			<if test="contractId != null">
+				CONTRACT_ID = #{contractId,jdbcType=INTEGER},
+			</if>
+			<if test="iden1 != null">
+				IDEN1 = #{iden1,jdbcType=VARCHAR},
+			</if>
+			<if test="iden2 != null and iden2 != ''">
+				IDEN2 = #{iden2,jdbcType=VARCHAR},
+			</if>
+			<if test="iden5 != null and iden5 != ''">
+				iden5 = #{iden5,jdbcType=VARCHAR},
+			</if>
+			<if test="iden3 != null and iden3 != ''">
+				IDEN3 = #{iden3,jdbcType=VARCHAR},
+			</if>
+			<if test="iden4 != null and iden4 != ''">
+				IDEN4 = #{iden4,jdbcType=VARCHAR},
+			</if>
+			<if test="pic1 != null and pic1 != ''">
+				PIC1 = #{pic1,jdbcType=VARCHAR},
+			</if>
+			<if test="pic2 != null and pic2 != ''">
+				PIC2 = #{pic2,jdbcType=VARCHAR},
+			</if>
+			<if test="pic3 != null and pic3 != ''">
+				PIC3 = #{pic3,jdbcType=VARCHAR},
+			</if>
+			<if test="pic4 != null and pic4 != ''">
+				PIC4 = #{pic4,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="leaveFactoryTime != null">
+				LEAVEFACTORY_TIME =
+				#{leaveFactoryTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="leaveFactoryTime == null">
+				PURCHASE_TIME = null,
+			</if>
+			<if test="purchaseTime != null">
+				PURCHASE_TIME = #{purchaseTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="purchaseTime == null">
+				LEAVEFACTORY_TIME = null,
+			</if>
+			<if test="reason != null">
+				REASON = #{reason,jdbcType=VARCHAR},
+			</if>
+			<if test="moveStatus != null">
+				MOVE_STATUS = #{moveStatus,jdbcType=INTEGER},
+			</if>
+			<if test="outStatus != null">
+				OUT_STATUS = #{outStatus,jdbcType=INTEGER},
+			</if>
+			<if test="shopId != null">
+				SHOP_ID = #{shopId,jdbcType=INTEGER},
+			</if>
+			<if test="storeId != null">
+				STORE_ID = #{storeId,jdbcType=INTEGER},
+			</if>
+			<if test="realSale != null">
+				REALSALE = #{realSale,jdbcType=INTEGER},
+			</if>
+			<if test="storeType != null">
+				STORE_TYPE = #{storeType,jdbcType=INTEGER},
+			</if>
+			<if test="carAddress != null">
+				CAR_ADDRESS = #{carAddress},
+			</if>
+			<if test="decorate != null">
+				DECORATE = #{decorate},
+			</if>
+			<if test="buyerName != null">
+				buyerName = #{buyerName,jdbcType=VARCHAR},
+			</if>
+			<if test="jndcar != null">
+				jndcar = #{jndcar,jdbcType=INTEGER},
+			</if>
+			<if test="config != null">
+				config = #{config,jdbcType=VARCHAR},
+			</if>
+			<if test="purchasesettlementprice != null">
+				purchasesettlementprice=#{purchasesettlementprice,jdbcType=DECIMAL},
+			</if>
+		</set>
+		where ID = #{id,jdbcType=INTEGER}
+	</update>
+
+	<select id="selectByCriteriaExport" resultMap="BaseResultMap"
+		parameterType="com.yyq.car.portal.common.model.product.Car">
+		select
+		a.BRAND,a.MODEL,a.VIN,a.BUY_NAME,b.NAME ADDRESS,a.BUY_PRICE
+		from
+		pro_car a join pro_store b on a.ADDRESS=b.ID
+		where
+		1=1
+		<if test="brand != null and brand !=''">
+			and a.BRAND like concat('%',#{brand},'%')
+		</if>
+		<if test="model != null and model !=''">
+			and a.MODEL like concat('%',#{model},'%')
+		</if>
+		<if test="engineNum != null and engineNum !=''">
+			and a.ENGINE_NUM like concat('%',#{engineNum},'%')
+		</if>
+		<if test="vin != null and vin !=''">
+			and a.VIN like concat('%',#{vin},'%')
+		</if>
+		<if test="address != null and address !=''">
+			and a.ADDRESS = #{address}
+		</if>
+		<if test="status != null and status !=''">
+			and a.STATUS = #{status}
+		</if>
+		<if test="isStored != null and isStored !=''">
+			and a.IS_STORED = #{isStored}
+		</if>
+		<if test="leaveFactoryTime != null and leaveFactoryTime !=''">
+			and a.LEAVEFACTORY_TIME = #{leaveFactoryTime}
+		</if>
+		order by a.CREATE_TIME desc
+	</select>
+
+	<update id="unlockCarSaleStatus" parameterType="int">
+		update pro_car
+		SET SALE_STATUS = NULL, OUT_STATUS = NULL WHERE ID =
+		#{id,jdbcType=INTEGER}
+	</update>
+
+	<select id="selectByCriteriaByVin" resultMap="BaseResultMap"
+		parameterType="map">
+		select ID,BRAND,MODEL,VIN
+		from pro_car where IS_STORED = 1 and
+		OUT_STATUS is null
+		<if test="vin != null and vin !=''">
+			and VIN =#{vin}
+		</if>
+	</select>
+
+	<update id="updateByVinForRealsale" parameterType="com.yyq.car.portal.common.model.product.Car">
+		update pro_car
+		<set>
+			<if test="brand != null">
+				BRAND = #{brand,jdbcType=VARCHAR},
+			</if>
+			<if test="model != null">
+				MODEL = #{model,jdbcType=VARCHAR},
+			</if>
+			<if test="engineNum != null">
+				ENGINE_NUM = #{engineNum,jdbcType=VARCHAR},
+			</if>
+			<if test="lenWidHei != null">
+				LEN_WID_HEI = #{lenWidHei,jdbcType=VARCHAR},
+			</if>
+			<if test="displacement != null">
+				DISPLACEMENT = #{displacement,jdbcType=VARCHAR},
+			</if>
+			<if test="oilWear != null">
+				OIL_WEAR = #{oilWear,jdbcType=VARCHAR},
+			</if>
+			<if test="discharge != null">
+				DISCHARGE = #{discharge,jdbcType=VARCHAR},
+			</if>
+			<if test="weight != null">
+				WEIGHT = #{weight,jdbcType=VARCHAR},
+			</if>
+			<if test="level != null">
+				LEVEL = #{level,jdbcType=VARCHAR},
+			</if>
+			<if test="gearbox != null">
+				GEARBOX = #{gearbox,jdbcType=VARCHAR},
+			</if>
+			<if test="energyType != null">
+				ENERGY_TYPE = #{energyType,jdbcType=VARCHAR},
+			</if>
+			<if test="outlookColor != null">
+				OUTLOOK_COLOR = #{outlookColor,jdbcType=VARCHAR},
+			</if>
+			<if test="innerColor != null">
+				INNER_COLOR = #{innerColor,jdbcType=VARCHAR},
+			</if>
+			<if test="buyPrice != null">
+				BUY_PRICE = #{buyPrice,jdbcType=DECIMAL},
+			</if>
+			<if test="buyPrice == null">
+				BUY_PRICE = null,
+			</if>
+			<if test="salePrice != null">
+				SALE_PRICE = #{salePrice,jdbcType=DECIMAL},
+			</if>
+			<if test="salePrice == null">
+				SALE_PRICE = null,
+			</if>
+			<if test="lowPrice != null">
+				LOW_PRICE = #{lowPrice,jdbcType=DECIMAL},
+			</if>
+			<if test="lowPrice == null">
+				LOW_PRICE = null,
+			</if>
+			<if test="address != null">
+				ADDRESS = #{address,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				STATUS = #{status,jdbcType=INTEGER},
+			</if>
+			<if test="buyName != null">
+				BUY_NAME = #{buyName,jdbcType=VARCHAR},
+			</if>
+			<if test="leaveFactoryTime != null">
+				LEAVEFACTORY_TIME =
+				#{leaveFactoryTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="leaveFactoryTime == null">
+				LEAVEFACTORY_TIME = null,
+			</if>
+			<if test="outStatus != null">
+				OUT_STATUS = #{outStatus,jdbcType=INTEGER},
+			</if>
+			<if test="shopId != null">
+				SHOP_ID = #{shopId,jdbcType=INTEGER},
+			</if>
+			<if test="storeId != null">
+				STORE_ID = #{storeId,jdbcType=INTEGER},
+			</if>
+			<if test="realSale != null">
+				REALSALE = #{realSale,jdbcType=INTEGER},
+			</if>
+			<if test="storeType != null">
+				STORE_TYPE = #{storeType,jdbcType=INTEGER},
+			</if>
+			<if test="carAddress != null">
+				CAR_ADDRESS = #{carAddress},
+			</if>
+			<if test="decorate != null">
+				DECORATE = #{decorate},
+			</if>
+			<if test="jndcar != null">
+				jndcar = #{jndcar,jdbcType=INTEGER},
+			</if>
+		</set>
+		where IS_STORED=1 and REALSALE=1 and VIN = #{vin}
+	</update>
+
+	<select id="countEngineByVin" resultType="int" parameterType="map">
+		select count(*) from pro_car where IS_STORED=1 and ENGINE_NUM =
+		#{engineNum} and VIN != #{vin}
+	</select>
+
+	<select id="countBuyCar" resultType="int" parameterType="map">
+		SELECT COUNT(SALETIME) car
+		FROM pro_car
+		WHERE 1=1
+		<if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(SALETIME,'%Y-%m-%d') >=#{startTime}  ]]>
+		</if>
+		<if test="endTime !=null and endTime!=''">
+         <![CDATA[ and DATE_FORMAT(SALETIME,'%Y-%m-%d') <=#{endTime}  ]]>
+		</if>
+
+	</select>
+	<select id="countCarPriceCount" resultType="int"
+		parameterType="com.yyq.car.portal.common.dto.CarAveragePriceDto">
+		SELECT count(*) FROM (SELECT SALETIME,SHOP_ID,
+		DATE_FORMAT(SALETIME,
+		'%Y-%m-%d')
+		todaycar FROM `pro_car`
+		GROUP BY todaycar) a WHERE SALETIME
+		IS NOT NULL
+		<if test="shopId !=null and shopId !=''">
+			and SHOP_ID = #{shopId,jdbcType=INTEGER}
+		</if>
+		<if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(SALETIME,'%Y-%m-%d')>=#{startTime}  ]]>
+		</if>
+		<if test="endTime !=null and endTime!=''">
+         <![CDATA[ and DATE_FORMAT(SALETIME,'%Y-%m-%d')<=#{endTime}  ]]>
+		</if>
+	</select>
+	<select id="countCarPrice" resultType="com.yyq.car.portal.common.dto.CarAveragePriceDto"
+		parameterType="com.yyq.car.portal.common.dto.CarAveragePriceDto">
+		SELECT
+		SHOP_ID,COUNT(id)countCar,SUM(SALE_PRICE)carPriceSum,AVG(SALE_PRICE)carAvgPrice,
+		DATE_FORMAT(SALETIME, '%Y-%m-%d') todaycar FROM `pro_car`
+		WHERE
+		SALETIME IS NOT NULL
+		<if test="shopId !=null and shopId !=''">
+			and SHOP_ID = #{shopId,jdbcType=INTEGER}
+		</if>
+		<if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(SALETIME,'%Y-%m-%d')  >=#{startTime}]]>
+		</if>
+		<if test="endTime !=null and endTime!=''">
+         <![CDATA[ and DATE_FORMAT(SALETIME,'%Y-%m-%d') <=#{endTime}]]>
+		</if>
+
+		GROUP BY todaycar
+	</select>
+	<select id="countPopularModel" resultType="com.yyq.car.portal.common.dto.CarAveragePriceDto"
+		parameterType="com.yyq.car.portal.common.dto.CarAveragePriceDto">
+		SELECT
+		CREATE_TIME,brand,model,modelNumber,sellGross,ROUND(modelNumber/sellGross*100,2)sellRatio
+		FROM
+		(select COUNT(saleTime) sellGross from pro_car where
+		DATE_FORMAT(SALETIME,'%Y-%m-%d') >= #{startTime} and #{endTime} >=
+		DATE_FORMAT(SALETIME,'%Y-%m-%d') ) T1,
+		(select
+		SALETIME,SHOP_ID,CREATE_TIME,brand,model,COUNT(saleTime) modelNumber
+		from pro_car where SALETIME IS NOT NULL group by model
+		)T2 where
+		SALETIME IS NOT NULL
+		<if test="shopId !=null and shopId !=''">
+			and SHOP_ID = #{shopId,jdbcType=INTEGER}
+		</if>
+		<if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(SALETIME,'%Y-%m-%d')  >=#{startTime}  ]]>
+		</if>
+		<if test="endTime !=null and endTime!=''">
+         <![CDATA[ and DATE_FORMAT(SALETIME,'%Y-%m-%d') <=#{endTime}  ]]>
+		</if>
+
+	</select>
+	<select id="countmodel" resultType="int"
+		parameterType="com.yyq.car.portal.common.dto.CarAveragePriceDto">
+		select count(*)from (
+		select SALETIME,SHOP_ID,CREATE_TIME,model from
+		pro_car where SALETIME IS NOT
+		NULL
+		GROUP BY model)p where SALETIME IS
+		NOT NULL
+		<if test="shopId !=null and shopId !=''">
+			and SHOP_ID = #{shopId,jdbcType=INTEGER}
+		</if>
+		<if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(SALETIME,'%Y-%m-%d')  >=#{startTime}  ]]>
+		</if>
+		<if test="endTime !=null and endTime!=''">
+         <![CDATA[ and DATE_FORMAT(SALETIME,'%Y-%m-%d') <=#{endTime}  ]]>
+		</if>
+	</select>
+	<select id="countAvgWarehouseAge" resultType="com.yyq.car.portal.common.dto.CarAveragePriceDto"
+		parameterType="com.yyq.car.portal.common.dto.CarAveragePriceDto">
+		select
+		LEAVEFACTORY_TIME,brand,model,floor(sum(ff)/sum(gg))remainingCar,curdate()daytime,DATE_FORMAT(LEAVEFACTORY_TIME,
+		'%Y-%m-%d')productionTiem from (
+		select
+		LEAVEFACTORY_TIME,brand,model,sum(bb)ff,count(model)gg from
+		(SELECT
+		LEAVEFACTORY_TIME,BRAND,model,datediff(saleTime,LEAVEFACTORY_TIME)bb
+		FROM pro_car where SALETIME is not null and
+		DATE_FORMAT(LEAVEFACTORY_TIME,'%Y-%m-%d') >= #{startTime} and
+		#{endTime} >= DATE_FORMAT(LEAVEFACTORY_TIME,'%Y-%m-%d'))ee GROUP BY
+		model
+		union all
+		select
+		LEAVEFACTORY_TIME,brand,model,sum(bb)ff,count(model)gg from
+		(SELECT
+		LEAVEFACTORY_TIME,BRAND,model,datediff(now(),LEAVEFACTORY_TIME)bb
+		FROM
+		pro_car where REALSALE=1 and SALETIME is null and IS_STORED=1 and
+		DATE_FORMAT(LEAVEFACTORY_TIME,'%Y-%m-%d') >= #{startTime} and
+		#{endTime} >= DATE_FORMAT(LEAVEFACTORY_TIME,'%Y-%m-%d'))ee GROUP BY
+		model)p
+		where 1=1
+		<if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(LEAVEFACTORY_TIME,'%Y-%m-%d')  >=#{startTime}  ]]>
+		</if>
+		<if test="endTime !=null and endTime!=''">
+         <![CDATA[ and DATE_FORMAT(LEAVEFACTORY_TIME,'%Y-%m-%d') <=#{endTime}  ]]>
+		</if>
+		GROUP BY model ORDER BY remainingCar DESC
+	</select>
+	<select id="countCarNumber" resultType="int"
+		parameterType="com.yyq.car.portal.common.dto.CarAveragePriceDto">
+		select count(*)carNumber from(
+		select
+		LEAVEFACTORY_TIME,brand,model,floor(sum(ff)/sum(gg))remainingCar,curdate()daytime,DATE_FORMAT(LEAVEFACTORY_TIME,
+		'%Y-%m-%d')productionTiem from (
+		select
+		LEAVEFACTORY_TIME,brand,model,sum(bb)ff,count(model)gg from
+		(SELECT
+		LEAVEFACTORY_TIME,BRAND,model,datediff(saleTime,LEAVEFACTORY_TIME)bb
+		FROM pro_car where SALETIME is not null and
+		DATE_FORMAT(LEAVEFACTORY_TIME,'%Y-%m-%d') >= #{startTime} and
+		#{endTime} >= DATE_FORMAT(LEAVEFACTORY_TIME,'%Y-%m-%d'))ee GROUP BY
+		model
+		union all
+		select
+		LEAVEFACTORY_TIME,brand,model,sum(bb)ff,count(model)gg from
+		(SELECT
+		LEAVEFACTORY_TIME,BRAND,model,datediff(now(),LEAVEFACTORY_TIME)bb
+		FROM
+		pro_car where REALSALE=1 and SALETIME is null and IS_STORED=1 and
+		DATE_FORMAT(LEAVEFACTORY_TIME,'%Y-%m-%d') >= #{startTime} and
+		#{endTime} >= DATE_FORMAT(LEAVEFACTORY_TIME,'%Y-%m-%d'))ee GROUP BY
+		model)p
+		GROUP BY model )z where 1=1
+		<if test="startTime !=null and startTime !=''">
+         <![CDATA[ and DATE_FORMAT(LEAVEFACTORY_TIME,'%Y-%m-%d')  >=#{startTime}  ]]>
+		</if>
+		<if test="endTime !=null and endTime!=''">
+         <![CDATA[ and DATE_FORMAT(LEAVEFACTORY_TIME,'%Y-%m-%d') <=#{endTime}  ]]>
+		</if>
+	</select>
+	<select id="statisProfit" resultType="com.yyq.car.portal.common.dto.carProfitDto"
+		parameterType="com.yyq.car.portal.common.dto.carProfitDto">
+		SELECT
+		t1.brand brand,
+		t1.model model,
+		t1.version version,
+		t1.SHOP_ID
+		shopId,
+		t1.ENGINE_NUM engineNum,
+		t1.LEAVEFACTORY_TIME leaveFactoryTime,
+		t1.OUTLOOK_COLOR outlookColor,
+		t1.BUY_NAME buyName,
+		t1.INNER_COLOR
+		innerColor,
+		t1.IDEN1 iden1,
+		t1.IDEN2 iden2,
+		t1.VIN vin,
+		t1.IDEN3 iden3,
+		t1.BUY_PRICE buyPrice,
+
+		t2.SALE_PRICE salePrice,
+		(t2.SALE_PRICE-t1.BUY_PRICE)profit
+
+		FROM
+		pro_car t1 join cif_contract t2
+		on t1.ID=t2.carid
+
+		WHERE
+		t1.SALETIME IS NOT NULL and t2.REALFINALPAY is
+		not null
+		<if test="shopId !=null and shopId !=''">
+			and t1.SHOP_ID = #{shopId,jdbcType=VARCHAR}
+		</if>
+		<if test="brand != null and brand !=''">
+			and t1.BRAND like concat('%',#{brand},'%')
+		</if>
+		<if test="model != null and model !=''">
+			and t1.MODEL like concat('%',#{model},'%')
+		</if>
+		<if test="buyName != null and buyName !=''">
+			and t1.BUY_NAME like concat('%',#{buyName},'%')
+		</if>
+		<if test="vin != null and vin !=''">
+			and t1.VIN like concat('%',#{vin},'%')
+		</if>
+		limit #{pageStart},#{pageSize}
+	</select>
+
+	<update id="updateCarStatus" parameterType="com.yyq.car.portal.common.model.product.Car">
+		update pro_car set STATUS= #{status},<!--库存 -->
+		STORE_TYPE =#{storeType},<!-- 仓库 -->
+		CAR_ADDRESS = #{carAddress},<!-- 现有所在地 -->
+		MOVE_STATUS =null,<!-- 值为null 代表没有在移库中 -->
+		SHOP_ID =null,<!-- 值为null 代表没有在门店 -->
+		STORE_ID=#{storeId}
+		where ID = #{id}
+	</update>
+	<select id="countProfit" resultType="int"
+		parameterType="com.yyq.car.portal.common.dto.carProfitDto">
+		SELECT
+		count(*)
+		FROM
+		pro_car t1
+		WHERE
+		t1.SALETIME IS NOT NULL
+		<if test="shopId !=null and shopId !=''">
+			and t1.SHOP_ID = #{shopId,jdbcType=VARCHAR}
+		</if>
+		<if test="brand != null and brand !=''">
+			and t1.BRAND like concat('%',#{brand},'%')
+		</if>
+		<if test="model != null and model !=''">
+			and t1.MODEL like concat('%',#{model},'%')
+		</if>
+		<if test="buyName != null and buyName !=''">
+			and t1.BUY_NAME like concat('%',#{engineNum},'%')
+		</if>
+		<if test="vin != null and vin !=''">
+			and t1.VIN like concat('%',#{vin},'%')
+		</if>
+
+	</select>
+	<select id="queryCarAddress" resultType="com.yyq.car.portal.common.model.product.Car">
+		SELECT DISTINCT
+		CAR_ADDRESS carAddress FROM `pro_car`
+	</select>
+	<update id="updateStatus" parameterType="com.yyq.car.portal.common.model.product.Car">
+		update pro_car set
+		STATUS=9
+		where ID = #{id,jdbcType=INTEGER}
+	</update>
+	<!--金融合同审核通过时 把车辆表里的车根据车架号修改为销售绑定 -->
+	<update id="updateByVinStatus" parameterType="String">
+		update pro_car set
+		`STATUS`=4 where vin=#{vin}
+	</update>
+	<select id="selectStatus" resultMap="BaseResultMap"
+		parameterType="String">
+		select
+		<include refid="Base_Column_List" />
+		from pro_car where vin=#{vin}
+	</select>
+	<!--配车库表 -->
+	<select id="selectcarlibrary" resultType="map" parameterType="map">
+		SELECT
+		c.VIN VIN,
+		c.BRAND brand,
+		c.MODEL model,
+		c.version version,
+		c.OUTLOOK_COLOR outlookclolor,
+		c.LEAVEFACTORY_TIME leaveFactoryTime,
+		c.gpsprice gpsprice,
+		c.signingdate signingdate,
+		c.duedate duedate,
+		c.settlementprice settlementprice,
+		c.contractprice contractprice,
+		s.`NAME` name,
+		s.type type,
+		s.credit credit,
+		s.deposit deposit,
+		s.financial financial,
+		s.simplecarf simplecarf,
+		c.id cid,
+		c.supplycarstatus supplycarstatus,
+		s.finance_type financetype,
+		c.CREATE_TIME
+		FROM
+		`pro_car` c
+		LEFT JOIN pro_shop s ON c.SHOP_ID = s.ID
+		WHERE
+		c.OUT_STATUS IS NULL
+		AND c.REALSALE = 1
+		AND c.IS_STORED = 1
+		and
+		c.financialtype is null and c.SALE_STATUS is null
+		<if test="brand != null and brand !=''">
+			and c.BRAND like concat('%',#{brand},'%')
+		</if>
+		<if test="model != null and model !=''">
+			and c.MODEL like concat('%',#{model},'%')
+		</if>
+		<if test="version != null and model !=''">
+			and c.version like concat('%',#{version},'%')
+		</if>
+		<if test="vin != null and vin !=''">
+			and c.VIN like concat('%',#{vin},'%')
+		</if>
+		<if test="name != null and name !=''">
+			and s.NAME like concat('%',#{name},'%')
+		</if>
+		<if test="type != null and type !=''">
+			and s.type like concat('%',#{type},'%')
+		</if> <!--supplycarstatus 为空代表没有被配车选中的车 -->
+		ORDER BY c.CREATE_TIME desc
+		LIMIT #{start},#{pageSize}
+	</select>
+	<select id="countselectcarlibrary" resultType="int"
+		parameterType="map">
+		SELECT
+		COUNT(1)
+		FROM
+		`pro_car` c
+		LEFT JOIN pro_shop s ON c.SHOP_ID = s.ID
+		WHERE
+		<!-- ( c.OUT_STATUS IS NULL AND c.REALSALE = 1 AND c.IS_STORED = 1 and 
+			c.financialtype is null and c.SALE_STATUS =1 <if test="brand != null and 
+			brand !=''" > and c.BRAND like concat('%',#{brand},'%') </if> <if test="model 
+			!= null and model !=''" > and c.MODEL like concat('%',#{model},'%') </if> 
+			<if test="version != null and model !=''" > and c.version like concat('%',#{version},'%') 
+			</if> <if test="vin != null and vin !=''" > and c.VIN like concat('%',#{vin},'%') 
+			</if> <if test="name != null and name !=''" > and s.NAME like concat('%',#{name},'%') 
+			</if> <if test="type != null and type !=''" > and s.type like concat('%',#{type},'%') 
+			</if>) or ( -->
+		c.OUT_STATUS IS NULL
+		AND c.REALSALE = 1
+		AND c.IS_STORED = 1
+		and
+		c.financialtype is null and c.SALE_STATUS is null
+		<if test="brand != null and brand !=''">
+			and c.BRAND like concat('%',#{brand},'%')
+		</if>
+		<if test="model != null and model !=''">
+			and c.MODEL like concat('%',#{model},'%')
+		</if>
+		<if test="version != null and model !=''">
+			and c.version like concat('%',#{version},'%')
+		</if>
+		<if test="vin != null and vin !=''">
+			and c.VIN like concat('%',#{vin},'%')
+		</if>
+		<if test="name != null and name !=''">
+			and s.NAME like concat('%',#{name},'%')
+		</if>
+		<if test="type != null and type !=''">
+			and s.type like concat('%',#{type},'%')
+		</if>
+	</select>
+	<select id="shopcar" parameterType="int"
+		resultType="com.yyq.car.portal.common.model.product.Car">
+		SELECT
+		*
+		FROM
+		`pro_car`
+		WHERE (
+		OUT_STATUS IS NULL
+		AND
+		SALE_STATUS IS NULL
+		AND REALSALE = 1
+		AND IS_STORED = 1
+		and SHOP_ID=#{id}
+		and supplycarstatus is null) or ( OUT_STATUS IS NULL
+		AND SALE_STATUS IS
+		NULL
+		AND REALSALE = 1
+		AND IS_STORED = 1
+		and SHOP_ID=#{id}
+		and
+		supplycarstatus =1)
+	</select>
+
+	<!--解绑配车 -->
+	<update id="untiesupplycar" parameterType="int">
+		update pro_car set
+		supplycarstatus=null where id=#{id}
+	</update>
+	<!--样车门店确定到店 -->
+	<update id="sampleCarMoveShop" parameterType="com.yyq.car.portal.common.model.product.Car">
+		update pro_car set
+		SHOP_ID = #{shopId,jdbcType=INTEGER},
+		supplycarstatus=#{supplycarstatus,jdbcType=INTEGER},
+		contractprice =
+		#{contractprice,jdbcType=DECIMAL},
+		signingdate =
+		#{signingdate,jdbcType=TIMESTAMP} ,
+		duedate =
+		#{duedate,jdbcType=TIMESTAMP},contractpricetime=#{contractpricetime,jdbcType=TIMESTAMP},
+		CAR_ADDRESS=#{carAddress,jdbcType=VARCHAR},STORE_TYPE=1,STATUS=3
+		where id=#{id}
+	</update>
+	<!-- 其他门店 确定到店 -->
+	<update id="otherCarMoveshop" parameterType="com.yyq.car.portal.common.model.product.Car">
+		update pro_car set
+		SHOP_ID = #{shopId,jdbcType=INTEGER},
+		supplycarstatus=#{supplycarstatus,jdbcType=INTEGER},financialtype=#{financialtype,jdbcType=INTEGER},
+		contractprice=#{contractprice,jdbcType=DECIMAL},contractpricetime=#{contractpricetime,jdbcType=TIMESTAMP},
+		CAR_ADDRESS=#{carAddress,jdbcType=VARCHAR},STORE_TYPE=1,STATUS=3
+		where id=#{id}
+	</update>
+	<!-- 交车验车换车通过检验新车的车存在和可售 -->
+	<select id="selectvendibility" resultMap="BaseResultMap"
+		parameterType="String">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM
+		`pro_car`
+		WHERE OUT_STATUS IS NULL
+		AND SALE_STATUS IS NULL
+		AND
+		REALSALE = 1
+		AND IS_STORED = 1 and vin=#{vin}
+	</select>
+	<!-- 交车验车时跟换车时原来的车解绑 -->
+	<update id="updateSaleStatus" parameterType="int">
+		update pro_car set
+		SALE_STATUS=null where id=#{id}
+	</update>
+	<select id="inStoreAudit" resultType="int"><!--入库审核任务数量 -->
+		SELECT COUNT(*) FROM `pro_car` where IS_STORED=3;
+	</select>
+</mapper>

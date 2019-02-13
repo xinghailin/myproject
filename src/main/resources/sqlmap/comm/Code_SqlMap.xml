@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.comm.AuthCodeMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.comm.AuthCode" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="ACCOUNT_ID" property="accountId" jdbcType="INTEGER" />
+    <result column="TYPE" property="type" jdbcType="VARCHAR" />
+    <result column="CODE" property="code" jdbcType="VARCHAR" />
+    <result column="DURATION" property="duration" jdbcType="INTEGER" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, ACCOUNT_ID, TYPE, CODE, DURATION, STATUS, CREATE_TIME, MOBILE
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and ID = #{id}
+    </if>
+    <if test="accountId != null and accountId !=''" >
+       and ACCOUNT_ID = #{accountId}
+    </if>
+    <if test="type != null and type !=''" >
+       and TYPE = #{type}
+    </if>
+    <if test="code != null and code !=''" >
+       and CODE = #{code}
+    </if>
+    <if test="duration != null and duration !=''" >
+       and DURATION = #{duration}
+    </if>
+    <if test="status != null and status !=''" >
+       and STATUS = #{status}
+    </if>
+    <if test="createTime != null and createTime !=''" >
+       and CREATE_TIME = #{createTime}
+    </if>
+    <if test="mobile != null and mobile !=''" >
+       and MOBILE = #{mobile}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.comm.AuthCode" >
+    select 
+    <include refid="Base_Column_List" />
+    from comm_auth_code
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.comm.AuthCode" >
+    select count(*) from comm_auth_code where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from comm_auth_code
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from comm_auth_code
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.comm.AuthCode" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(305);
+    </selectKey>
+    insert into comm_auth_code (ID, ACCOUNT_ID, TYPE, 
+      CODE, DURATION, STATUS, 
+      CREATE_TIME, MOBILE)
+    values (#{id,jdbcType=INTEGER}, #{accountId,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, 
+      #{code,jdbcType=VARCHAR}, #{duration,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{mobile,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.comm.AuthCode" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(305);
+    </selectKey>
+    insert into comm_auth_code
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,
+      <if test="accountId != null" >
+        ACCOUNT_ID,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="code != null" >
+        CODE,
+      </if>
+      <if test="duration != null" >
+        DURATION,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="mobile != null" >
+        MOBILE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="accountId != null" >
+        #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="duration != null" >
+        #{duration,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.comm.AuthCode" >
+    update comm_auth_code
+    <set >
+      <if test="accountId != null" >
+        ACCOUNT_ID = #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="duration != null" >
+        DURATION = #{duration,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mobile != null" >
+        MOBILE = #{mobile,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.comm.AuthCode" >
+    update comm_auth_code
+    set ACCOUNT_ID = #{accountId,jdbcType=INTEGER},
+      TYPE = #{type,jdbcType=VARCHAR},
+      CODE = #{code,jdbcType=VARCHAR},
+      DURATION = #{duration,jdbcType=INTEGER},
+      STATUS = #{status,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      MOBILE = #{mobile,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="checkEfficucyAuthCode" resultType="int" parameterType="com.yyq.car.portal.common.model.comm.AuthCode">
+    SELECT COUNT(1) FROM comm_auth_code 
+    WHERE ID=#{id,jdbcType=INTEGER}
+    AND DATE_ADD(CREATE_TIME,INTERVAL DURATION SECOND) &gt;= #{createTime,jdbcType=TIMESTAMP}
+    AND STATUS=#{status,jdbcType=INTEGER}
+  </select>
+  
+  <select id="checkIsHadSend" resultType="int" parameterType="com.yyq.car.portal.common.model.comm.AuthCode">
+    SELECT COUNT(1) FROM comm_auth_code 
+    WHERE MOBILE=#{mobile,jdbcType=VARCHAR}
+    AND DATE_ADD(CREATE_TIME,INTERVAL DURATION SECOND) &gt;= #{createTime,jdbcType=TIMESTAMP} 
+    AND TYPE=#{type,jdbcType=VARCHAR}
+    AND STATUS != 2
+  </select>
+  
+  <delete id="deleteRecordsByAccountId" parameterType="java.lang.Integer">
+    DELETE FROM comm_auth_code
+    WHERE ACCOUNT_ID = #{accountId,jdbcType=INTEGER}
+  </delete>
+  
+  <update id="updateAuthCodeStatus" parameterType="java.lang.Integer">
+  	update comm_auth_code
+  	set STATUS = 0 
+  	where ID = #{id,jdbcType=INTEGER} AND STATUS = 1
+  </update>
+</mapper>

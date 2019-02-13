@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.product.CarTypePicMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.product.CarTypePic" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="typeId" property="typeid" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="pic" property="pic" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, typeId, type, pic, sort, createTime
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="typeid != null and typeid !=''" >
+       and typeId = #{typeid}
+    </if>
+    <if test="type != null and type !=''" >
+       and type = #{type}
+    </if>
+    <if test="pic != null and pic !=''" >
+       and pic = #{pic}
+    </if>
+    <if test="sort != null and sort !=''" >
+       and sort = #{sort}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createTime = #{createtime}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.product.CarTypePic" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_car_type_pic
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.product.CarTypePic" >
+    select count(*) from pro_car_type_pic where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_car_type_pic
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pro_car_type_pic
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.product.CarTypePic" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(608);
+    </selectKey>
+    insert into pro_car_type_pic (id, typeId, type, 
+      pic, sort, createTime
+      )
+    values (#{id,jdbcType=INTEGER}, #{typeid,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, 
+      #{pic,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.product.CarTypePic" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(608);
+    </selectKey>
+    insert into pro_car_type_pic
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="typeid != null" >
+        typeId,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="pic != null" >
+        pic,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="typeid != null" >
+        #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="pic != null" >
+        #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.product.CarTypePic" >
+    update pro_car_type_pic
+    <set >
+      <if test="typeid != null" >
+        typeId = #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="pic != null" >
+        pic = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.product.CarTypePic" >
+    update pro_car_type_pic
+    set typeId = #{typeid,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER},
+      pic = #{pic,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectBySort" resultType="map" parameterType="int" >
+    select 
+    id,pic,sort
+    from pro_car_type_pic
+    where typeId=#{id,jdbcType=INTEGER} order by sort desc,createTime desc
+  </select>
+  
+  <delete id="deleteByCarType" parameterType="java.lang.Integer" >
+    delete from pro_car_type_pic
+    where typeId = #{carType,jdbcType=INTEGER}
+  </delete>
+</mapper>

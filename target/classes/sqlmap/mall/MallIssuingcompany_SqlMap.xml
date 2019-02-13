@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.mall.MallIssuingCompanyMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.mall.MallIssuingCompany" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="receiveunit" property="receiveunit" jdbcType="VARCHAR" />
+    <result column="sendunit" property="sendunit" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="downpayscale" property="downpayscale" jdbcType="VARCHAR" />
+    <result column="downpayscale2" property="downpayscale2" jdbcType="VARCHAR" />
+    <result column="introduce" property="introduce" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="updator" property="updator" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, receiveunit, sendunit, type, downpayscale, downpayscale2, introduce, status, 
+    creator, createtime, updatetime, updator
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="name != null and name !=''" >
+       and name = #{name}
+    </if>
+    <if test="receiveunit != null and receiveunit !=''" >
+       and receiveunit = #{receiveunit}
+    </if>
+    <if test="sendunit != null and sendunit !=''" >
+       and sendunit = #{sendunit}
+    </if>
+    <if test="type != null and type !=''" >
+       and type = #{type}
+    </if>
+    <if test="downpayscale != null and downpayscale !=''" >
+       and downpayscale = #{downpayscale}
+    </if>
+    <if test="downpayscale2 != null and downpayscale2 !=''" >
+       and downpayscale2 = #{downpayscale2}
+    </if>
+    <if test="introduce != null and introduce !=''" >
+       and introduce = #{introduce}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+    <if test="creator != null and creator !=''" >
+       and creator = #{creator}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="updatetime != null and updatetime !=''" >
+       and updatetime = #{updatetime}
+    </if>
+    <if test="updator != null and updator !=''" >
+       and updator = #{updator}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.mall.MallIssuingCompany" >
+    select 
+    <include refid="Base_Column_List" />
+    from mall_issuingcompany
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.mall.MallIssuingCompany" >
+    select count(*) from mall_issuingcompany where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from mall_issuingcompany
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from mall_issuingcompany
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.mall.MallIssuingCompany" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(1005);
+    </selectKey>
+    insert into mall_issuingcompany (id, name, receiveunit, 
+      sendunit, type, downpayscale, 
+      downpayscale2, introduce, status, 
+      creator, createtime, updatetime, 
+      updator)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{receiveunit,jdbcType=VARCHAR}, 
+      #{sendunit,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{downpayscale,jdbcType=VARCHAR}, 
+      #{downpayscale2,jdbcType=VARCHAR}, #{introduce,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{creator,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{updator,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.mall.MallIssuingCompany" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(1005);
+    </selectKey>
+    insert into mall_issuingcompany
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="receiveunit != null" >
+        receiveunit,
+      </if>
+      <if test="sendunit != null" >
+        sendunit,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="downpayscale != null" >
+        downpayscale,
+      </if>
+      <if test="downpayscale2 != null" >
+        downpayscale2,
+      </if>
+      <if test="introduce != null" >
+        introduce,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="updatetime != null" >
+        updatetime,
+      </if>
+      <if test="updator != null" >
+        updator,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveunit != null" >
+        #{receiveunit,jdbcType=VARCHAR},
+      </if>
+      <if test="sendunit != null" >
+        #{sendunit,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="downpayscale != null" >
+        #{downpayscale,jdbcType=VARCHAR},
+      </if>
+      <if test="downpayscale2 != null" >
+        #{downpayscale2,jdbcType=VARCHAR},
+      </if>
+      <if test="introduce != null" >
+        #{introduce,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updator != null" >
+        #{updator,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.mall.MallIssuingCompany" >
+    update mall_issuingcompany
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveunit != null" >
+        receiveunit = #{receiveunit,jdbcType=VARCHAR},
+      </if>
+      <if test="sendunit != null" >
+        sendunit = #{sendunit,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="downpayscale != null" >
+        downpayscale = #{downpayscale,jdbcType=VARCHAR},
+      </if>
+      <if test="downpayscale2 != null" >
+        downpayscale2 = #{downpayscale2,jdbcType=VARCHAR},
+      </if>
+      <if test="introduce != null" >
+        introduce = #{introduce,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updator != null" >
+        updator = #{updator,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.mall.MallIssuingCompany" >
+    update mall_issuingcompany
+    set name = #{name,jdbcType=VARCHAR},
+      receiveunit = #{receiveunit,jdbcType=VARCHAR},
+      sendunit = #{sendunit,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      downpayscale = #{downpayscale,jdbcType=VARCHAR},
+      downpayscale2 = #{downpayscale2,jdbcType=VARCHAR},
+      introduce = #{introduce,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      creator = #{creator,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      updator = #{updator,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

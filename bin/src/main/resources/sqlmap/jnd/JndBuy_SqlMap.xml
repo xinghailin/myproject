@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.jnd.JndbuyMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.jnd.Jndbuy" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="needid" property="needid" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="note" property="note" jdbcType="VARCHAR" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="currency" property="currency" jdbcType="INTEGER" />
+    <result column="country" property="country" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, needid, name, code, createtime, note, num,country,currency
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="needid != null and needid !=''" >
+       and needid = #{needid}
+    </if>
+    <if test="name != null and name !=''" >
+       and name = #{name}
+    </if>
+    <if test="code != null and code !=''" >
+       and code = #{code}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="note != null and note !=''" >
+       and note = #{note}
+    </if>
+    <if test="num != null and num !=''" >
+       and num = #{num}
+    </if>
+    <if test="country != null and country !=''" >
+       and country = #{country}
+    </if>
+    <if test="currency != null and currency !=''" >
+       and currency = #{currency}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.jnd.Jndbuy" >
+    select 
+    <include refid="Base_Column_List" />
+    from jnd_buy
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.jnd.Jndbuy" >
+    select count(*) from jnd_buy where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from jnd_buy
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from jnd_buy
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.jnd.Jndbuy" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(702);
+    </selectKey>
+    insert into jnd_buy (id, needid, name, 
+      code, createtime, note, 
+      num)
+    values (#{id,jdbcType=INTEGER}, #{needid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{code,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{note,jdbcType=VARCHAR}, 
+      #{num,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.jnd.Jndbuy" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(702);
+    </selectKey>
+    insert into jnd_buy
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="needid != null" >
+        needid,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="note != null" >
+        note,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="currency != null" >
+        currency,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="needid != null" >
+        #{needid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="note != null" >
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=INTEGER},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.jnd.Jndbuy" >
+    update jnd_buy
+    <set >
+      <if test="needid != null" >
+        needid = #{needid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="note != null" >
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.jnd.Jndbuy" >
+    update jnd_buy
+    set needid = #{needid,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      note = #{note,jdbcType=VARCHAR},
+      num = #{num,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectPurchaseLst" resultType="map" parameterType="map" >
+    SELECT a.*,b.id pid,b.`name` pname,b.`code` pcode,b.createtime pcreatetime,b.num pnum FROM `jnd_need` a LEFT JOIN jnd_buy b ON a.id=b.needid WHERE 1=1
+    <if test="name != null" >
+      and b.`name` like concat('%',#{name},'%')
+    </if>
+    <if test="code != null" >
+      and b.`code` like concat('%',#{code},'%')
+    </if>
+    <if test="time != null" >
+      and DATE_FORMAT(b.`createtime`,'%Y-%m-%d') = #{time}
+    </if>
+    <if test="country != null" >
+      and a.country =#{country}
+    </if>
+    <if test="forapay != null" >
+      and b.id IS NOT NULL
+    </if>
+    order by a.createtime desc limit #{start},#{pageSize}
+  </select>
+  <select id="countPurchase" resultType="int" parameterType="map" >
+    SELECT count(1) FROM `jnd_need` a LEFT JOIN jnd_buy b ON a.id=b.needid WHERE 1=1
+    <if test="name != null" >
+      and b.`name` like concat('%',#{name},'%')
+    </if>
+    <if test="code != null" >
+      and b.`code` like concat('%',#{code},'%')
+    </if>
+    <if test="time != null" >
+      and DATE_FORMAT(b.`createtime`,'%Y-%m-%d') = #{time}
+    </if>
+    <if test="forapay != null" >
+      and b.id IS NOT NULL
+    </if>
+     <if test="country != null" >
+      and a.country =#{country}
+    </if>
+  </select>
+  
+  <insert id="insertSelectiveWithKey" parameterType="com.yyq.car.portal.common.model.jnd.Jndbuy" >
+    insert into jnd_buy
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="needid != null" >
+        needid,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="note != null" >
+        note,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="currency != null" >
+        currency,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="needid != null" >
+        #{needid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="note != null" >
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=INTEGER},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  
+  <select id="countTaskPurchase" resultType="int" parameterType="map" >
+SELECT
+	count(*)
+FROM
+	`jnd_need` a
+LEFT JOIN jnd_buy b ON a.id = b.needid
+WHERE
+	b.id IS NULL 
+	<if test="country != null" >
+      and a.country =#{country}
+    </if>
+  </select>
+</mapper>

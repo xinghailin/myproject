@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.jnd.JndsubneedMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.jnd.Jndsubneed" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="needid" property="needid" jdbcType="INTEGER" />
+    <result column="initials" property="initials" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="config" property="config" jdbcType="VARCHAR" />
+    <result column="outcolor" property="outcolor" jdbcType="VARCHAR" />
+    <result column="incolor" property="incolor" jdbcType="VARCHAR" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="num2" property="num2" jdbcType="INTEGER" />
+    <result column="num3" property="num3" jdbcType="INTEGER" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="currency" property="currency" jdbcType="INTEGER" />
+    <result column="country" property="country" jdbcType="INTEGER" />
+    <result column="needer" property="needer" jdbcType="VARCHAR" />
+    <result column="mallContractCode" property="mallcontractcode" jdbcType="VARCHAR" />
+    <result column="mallordercode" property="mallordercode" jdbcType="VARCHAR" />
+     <result column="matching" property="matching" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, needid, initials, brand, model, version, config, outcolor, incolor, num,num2,num2, createtime, 
+    currency, country, needer, mallContractCode,mallordercode,matching
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="needid != null and needid !=''" >
+       and needid = #{needid}
+    </if>
+    <if test="initials != null and initials !=''" >
+       and initials = #{initials}
+    </if>
+    <if test="brand != null and brand !=''" >
+       and brand = #{brand}
+    </if>
+    <if test="model != null and model !=''" >
+       and model = #{model}
+    </if>
+    <if test="version != null and version !=''" >
+       and version = #{version}
+    </if>
+    <if test="config != null and config !=''" >
+       and config = #{config}
+    </if>
+    <if test="outcolor != null and outcolor !=''" >
+       and outcolor = #{outcolor}
+    </if>
+    <if test="incolor != null and incolor !=''" >
+       and incolor = #{incolor}
+    </if>
+    <if test="num != null and num !=''" >
+       and num = #{num}
+    </if>
+    <if test="num2 != null and num2 !=''" >
+       and num2 = #{num2}
+    </if>
+    <if test="num3 != null and num3 !=''" >
+       and num3 = #{num3}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="currency != null and currency !=''" >
+       and currency = #{currency}
+    </if>
+    <if test="country != null and country !=''" >
+       and country = #{country}
+    </if>
+    <if test="needer != null and needer !=''" >
+       and needer = #{needer}
+    </if>
+    <if test="mallcontractcode != null and mallcontractcode !=''" >
+       and mallContractCode = #{mallcontractcode}
+    </if>
+    <if test="mallordercode != null and mallordercode !=''" >
+       and mallordercode = #{mallordercode}
+    </if>
+    <if test="matching != null and matching !=''" >
+       and matching = #{matching}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.jnd.Jndsubneed" >
+    select 
+    <include refid="Base_Column_List" />
+    from jnd_subneed
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.jnd.Jndsubneed" >
+    select count(*) from jnd_subneed where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from jnd_subneed
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from jnd_subneed
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.jnd.Jndsubneed" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(708);
+    </selectKey>
+    insert into jnd_subneed (id, needid, initials, 
+      brand, model, version, 
+      config, outcolor, incolor, 
+      num,num2,num3, createtime, currency, 
+      country, needer, mallContractCode,mallordercode,matching
+      )
+    values (#{id,jdbcType=INTEGER}, #{needid,jdbcType=INTEGER}, #{initials,jdbcType=VARCHAR}, 
+      #{brand,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}, 
+      #{config,jdbcType=VARCHAR}, #{outcolor,jdbcType=VARCHAR}, #{incolor,jdbcType=VARCHAR}, 
+      #{num,jdbcType=INTEGER}, 
+      #{num2,jdbcType=INTEGER},
+      #{num3,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{currency,jdbcType=INTEGER}, 
+      #{country,jdbcType=INTEGER}, #{needer,jdbcType=VARCHAR},
+       #{mallcontractcode,jdbcType=VARCHAR},#{mallordercode,jdbcType=VARCHAR}, 
+      #{matching,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.jnd.Jndsubneed" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(708);
+    </selectKey>
+    insert into jnd_subneed
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="needid != null" >
+        needid,
+      </if>
+      <if test="initials != null" >
+        initials,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="config != null" >
+        config,
+      </if>
+      <if test="outcolor != null" >
+        outcolor,
+      </if>
+      <if test="incolor != null" >
+        incolor,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="num2 != null" >
+        num2,
+      </if>
+      <if test="num3 != null" >
+        num3,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="currency != null" >
+        currency,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="needer != null" >
+        needer,
+      </if>
+      <if test="mallcontractcode != null" >
+        mallContractCode,
+      </if>
+      <if test="mallordercode != null" >
+        mallordercode,
+      </if>  
+      <if test="matching != null" >
+        matching,
+      </if>      
+      
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="needid != null" >
+        #{needid,jdbcType=INTEGER},
+      </if>
+      <if test="initials != null" >
+        #{initials,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="config != null" >
+        #{config,jdbcType=VARCHAR},
+      </if>
+      <if test="outcolor != null" >
+        #{outcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="incolor != null" >
+        #{incolor,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="num2 != null" >
+        #{num2,jdbcType=INTEGER},
+      </if>
+      <if test="num3 != null" >
+        #{num3,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=INTEGER},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=INTEGER},
+      </if>
+      <if test="needer != null" >
+        #{needer,jdbcType=VARCHAR},
+      </if>
+      <if test="mallcontractcode != null" >
+        #{mallcontractcode,jdbcType=VARCHAR},
+      </if>
+      <if test="mallordercode != null" >
+        #{mallordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="matching != null" >
+        #{matching,jdbcType=INTEGER},
+      </if>      
+      
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.jnd.Jndsubneed" >
+    update jnd_subneed
+    <set >
+      <if test="needid != null" >
+        needid = #{needid,jdbcType=INTEGER},
+      </if>
+      <if test="initials != null" >
+        initials = #{initials,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="config != null" >
+        config = #{config,jdbcType=VARCHAR},
+      </if>
+      <if test="outcolor != null" >
+        outcolor = #{outcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="incolor != null" >
+        incolor = #{incolor,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+       <if test="num2 != null" >
+        num2 = #{num2,jdbcType=INTEGER},
+      </if>
+       <if test="num3 != null" >
+        num3 = #{num3,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="currency != null" >
+        currency = #{currency,jdbcType=INTEGER},
+      </if>
+      <if test="country != null" >
+        country = #{country,jdbcType=INTEGER},
+      </if>
+      <if test="needer != null" >
+        needer = #{needer,jdbcType=VARCHAR},
+      </if>
+      <if test="mallcontractcode != null" >
+        mallContractCode = #{mallcontractcode,jdbcType=VARCHAR},
+      </if>
+      <if test="mallordercode != null" >
+        mallordercode = #{mallordercode,jdbcType=VARCHAR},
+      </if> 
+      <if test="matching != null" >
+        matching = #{matching,jdbcType=INTEGER},
+      </if>     
+
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.jnd.Jndsubneed" >
+    update jnd_subneed
+    set needid = #{needid,jdbcType=INTEGER},
+      initials = #{initials,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      config = #{config,jdbcType=VARCHAR},
+      outcolor = #{outcolor,jdbcType=VARCHAR},
+      incolor = #{incolor,jdbcType=VARCHAR},
+      num = #{num,jdbcType=INTEGER},
+      num2 = #{num2,jdbcType=INTEGER},
+      num3 = #{num3,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      currency = #{currency,jdbcType=INTEGER},
+      country = #{country,jdbcType=INTEGER},
+      needer = #{needer,jdbcType=VARCHAR},
+      mallContractCode = #{mallcontractcode,jdbcType=VARCHAR},
+      mallordercode = #{mallordercode,jdbcType=VARCHAR} ,
+      matching = #{matching,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="jndsubneedlst" parameterType="int" resultType="map">
+  SELECT
+	id,
+initials,
+needid,
+brand,
+model,
+config,
+version,
+incolor,
+outcolor,
+num,
+num2,
+num3,
+country,
+currency,
+mallContractCode,
+mallordercode,
+matching
+FROM
+	jnd_subneed 
+where needid=#{needid}
+  </select>
+  <select id="judsubneedid" parameterType="int" resultType="map">
+  select id from jnd_subneed where needid=#{needid}
+  </select>
+  
+  <delete id="dletejndsubneeds" parameterType="int">
+  delete from jnd_subneed where needid=#{needid}
+  </delete>
+</mapper>

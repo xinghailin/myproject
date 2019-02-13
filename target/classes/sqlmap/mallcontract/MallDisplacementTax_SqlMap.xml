@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.mallcontract.MallDisplacementTaxMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.mallcontract.MallDisplacementTax" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="startdisplacement" property="startdisplacement" jdbcType="INTEGER" />
+    <result column="enddisplacement" property="enddisplacement" jdbcType="INTEGER" />
+    <result column="tax" property="tax" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, type, startdisplacement, enddisplacement, tax
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="type != null and type !=''" >
+       and type = #{type}
+    </if>
+    <if test="startdisplacement != null and startdisplacement !=''" >
+       and startdisplacement = #{startdisplacement}
+    </if>
+    <if test="enddisplacement != null and enddisplacement !=''" >
+       and enddisplacement = #{enddisplacement}
+    </if>
+    <if test="tax != null and tax !=''" >
+       and tax = #{tax}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.mallcontract.MallDisplacementTax" >
+    select 
+    <include refid="Base_Column_List" />
+    from mall_displacement_tax
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.mallcontract.MallDisplacementTax" >
+    select count(*) from mall_displacement_tax where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from mall_displacement_tax
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from mall_displacement_tax
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.mallcontract.MallDisplacementTax" >
+    insert into mall_displacement_tax (id, type, startdisplacement, 
+      enddisplacement, tax)
+    values (#{id,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{startdisplacement,jdbcType=INTEGER}, 
+      #{enddisplacement,jdbcType=INTEGER}, #{tax,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.mallcontract.MallDisplacementTax" >
+    insert into mall_displacement_tax
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="startdisplacement != null" >
+        startdisplacement,
+      </if>
+      <if test="enddisplacement != null" >
+        enddisplacement,
+      </if>
+      <if test="tax != null" >
+        tax,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="startdisplacement != null" >
+        #{startdisplacement,jdbcType=INTEGER},
+      </if>
+      <if test="enddisplacement != null" >
+        #{enddisplacement,jdbcType=INTEGER},
+      </if>
+      <if test="tax != null" >
+        #{tax,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.mallcontract.MallDisplacementTax" >
+    update mall_displacement_tax
+    <set >
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="startdisplacement != null" >
+        startdisplacement = #{startdisplacement,jdbcType=INTEGER},
+      </if>
+      <if test="enddisplacement != null" >
+        enddisplacement = #{enddisplacement,jdbcType=INTEGER},
+      </if>
+      <if test="tax != null" >
+        tax = #{tax,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.mallcontract.MallDisplacementTax" >
+    update mall_displacement_tax
+    set type = #{type,jdbcType=INTEGER},
+      startdisplacement = #{startdisplacement,jdbcType=INTEGER},
+      enddisplacement = #{enddisplacement,jdbcType=INTEGER},
+      tax = #{tax,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectRangeByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.mallcontract.MallDisplacementTax" >
+    select 
+    <include refid="Base_Column_List" />
+    from mall_displacement_tax
+    where type = #{type} and #{startdisplacement}>=startdisplacement and enddisplacement > #{startdisplacement}
+  </select>
+</mapper>

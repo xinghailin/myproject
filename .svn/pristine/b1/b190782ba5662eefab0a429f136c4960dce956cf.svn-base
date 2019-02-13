@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.biz.bizcarsourceMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.biz.bizcarsource" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="shopid" property="shopid" jdbcType="INTEGER" />
+    <result column="shopname" property="shopname" jdbcType="VARCHAR" />
+    <result column="creatorname" property="creatorname" jdbcType="VARCHAR" />
+    <result column="auditname" property="auditname" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="outcolour" property="outcolour" jdbcType="VARCHAR" />
+    <result column="incolour" property="incolour" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="purchaseprice" property="purchaseprice" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="cause" property="cause" jdbcType="VARCHAR" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="starttime" property="starttime" jdbcType="TIMESTAMP" />
+    <result column="endtime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="creatime" property="creatime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, code, shopid, shopname, creatorname, auditname, brand, model, version, outcolour, 
+    incolour, province, city, purchaseprice, status, cause, num, starttime, endtime, 
+    creatime
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="code != null and code !=''" >
+       and code = #{code}
+    </if>
+    <if test="shopid != null and shopid !=''" >
+       and shopid = #{shopid}
+    </if>
+    <if test="shopname != null and shopname !=''" >
+       and shopname = #{shopname}
+    </if>
+    <if test="creatorname != null and creatorname !=''" >
+       and creatorname = #{creatorname}
+    </if>
+    <if test="auditname != null and auditname !=''" >
+       and auditname = #{auditname}
+    </if>
+    <if test="brand != null and brand !=''" >
+       and brand = #{brand}
+    </if>
+    <if test="model != null and model !=''" >
+       and model = #{model}
+    </if>
+    <if test="version != null and version !=''" >
+       and version = #{version}
+    </if>
+    <if test="outcolour != null and outcolour !=''" >
+       and outcolour = #{outcolour}
+    </if>
+    <if test="incolour != null and incolour !=''" >
+       and incolour = #{incolour}
+    </if>
+    <if test="province != null and province !=''" >
+       and province = #{province}
+    </if>
+    <if test="city != null and city !=''" >
+       and city = #{city}
+    </if>
+    <if test="purchaseprice != null and purchaseprice !=''" >
+       and purchaseprice = #{purchaseprice}
+    </if>
+    <if test="status != null and status !='' and status !=4" >
+       and status = #{status}
+    </if>
+    <if test="status==4" >
+       and endtime >=(DATE_FORMAT(NOW(),'%Y-%m-%d')) and status=2
+    </if>
+    <if test="cause != null and cause !=''" >
+       and cause = #{cause}
+    </if>
+    <if test="num != null and num !=''" >
+       and num = #{num}
+    </if>
+    <if test="starttime != null and starttime !=''" >
+       and starttime = #{starttime}
+    </if>
+    <if test="endtime != null and endtime !=''" >
+       and endtime = #{endtime}
+    </if>
+    <if test="creatime != null and creatime !=''" >
+       and creatime = #{creatime}
+    </if>
+    ORDER BY creatime desc
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.biz.bizcarsource" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_carsource
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.biz.bizcarsource" >
+    select count(*) from biz_carsource where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_carsource
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from biz_carsource
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.biz.bizcarsource" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(415);
+    </selectKey>
+    insert into biz_carsource (id, code, shopid, 
+      shopname, creatorname, auditname, 
+      brand, model, version, 
+      outcolour, incolour, province, 
+      city, purchaseprice, status, 
+      cause, num, starttime, 
+      endtime, creatime)
+    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{shopid,jdbcType=INTEGER}, 
+      #{shopname,jdbcType=VARCHAR}, #{creatorname,jdbcType=VARCHAR}, #{auditname,jdbcType=VARCHAR}, 
+      #{brand,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}, 
+      #{outcolour,jdbcType=VARCHAR}, #{incolour,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{purchaseprice,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{cause,jdbcType=VARCHAR}, #{num,jdbcType=INTEGER}, #{starttime,jdbcType=TIMESTAMP}, 
+      #{endtime,jdbcType=TIMESTAMP}, #{creatime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.biz.bizcarsource" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(415);
+    </selectKey>
+    insert into biz_carsource
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="shopid != null" >
+        shopid,
+      </if>
+      <if test="shopname != null" >
+        shopname,
+      </if>
+      <if test="creatorname != null" >
+        creatorname,
+      </if>
+      <if test="auditname != null" >
+        auditname,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="outcolour != null" >
+        outcolour,
+      </if>
+      <if test="incolour != null" >
+        incolour,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="purchaseprice != null" >
+        purchaseprice,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="cause != null" >
+        cause,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="starttime != null" >
+        starttime,
+      </if>
+      <if test="endtime != null" >
+        endtime,
+      </if>
+      <if test="creatime != null" >
+        creatime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null" >
+        #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="shopname != null" >
+        #{shopname,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null" >
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="auditname != null" >
+        #{auditname,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="outcolour != null" >
+        #{outcolour,jdbcType=VARCHAR},
+      </if>
+      <if test="incolour != null" >
+        #{incolour,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseprice != null" >
+        #{purchaseprice,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="cause != null" >
+        #{cause,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatime != null" >
+        #{creatime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.biz.bizcarsource" >
+    update biz_carsource
+    <set >
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null" >
+        shopid = #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="shopname != null" >
+        shopname = #{shopname,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorname != null" >
+        creatorname = #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="auditname != null" >
+        auditname = #{auditname,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="outcolour != null" >
+        outcolour = #{outcolour,jdbcType=VARCHAR},
+      </if>
+      <if test="incolour != null" >
+        incolour = #{incolour,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseprice != null" >
+        purchaseprice = #{purchaseprice,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="cause != null" >
+        cause = #{cause,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="starttime != null" >
+        starttime = #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        endtime = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatime != null" >
+        creatime = #{creatime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.biz.bizcarsource" >
+    update biz_carsource
+    set code = #{code,jdbcType=VARCHAR},
+      shopid = #{shopid,jdbcType=INTEGER},
+      shopname = #{shopname,jdbcType=VARCHAR},
+      creatorname = #{creatorname,jdbcType=VARCHAR},
+      auditname = #{auditname,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      outcolour = #{outcolour,jdbcType=VARCHAR},
+      incolour = #{incolour,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      purchaseprice = #{purchaseprice,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      cause = #{cause,jdbcType=VARCHAR},
+      num = #{num,jdbcType=INTEGER},
+      starttime = #{starttime,jdbcType=TIMESTAMP},
+      endtime = #{endtime,jdbcType=TIMESTAMP},
+      creatime = #{creatime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="carSourceAuditCount" resultType="int">
+  SELECT COUNT(*) FROM `biz_carsource` where `status`=1 and endtime>=date_format(now(),'%Y-%c-%d') 
+  </select>
+</mapper>

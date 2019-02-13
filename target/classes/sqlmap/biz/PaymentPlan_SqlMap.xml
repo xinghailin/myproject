@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.biz.PaymentPlanMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.biz.Bizpayplan" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="leasebackid" property="leasebackid" jdbcType="INTEGER" />
+    <result column="contractid" property="contractid" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="identify" property="identify" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="openbank" property="openbank" jdbcType="VARCHAR" />
+    <result column="accountname" property="accountname" jdbcType="VARCHAR" />
+    <result column="accountcode" property="accountcode" jdbcType="VARCHAR" />
+    <result column="payday" property="payday" jdbcType="VARCHAR" />
+    <result column="term" property="term" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="paytime" property="paytime" jdbcType="DATE" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="autostatus" property="autostatus" jdbcType="VARCHAR" />
+    <result column="autosuccesstime" property="autosuccesstime" jdbcType="TIMESTAMP" />
+    <result column="manualtime" property="manualtime" jdbcType="TIMESTAMP" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="submitstatus" property="submitstatus" jdbcType="INTEGER" />
+    <result column="sendstatus" property="sendstatus" jdbcType="INTEGER" />
+    <result column="smssubmittime" property="smssubmittime" jdbcType="TIMESTAMP" />
+    <result column="smsuid" property="smsuid" jdbcType="VARCHAR" />
+    <result column="smsmsgid" property="smsmsgid" jdbcType="VARCHAR" />
+    <result column="smsmodifytime" property="smsmodifytime" jdbcType="TIMESTAMP" />
+    <result column="paysubmittime" property="paysubmittime" jdbcType="TIMESTAMP" />
+    <result column="paymodifytime" property="paymodifytime" jdbcType="TIMESTAMP" />
+    <result column="pay_status" property="payStatus" jdbcType="INTEGER" />
+    <result column="send_pay_status" property="sendPayStatus" jdbcType="INTEGER" />
+    <result column="trans_batch_id" property="transBatchId" jdbcType="VARCHAR" />
+    <result column="trans_serial_no" property="transSerialNo" jdbcType="VARCHAR" />
+    <result column="query_pay_order_stat" property="queryPayOrderStat" jdbcType="VARCHAR" />
+    <result column="query_pay_resp_code" property="queryPayRespCode" jdbcType="VARCHAR" />
+    <result column="query_pay_resp_msg" property="queryPayRespMsg" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, leasebackid, contractid, name, identify, phone, openbank, accountname, accountcode, 
+    payday, term, price, paytime, status, autostatus, autosuccesstime, manualtime, createtime, 
+    submitstatus, sendstatus, smssubmittime, smsuid, smsmsgid, smsmodifytime, paysubmittime, 
+    paymodifytime, pay_status, send_pay_status, trans_batch_id, trans_serial_no, query_pay_order_stat, 
+    query_pay_resp_code, query_pay_resp_msg
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="leasebackid != null and leasebackid !=''" >
+       and leasebackid = #{leasebackid}
+    </if>
+    <if test="contractid != null and contractid !=''" >
+       and contractid = #{contractid}
+    </if>
+    <if test="name != null and name !=''" >
+       and name = #{name}
+    </if>
+    <if test="identify != null and identify !=''" >
+       and identify = #{identify}
+    </if>
+    <if test="phone != null and phone !=''" >
+       and phone = #{phone}
+    </if>
+    <if test="openbank != null and openbank !=''" >
+       and openbank = #{openbank}
+    </if>
+    <if test="accountname != null and accountname !=''" >
+       and accountname = #{accountname}
+    </if>
+    <if test="accountcode != null and accountcode !=''" >
+       and accountcode = #{accountcode}
+    </if>
+    <if test="payday != null and payday !=''" >
+       and payday = #{payday}
+    </if>
+    <if test="term != null and term !=''" >
+       and term = #{term}
+    </if>
+    <if test="price != null and price !=''" >
+       and price = #{price}
+    </if>
+    <if test="paytime != null and paytime !=''" >
+       and paytime = #{paytime}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+    <if test="autostatus != null and autostatus !=''" >
+       and autostatus = #{autostatus}
+    </if>
+    <if test="autosuccesstime != null and autosuccesstime !=''" >
+       and autosuccesstime = #{autosuccesstime}
+    </if>
+    <if test="manualtime != null and manualtime !=''" >
+       and manualtime = #{manualtime}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="submitstatus != null and submitstatus !='' or submitstatus == 0 " >
+       and submitstatus = #{submitstatus}
+    </if>
+    <if test="sendstatus != null and sendstatus !='' or sendstatus == 0  " >
+       and sendstatus = #{sendstatus}
+    </if>
+    <if test="smssubmittime != null and smssubmittime !=''" >
+       and smssubmittime = #{smssubmittime}
+    </if>
+    <if test="smsuid != null and smsuid !=''" >
+       and smsuid = #{smsuid}
+    </if>
+    <if test="smsmsgid != null and smsmsgid !=''" >
+       and smsmsgid = #{smsmsgid}
+    </if>
+    <if test="smsmodifytime != null and smsmodifytime !=''" >
+       and smsmodifytime = #{smsmodifytime}
+    </if>
+    <if test="paysubmittime != null and paysubmittime !=''" >
+       and paysubmittime = #{paysubmittime}
+    </if>
+    <if test="paymodifytime != null and paymodifytime !=''" >
+       and paymodifytime = #{paymodifytime}
+    </if>
+    <if test="payStatus != null and payStatus !='' or payStatus == 0 " >
+       and pay_status = #{payStatus}
+    </if>
+    <if test="sendPayStatus != null and sendPayStatus !='' or sendPayStatus == 0 " >
+       and send_pay_status = #{sendPayStatus}
+    </if>
+    <if test="transBatchId != null and transBatchId !=''" >
+       and trans_batch_id = #{transBatchId}
+    </if>
+    <if test="transSerialNo != null and transSerialNo !=''" >
+       and trans_serial_no = #{transSerialNo}
+    </if>
+    <if test="queryPayOrderStat != null and queryPayOrderStat !=''" >
+       and query_pay_order_stat = #{queryPayOrderStat}
+    </if>
+    <if test="queryPayRespCode != null and queryPayRespCode !=''" >
+       and query_pay_resp_code = #{queryPayRespCode}
+    </if>
+    <if test="queryPayRespMsg != null and queryPayRespMsg !=''" >
+       and query_pay_resp_msg = #{queryPayRespMsg}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.biz.Bizpayplan" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_payplan
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.biz.Bizpayplan" >
+    select count(*) from biz_payplan where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_payplan
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from biz_payplan
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.biz.Bizpayplan" >
+    insert into biz_payplan (id, leasebackid, contractid, 
+      name, identify, phone, 
+      openbank, accountname, accountcode, 
+      payday, term, price, 
+      paytime, status, autostatus, 
+      autosuccesstime, manualtime, createtime, 
+      submitstatus, sendstatus, smssubmittime, 
+      smsuid, smsmsgid, smsmodifytime, 
+      paysubmittime, paymodifytime, pay_status, 
+      send_pay_status, trans_batch_id, trans_serial_no, 
+      query_pay_order_stat, query_pay_resp_code, query_pay_resp_msg
+      )
+    values (#{id,jdbcType=VARCHAR}, #{leasebackid,jdbcType=INTEGER}, #{contractid,jdbcType=INTEGER}, 
+      #{name,jdbcType=VARCHAR}, #{identify,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{openbank,jdbcType=VARCHAR}, #{accountname,jdbcType=VARCHAR}, #{accountcode,jdbcType=VARCHAR}, 
+      #{payday,jdbcType=VARCHAR}, #{term,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{paytime,jdbcType=DATE}, #{status,jdbcType=VARCHAR}, #{autostatus,jdbcType=VARCHAR}, 
+      #{autosuccesstime,jdbcType=TIMESTAMP}, #{manualtime,jdbcType=TIMESTAMP}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{submitstatus,jdbcType=INTEGER}, #{sendstatus,jdbcType=INTEGER}, #{smssubmittime,jdbcType=TIMESTAMP}, 
+      #{smsuid,jdbcType=VARCHAR}, #{smsmsgid,jdbcType=VARCHAR}, #{smsmodifytime,jdbcType=TIMESTAMP}, 
+      #{paysubmittime,jdbcType=TIMESTAMP}, #{paymodifytime,jdbcType=TIMESTAMP}, #{payStatus,jdbcType=INTEGER}, 
+      #{sendPayStatus,jdbcType=INTEGER}, #{transBatchId,jdbcType=VARCHAR}, #{transSerialNo,jdbcType=VARCHAR}, 
+      #{queryPayOrderStat,jdbcType=VARCHAR}, #{queryPayRespCode,jdbcType=VARCHAR}, #{queryPayRespMsg,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.biz.Bizpayplan" >
+    insert into biz_payplan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="leasebackid != null" >
+        leasebackid,
+      </if>
+      <if test="contractid != null" >
+        contractid,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="identify != null" >
+        identify,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="openbank != null" >
+        openbank,
+      </if>
+      <if test="accountname != null" >
+        accountname,
+      </if>
+      <if test="accountcode != null" >
+        accountcode,
+      </if>
+      <if test="payday != null" >
+        payday,
+      </if>
+      <if test="term != null" >
+        term,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="paytime != null" >
+        paytime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="autostatus != null" >
+        autostatus,
+      </if>
+      <if test="autosuccesstime != null" >
+        autosuccesstime,
+      </if>
+      <if test="manualtime != null" >
+        manualtime,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="submitstatus != null or submitstatus == 0 " >
+        submitstatus,
+      </if>
+      <if test="sendstatus != null or sendstatus == 0" >
+        sendstatus,
+      </if>
+      <if test="smssubmittime != null" >
+        smssubmittime,
+      </if>
+      <if test="smsuid != null" >
+        smsuid,
+      </if>
+      <if test="smsmsgid != null" >
+        smsmsgid,
+      </if>
+      <if test="smsmodifytime != null" >
+        smsmodifytime,
+      </if>
+      <if test="paysubmittime != null" >
+        paysubmittime,
+      </if>
+      <if test="paymodifytime != null" >
+        paymodifytime,
+      </if>
+      <if test="payStatus != null or payStatus == 0 " >
+        pay_status,
+      </if>
+      <if test="sendPayStatus != null or sendPayStatus == 0 " >
+        send_pay_status,
+      </if>
+      <if test="transBatchId != null" >
+        trans_batch_id,
+      </if>
+      <if test="transSerialNo != null" >
+        trans_serial_no,
+      </if>
+      <if test="queryPayOrderStat != null" >
+        query_pay_order_stat,
+      </if>
+      <if test="queryPayRespCode != null" >
+        query_pay_resp_code,
+      </if>
+      <if test="queryPayRespMsg != null" >
+        query_pay_resp_msg,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="leasebackid != null" >
+        #{leasebackid,jdbcType=INTEGER},
+      </if>
+      <if test="contractid != null" >
+        #{contractid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="identify != null" >
+        #{identify,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="openbank != null" >
+        #{openbank,jdbcType=VARCHAR},
+      </if>
+      <if test="accountname != null" >
+        #{accountname,jdbcType=VARCHAR},
+      </if>
+      <if test="accountcode != null" >
+        #{accountcode,jdbcType=VARCHAR},
+      </if>
+      <if test="payday != null" >
+        #{payday,jdbcType=VARCHAR},
+      </if>
+      <if test="term != null" >
+        #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="paytime != null" >
+        #{paytime,jdbcType=DATE},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="autostatus != null" >
+        #{autostatus,jdbcType=VARCHAR},
+      </if>
+      <if test="autosuccesstime != null" >
+        #{autosuccesstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="manualtime != null" >
+        #{manualtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="submitstatus != null" >
+        #{submitstatus,jdbcType=INTEGER},
+      </if>
+      <if test="sendstatus != null" >
+        #{sendstatus,jdbcType=INTEGER},
+      </if>
+      <if test="smssubmittime != null" >
+        #{smssubmittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="smsuid != null" >
+        #{smsuid,jdbcType=VARCHAR},
+      </if>
+      <if test="smsmsgid != null" >
+        #{smsmsgid,jdbcType=VARCHAR},
+      </if>
+      <if test="smsmodifytime != null" >
+        #{smsmodifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paysubmittime != null" >
+        #{paysubmittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paymodifytime != null" >
+        #{paymodifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payStatus != null" >
+        #{payStatus,jdbcType=INTEGER},
+      </if>
+      <if test="sendPayStatus != null" >
+        #{sendPayStatus,jdbcType=INTEGER},
+      </if>
+      <if test="transBatchId != null" >
+        #{transBatchId,jdbcType=VARCHAR},
+      </if>
+      <if test="transSerialNo != null" >
+        #{transSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="queryPayOrderStat != null" >
+        #{queryPayOrderStat,jdbcType=VARCHAR},
+      </if>
+      <if test="queryPayRespCode != null" >
+        #{queryPayRespCode,jdbcType=VARCHAR},
+      </if>
+      <if test="queryPayRespMsg != null" >
+        #{queryPayRespMsg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.biz.Bizpayplan" >
+    update biz_payplan
+    <set >
+      <if test="leasebackid != null" >
+        leasebackid = #{leasebackid,jdbcType=INTEGER},
+      </if>
+      <if test="contractid != null" >
+        contractid = #{contractid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="identify != null" >
+        identify = #{identify,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="openbank != null" >
+        openbank = #{openbank,jdbcType=VARCHAR},
+      </if>
+      <if test="accountname != null" >
+        accountname = #{accountname,jdbcType=VARCHAR},
+      </if>
+      <if test="accountcode != null" >
+        accountcode = #{accountcode,jdbcType=VARCHAR},
+      </if>
+      <if test="payday != null" >
+        payday = #{payday,jdbcType=VARCHAR},
+      </if>
+      <if test="term != null" >
+        term = #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="paytime != null" >
+        paytime = #{paytime,jdbcType=DATE},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="autostatus != null" >
+        autostatus = #{autostatus,jdbcType=VARCHAR},
+      </if>
+      <if test="autosuccesstime != null" >
+        autosuccesstime = #{autosuccesstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="manualtime != null" >
+        manualtime = #{manualtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="submitstatus != null or submitstatus == 0 " >
+        submitstatus = #{submitstatus,jdbcType=INTEGER},
+      </if>
+      <if test="sendstatus != null or sendstatus == 0" >
+        sendstatus = #{sendstatus,jdbcType=INTEGER},
+      </if>
+      <if test="smssubmittime != null" >
+        smssubmittime = #{smssubmittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="smsuid != null" >
+        smsuid = #{smsuid,jdbcType=VARCHAR},
+      </if>
+      <if test="smsmsgid != null" >
+        smsmsgid = #{smsmsgid,jdbcType=VARCHAR},
+      </if>
+      <if test="smsmodifytime != null" >
+        smsmodifytime = #{smsmodifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paysubmittime != null" >
+        paysubmittime = #{paysubmittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paymodifytime != null" >
+        paymodifytime = #{paymodifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payStatus != null or payStatus == 0 " >
+        pay_status = #{payStatus,jdbcType=INTEGER},
+      </if>
+      <if test="sendPayStatus != null or sendPayStatus == 0 " >
+        send_pay_status = #{sendPayStatus,jdbcType=INTEGER},
+      </if>
+      <if test="transBatchId != null" >
+        trans_batch_id = #{transBatchId,jdbcType=VARCHAR},
+      </if>
+      <if test="transSerialNo != null" >
+        trans_serial_no = #{transSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="queryPayOrderStat != null" >
+        query_pay_order_stat = #{queryPayOrderStat,jdbcType=VARCHAR},
+      </if>
+      <if test="queryPayRespCode != null" >
+        query_pay_resp_code = #{queryPayRespCode,jdbcType=VARCHAR},
+      </if>
+      <if test="queryPayRespMsg != null" >
+        query_pay_resp_msg = #{queryPayRespMsg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.biz.Bizpayplan" >
+    update biz_payplan
+    set leasebackid = #{leasebackid,jdbcType=INTEGER},
+      contractid = #{contractid,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      identify = #{identify,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      openbank = #{openbank,jdbcType=VARCHAR},
+      accountname = #{accountname,jdbcType=VARCHAR},
+      accountcode = #{accountcode,jdbcType=VARCHAR},
+      payday = #{payday,jdbcType=VARCHAR},
+      term = #{term,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      paytime = #{paytime,jdbcType=DATE},
+      status = #{status,jdbcType=VARCHAR},
+      autostatus = #{autostatus,jdbcType=VARCHAR},
+      autosuccesstime = #{autosuccesstime,jdbcType=TIMESTAMP},
+      manualtime = #{manualtime,jdbcType=TIMESTAMP},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      submitstatus = #{submitstatus,jdbcType=INTEGER},
+      sendstatus = #{sendstatus,jdbcType=INTEGER},
+      smssubmittime = #{smssubmittime,jdbcType=TIMESTAMP},
+      smsuid = #{smsuid,jdbcType=VARCHAR},
+      smsmsgid = #{smsmsgid,jdbcType=VARCHAR},
+      smsmodifytime = #{smsmodifytime,jdbcType=TIMESTAMP},
+      paysubmittime = #{paysubmittime,jdbcType=TIMESTAMP},
+      paymodifytime = #{paymodifytime,jdbcType=TIMESTAMP},
+      pay_status = #{payStatus,jdbcType=INTEGER},
+      send_pay_status = #{sendPayStatus,jdbcType=INTEGER},
+      trans_batch_id = #{transBatchId,jdbcType=VARCHAR},
+      trans_serial_no = #{transSerialNo,jdbcType=VARCHAR},
+      query_pay_order_stat = #{queryPayOrderStat,jdbcType=VARCHAR},
+      query_pay_resp_code = #{queryPayRespCode,jdbcType=VARCHAR},
+      query_pay_resp_msg = #{queryPayRespMsg,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  
+  
+  	<select id="selectByleasebackid1" resultType="com.yyq.car.portal.common.model.biz.Bizpayplan"
+		parameterType="int">
+		SELECT * FROM `biz_payplan` where leasebackid=#{id} ORDER BY paytime LIMIT 0,12;
+	</select>
+	<select id="selectByleasebackid2" resultType="com.yyq.car.portal.common.model.biz.Bizpayplan"
+		parameterType="int">
+		SELECT * FROM `biz_payplan` where leasebackid=#{id} ORDER BY paytime LIMIT 12,48;
+	</select>
+	<sql id="Base_Column_Sms">
+		p.id id,s.bname name,s.bphone phone,p.term term,p.paytime paytime,p.price price
+	</sql>
+	<select id="selectByPaytime" resultMap="BaseResultMap"
+		parameterType="com.yyq.car.portal.common.model.biz.Bizpayplan">
+		select
+		<include refid="Base_Column_Sms" />
+		from biz_payplan p,biz_saleborrow s 
+		where p.leasebackid = s.id  and
+		<include refid="wherecase" />
+	</select>  
+ <update id="updateBySmsUidAndTimeSelective" parameterType="com.yyq.car.portal.common.model.biz.Bizpayplan" >
+    update biz_payplan
+    <set >
+      <if test="leasebackid != null" >
+        leasebackid = #{leasebackid,jdbcType=INTEGER},
+      </if>
+      <if test="contractid != null" >
+        contractid = #{contractid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="identify != null" >
+        identify = #{identify,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="openbank != null" >
+        openbank = #{openbank,jdbcType=VARCHAR},
+      </if>
+      <if test="accountname != null" >
+        accountname = #{accountname,jdbcType=VARCHAR},
+      </if>
+      <if test="accountcode != null" >
+        accountcode = #{accountcode,jdbcType=VARCHAR},
+      </if>
+      <if test="payday != null" >
+        payday = #{payday,jdbcType=VARCHAR},
+      </if>
+      <if test="term != null" >
+        term = #{term,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="autostatus != null" >
+        autostatus = #{autostatus,jdbcType=VARCHAR},
+      </if>
+      <if test="autosuccesstime != null" >
+        autosuccesstime = #{autosuccesstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="manualtime != null" >
+        manualtime = #{manualtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="submitstatus != null or submitstatus == 0" >
+        submitstatus = #{submitstatus,jdbcType=INTEGER},
+      </if>
+      <if test="sendstatus != null or sendstatus == 0 " >
+        sendstatus = #{sendstatus,jdbcType=INTEGER},
+      </if>
+      <if test="submittime != null" >
+        submittime = #{submittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="smsmsgid != null" >
+        smsmsgid = #{smsmsgid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where smsuid = #{smsuid,jdbcType=VARCHAR} and paytime = #{paytime,jdbcType=DATE}
+  </update>
+  
+    <select id="selectByPaytimeForPay" resultMap="BaseResultMap"
+		parameterType="com.yyq.car.portal.common.model.biz.Bizpayplan">
+		select
+		<include refid="Base_Column_List" />
+		from biz_payplan 
+		where 
+		<include refid="wherecase" />
+	</select> 
+	
+	
+
+   <delete id="deleteByleasebackid" parameterType="int">
+    delete from biz_payplan
+    where leasebackid = #{id}
+   </delete>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!--    还款计划代扣款             start -->
+
+
+  <sql id="wherepaymentplane" >
+	<if test="vin != null and vin !=''">
+		and contract.vin like concat('%',#{vin},'%')
+	</if>
+	<if test="phone != null and phone !=''">
+		and payplan.phone like concat('%',#{phone},'%')
+	</if>
+
+	<if test="payStartDate != null and payStartDate != ''">
+		and payplan.paytime <![CDATA[>=]]>	#{payStartDate}
+	</if>
+	<if test="payEndDate != null and payEndDate != ''">
+		and payplan.paytime <![CDATA[<=]]>#{payEndDate}
+	</if>
+	 <if test="contractId != null and contractId !=''" >
+       and payplan.contractid = #{contractId}
+    </if>
+  </sql>
+
+   <select id="selectPaymentPlaneByPaymentPlanDto" resultType="com.yyq.car.portal.common.dto.PaymentPlanDto" parameterType="com.yyq.car.portal.common.dto.PaymentPlanDto" >
+    select 
+    payplan.id id, payplan.name name, payplan.phone,payplan.accountcode ,payplan.paytime,payplan.term, payplan.price ,payplan.pay_status  payStatus,payplan.send_pay_status  sendPayStatus,
+    payplan.paysubmittime paysubmittime,payplan.paymodifytime paymodifytime,payplan.query_pay_resp_code queryPayRespCode,
+    contract.vin,contract.id contractId,
+    shop.NAME shopname,shop.PRINCIPAL shopprincipal,
+    man.bondsman bondsman,man.bmphone bmphone
+    
+    
+    
+    from biz_payplan payplan 
+    LEFT JOIN biz_contract contract on contract.id = payplan.contractid
+    LEFT JOIN pro_shop shop on contract.shopid = shop.ID
+    LEFT JOIN biz_bondsman man on payplan.leasebackid = man.saleborrowid
+    where 
+    1 =1 and payplan.status2 = 1
+    <include refid="wherepaymentplane" />
+    order by payplan.paytime
+    LIMIT #{start},#{pageSize}
+  </select>
+  <select id="countPaymentPlaneByPaymentPlanDto" resultType="int" parameterType="com.yyq.car.portal.common.dto.PaymentPlanDto" >
+
+    select count(*) 
+    from biz_payplan payplan 
+    LEFT JOIN biz_contract contract on contract.id = payplan.contractid
+    LEFT JOIN pro_shop shop on contract.shopid = shop.ID
+    LEFT JOIN biz_bondsman man on payplan.leasebackid = man.saleborrowid
+    where 
+    1 =1 and payplan.status2 = 1
+    <include refid="wherepaymentplane" />
+   
+  </select>
+  <!--    还款计划代扣款           end -->
+  
+  <!--    还款计划代扣款   明细           start -->
+  
+    <select id="selectPaymentPlaneDetailByPaymentPlanDto" resultType="com.yyq.car.portal.common.dto.PaymentPlanDto" parameterType="com.yyq.car.portal.common.dto.PaymentPlanDto" >
+    select 
+    payplan.id id, payplan.name name, payplan.phone,payplan.accountcode ,payplan.paytime,payplan.term, payplan.price ,payplan.pay_status  payStatus,
+    contract.vin,contract.id contractId
+    from biz_payplan payplan 
+    LEFT JOIN biz_contract contract on contract.id = payplan.contractid
+   
+    where 1= 1
+    <include refid="wherepaymentplane" />
+    order by payplan.paytime
+    LIMIT #{start},#{pageSize}
+  </select>
+  <select id="countPaymentPlaneDetailByPaymentPlanDto" resultType="int" parameterType="com.yyq.car.portal.common.dto.PaymentPlanDto" >
+
+    select count(*) 
+    from biz_payplan payplan 
+    LEFT JOIN biz_contract contract on contract.id = payplan.contractid
+
+    where 
+    1 = 1 
+    <include refid="wherepaymentplane" />
+   
+  </select>
+  <!--    还款计划代扣款   明细           start -->
+  
+  
+  
+</mapper>

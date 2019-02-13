@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yyq.car.portal.common.mapper.comm.WeblocationMapper">
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.comm.Weblocation">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="TYPE" jdbcType="VARCHAR" property="type" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="PARENT" jdbcType="INTEGER" property="parent" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+    <result column="SORT_NUM" jdbcType="INTEGER" property="sortNum" />
+    <result column="IS_DIRECTLY" jdbcType="INTEGER" property="isDirectly" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, TYPE, NAME, PARENT, STATUS, SORT_NUM, IS_DIRECTLY
+  </sql>
+  <sql id="wherecase">
+     1=1 
+    <if test="id != null and id !=''">
+       and ID = #{id}
+    </if>
+    <if test="type != null and type !=''">
+       and TYPE = #{type}
+    </if>
+    <if test="name != null and name !=''">
+       and NAME = #{name}
+    </if>
+    <if test="parent != null and parent !=''">
+       and PARENT = #{parent}
+    </if>
+    <if test="status != null and status !=''">
+       and STATUS = #{status}
+    </if>
+    <if test="sortNum != null and sortNum !=''">
+       and SORT_NUM = #{sortNum}
+    </if>
+    <if test="isDirectly != null and isDirectly !=''">
+       and IS_DIRECTLY = #{isDirectly}
+    </if>
+  </sql>
+  <select id="selectByCriteria" parameterType="com.yyq.car.portal.common.model.comm.Weblocation" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from comm_weblocation
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" parameterType="com.yyq.car.portal.common.model.comm.Weblocation" resultType="int">
+    select count(*) from comm_weblocation where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from comm_weblocation
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from comm_weblocation
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.comm.Weblocation">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+      SELECT NEXTVAL(323);
+    </selectKey>
+    insert into comm_weblocation (ID, TYPE, NAME, 
+      PARENT, STATUS, SORT_NUM, 
+      IS_DIRECTLY)
+    values (#{id,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{parent,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{sortNum,jdbcType=INTEGER}, 
+      #{isDirectly,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.comm.Weblocation">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+      SELECT NEXTVAL(323);
+    </selectKey>
+    insert into comm_weblocation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      ID,
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="parent != null">
+        PARENT,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="sortNum != null">
+        SORT_NUM,
+      </if>
+      <if test="isDirectly != null">
+        IS_DIRECTLY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=INTEGER},
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="parent != null">
+        #{parent,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="sortNum != null">
+        #{sortNum,jdbcType=INTEGER},
+      </if>
+      <if test="isDirectly != null">
+        #{isDirectly,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.comm.Weblocation">
+    update comm_weblocation
+    <set>
+      <if test="type != null">
+        TYPE = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="parent != null">
+        PARENT = #{parent,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="sortNum != null">
+        SORT_NUM = #{sortNum,jdbcType=INTEGER},
+      </if>
+      <if test="isDirectly != null">
+        IS_DIRECTLY = #{isDirectly,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.comm.Weblocation">
+    update comm_weblocation
+    set TYPE = #{type,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      PARENT = #{parent,jdbcType=INTEGER},
+      STATUS = #{status,jdbcType=INTEGER},
+      SORT_NUM = #{sortNum,jdbcType=INTEGER},
+      IS_DIRECTLY = #{isDirectly,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+   <select id="queryCity" resultType="map" parameterType="int" >
+  select NAME name from comm_weblocation where PARENT = #{parent}
+  </select>
+</mapper>

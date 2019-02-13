@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.auth.RoleAccountMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.auth.RoleAccount" >
+    <id column="ROLE_ID" property="roleId" jdbcType="INTEGER" />
+    <id column="ACCOUNT_ID" property="accountId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ROLE_ID, ACCOUNT_ID
+  </sql>
+  <delete id="deleteByPrimaryKey" parameterType="com.yyq.car.portal.common.model.auth.RoleAccount" >
+    delete from auth_role_account
+    where ROLE_ID = #{roleId,jdbcType=INTEGER}
+      and ACCOUNT_ID = #{accountId,jdbcType=INTEGER}
+  </delete>
+  <sql id="wherecase" >
+     1=1 
+    <if test="roleId != null and roleId !=''" >
+       and ROLE_ID = #{roleId}
+    </if>
+    <if test="accountId != null and accountId !=''" >
+       and ACCOUNT_ID = #{accountId}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.auth.RoleAccount" >
+    select 
+    <include refid="Base_Column_List" />
+    from auth_role_account
+    where 
+    <include refid="wherecase" />
+      and 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.auth.RoleAccount" >
+    select count(*) from auth_role_account where 
+    <include refid="wherecase" />
+  </select>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.auth.RoleAccount" >
+    insert into auth_role_account (ROLE_ID, ACCOUNT_ID)
+    values (#{roleId,jdbcType=INTEGER}, #{accountId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.auth.RoleAccount" >
+    insert into auth_role_account
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        ROLE_ID,
+      </if>
+      <if test="accountId != null" >
+        ACCOUNT_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="accountId != null" >
+        #{accountId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  
+  <delete id="deleteRoleByAccountId" parameterType="java.lang.Integer" >
+    delete from auth_role_account
+    where ACCOUNT_ID = #{accountId,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insertRoleAccount" parameterType="map">
+  	insert into auth_role_account(role_id, account_id) values(#{roleId,jdbcType=INTEGER}, #{accountId,jdbcType=INTEGER});
+  </insert>
+  <select id="queryRoleIdByloginId" resultType="com.yyq.car.portal.common.model.auth.RoleAccount" parameterType="int">
+  select ROLE_ID roleId from auth_role_account where ACCOUNT_ID=#{accountId}
+  </select>
+</mapper>

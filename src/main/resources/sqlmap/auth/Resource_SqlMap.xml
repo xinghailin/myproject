@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.auth.ResourceMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.auth.Resource" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="URI" property="uri" jdbcType="VARCHAR" />
+    <result column="METHOD" property="method" jdbcType="VARCHAR" />
+    <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    <result column="APP_ID" property="appId" jdbcType="INTEGER" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, NAME, URI, METHOD, DESCRIPTION, APP_ID, STATUS, CREATE_TIME
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and ID = #{id}
+    </if>
+    <if test="name != null and name !=''" >
+       and NAME = #{name}
+    </if>
+    <if test="uri != null and uri !=''" >
+       and URI = #{uri}
+    </if>
+    <if test="method != null and method !=''" >
+       and METHOD = #{method}
+    </if>
+    <if test="description != null and description !=''" >
+       and DESCRIPTION = #{description}
+    </if>
+    <if test="appId != null and appId !=''" >
+       and APP_ID = #{appId}
+    </if>
+    <if test="status != null and status !=''" >
+       and STATUS = #{status}
+    </if>
+    <if test="createTime != null and createTime !=''" >
+       and CREATE_TIME = #{createTime}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.auth.Resource" >
+    select 
+    <include refid="Base_Column_List" />
+    from auth_resource
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.auth.Resource" >
+    select count(*) from auth_resource where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from auth_resource
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from auth_resource
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.auth.Resource" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(202);
+    </selectKey>
+    insert into auth_resource (ID, NAME, URI, 
+      METHOD, DESCRIPTION, APP_ID, 
+      STATUS, CREATE_TIME)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{uri,jdbcType=VARCHAR}, 
+      #{method,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{appId,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.auth.Resource" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(202);
+    </selectKey>
+    insert into auth_resource
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="uri != null" >
+        URI,
+      </if>
+      <if test="method != null" >
+        METHOD,
+      </if>
+      <if test="description != null" >
+        DESCRIPTION,
+      </if>
+      <if test="appId != null" >
+        APP_ID,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="uri != null" >
+        #{uri,jdbcType=VARCHAR},
+      </if>
+      <if test="method != null" >
+        #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="appId != null" >
+        #{appId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.auth.Resource" >
+    update auth_resource
+    <set >
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="uri != null" >
+        URI = #{uri,jdbcType=VARCHAR},
+      </if>
+      <if test="method != null" >
+        METHOD = #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="appId != null" >
+        APP_ID = #{appId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.auth.Resource" >
+    update auth_resource
+    set NAME = #{name,jdbcType=VARCHAR},
+      URI = #{uri,jdbcType=VARCHAR},
+      METHOD = #{method,jdbcType=VARCHAR},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      APP_ID = #{appId,jdbcType=INTEGER},
+      STATUS = #{status,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectByRoleId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+	     SELECT t1.*
+	     FROM auth_resource t1, auth_role_resource t2
+	     WHERE
+	     t1.ID=t2.RESOURCE_ID 
+	     and t2.ROLE_ID = #{roleId,jdbcType=INTEGER}
+	</select>
+	
+	<resultMap id="ufaBaseResourceResultMap" type="org.ufa.security.model.UfaBaseResource" >
+	  	<id column="ID" property="resourceId" jdbcType="INTEGER" />
+	  	<result column="NAME" property="resourceName" jdbcType="VARCHAR" />
+	  	<result column="URI" property="url" jdbcType="VARCHAR" />
+	  	<result column="METHOD" property="method" jdbcType="VARCHAR" />
+	  	<result column="APP_ID" property="appId" jdbcType="VARCHAR" />
+	</resultMap>
+  
+	<select id="selectUfaBaseResourceByRoleId" resultMap="ufaBaseResourceResultMap" parameterType="java.util.Map">
+	    select t1.*
+	    from auth_resource t1, auth_role_resource t2
+	    where
+	    t1.ID=t2.RESOURCE_ID and t2.ROLE_ID = #{roleId,jdbcType=INTEGER} and t1.APP_ID = #{appId,jdbcType=INTEGER}
+	</select>
+	
+	 
+  <resultMap id="RoleResourceDTOResult" type="com.yyq.car.portal.common.dto.RoleResourceDTO" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="URI" property="uri" jdbcType="VARCHAR" />
+    <result column="METHOD" property="method" jdbcType="VARCHAR" />
+    <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    <result column="APP_ID" property="appId" jdbcType="INTEGER" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="ROLEID" property="roleId" jdbcType="INTEGER" />
+    <result column="ROLENAME" property="roleName" jdbcType="VARCHAR" />
+  </resultMap>
+	
+	<select id="batchSelectResourceById" resultMap="RoleResourceDTOResult" parameterType="java.util.Map">
+	  SELECT t2.*,t3.ID AS roleID,t3.NAME AS roleName
+      FROM auth_role_resource t1
+      LEFT JOIN auth_resource t2 ON t1.RESOURCE_ID=t2.ID
+      left JOIN auth_role t3 ON t1.ROLE_ID=t3.ID
+      WHERE t1.ROLE_ID IN  
+	  <foreach collection="roles" index="index" item="item" open="(" separator="," close=")" >
+	    #{item.roleId}
+	  </foreach>
+	  LIMIT #{startPage},#{pageSize}
+	</select>
+	
+	<select id="batchCountResourceById" resultType="int" parameterType="java.util.List" >
+	  SELECT COUNT(*)
+      FROM auth_role_resource t1
+      LEFT JOIN auth_resource t2 ON t1.RESOURCE_ID=t2.ID
+      left JOIN auth_role t3 ON t1.ROLE_ID=t3.ID
+      WHERE t1.ROLE_ID IN  
+	  <foreach collection="list" index="index" item="item" open="(" separator="," close=")" >
+	    #{item.roleId}
+	  </foreach>
+	</select>
+	
+	<select id="checkIfExists" resultType="int" parameterType="com.yyq.car.portal.common.model.auth.Resource">
+	  SELECT COUNT(1) 
+	  FROM auth_resource
+	  WHERE 1=1
+	  <if test="name !=null and name != '' ">
+	    AND NAME=#{name,jdbcType=VARCHAR}
+	  </if>
+	  <if test="uri !=null and uri != '' ">
+	    AND URI=#{uri,jdbcType=VARCHAR}
+	  </if>
+	  <if test="method !=null and method != '' ">
+	    AND METHOD=#{method,jdbcType=VARCHAR}
+	  </if>
+	</select>
+</mapper>

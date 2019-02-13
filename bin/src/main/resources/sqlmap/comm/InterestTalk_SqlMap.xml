@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.comm.InterestTalkMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.comm.InterestTalk" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="interest_talk" property="interestTalk" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, interest_talk
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="interestTalk != null and interestTalk !=''" >
+       and interest_talk like concat('%',#{interestTalk},'%')
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.comm.InterestTalk" >
+    select 
+    <include refid="Base_Column_List" />
+    from comm_interest_talk
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.comm.InterestTalk" >
+    select count(*) from comm_interest_talk where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from comm_interest_talk
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from comm_interest_talk
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.comm.InterestTalk" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(318);
+    </selectKey>
+    insert into comm_interest_talk (id, interest_talk)
+    values (#{id,jdbcType=INTEGER}, #{interestTalk,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.comm.InterestTalk" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(318);
+    </selectKey>
+    insert into comm_interest_talk
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="interestTalk != null" >
+        interest_talk,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="interestTalk != null" >
+        #{interestTalk,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.comm.InterestTalk" >
+    update comm_interest_talk
+    <set >
+      <if test="interestTalk != null" >
+        interest_talk = #{interestTalk,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.comm.InterestTalk" >
+    update comm_interest_talk
+    set interest_talk = #{interestTalk,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

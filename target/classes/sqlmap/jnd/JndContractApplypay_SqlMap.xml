@@ -1,0 +1,943 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.jnd.ContractapplypayMapper">
+	<resultMap id="BaseResultMap"
+		type="com.yyq.car.portal.common.model.jnd.Contractapplypay">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="buyid" property="buyid" jdbcType="INTEGER" />
+		<result column="paytype" property="paytype" jdbcType="INTEGER" />
+		<result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+		<result column="ccode" property="ccode" jdbcType="VARCHAR" />
+		<result column="downpay" property="downpay" jdbcType="DECIMAL" />
+		<result column="finalpay" property="finalpay" jdbcType="DECIMAL" />
+		<result column="totalpay" property="totalpay" jdbcType="DECIMAL" />
+		<result column="currency" property="currency" jdbcType="INTEGER" />
+		<result column="country" property="country" jdbcType="INTEGER" />
+		<result column="cstatus" property="cstatus" jdbcType="INTEGER" />
+		<result column="audit" property="audit" jdbcType="VARCHAR" />
+		<result column="audittime" property="audittime" jdbcType="TIMESTAMP" />
+		<result column="carprice" property="carprice" jdbcType="DECIMAL" />
+		<result column="num" property="num" jdbcType="INTEGER" />
+		<result column="cause" property="cause" jdbcType="VARCHAR" />
+		<result column="cdownpay" property="cdownpay" jdbcType="DECIMAL" />
+		<result column="cfinalpay" property="cfinalpay" jdbcType="DECIMAL" />
+		<result column="ctotalpay" property="ctotalpay" jdbcType="DECIMAL" />
+		<result column="othercost" property="othercost" jdbcType="DECIMAL" />
+		<result column="insurance" property="insurance" jdbcType="DECIMAL" />
+		<result column="trim1" property="trim1" jdbcType="VARCHAR" />
+		<result column="t1price" property="t1price" jdbcType="DECIMAL" />
+		<result column="trim2" property="trim2" jdbcType="VARCHAR" />
+		<result column="t2price" property="t2price" jdbcType="DECIMAL" />
+		<result column="trim3" property="trim3" jdbcType="VARCHAR" />
+		<result column="t3price" property="t3price" jdbcType="DECIMAL" />
+		<result column="trim4" property="trim4" jdbcType="VARCHAR" />
+		<result column="t4price" property="t4price" jdbcType="DECIMAL" />
+		<result column="trim5" property="trim5" jdbcType="VARCHAR" />
+		<result column="t5price" property="t5price" jdbcType="DECIMAL" />
+		<result column="trim6" property="trim6" jdbcType="VARCHAR" />
+		<result column="t6price" property="t6price" jdbcType="DECIMAL" />
+		<result column="trim7" property="trim7" jdbcType="VARCHAR" />
+		<result column="t7price" property="t7price" jdbcType="DECIMAL" />
+		<result column="trim8" property="trim8" jdbcType="VARCHAR" />
+		<result column="t8price" property="t8price" jdbcType="DECIMAL" />
+		<result column="trim9" property="trim9" jdbcType="VARCHAR" />
+		<result column="t9price" property="t9price" jdbcType="DECIMAL" />
+		<result column="trim10" property="trim10" jdbcType="VARCHAR" />
+		<result column="t10price" property="t10price" jdbcType="DECIMAL" />
+		<result column="trim11" property="trim11" jdbcType="VARCHAR" />
+		<result column="t11price" property="t11price" jdbcType="DECIMAL" />
+		<result column="trim12" property="trim12" jdbcType="VARCHAR" />
+		<result column="t12price" property="t12price" jdbcType="DECIMAL" />
+		<result column="othercosturl" property="othercosturl" jdbcType="VARCHAR" />
+		<result column="trimurl" property="trimurl" jdbcType="VARCHAR" />
+		<result column="otherurl" property="otherurl" jdbcType="VARCHAR" />
+		<result column="selfbuy" property="selfbuy" jdbcType="VARCHAR" />
+		<result column="needer" property="needer" jdbcType="VARCHAR" />
+		<result column="mallContractCode" property="mallcontractcode"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, buyid, paytype, createtime, ccode, downpay, finalpay, totalpay,
+		currency, country,
+		cstatus, audit, audittime, carprice, num, cause, cdownpay, cfinalpay,
+		ctotalpay,
+		othercost, insurance, trim1, t1price, trim2, t2price, trim3, t3price, trim4,
+		t4price,
+		trim5, t5price, trim6, t6price, trim7, t7price, trim8, t8price, trim9,
+		t9price, trim10,
+		t10price, trim11, t11price, trim12, t12price, othercosturl, trimurl, otherurl,
+		selfbuy,
+		needer, mallContractCode
+	</sql>
+	<sql id="wherecase">
+		1=1
+		<if test="id != null and id !=''">
+			and id = #{id}
+		</if>
+		<if test="buyid != null and buyid !=''">
+			and buyid = #{buyid}
+		</if>
+		<if test="paytype != null and paytype !=''">
+			and paytype = #{paytype}
+		</if>
+		<if test="createtime != null and createtime !=''">
+			and createtime = #{createtime}
+		</if>
+		<if test="ccode != null and ccode !=''">
+			and ccode = #{ccode}
+		</if>
+		<if test="downpay != null and downpay !=''">
+			and downpay = #{downpay}
+		</if>
+		<if test="finalpay != null and finalpay !=''">
+			and finalpay = #{finalpay}
+		</if>
+		<if test="totalpay != null and totalpay !=''">
+			and totalpay = #{totalpay}
+		</if>
+		<if test="currency != null and currency !=''">
+			and currency = #{currency}
+		</if>
+		<if test="country != null and country !=''">
+			and country = #{country}
+		</if>
+		<if test="cstatus != null and cstatus !=''">
+			and cstatus = #{cstatus}
+		</if>
+		<if test="audit != null and audit !=''">
+			and audit = #{audit}
+		</if>
+		<if test="audittime != null and audittime !=''">
+			and audittime = #{audittime}
+		</if>
+		<if test="carprice != null and carprice !=''">
+			and carprice = #{carprice}
+		</if>
+		<if test="num != null and num !=''">
+			and num = #{num}
+		</if>
+		<if test="cause != null and cause !=''">
+			and cause = #{cause}
+		</if>
+		<if test="cdownpay != null and cdownpay !=''">
+			and cdownpay = #{cdownpay}
+		</if>
+		<if test="cfinalpay != null and cfinalpay !=''">
+			and cfinalpay = #{cfinalpay}
+		</if>
+		<if test="ctotalpay != null and ctotalpay !=''">
+			and ctotalpay = #{ctotalpay}
+		</if>
+		<if test="othercost != null and othercost !=''">
+			and othercost = #{othercost}
+		</if>
+		<if test="insurance != null and insurance !=''">
+			and insurance = #{insurance}
+		</if>
+		<if test="trim1 != null and trim1 !=''">
+			and trim1 = #{trim1}
+		</if>
+		<if test="t1price != null and t1price !=''">
+			and t1price = #{t1price}
+		</if>
+		<if test="trim2 != null and trim2 !=''">
+			and trim2 = #{trim2}
+		</if>
+		<if test="t2price != null and t2price !=''">
+			and t2price = #{t2price}
+		</if>
+		<if test="trim3 != null and trim3 !=''">
+			and trim3 = #{trim3}
+		</if>
+		<if test="t3price != null and t3price !=''">
+			and t3price = #{t3price}
+		</if>
+		<if test="trim4 != null and trim4 !=''">
+			and trim4 = #{trim4}
+		</if>
+		<if test="t4price != null and t4price !=''">
+			and t4price = #{t4price}
+		</if>
+		<if test="trim5 != null and trim5 !=''">
+			and trim5 = #{trim5}
+		</if>
+		<if test="t5price != null and t5price !=''">
+			and t5price = #{t5price}
+		</if>
+		<if test="trim6 != null and trim6 !=''">
+			and trim6 = #{trim6}
+		</if>
+		<if test="t6price != null and t6price !=''">
+			and t6price = #{t6price}
+		</if>
+		<if test="trim7 != null and trim7 !=''">
+			and trim7 = #{trim7}
+		</if>
+		<if test="t7price != null and t7price !=''">
+			and t7price = #{t7price}
+		</if>
+		<if test="trim8 != null and trim8 !=''">
+			and trim8 = #{trim8}
+		</if>
+		<if test="t8price != null and t8price !=''">
+			and t8price = #{t8price}
+		</if>
+		<if test="trim9 != null and trim9 !=''">
+			and trim9 = #{trim9}
+		</if>
+		<if test="t9price != null and t9price !=''">
+			and t9price = #{t9price}
+		</if>
+		<if test="trim10 != null and trim10 !=''">
+			and trim10 = #{trim10}
+		</if>
+		<if test="t10price != null and t10price !=''">
+			and t10price = #{t10price}
+		</if>
+		<if test="trim11 != null and trim11 !=''">
+			and trim11 = #{trim11}
+		</if>
+		<if test="t11price != null and t11price !=''">
+			and t11price = #{t11price}
+		</if>
+		<if test="trim12 != null and trim12 !=''">
+			and trim12 = #{trim12}
+		</if>
+		<if test="t12price != null and t12price !=''">
+			and t12price = #{t12price}
+		</if>
+		<if test="othercosturl != null and othercosturl !=''">
+			and othercosturl = #{othercosturl}
+		</if>
+		<if test="trimurl != null and trimurl !=''">
+			and trimurl = #{trimurl}
+		</if>
+		<if test="otherurl != null and otherurl !=''">
+			and otherurl = #{otherurl}
+		</if>
+		<if test="selfbuy != null and selfbuy !=''">
+			and selfbuy = #{selfbuy}
+		</if>
+		<if test="needer != null and needer !=''">
+			and needer = #{needer}
+		</if>
+		<if test="mallcontractcode != null and mallcontractcode !=''">
+			and mallContractCode = #{mallcontractcode}
+		</if>
+	</sql>
+	<select id="selectByCriteria" resultMap="BaseResultMap"
+		parameterType="com.yyq.car.portal.common.model.jnd.Contractapplypay">
+		select
+		<include refid="Base_Column_List" />
+		from jnd_contract_applypay
+		where
+		<include refid="wherecase" />
+	</select>
+	<select id="countByCriteria" resultType="int"
+		parameterType="com.yyq.car.portal.common.model.jnd.Contractapplypay">
+		select count(*) from jnd_contract_applypay where
+		<include refid="wherecase" />
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from jnd_contract_applypay
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from jnd_contract_applypay
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert"
+		parameterType="com.yyq.car.portal.common.model.jnd.Contractapplypay">
+		<selectKey resultType="java.lang.Integer" keyProperty="id"
+			order="BEFORE">
+			SELECT NEXTVAL(711);
+		</selectKey>
+		insert into jnd_contract_applypay (id, buyid, paytype,
+		createtime, ccode, downpay,
+		finalpay, totalpay, currency,
+		country, cstatus, audit,
+		audittime, carprice, num,
+		cause, cdownpay, cfinalpay,
+		ctotalpay, othercost, insurance,
+		trim1, t1price, trim2,
+		t2price, trim3, t3price,
+		trim4, t4price, trim5,
+		t5price, trim6, t6price,
+		trim7, t7price, trim8,
+		t8price, trim9, t9price,
+		trim10, t10price, trim11,
+		t11price, trim12, t12price,
+		othercosturl, trimurl, otherurl,
+		selfbuy, needer, mallContractCode
+		)
+		values (#{id,jdbcType=INTEGER}, #{buyid,jdbcType=INTEGER},
+		#{paytype,jdbcType=INTEGER},
+		#{createtime,jdbcType=TIMESTAMP}, #{ccode,jdbcType=VARCHAR}, #{downpay,jdbcType=DECIMAL},
+		#{finalpay,jdbcType=DECIMAL}, #{totalpay,jdbcType=DECIMAL},
+		#{currency,jdbcType=INTEGER},
+		#{country,jdbcType=INTEGER}, #{cstatus,jdbcType=INTEGER}, #{audit,jdbcType=VARCHAR},
+		#{audittime,jdbcType=TIMESTAMP}, #{carprice,jdbcType=DECIMAL},
+		#{num,jdbcType=INTEGER},
+		#{cause,jdbcType=VARCHAR}, #{cdownpay,jdbcType=DECIMAL}, #{cfinalpay,jdbcType=DECIMAL},
+		#{ctotalpay,jdbcType=DECIMAL}, #{othercost,jdbcType=DECIMAL},
+		#{insurance,jdbcType=DECIMAL},
+		#{trim1,jdbcType=VARCHAR}, #{t1price,jdbcType=DECIMAL}, #{trim2,jdbcType=VARCHAR},
+		#{t2price,jdbcType=DECIMAL}, #{trim3,jdbcType=VARCHAR},
+		#{t3price,jdbcType=DECIMAL},
+		#{trim4,jdbcType=VARCHAR}, #{t4price,jdbcType=DECIMAL}, #{trim5,jdbcType=VARCHAR},
+		#{t5price,jdbcType=DECIMAL}, #{trim6,jdbcType=VARCHAR},
+		#{t6price,jdbcType=DECIMAL},
+		#{trim7,jdbcType=VARCHAR}, #{t7price,jdbcType=DECIMAL}, #{trim8,jdbcType=VARCHAR},
+		#{t8price,jdbcType=DECIMAL}, #{trim9,jdbcType=VARCHAR},
+		#{t9price,jdbcType=DECIMAL},
+		#{trim10,jdbcType=VARCHAR}, #{t10price,jdbcType=DECIMAL}, #{trim11,jdbcType=VARCHAR},
+		#{t11price,jdbcType=DECIMAL}, #{trim12,jdbcType=VARCHAR},
+		#{t12price,jdbcType=DECIMAL},
+		#{othercosturl,jdbcType=VARCHAR}, #{trimurl,jdbcType=VARCHAR}, #{otherurl,jdbcType=VARCHAR},
+		#{selfbuy,jdbcType=VARCHAR}, #{needer,jdbcType=VARCHAR},
+		#{mallcontractcode,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective"
+		parameterType="com.yyq.car.portal.common.model.jnd.Contractapplypay">
+		<selectKey resultType="java.lang.Integer" keyProperty="id"
+			order="BEFORE">
+			SELECT NEXTVAL(711);
+		</selectKey>
+		insert into jnd_contract_applypay
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			id,
+			<if test="buyid != null">
+				buyid,
+			</if>
+			<if test="paytype != null">
+				paytype,
+			</if>
+			<if test="createtime != null">
+				createtime,
+			</if>
+			<if test="ccode != null">
+				ccode,
+			</if>
+			<if test="downpay != null">
+				downpay,
+			</if>
+			<if test="finalpay != null">
+				finalpay,
+			</if>
+			<if test="totalpay != null">
+				totalpay,
+			</if>
+			<if test="currency != null">
+				currency,
+			</if>
+			<if test="country != null">
+				country,
+			</if>
+			<if test="cstatus != null">
+				cstatus,
+			</if>
+			<if test="audit != null">
+				audit,
+			</if>
+			<if test="audittime != null">
+				audittime,
+			</if>
+			<if test="carprice != null">
+				carprice,
+			</if>
+			<if test="num != null">
+				num,
+			</if>
+			<if test="cause != null">
+				cause,
+			</if>
+			<if test="cdownpay != null">
+				cdownpay,
+			</if>
+			<if test="cfinalpay != null">
+				cfinalpay,
+			</if>
+			<if test="ctotalpay != null">
+				ctotalpay,
+			</if>
+			<if test="othercost != null">
+				othercost,
+			</if>
+			<if test="insurance != null">
+				insurance,
+			</if>
+			<if test="trim1 != null">
+				trim1,
+			</if>
+			<if test="t1price != null">
+				t1price,
+			</if>
+			<if test="trim2 != null">
+				trim2,
+			</if>
+			<if test="t2price != null">
+				t2price,
+			</if>
+			<if test="trim3 != null">
+				trim3,
+			</if>
+			<if test="t3price != null">
+				t3price,
+			</if>
+			<if test="trim4 != null">
+				trim4,
+			</if>
+			<if test="t4price != null">
+				t4price,
+			</if>
+			<if test="trim5 != null">
+				trim5,
+			</if>
+			<if test="t5price != null">
+				t5price,
+			</if>
+			<if test="trim6 != null">
+				trim6,
+			</if>
+			<if test="t6price != null">
+				t6price,
+			</if>
+			<if test="trim7 != null">
+				trim7,
+			</if>
+			<if test="t7price != null">
+				t7price,
+			</if>
+			<if test="trim8 != null">
+				trim8,
+			</if>
+			<if test="t8price != null">
+				t8price,
+			</if>
+			<if test="trim9 != null">
+				trim9,
+			</if>
+			<if test="t9price != null">
+				t9price,
+			</if>
+			<if test="trim10 != null">
+				trim10,
+			</if>
+			<if test="t10price != null">
+				t10price,
+			</if>
+			<if test="trim11 != null">
+				trim11,
+			</if>
+			<if test="t11price != null">
+				t11price,
+			</if>
+			<if test="trim12 != null">
+				trim12,
+			</if>
+			<if test="t12price != null">
+				t12price,
+			</if>
+			<if test="othercosturl != null">
+				othercosturl,
+			</if>
+			<if test="trimurl != null">
+				trimurl,
+			</if>
+			<if test="otherurl != null">
+				otherurl,
+			</if>
+			<if test="selfbuy != null">
+				selfbuy,
+			</if>
+			<if test="needer != null">
+				needer,
+			</if>
+			<if test="mallcontractcode != null">
+				mallContractCode,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			#{id,jdbcType=INTEGER},
+			<if test="buyid != null">
+				#{buyid,jdbcType=INTEGER},
+			</if>
+			<if test="paytype != null">
+				#{paytype,jdbcType=INTEGER},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="ccode != null">
+				#{ccode,jdbcType=VARCHAR},
+			</if>
+			<if test="downpay != null">
+				#{downpay,jdbcType=DECIMAL},
+			</if>
+			<if test="finalpay != null">
+				#{finalpay,jdbcType=DECIMAL},
+			</if>
+			<if test="totalpay != null">
+				#{totalpay,jdbcType=DECIMAL},
+			</if>
+			<if test="currency != null">
+				#{currency,jdbcType=INTEGER},
+			</if>
+			<if test="country != null">
+				#{country,jdbcType=INTEGER},
+			</if>
+			<if test="cstatus != null">
+				#{cstatus,jdbcType=INTEGER},
+			</if>
+			<if test="audit != null">
+				#{audit,jdbcType=VARCHAR},
+			</if>
+			<if test="audittime != null">
+				#{audittime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="carprice != null">
+				#{carprice,jdbcType=DECIMAL},
+			</if>
+			<if test="num != null">
+				#{num,jdbcType=INTEGER},
+			</if>
+			<if test="cause != null">
+				#{cause,jdbcType=VARCHAR},
+			</if>
+			<if test="cdownpay != null">
+				#{cdownpay,jdbcType=DECIMAL},
+			</if>
+			<if test="cfinalpay != null">
+				#{cfinalpay,jdbcType=DECIMAL},
+			</if>
+			<if test="ctotalpay != null">
+				#{ctotalpay,jdbcType=DECIMAL},
+			</if>
+			<if test="othercost != null">
+				#{othercost,jdbcType=DECIMAL},
+			</if>
+			<if test="insurance != null">
+				#{insurance,jdbcType=DECIMAL},
+			</if>
+			<if test="trim1 != null">
+				#{trim1,jdbcType=VARCHAR},
+			</if>
+			<if test="t1price != null">
+				#{t1price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim2 != null">
+				#{trim2,jdbcType=VARCHAR},
+			</if>
+			<if test="t2price != null">
+				#{t2price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim3 != null">
+				#{trim3,jdbcType=VARCHAR},
+			</if>
+			<if test="t3price != null">
+				#{t3price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim4 != null">
+				#{trim4,jdbcType=VARCHAR},
+			</if>
+			<if test="t4price != null">
+				#{t4price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim5 != null">
+				#{trim5,jdbcType=VARCHAR},
+			</if>
+			<if test="t5price != null">
+				#{t5price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim6 != null">
+				#{trim6,jdbcType=VARCHAR},
+			</if>
+			<if test="t6price != null">
+				#{t6price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim7 != null">
+				#{trim7,jdbcType=VARCHAR},
+			</if>
+			<if test="t7price != null">
+				#{t7price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim8 != null">
+				#{trim8,jdbcType=VARCHAR},
+			</if>
+			<if test="t8price != null">
+				#{t8price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim9 != null">
+				#{trim9,jdbcType=VARCHAR},
+			</if>
+			<if test="t9price != null">
+				#{t9price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim10 != null">
+				#{trim10,jdbcType=VARCHAR},
+			</if>
+			<if test="t10price != null">
+				#{t10price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim11 != null">
+				#{trim11,jdbcType=VARCHAR},
+			</if>
+			<if test="t11price != null">
+				#{t11price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim12 != null">
+				#{trim12,jdbcType=VARCHAR},
+			</if>
+			<if test="t12price != null">
+				#{t12price,jdbcType=DECIMAL},
+			</if>
+			<if test="othercosturl != null">
+				#{othercosturl,jdbcType=VARCHAR},
+			</if>
+			<if test="trimurl != null">
+				#{trimurl,jdbcType=VARCHAR},
+			</if>
+			<if test="otherurl != null">
+				#{otherurl,jdbcType=VARCHAR},
+			</if>
+			<if test="selfbuy != null">
+				#{selfbuy,jdbcType=VARCHAR},
+			</if>
+			<if test="needer != null">
+				#{needer,jdbcType=VARCHAR},
+			</if>
+			<if test="mallcontractcode != null">
+				#{mallcontractcode,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="com.yyq.car.portal.common.model.jnd.Contractapplypay">
+		update jnd_contract_applypay
+		<set>
+			<if test="buyid != null">
+				buyid = #{buyid,jdbcType=INTEGER},
+			</if>
+			<if test="paytype != null">
+				paytype = #{paytype,jdbcType=INTEGER},
+			</if>
+			<if test="createtime != null">
+				createtime = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="ccode != null">
+				ccode = #{ccode,jdbcType=VARCHAR},
+			</if>
+			<if test="downpay != null">
+				downpay = #{downpay,jdbcType=DECIMAL},
+			</if>
+			<if test="finalpay != null">
+				finalpay = #{finalpay,jdbcType=DECIMAL},
+			</if>
+			<if test="totalpay != null">
+				totalpay = #{totalpay,jdbcType=DECIMAL},
+			</if>
+			<if test="currency != null">
+				currency = #{currency,jdbcType=INTEGER},
+			</if>
+			<if test="country != null">
+				country = #{country,jdbcType=INTEGER},
+			</if>
+			<if test="cstatus != null">
+				cstatus = #{cstatus,jdbcType=INTEGER},
+			</if>
+			<if test="audit != null">
+				audit = #{audit,jdbcType=VARCHAR},
+			</if>
+			<if test="audittime != null">
+				audittime = #{audittime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="carprice != null">
+				carprice = #{carprice,jdbcType=DECIMAL},
+			</if>
+			<if test="num != null">
+				num = #{num,jdbcType=INTEGER},
+			</if>
+			<if test="cause != null">
+				cause = #{cause,jdbcType=VARCHAR},
+			</if>
+			<if test="cdownpay != null">
+				cdownpay = #{cdownpay,jdbcType=DECIMAL},
+			</if>
+			<if test="cfinalpay != null">
+				cfinalpay = #{cfinalpay,jdbcType=DECIMAL},
+			</if>
+			<if test="ctotalpay != null">
+				ctotalpay = #{ctotalpay,jdbcType=DECIMAL},
+			</if>
+			<if test="othercost != null">
+				othercost = #{othercost,jdbcType=DECIMAL},
+			</if>
+			<if test="insurance != null">
+				insurance = #{insurance,jdbcType=DECIMAL},
+			</if>
+			<if test="trim1 != null">
+				trim1 = #{trim1,jdbcType=VARCHAR},
+			</if>
+			<if test="t1price != null">
+				t1price = #{t1price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim2 != null">
+				trim2 = #{trim2,jdbcType=VARCHAR},
+			</if>
+			<if test="t2price != null">
+				t2price = #{t2price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim3 != null">
+				trim3 = #{trim3,jdbcType=VARCHAR},
+			</if>
+			<if test="t3price != null">
+				t3price = #{t3price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim4 != null">
+				trim4 = #{trim4,jdbcType=VARCHAR},
+			</if>
+			<if test="t4price != null">
+				t4price = #{t4price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim5 != null">
+				trim5 = #{trim5,jdbcType=VARCHAR},
+			</if>
+			<if test="t5price != null">
+				t5price = #{t5price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim6 != null">
+				trim6 = #{trim6,jdbcType=VARCHAR},
+			</if>
+			<if test="t6price != null">
+				t6price = #{t6price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim7 != null">
+				trim7 = #{trim7,jdbcType=VARCHAR},
+			</if>
+			<if test="t7price != null">
+				t7price = #{t7price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim8 != null">
+				trim8 = #{trim8,jdbcType=VARCHAR},
+			</if>
+			<if test="t8price != null">
+				t8price = #{t8price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim9 != null">
+				trim9 = #{trim9,jdbcType=VARCHAR},
+			</if>
+			<if test="t9price != null">
+				t9price = #{t9price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim10 != null">
+				trim10 = #{trim10,jdbcType=VARCHAR},
+			</if>
+			<if test="t10price != null">
+				t10price = #{t10price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim11 != null">
+				trim11 = #{trim11,jdbcType=VARCHAR},
+			</if>
+			<if test="t11price != null">
+				t11price = #{t11price,jdbcType=DECIMAL},
+			</if>
+			<if test="trim12 != null">
+				trim12 = #{trim12,jdbcType=VARCHAR},
+			</if>
+			<if test="t12price != null">
+				t12price = #{t12price,jdbcType=DECIMAL},
+			</if>
+			<if test="othercosturl != null">
+				othercosturl = #{othercosturl,jdbcType=VARCHAR},
+			</if>
+			<if test="trimurl != null">
+				trimurl = #{trimurl,jdbcType=VARCHAR},
+			</if>
+			<if test="otherurl != null">
+				otherurl = #{otherurl,jdbcType=VARCHAR},
+			</if>
+			<if test="selfbuy != null">
+				selfbuy = #{selfbuy,jdbcType=VARCHAR},
+			</if>
+			<if test="needer != null">
+				needer = #{needer,jdbcType=VARCHAR},
+			</if>
+			<if test="mallcontractcode != null">
+				mallContractCode = #{mallcontractcode,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="com.yyq.car.portal.common.model.jnd.Contractapplypay">
+		update jnd_contract_applypay
+		set buyid = #{buyid,jdbcType=INTEGER},
+		paytype = #{paytype,jdbcType=INTEGER},
+		createtime = #{createtime,jdbcType=TIMESTAMP},
+		ccode = #{ccode,jdbcType=VARCHAR},
+		downpay = #{downpay,jdbcType=DECIMAL},
+		finalpay = #{finalpay,jdbcType=DECIMAL},
+		totalpay = #{totalpay,jdbcType=DECIMAL},
+		currency = #{currency,jdbcType=INTEGER},
+		country = #{country,jdbcType=INTEGER},
+		cstatus = #{cstatus,jdbcType=INTEGER},
+		audit = #{audit,jdbcType=VARCHAR},
+		audittime = #{audittime,jdbcType=TIMESTAMP},
+		carprice = #{carprice,jdbcType=DECIMAL},
+		num = #{num,jdbcType=INTEGER},
+		cause = #{cause,jdbcType=VARCHAR},
+		cdownpay = #{cdownpay,jdbcType=DECIMAL},
+		cfinalpay = #{cfinalpay,jdbcType=DECIMAL},
+		ctotalpay = #{ctotalpay,jdbcType=DECIMAL},
+		othercost = #{othercost,jdbcType=DECIMAL},
+		insurance = #{insurance,jdbcType=DECIMAL},
+		trim1 = #{trim1,jdbcType=VARCHAR},
+		t1price = #{t1price,jdbcType=DECIMAL},
+		trim2 = #{trim2,jdbcType=VARCHAR},
+		t2price = #{t2price,jdbcType=DECIMAL},
+		trim3 = #{trim3,jdbcType=VARCHAR},
+		t3price = #{t3price,jdbcType=DECIMAL},
+		trim4 = #{trim4,jdbcType=VARCHAR},
+		t4price = #{t4price,jdbcType=DECIMAL},
+		trim5 = #{trim5,jdbcType=VARCHAR},
+		t5price = #{t5price,jdbcType=DECIMAL},
+		trim6 = #{trim6,jdbcType=VARCHAR},
+		t6price = #{t6price,jdbcType=DECIMAL},
+		trim7 = #{trim7,jdbcType=VARCHAR},
+		t7price = #{t7price,jdbcType=DECIMAL},
+		trim8 = #{trim8,jdbcType=VARCHAR},
+		t8price = #{t8price,jdbcType=DECIMAL},
+		trim9 = #{trim9,jdbcType=VARCHAR},
+		t9price = #{t9price,jdbcType=DECIMAL},
+		trim10 = #{trim10,jdbcType=VARCHAR},
+		t10price = #{t10price,jdbcType=DECIMAL},
+		trim11 = #{trim11,jdbcType=VARCHAR},
+		t11price = #{t11price,jdbcType=DECIMAL},
+		trim12 = #{trim12,jdbcType=VARCHAR},
+		t12price = #{t12price,jdbcType=DECIMAL},
+		othercosturl = #{othercosturl,jdbcType=VARCHAR},
+		trimurl = #{trimurl,jdbcType=VARCHAR},
+		otherurl = #{otherurl,jdbcType=VARCHAR},
+		selfbuy = #{selfbuy,jdbcType=VARCHAR},
+		needer = #{needer,jdbcType=VARCHAR},
+		mallContractCode = #{mallcontractcode,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<select id="selectApayLst" resultType="map" parameterType="map">
+		SELECT a.id id,a.num num,a.createtime createtime,a.ctotalpay
+		ctotalpay,a.cstatus cstatus,a.paytype paytype,c.`code` code,c.`name`
+		name,a.mallcontractcode mallcontractcode FROM `jnd_contract_applypay` a LEFT JOIN jnd_buy c ON
+		a.buyid=c.id
+		where a.cstatus!=4
+		<if test="createtime != null">
+			and DATE_FORMAT(a.`createtime`,'%Y-%m-%d') = #{createtime}
+		</if>
+		<if test="code != null">
+			and c.`code` like concat('%',#{code},'%')
+		</if>
+		<if test="name != null">
+			and c.`name` like concat('%',#{name},'%')
+		</if>
+		<if test="paytype != null">
+			and a.paytype = #{paytype}
+		</if>
+		<if test="cstatus != null">
+			and a.cstatus = #{cstatus}
+		</if>
+		<if test="mallcontractcode != null">
+			and a.`mallcontractcode` like concat('%',#{mallcontractcode},'%')
+		</if>
+		ORDER BY createtime desc limit ${start},${pageSize}
+	</select>
+	<select id="countApay" resultType="int" parameterType="map">
+		SELECT count(*) FROM `jnd_contract_applypay` a LEFT JOIN jnd_buy c ON
+		a.buyid=c.id
+		where a.cstatus!=4
+		<if test="createtime != null">
+			and DATE_FORMAT(a.`createtime`,'%Y-%m-%d') = #{createtime}
+		</if>
+		<if test="code != null">
+			and c.`code` like concat('%',#{code},'%')
+		</if>
+		<if test="name != null">
+			and c.`name` like concat('%',#{name},'%')
+		</if>
+		<if test="paytype != null">
+			and a.paytype = #{paytype}
+		</if>
+		<if test="cstatus != null">
+			and a.cstatus = #{cstatus}
+		</if>
+		<if test="mallcontractcode != null">
+			and a.`mallcontractcode` like concat('%',#{mallcontractcode},'%')
+		</if>
+	</select>
+	<select id="addselectApayLst" resultType="map" parameterType="map">
+		SELECT a.id id,a.num num,c.`code` codec,a.createtime
+		createtime,a.ctotalpay ctotalpay,a.cstatus cstatus,a.paytype
+		paytype,c.`code` code,c.`name` name,a.mallcontractcode mallcontractcode FROM `jnd_contract_applypay` a
+		LEFT JOIN jnd_buy c ON a.buyid=c.id
+		where 1=1
+		<if test="createtime != null">
+			and DATE_FORMAT(a.`createtime`,'%Y-%m-%d') = #{createtime}
+		</if>
+		<if test="code != null">
+			and c.`code` like concat('%',#{code},'%')
+		</if>
+		<if test="name != null">
+			and c.`name` like concat('%',#{name},'%')
+		</if>
+		<if test="paytype != null">
+			and a.paytype = #{paytype}
+		</if>
+		<if test="cstatus != null">
+			and a.cstatus = #{cstatus}
+		</if>
+		<if test="country != null">
+			and a.country = #{country}
+		</if>
+		<if test="mallcontractcode != null">
+			and a.`mallcontractcode` like concat('%',#{mallcontractcode},'%')
+		</if>
+		ORDER BY createtime desc limit ${start},${pageSize}
+	</select>
+	<select id="addcountApay" resultType="int" parameterType="map">
+		SELECT count(*) FROM `jnd_contract_applypay` a LEFT JOIN jnd_buy c ON
+		a.buyid=c.id
+		where 1=1
+		<if test="createtime != null">
+			and DATE_FORMAT(a.`createtime`,'%Y-%m-%d') = #{createtime}
+		</if>
+		<if test="code != null">
+			and c.`code` like concat('%',#{code},'%')
+		</if>
+		<if test="name != null">
+			and c.`name` like concat('%',#{name},'%')
+		</if>
+		<if test="paytype != null">
+			and a.paytype = #{paytype}
+		</if>
+		<if test="cstatus != null">
+			and a.cstatus = #{cstatus}
+		</if>
+		<if test="country != null">
+			and a.country = #{country}
+		</if>
+		<if test="mallcontractcode != null">
+			and a.`mallcontractcode` like concat('%',#{mallcontractcode},'%')
+		</if>
+	</select>
+	<select id="contractApplypayNoPassUpdateCount" resultType="int"
+		parameterType="map">
+		SELECT COUNT(*) FROM `jnd_contract_applypay` a LEFT JOIN jnd_contract c on
+		a.id=c.apayid where (a.cstatus in(3,4) and c.country=#{country}) or (
+		a.paytype=1 and a.cstatus=2 and c.country=#{country}) ;
+	</select>
+	<select id="contractApplypayAuditCount" resultType="int">
+		SELECT COUNT(*) FROM `jnd_contract_applypay` where cstatus=1;
+	</select>
+</mapper>

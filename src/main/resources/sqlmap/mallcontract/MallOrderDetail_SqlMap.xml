@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.mallcontract.MallOrderDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.mallcontract.MallOrderDetail" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="areaid" property="areaid" jdbcType="INTEGER" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="areaname" property="areaname" jdbcType="VARCHAR" />
+    <result column="sourceid" property="sourceid" jdbcType="INTEGER" />
+    <result column="carprice" property="carprice" jdbcType="DECIMAL" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="decorateprice" property="decorateprice" jdbcType="DECIMAL" />
+    <result column="downpay" property="downpay" jdbcType="DECIMAL" />
+    <result column="oversea4sprice" property="oversea4sprice" jdbcType="DECIMAL" />
+    <result column="favor" property="favor" jdbcType="DECIMAL" />
+    <result column="cmsn" property="cmsn" jdbcType="DECIMAL" />
+    <result column="overseadrayage" property="overseadrayage" jdbcType="DECIMAL" />
+    <result column="overseashotinsurance" property="overseashotinsurance" jdbcType="DECIMAL" />
+    <result column="seatransportprice" property="seatransportprice" jdbcType="DECIMAL" />
+    <result column="seatransportinsurance" property="seatransportinsurance" jdbcType="DECIMAL" />
+    <result column="totalprice" property="totalprice" jdbcType="DECIMAL" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="orderid" property="orderid" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="reason" property="reason" jdbcType="VARCHAR" />
+    <result column="paystatus" property="paystatus" jdbcType="INTEGER" />
+    <result column="carstatus" property="carstatus" jdbcType="INTEGER" />
+    <result column="orderstatus" property="orderstatus" jdbcType="INTEGER" />
+    <result column="interest" jdbcType="DECIMAL" property="interest" />
+    <result column="servicecharge" jdbcType="DECIMAL" property="servicecharge" />
+    <result column="terminalhandlingcharges" jdbcType="DECIMAL" property="terminalhandlingcharges" />
+    <result column="customsclearancefee" jdbcType="DECIMAL" property="customsclearancefee" />
+    <result column="duties" jdbcType="DECIMAL" property="duties" />
+    <result column="displacement" jdbcType="INTEGER" property="displacement" />
+    <result column="sealapplycode" jdbcType="VARCHAR" property="sealapplycode" />
+    <result column="issealapply" jdbcType="INTEGER" property="issealapply" />
+     <result column="decoratepackage" property="decoratepackage" jdbcType="VARCHAR" />
+     <result column="leftdownpay" property="leftdownpay" jdbcType="DECIMAL" />
+    <result column="updatename" property="updatename" jdbcType="VARCHAR" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, username, areaid, unit, areaname, sourceid, carprice, num, decorateprice, downpay, 
+    oversea4sprice, favor, cmsn, overseadrayage, overseashotinsurance, seatransportprice, 
+    seatransportinsurance, totalprice, createtime, status, brand, model, code, orderid, 
+    version, remarks, reason, paystatus, carstatus, orderstatus, interest, servicecharge, 
+    terminalhandlingcharges, customsclearancefee, duties, displacement, sealapplycode, 
+    issealapply,leftdownpay,decoratepackage,updatename,updatetime
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="username != null and username !=''" >
+       and username  = #{username}
+    </if>
+    <if test="areaid != null and areaid !=''" >
+       and areaid = #{areaid}
+    </if>
+    <if test="unit != null and unit !=''" >
+       and unit = #{unit}
+    </if>
+    <if test="areaname != null and areaname !=''" >
+       and areaname = #{areaname}
+    </if>
+    <if test="sourceid != null and sourceid !=''" >
+       and sourceid = #{sourceid}
+    </if>
+    <if test="carprice != null and carprice !=''" >
+       and carprice = #{carprice}
+    </if>
+    <if test="num != null and num !=''" >
+       and num = #{num}
+    </if>
+    <if test="decorateprice != null and decorateprice !=''" >
+       and decorateprice = #{decorateprice}
+    </if>
+    <if test="downpay != null and downpay !=''" >
+       and downpay = #{downpay}
+    </if>
+    <if test="oversea4sprice != null and oversea4sprice !=''" >
+       and oversea4sprice = #{oversea4sprice}
+    </if>
+    <if test="favor != null and favor !=''" >
+       and favor = #{favor}
+    </if>
+    <if test="cmsn != null and cmsn !=''" >
+       and cmsn = #{cmsn}
+    </if>
+    <if test="overseadrayage != null and overseadrayage !=''" >
+       and overseadrayage = #{overseadrayage}
+    </if>
+    <if test="overseashotinsurance != null and overseashotinsurance !=''" >
+       and overseashotinsurance = #{overseashotinsurance}
+    </if>
+    <if test="seatransportprice != null and seatransportprice !=''" >
+       and seatransportprice = #{seatransportprice}
+    </if>
+    <if test="seatransportinsurance != null and seatransportinsurance !=''" >
+       and seatransportinsurance = #{seatransportinsurance}
+    </if>
+    <if test="totalprice != null and totalprice !=''" >
+       and totalprice = #{totalprice}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+    <if test="brand != null and brand !=''" >
+       and brand = #{brand}
+    </if>
+    <if test="model != null and model !=''" >
+       and model = #{model}
+    </if>
+    <if test="code != null and code !=''" >
+       and code like concat('%',#{code},'%')
+    </if>
+    <if test="orderid != null and orderid !=''" >
+       and orderid = #{orderid}
+    </if>
+    <if test="version != null and version !=''" >
+       and version = #{version}
+    </if>
+    <if test="remarks != null and remarks !=''" >
+       and remarks = #{remarks}
+    </if>
+    <if test="reason != null and reason !=''" >
+       and reason = #{reason}
+    </if>
+    <if test="paystatus != null and paystatus !=''" >
+       and paystatus = #{paystatus}
+    </if>
+    <if test="carstatus != null and carstatus !=''" >
+       and carstatus = #{carstatus}
+    </if>
+    <if test="orderstatus != null and orderstatus !=''" >
+       and orderstatus = #{orderstatus}
+    </if>
+    <if test="interest != null and interest !=''">
+       and interest = #{interest}
+    </if>
+    <if test="servicecharge != null and servicecharge !=''">
+       and servicecharge = #{servicecharge}
+    </if>
+    <if test="terminalhandlingcharges != null and terminalhandlingcharges !=''">
+       and terminalhandlingcharges = #{terminalhandlingcharges}
+    </if>
+    <if test="customsclearancefee != null and customsclearancefee !=''">
+       and customsclearancefee = #{customsclearancefee}
+    </if>
+    <if test="duties != null and duties !=''">
+       and duties = #{duties}
+    </if>
+    <if test="displacement != null and displacement !=''">
+       and displacement = #{displacement}
+    </if>
+    <if test="sealapplycode != null and sealapplycode !=''">
+       and sealapplycode = #{sealapplycode}
+    </if>
+    <if test="issealapply != null and issealapply !=''">
+       and issealapply = #{issealapply}
+    </if>    
+    <if test="leftdownpay != null and leftdownpay !=''">
+       and leftdownpay = #{leftdownpay}
+    </if>   
+    <if test="decoratepackage != null and decoratepackage !=''">
+       and decoratepackage = #{decoratepackage}
+    </if>  
+    <if test="updatename != null and updatename !=''">
+       and updatename = #{updatename}
+    </if>  
+    <if test="updatetime != null and updatetime !=''">
+       and updatetime = #{updatetime}
+    </if>         
+             
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.mallcontract.MallOrderDetail" >
+    select 
+    <include refid="Base_Column_List" />
+    from mall_order_detail
+    where 
+    <include refid="wherecase" />
+    order by createtime desc
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.mallcontract.MallOrderDetail" >
+    select count(*) from mall_order_detail where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from mall_order_detail
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from mall_order_detail
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.mallcontract.MallOrderDetail" >
+    insert into mall_order_detail (id, username, areaid, 
+      unit, areaname, sourceid, 
+      carprice, num, decorateprice, 
+      downpay, oversea4sprice, favor, 
+      cmsn, overseadrayage, overseashotinsurance, 
+      seatransportprice, seatransportinsurance, 
+      totalprice, createtime, status, 
+      brand, model, code, 
+      orderid, version, remarks, 
+      reason, paystatus, carstatus, 
+      orderstatus, interest, 
+      servicecharge, terminalhandlingcharges, 
+      customsclearancefee, duties, displacement, 
+      sealapplycode, issealapply,leftdownpay,decoratepackage,updatename,updatetime)
+    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{areaid,jdbcType=INTEGER}, 
+      #{unit,jdbcType=VARCHAR}, #{areaname,jdbcType=VARCHAR}, #{sourceid,jdbcType=INTEGER}, 
+      #{carprice,jdbcType=DECIMAL}, #{num,jdbcType=INTEGER}, #{decorateprice,jdbcType=DECIMAL}, 
+      #{downpay,jdbcType=DECIMAL}, #{oversea4sprice,jdbcType=DECIMAL}, #{favor,jdbcType=DECIMAL}, 
+      #{cmsn,jdbcType=DECIMAL}, #{overseadrayage,jdbcType=DECIMAL}, #{overseashotinsurance,jdbcType=DECIMAL}, 
+      #{seatransportprice,jdbcType=DECIMAL}, #{seatransportinsurance,jdbcType=DECIMAL}, 
+      #{totalprice,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
+      #{brand,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, 
+      #{orderid,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
+      #{reason,jdbcType=VARCHAR}, #{paystatus,jdbcType=INTEGER}, #{carstatus,jdbcType=INTEGER}, 
+      #{orderstatus,jdbcType=INTEGER}, #{interest,jdbcType=DECIMAL}, 
+      #{servicecharge,jdbcType=DECIMAL}, #{terminalhandlingcharges,jdbcType=DECIMAL}, 
+      #{customsclearancefee,jdbcType=DECIMAL}, #{duties,jdbcType=DECIMAL}, #{displacement,jdbcType=INTEGER}, 
+      #{sealapplycode,jdbcType=VARCHAR}, #{issealapply,jdbcType=INTEGER},
+      #{leftdownpay,jdbcType=DECIMAL},#{decoratepackage,jdbcType=VARCHAR},#{updatename,jdbcType=VARCHAR},#{updatename,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.mallcontract.MallOrderDetail" >
+    insert into mall_order_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="areaid != null" >
+        areaid,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="areaname != null" >
+        areaname,
+      </if>
+      <if test="sourceid != null" >
+        sourceid,
+      </if>
+      <if test="carprice != null" >
+        carprice,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="decorateprice != null" >
+        decorateprice,
+      </if>
+      <if test="downpay != null" >
+        downpay,
+      </if>
+      <if test="oversea4sprice != null" >
+        oversea4sprice,
+      </if>
+      <if test="favor != null" >
+        favor,
+      </if>
+      <if test="cmsn != null" >
+        cmsn,
+      </if>
+      <if test="overseadrayage != null" >
+        overseadrayage,
+      </if>
+      <if test="overseashotinsurance != null" >
+        overseashotinsurance,
+      </if>
+      <if test="seatransportprice != null" >
+        seatransportprice,
+      </if>
+      <if test="seatransportinsurance != null" >
+        seatransportinsurance,
+      </if>
+      <if test="totalprice != null" >
+        totalprice,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="orderid != null" >
+        orderid,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="reason != null" >
+        reason,
+      </if>
+      <if test="paystatus != null" >
+        paystatus,
+      </if>
+      <if test="carstatus != null" >
+        carstatus,
+      </if>
+      <if test="orderstatus != null" >
+        orderstatus,
+      </if>
+      <if test="interest != null">
+        interest,
+      </if>
+      <if test="servicecharge != null">
+        servicecharge,
+      </if>
+      <if test="terminalhandlingcharges != null">
+        terminalhandlingcharges,
+      </if>
+      <if test="customsclearancefee != null">
+        customsclearancefee,
+      </if>
+      <if test="duties != null">
+        duties,
+      </if>
+      <if test="displacement != null">
+        displacement,
+      </if>
+      <if test="sealapplycode != null">
+        sealapplycode,
+      </if>
+      <if test="issealapply != null">
+        issealapply,
+      </if>    
+      <if test="leftdownpay != null">
+        leftdownpay,
+      </if>  
+      <if test="decoratepackage != null">
+        decoratepackage,
+      </if>        
+      <if test="updatename != null">
+        updatename,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>                    
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="areaid != null" >
+        #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceid != null" >
+        #{sourceid,jdbcType=INTEGER},
+      </if>
+      <if test="carprice != null" >
+        #{carprice,jdbcType=DECIMAL},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="decorateprice != null" >
+        #{decorateprice,jdbcType=DECIMAL},
+      </if>
+      <if test="downpay != null" >
+        #{downpay,jdbcType=DECIMAL},
+      </if>
+      <if test="oversea4sprice != null" >
+        #{oversea4sprice,jdbcType=DECIMAL},
+      </if>
+      <if test="favor != null" >
+        #{favor,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn != null" >
+        #{cmsn,jdbcType=DECIMAL},
+      </if>
+      <if test="overseadrayage != null" >
+        #{overseadrayage,jdbcType=DECIMAL},
+      </if>
+      <if test="overseashotinsurance != null" >
+        #{overseashotinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="seatransportprice != null" >
+        #{seatransportprice,jdbcType=DECIMAL},
+      </if>
+      <if test="seatransportinsurance != null" >
+        #{seatransportinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="totalprice != null" >
+        #{totalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null" >
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null" >
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="paystatus != null" >
+        #{paystatus,jdbcType=INTEGER},
+      </if>
+      <if test="carstatus != null" >
+        #{carstatus,jdbcType=INTEGER},
+      </if>
+      <if test="orderstatus != null" >
+        #{orderstatus,jdbcType=INTEGER},
+      </if>
+      <if test="interest != null">
+        #{interest,jdbcType=DECIMAL},
+      </if>
+      <if test="servicecharge != null">
+        #{servicecharge,jdbcType=DECIMAL},
+      </if>
+      <if test="terminalhandlingcharges != null">
+        #{terminalhandlingcharges,jdbcType=DECIMAL},
+      </if>
+      <if test="customsclearancefee != null">
+        #{customsclearancefee,jdbcType=DECIMAL},
+      </if>
+      <if test="duties != null">
+        #{duties,jdbcType=DECIMAL},
+      </if>
+      <if test="displacement != null">
+        #{displacement,jdbcType=INTEGER},
+      </if>
+      <if test="sealapplycode != null">
+        #{sealapplycode,jdbcType=VARCHAR},
+      </if>
+      <if test="issealapply != null">
+        #{issealapply,jdbcType=INTEGER},
+      </if>      
+      <if test="leftdownpay != null">
+        #{leftdownpay,jdbcType=DECIMAL},
+      </if> 
+      <if test="decoratepackage != null">
+        #{decoratepackage,jdbcType=VARCHAR},
+      </if>
+      <if test="updatename != null">
+        #{updatename,jdbcType=VARCHAR},
+      </if> 
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>                    
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.mallcontract.MallOrderDetail" >
+    update mall_order_detail
+    <set >
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="areaid != null" >
+        areaid = #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        areaname = #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceid != null" >
+        sourceid = #{sourceid,jdbcType=INTEGER},
+      </if>
+      <if test="carprice != null" >
+        carprice = #{carprice,jdbcType=DECIMAL},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="decorateprice != null" >
+        decorateprice = #{decorateprice,jdbcType=DECIMAL},
+      </if>
+      <if test="downpay != null" >
+        downpay = #{downpay,jdbcType=DECIMAL},
+      </if>
+      <if test="oversea4sprice != null" >
+        oversea4sprice = #{oversea4sprice,jdbcType=DECIMAL},
+      </if>
+      <if test="favor != null" >
+        favor = #{favor,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn != null" >
+        cmsn = #{cmsn,jdbcType=DECIMAL},
+      </if>
+      <if test="overseadrayage != null" >
+        overseadrayage = #{overseadrayage,jdbcType=DECIMAL},
+      </if>
+      <if test="overseashotinsurance != null" >
+        overseashotinsurance = #{overseashotinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="seatransportprice != null" >
+        seatransportprice = #{seatransportprice,jdbcType=DECIMAL},
+      </if>
+      <if test="seatransportinsurance != null" >
+        seatransportinsurance = #{seatransportinsurance,jdbcType=DECIMAL},
+      </if>
+      <if test="totalprice != null" >
+        totalprice = #{totalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null" >
+        orderid = #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null" >
+        reason = #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="paystatus != null" >
+        paystatus = #{paystatus,jdbcType=INTEGER},
+      </if>
+      <if test="carstatus != null" >
+        carstatus = #{carstatus,jdbcType=INTEGER},
+      </if>
+      <if test="orderstatus != null" >
+        orderstatus = #{orderstatus,jdbcType=INTEGER},
+      </if>
+      <if test="interest != null">
+        interest = #{interest,jdbcType=DECIMAL},
+      </if>
+      <if test="servicecharge != null">
+        servicecharge = #{servicecharge,jdbcType=DECIMAL},
+      </if>
+      <if test="terminalhandlingcharges != null">
+        terminalhandlingcharges = #{terminalhandlingcharges,jdbcType=DECIMAL},
+      </if>
+      <if test="customsclearancefee != null">
+        customsclearancefee = #{customsclearancefee,jdbcType=DECIMAL},
+      </if>
+      <if test="duties != null">
+        duties = #{duties,jdbcType=DECIMAL},
+      </if>
+      <if test="displacement != null">
+        displacement = #{displacement,jdbcType=INTEGER},
+      </if>
+      <if test="sealapplycode != null">
+        sealapplycode = #{sealapplycode,jdbcType=VARCHAR},
+      </if>
+      <if test="issealapply != null">
+        issealapply = #{issealapply,jdbcType=INTEGER},
+      </if>
+      <if test="leftdownpay != null">
+        leftdownpay = #{leftdownpay,jdbcType=DECIMAL},
+      </if>  
+      <if test="decoratepackage != null">
+        decoratepackage = #{decoratepackage,jdbcType=VARCHAR},
+      </if> 
+      <if test="updatename != null">
+        updatename = #{updatename,jdbcType=VARCHAR},
+      </if> 
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>                                
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.mallcontract.MallOrderDetail" >
+    update mall_order_detail
+    set username = #{username,jdbcType=VARCHAR},
+      areaid = #{areaid,jdbcType=INTEGER},
+      unit = #{unit,jdbcType=VARCHAR},
+      areaname = #{areaname,jdbcType=VARCHAR},
+      sourceid = #{sourceid,jdbcType=INTEGER},
+      carprice = #{carprice,jdbcType=DECIMAL},
+      num = #{num,jdbcType=INTEGER},
+      decorateprice = #{decorateprice,jdbcType=DECIMAL},
+      downpay = #{downpay,jdbcType=DECIMAL},
+      oversea4sprice = #{oversea4sprice,jdbcType=DECIMAL},
+      favor = #{favor,jdbcType=DECIMAL},
+      cmsn = #{cmsn,jdbcType=DECIMAL},
+      overseadrayage = #{overseadrayage,jdbcType=DECIMAL},
+      overseashotinsurance = #{overseashotinsurance,jdbcType=DECIMAL},
+      seatransportprice = #{seatransportprice,jdbcType=DECIMAL},
+      seatransportinsurance = #{seatransportinsurance,jdbcType=DECIMAL},
+      totalprice = #{totalprice,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      brand = #{brand,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR},
+      orderid = #{orderid,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      reason = #{reason,jdbcType=VARCHAR},
+      paystatus = #{paystatus,jdbcType=INTEGER},
+      carstatus = #{carstatus,jdbcType=INTEGER},
+      orderstatus = #{orderstatus,jdbcType=INTEGER},
+      interest = #{interest,jdbcType=DECIMAL},
+      servicecharge = #{servicecharge,jdbcType=DECIMAL},
+      terminalhandlingcharges = #{terminalhandlingcharges,jdbcType=DECIMAL},
+      customsclearancefee = #{customsclearancefee,jdbcType=DECIMAL},
+      duties = #{duties,jdbcType=DECIMAL},
+      displacement = #{displacement,jdbcType=INTEGER},
+      sealapplycode = #{sealapplycode,jdbcType=VARCHAR},
+      issealapply = #{issealapply,jdbcType=INTEGER},      
+      leftdownpay = #{leftdownpay,jdbcType=DECIMAL},
+      decoratepackage = #{decoratepackage,jdbcType=VARCHAR}, 
+      updatename = #{updatename,jdbcType=VARCHAR}, 
+      updatetime = #{updatetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  
+  
+  
+  
+  	<sql id="whereparameter">
+		1=1
+		<if test="code != null and code !=''">
+			AND order_detail.code like concat('%',#{code},'%')
+		</if>
+		<if test="orderstatus != null  and orderstatus !=''">
+			AND order_detail.orderstatus=#{orderstatus}
+		</if>
+		<if test="status != null  and status !=''">
+			AND order_detail.status=#{status}
+		</if>
+		<if test="username != null and username !=''">
+			AND order_detail.username like concat('%',#{username},'%')
+		</if>
+
+	</sql>
+
+	<select id="selectList" resultType="com.yyq.car.portal.common.dto.MallOrderDetailDTO"
+		parameterType="com.yyq.car.portal.common.vo.MallOrderDetailVO">
+		SELECT
+		order_detail.*,
+		m_order.code parentcode
+		FROM
+		mall_order_detail order_detail
+		LEFT JOIN mall_order
+		m_order
+		ON order_detail.orderid = m_order.id
+		where
+		<include refid="whereparameter" />
+		ORDER BY order_detail.createtime DESC
+		LIMIT #{start},#{pageSize}
+	</select>
+
+
+	<select id="countList" resultType="int"
+		parameterType="com.yyq.car.portal.common.vo.MallOrderDetailVO">
+		select count(*)
+		FROM
+		mall_order_detail order_detail
+		LEFT JOIN mall_order
+		m_order
+		ON order_detail.orderid = m_order.id
+		where
+		<include refid="whereparameter" />
+	</select>
+  
+  
+  <select id="selectListBycodes" resultMap="BaseResultMap" parameterType="java.util.List">
+    SELECT * 
+    FROM
+	mall_order_detail order_detail
+    WHERE 1 =1 
+    and status = 1
+    and  code IN 
+    <foreach collection="list" index="index" item="item" open="(" separator="," close=")" >
+      #{item}
+    </foreach>
+  </select> 
+  
+  <!-- 点击添加合同跳转到符合条件的列表 即  username areaid   都相同 -->
+  
+    	<sql id="wherecheckparameter">
+		1=1
+		<if test="code != null and code !=''">
+			AND code like concat('%',#{code},'%')
+		</if>
+		<if test="orderstatus != null  and orderstatus !=''">
+			AND orderstatus=#{orderstatus}
+		</if>
+	    <if test="issealapply != null and issealapply !=''">
+	       and issealapply = #{issealapply}
+	    </if>  		
+		<if test="status != null  and status !=''">
+			AND status=#{status}
+		</if>
+		<if test="username != null and username !=''">
+			AND username = #{username}
+		</if>
+		 <if test="areaid != null and areaid !=''" >
+            AND areaid = #{areaid}
+        </if>
+     
+
+	</sql>
+  
+  	<select id="checkboxList" resultType="com.yyq.car.portal.common.model.mallcontract.MallOrderDetail"
+		parameterType="com.yyq.car.portal.common.vo.MallOrderDetailVO">
+		SELECT  *
+		FROM
+		mall_order_detail 
+		where
+		<include refid="wherecheckparameter" />
+		ORDER BY createtime DESC
+		LIMIT #{start},#{pageSize}
+	</select>
+
+
+	<select id="countcheckboxList" resultType="int"
+		parameterType="com.yyq.car.portal.common.vo.MallOrderDetailVO">
+		select count(*)
+		FROM
+		mall_order_detail 
+		where
+		<include refid="wherecheckparameter" />
+	</select>
+  
+  
+</mapper>

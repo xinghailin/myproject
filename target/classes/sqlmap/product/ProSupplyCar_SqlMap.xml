@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.product.prosupplycarMapper">
+	<resultMap id="BaseResultMap"
+		type="com.yyq.car.portal.common.model.product.prosupplycar">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="supplycartableid" property="supplycartableid"
+			jdbcType="INTEGER" />
+		<result column="carid" property="carid" jdbcType="INTEGER" />
+		<result column="brand" property="brand" jdbcType="VARCHAR" />
+		<result column="model" property="model" jdbcType="VARCHAR" />
+		<result column="version" property="version" jdbcType="VARCHAR" />
+		<result column="vin" property="vin" jdbcType="VARCHAR" />
+		<result column="leaveFactoryTime" property="leavefactorytime"
+			jdbcType="TIMESTAMP" />
+		<result column="outcolor" property="outcolor" jdbcType="VARCHAR" />
+		<result column="incolor" property="incolor" jdbcType="VARCHAR" />
+		<result column="signingdate" property="signingdate" jdbcType="TIMESTAMP" />
+		<result column="duedate" property="duedate" jdbcType="TIMESTAMP" />
+		<result column="shopid" property="shopid" jdbcType="INTEGER" />
+		<result column="shopname" property="shopname" jdbcType="VARCHAR" />
+		<result column="nowaddress" property="nowaddress" jdbcType="VARCHAR" />
+		<result column="moveshopid" property="moveshopid" jdbcType="INTEGER" />
+		<result column="moveaddress" property="moveaddress" jdbcType="VARCHAR" />
+		<result column="moveshopname" property="moveshopname" jdbcType="VARCHAR" />
+		<result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+		<result column="settlementprice" property="settlementprice"
+			jdbcType="DECIMAL" />
+		<result column="supplystatus" property="supplystatus" jdbcType="INTEGER" />
+		<result column="timeofshipment" property="timeofshipment"
+			jdbcType="TIMESTAMP" />
+		<result column="storeid" property="storeid" jdbcType="INTEGER" />
+		<result column="financialtype" property="financialtype"
+			jdbcType="INTEGER" />
+		<result column="arrivaltime" property="arrivaltime" jdbcType="TIMESTAMP" />
+
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, supplycartableid, carid, brand, model, version, vin,
+		leaveFactoryTime, outcolor,
+		incolor, signingdate, duedate, shopid,
+		shopname, nowaddress, moveshopid,
+		moveaddress,
+		moveshopname, createtime,
+		settlementprice, supplystatus,
+		timeofshipment,storeid,financialtype,arrivaltime
+	</sql>
+	<sql id="wherecase">
+		1=1
+		<if test="id != null and id !=''">
+			and id = #{id}
+		</if>
+		<if test="supplycartableid != null and supplycartableid !=''">
+			and supplycartableid = #{supplycartableid}
+		</if>
+		<if test="carid != null and carid !=''">
+			and carid = #{carid}
+		</if>
+		<if test="brand != null and brand !=''">
+			and brand = #{brand}
+		</if>
+		<if test="model != null and model !=''">
+			and model = #{model}
+		</if>
+		<if test="version != null and version !=''">
+			and version = #{version}
+		</if>
+		<if test="vin != null and vin !=''">
+			and vin = #{vin}
+		</if>
+		<if test="leavefactorytime != null and leavefactorytime !=''">
+			and leaveFactoryTime = #{leavefactorytime}
+		</if>
+		<if test="outcolor != null and outcolor !=''">
+			and outcolor = #{outcolor}
+		</if>
+		<if test="incolor != null and incolor !=''">
+			and incolor = #{incolor}
+		</if>
+		<if test="signingdate != null and signingdate !=''">
+			and signingdate = #{signingdate}
+		</if>
+		<if test="duedate != null and duedate !=''">
+			and duedate = #{duedate}
+		</if>
+		<if test="shopid != null and shopid !=''">
+			and shopid = #{shopid}
+		</if>
+		<if test="shopname != null and shopname !=''">
+			and shopname = #{shopname}
+		</if>
+		<if test="nowaddress != null and nowaddress !=''">
+			and nowaddress = #{nowaddress}
+		</if>
+		<if test="moveshopid != null and moveshopid !=''">
+			and moveshopid = #{moveshopid}
+		</if>
+		<if test="moveaddress != null and moveaddress !=''">
+			and moveaddress = #{moveaddress}
+		</if>
+		<if test="moveshopname != null and moveshopname !=''">
+			and moveshopname = #{moveshopname}
+		</if>
+
+		<if test="createtime != null and createtime !=''">
+			and createtime = #{createtime}
+		</if>
+		<if test="settlementprice != null and settlementprice !=''">
+			and settlementprice = #{settlementprice}
+		</if>
+		<if test="supplystatus != null and supplystatus !=''">
+			and supplystatus = #{supplystatus}
+		</if>
+		<if test="timeofshipment != null and timeofshipment !=''">
+			and timeofshipment = #{timeofshipment}
+		</if>
+		<if test="storeid != null and storeid !=''">
+			and storeid = #{storeid}
+		</if>
+		<if test="financialtype != null and financialtype !=''">
+			and financialtype = #{financialtype}
+		</if>
+		<if test="arrivaltime != null and arrivaltime !=''">
+			and arrivaltime = #{arrivaltime}
+		</if>
+	</sql>
+	<select id="selectByCriteria" resultMap="BaseResultMap"
+		parameterType="com.yyq.car.portal.common.model.product.prosupplycar">
+		select
+		<include refid="Base_Column_List" />
+		from pro_supply_car
+		where
+		<include refid="wherecase" />
+	</select>
+	<select id="countByCriteria" resultType="int"
+		parameterType="com.yyq.car.portal.common.model.product.prosupplycar">
+		select count(*) from pro_supply_car where
+		<include refid="wherecase" />
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from pro_supply_car
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		pro_supply_car
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert"
+		parameterType="com.yyq.car.portal.common.model.product.prosupplycar">
+		<selectKey resultType="java.lang.Integer" keyProperty="id"
+			order="BEFORE">
+			SELECT NEXTVAL(612);
+		</selectKey>
+		insert into pro_supply_car (id, supplycartableid, carid,
+		brand, model,
+		version,
+		vin, leaveFactoryTime, outcolor,
+		incolor, signingdate, duedate,
+		shopid, shopname, nowaddress,
+		moveshopid, moveaddress, moveshopname,
+		createtime, settlementprice,
+		supplystatus,
+		timeofshipment,storeid,financialtype,arrivaltime)
+		values
+		(#{id,jdbcType=INTEGER}, #{supplycartableid,jdbcType=INTEGER},
+		#{carid,jdbcType=INTEGER},
+		#{brand,jdbcType=VARCHAR},
+		#{model,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR},
+		#{vin,jdbcType=VARCHAR}, #{leavefactorytime,jdbcType=TIMESTAMP},
+		#{outcolor,jdbcType=VARCHAR},
+		#{incolor,jdbcType=VARCHAR},
+		#{signingdate,jdbcType=TIMESTAMP}, #{duedate,jdbcType=TIMESTAMP},
+		#{shopid,jdbcType=INTEGER}, #{shopname,jdbcType=VARCHAR},
+		#{nowaddress,jdbcType=VARCHAR},
+		#{moveshopid,jdbcType=INTEGER},
+		#{moveaddress,jdbcType=VARCHAR}, #{moveshopname,jdbcType=VARCHAR},
+		#{createtime,jdbcType=TIMESTAMP}, #{settlementprice,jdbcType=DECIMAL},
+		#{supplystatus,jdbcType=INTEGER},
+		#{timeofshipment,jdbcType=TIMESTAMP},
+		#{storeid,jdbcType=INTEGER},
+		#{financialtype,jdbcType=INTEGER}, #{arrivaltime,jdbcType=TIMESTAMP})
+	</insert>
+	<insert id="insertSelective"
+		parameterType="com.yyq.car.portal.common.model.product.prosupplycar">
+		<selectKey resultType="java.lang.Integer" keyProperty="id"
+			order="BEFORE">
+			SELECT NEXTVAL(612);
+		</selectKey>
+		insert into pro_supply_car
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			id,
+			<if test="supplycartableid != null">
+				supplycartableid,
+			</if>
+			<if test="carid != null">
+				carid,
+			</if>
+			<if test="brand != null">
+				brand,
+			</if>
+			<if test="model != null">
+				model,
+			</if>
+			<if test="version != null">
+				version,
+			</if>
+			<if test="vin != null">
+				vin,
+			</if>
+			<if test="leavefactorytime != null">
+				leaveFactoryTime,
+			</if>
+			<if test="outcolor != null">
+				outcolor,
+			</if>
+			<if test="incolor != null">
+				incolor,
+			</if>
+			<if test="signingdate != null">
+				signingdate,
+			</if>
+			<if test="duedate != null">
+				duedate,
+			</if>
+			<if test="shopid != null">
+				shopid,
+			</if>
+			<if test="shopname != null">
+				shopname,
+			</if>
+			<if test="nowaddress != null">
+				nowaddress,
+			</if>
+			<if test="moveshopid != null">
+				moveshopid,
+			</if>
+			<if test="moveaddress != null">
+				moveaddress,
+			</if>
+			<if test="moveshopname != null">
+				moveshopname,
+			</if>
+
+			<if test="createtime != null">
+				createtime,
+			</if>
+			<if test="settlementprice != null">
+				settlementprice,
+			</if>
+			<if test="supplystatus != null">
+				supplystatus,
+			</if>
+			<if test="timeofshipment != null">
+				timeofshipment,
+			</if>
+			<if test="storeid != null">
+				storeid,
+			</if>
+			<if test="financialtype != null">
+				financialtype,
+			</if>
+			<if test="arrivaltime != null">
+				arrivaltime,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			#{id,jdbcType=INTEGER},
+			<if test="supplycartableid != null">
+				#{supplycartableid,jdbcType=INTEGER},
+			</if>
+			<if test="carid != null">
+				#{carid,jdbcType=INTEGER},
+			</if>
+			<if test="brand != null">
+				#{brand,jdbcType=VARCHAR},
+			</if>
+			<if test="model != null">
+				#{model,jdbcType=VARCHAR},
+			</if>
+			<if test="version != null">
+				#{version,jdbcType=VARCHAR},
+			</if>
+			<if test="vin != null">
+				#{vin,jdbcType=VARCHAR},
+			</if>
+			<if test="leavefactorytime != null">
+				#{leavefactorytime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="outcolor != null">
+				#{outcolor,jdbcType=VARCHAR},
+			</if>
+			<if test="incolor != null">
+				#{incolor,jdbcType=VARCHAR},
+			</if>
+			<if test="signingdate != null">
+				#{signingdate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="duedate != null">
+				#{duedate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="shopid != null">
+				#{shopid,jdbcType=INTEGER},
+			</if>
+			<if test="shopname != null">
+				#{shopname,jdbcType=VARCHAR},
+			</if>
+			<if test="nowaddress != null">
+				#{nowaddress,jdbcType=VARCHAR},
+			</if>
+			<if test="moveshopid != null">
+				#{moveshopid,jdbcType=INTEGER},
+			</if>
+			<if test="moveaddress != null">
+				#{moveaddress,jdbcType=VARCHAR},
+			</if>
+			<if test="moveshopname != null">
+				#{moveshopname,jdbcType=VARCHAR},
+			</if>
+
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="settlementprice != null">
+				#{settlementprice,jdbcType=DECIMAL},
+			</if>
+			<if test="supplystatus != null">
+				#{supplystatus,jdbcType=INTEGER},
+			</if>
+			<if test="timeofshipment != null">
+				#{timeofshipment,jdbcType=TIMESTAMP},
+			</if>
+			<if test="storeid != null">
+				#{storeid,jdbcType=INTEGER},
+			</if>
+			<if test="financialtype != null">
+				#{financialtype,jdbcType=INTEGER},
+			</if>
+			<if test="arrivaltime != null">
+				#{arrivaltime,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="com.yyq.car.portal.common.model.product.prosupplycar">
+		update pro_supply_car
+		<set>
+			<if test="supplycartableid != null">
+				supplycartableid = #{supplycartableid,jdbcType=INTEGER},
+			</if>
+			<if test="carid != null">
+				carid = #{carid,jdbcType=INTEGER},
+			</if>
+			<if test="brand != null">
+				brand = #{brand,jdbcType=VARCHAR},
+			</if>
+			<if test="model != null">
+				model = #{model,jdbcType=VARCHAR},
+			</if>
+			<if test="version != null">
+				version = #{version,jdbcType=VARCHAR},
+			</if>
+			<if test="vin != null">
+				vin = #{vin,jdbcType=VARCHAR},
+			</if>
+			<if test="leavefactorytime != null">
+				leaveFactoryTime =
+				#{leavefactorytime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="outcolor != null">
+				outcolor = #{outcolor,jdbcType=VARCHAR},
+			</if>
+			<if test="incolor != null">
+				incolor = #{incolor,jdbcType=VARCHAR},
+			</if>
+			<if test="signingdate != null">
+				signingdate = #{signingdate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="duedate != null">
+				duedate = #{duedate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="shopid != null">
+				shopid = #{shopid,jdbcType=INTEGER},
+			</if>
+			<if test="shopname != null">
+				shopname = #{shopname,jdbcType=VARCHAR},
+			</if>
+			<if test="nowaddress != null">
+				nowaddress = #{nowaddress,jdbcType=VARCHAR},
+			</if>
+			<if test="moveshopid != null">
+				moveshopid = #{moveshopid,jdbcType=INTEGER},
+			</if>
+			<if test="moveaddress != null">
+				moveaddress = #{moveaddress,jdbcType=VARCHAR},
+			</if>
+			<if test="moveshopname != null">
+				moveshopname = #{moveshopname,jdbcType=VARCHAR},
+			</if>
+
+			<if test="createtime != null">
+				createtime = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="settlementprice != null">
+				settlementprice = #{settlementprice,jdbcType=DECIMAL},
+			</if>
+			<if test="supplystatus != null">
+				supplystatus = #{supplystatus,jdbcType=INTEGER},
+			</if>
+			<if test="timeofshipment != null">
+				timeofshipment = #{timeofshipment,jdbcType=TIMESTAMP},
+			</if>
+			<if test="storeid != null">
+				storeid = #{storeid,jdbcType=INTEGER},
+			</if>
+			<if test="financialtype != null">
+				financialtype = #{financialtype,jdbcType=INTEGER},
+			</if>
+			<if test="arrivaltime != null">
+				arrivaltime = #{arrivaltime,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="com.yyq.car.portal.common.model.product.prosupplycar">
+		update pro_supply_car
+		set supplycartableid =
+		#{supplycartableid,jdbcType=INTEGER},
+		carid =
+		#{carid,jdbcType=INTEGER},
+		brand = #{brand,jdbcType=VARCHAR},
+		model =
+		#{model,jdbcType=VARCHAR},
+		version = #{version,jdbcType=VARCHAR},
+		vin =
+		#{vin,jdbcType=VARCHAR},
+		leaveFactoryTime =
+		#{leavefactorytime,jdbcType=TIMESTAMP},
+		outcolor =
+		#{outcolor,jdbcType=VARCHAR},
+		incolor = #{incolor,jdbcType=VARCHAR},
+		signingdate = #{signingdate,jdbcType=TIMESTAMP},
+		duedate =
+		#{duedate,jdbcType=TIMESTAMP},
+		shopid = #{shopid,jdbcType=INTEGER},
+		shopname = #{shopname,jdbcType=VARCHAR},
+		nowaddress =
+		#{nowaddress,jdbcType=VARCHAR},
+		moveshopid =
+		#{moveshopid,jdbcType=INTEGER},
+		moveaddress =
+		#{moveaddress,jdbcType=VARCHAR},
+		moveshopname =
+		#{moveshopname,jdbcType=VARCHAR},
+		createtime =
+		#{createtime,jdbcType=TIMESTAMP},
+		settlementprice =
+		#{settlementprice,jdbcType=DECIMAL},
+		supplystatus =
+		#{supplystatus,jdbcType=INTEGER},
+		timeofshipment =
+		#{timeofshipment,jdbcType=TIMESTAMP},
+		storeid =
+		#{storeid,jdbcType=INTEGER},
+		financialtype =
+		#{financialtype,jdbcType=INTEGER},
+		arrivaltime =
+		#{arrivaltime,jdbcType=TIMESTAMP}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<!-- 根据门店查询配车表中还没有到店的车 -->
+	<select id="selectsupplycar"
+		resultType="com.yyq.car.portal.common.model.product.prosupplycar"
+		parameterType="int">
+		SELECT * FROM `pro_supply_car` where supplystatus
+		in(1,4,5,6) and
+		moveshopid=#{id}
+	</select>
+	<!-- 配车审核通过 -->
+	<update id="updatemovelibrarypass" parameterType="int">
+		update
+		pro_supply_car set supplystatus=4 where supplycartableid=#{id}
+	</update>
+	<!--配车审核不通过 -->
+	<update id="updatemovelibrarynopass" parameterType="int">
+		update
+		pro_supply_car set supplystatus=2 where supplycartableid=#{id}
+	</update>
+	<select id="moveLibraryListDetails" resultType="map"
+		parameterType="map">
+		SELECT
+		ta.name,
+		car.createtime,
+		car.brand,
+		car.model,
+		car.version,
+		car.vin,
+		car.shopname,
+		car.nowaddress,
+		car.moveshopname,
+		car.moveaddress,
+		CASE
+		ta.`status`
+		when 1 then '额度超额未审核配车'
+		when 4 then '待物流配车'
+		when 5 then '接受任务开始物流' when 6 then
+		'物流确认到店' when 7 then '门店确认到店' end
+		status
+		FROM
+		`pro_supply_car` car
+		LEFT JOIN pro_supply_car_table ta ON
+		car.supplycartableid = ta.id where
+		ta.`status` not in(2,3)
+		<if test="brand != null and brand !=''">
+			and car.brand like concat('%',#{brand},'%')
+		</if>
+		<if test="model != null and model !=''">
+			and car.model like concat('%',#{model},'%')
+		</if>
+		<if test="version != null and version !=''">
+			and car.version like concat('%',#{version},'%')
+		</if>
+		<if test="vin != null and vin !=''">
+			and car.vin like concat('%',#{vin},'%')
+		</if>
+		<if test="name != null and name!=''">
+			and ta.name like concat('%',#{name},'%')
+		</if>
+		<if test="status!= null and status!=''">
+			and ta.status =#{status}
+		</if>
+		LIMIT #{start},#{size}
+	</select>
+	<select id="countMoveLibraryListDetails" resultType="int"
+		parameterType="map">
+		SELECT
+		count(*)
+		FROM
+		`pro_supply_car` car
+		LEFT JOIN pro_supply_car_table ta ON
+		car.supplycartableid = ta.id where
+		ta.`status` not in(2,3)
+		<if test="brand != null and brand !=''">
+			and car.brand like concat('%',#{brand},'%')
+		</if>
+		<if test="model != null and model !=''">
+			and car.model like concat('%',#{model},'%')
+		</if>
+		<if test="version != null and version !=''">
+			and car.version like concat('%',#{version},'%')
+		</if>
+		<if test="vin != null and vin !=''">
+			and car.vin like concat('%',#{vin},'%')
+		</if>
+		<if test="name != null and name!=''">
+			and ta.name like concat('%',#{name},'%')
+		</if>
+		<if test="status!= null and status!=''">
+			and ta.status =#{status}
+		</if>
+	</select>
+</mapper>

@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.cif.contractMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.cif.contract" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="INFO_ID" property="infoId" jdbcType="INTEGER" />
+    <result column="INFO_NUM" property="infoNum" jdbcType="VARCHAR" />
+    <result column="CARID" property="carId" jdbcType="INTEGER" />
+    <result column="SHOP_ID" property="shopId" jdbcType="INTEGER" />
+    <result column="SHOP_NAME" property="shopName" jdbcType="VARCHAR" />
+    <result column="SELLER_ID" property="sellerId" jdbcType="INTEGER" />
+    <result column="SELLER_CODE" property="sellerCode" jdbcType="VARCHAR" />
+    <result column="SELLER_NAME" property="sellerName" jdbcType="VARCHAR" />
+    <result column="BUYER_NAME" property="buyerName" jdbcType="VARCHAR" />
+    <result column="IDENTIFY" property="identify" jdbcType="VARCHAR" />
+    <result column="PHONE" property="phone" jdbcType="VARCHAR" />
+    <result column="VIN" property="vin" jdbcType="VARCHAR" />
+    <result column="SALE_PRICE" property="salePrice" jdbcType="DECIMAL" />
+    <result column="CONT_PRICE" property="contPrice" jdbcType="DECIMAL" />
+    <result column="COOP_TYPE" property="coopType" jdbcType="INTEGER" />
+    <result column="OTHER_CONT" property="otherCont" jdbcType="VARCHAR" />
+    <result column="BANKCARD" property="bankcard" jdbcType="VARCHAR" />
+    <result column="OPENBANK" property="openbank" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    
+    <result column="PARTA" property="parta" jdbcType="VARCHAR" />
+    <result column="ADDRESSA" property="addressa" jdbcType="VARCHAR" />
+    <result column="POSTCODEA" property="postcodea" jdbcType="VARCHAR" />
+    <result column="PHONEA" property="phonea" jdbcType="VARCHAR" />
+    <result column="ADDRESSB" property="addressb" jdbcType="VARCHAR" />
+    <result column="POSTCODEB" property="postcodeb" jdbcType="VARCHAR" />
+    <result column="IDENTYPE" property="idenType" jdbcType="VARCHAR" />
+    <result column="IDENCODE" property="idenCode" jdbcType="VARCHAR" />
+    <result column="AGENT" property="agent" jdbcType="VARCHAR" />
+    <result column="AGENTPHONE" property="agentPhone" jdbcType="VARCHAR" />
+    <result column="DOWNPAY" property="downpay" jdbcType="DECIMAL" />
+    
+    <result column="REALDOWNPAY" property="realdownpay" jdbcType="DECIMAL" />
+    <result column="FINALPAY" property="finalpay" jdbcType="DECIMAL" />
+    <result column="REALFINALPAY" property="realfinalpay" jdbcType="DECIMAL" />
+    
+    <result column="INSURE_PRICE" property="insurePrice" jdbcType="DECIMAL" />
+    <result column="BUY_TAX" property="buyTax" jdbcType="DECIMAL" />
+    <result column="CARD_PRICE" property="cardPrice" jdbcType="DECIMAL" />
+    <result column="QUALITYGUAR_PRICE" property="qualityguarPrice" jdbcType="DECIMAL" />
+    <result column="DELAYGUAR_PRICE" property="delayguarPrice" jdbcType="DECIMAL" />
+    <result column="DECORATE_PRICE" property="decoratePrice" jdbcType="DECIMAL" />
+    
+    <result column="INSURE_PRICER" property="insurePricer" jdbcType="DECIMAL" />
+    <result column="BUY_TAXR" property="buyTaxr" jdbcType="DECIMAL" />
+    <result column="CARD_PRICER" property="cardPricer" jdbcType="DECIMAL" />
+    <result column="QUALITYGUAR_PRICER" property="qualityguarPricer" jdbcType="DECIMAL" />
+    <result column="DELAYGUAR_PRICER" property="delayguarPricer" jdbcType="DECIMAL" />
+    <result column="DECORATE_PRICER" property="decoratePricer" jdbcType="DECIMAL" />
+    
+    <result column="OUTID" property="outid" jdbcType="INTEGER" />
+    
+    <result column="MANUAL" property="manual" jdbcType="VARCHAR" />
+    <result column="CAR_KEY" property="carKey" jdbcType="VARCHAR" />
+    <result column="THREE_IDEN" property="threeIden" jdbcType="VARCHAR" />
+    <result column="THREE_BILL" property="threeBill" jdbcType="VARCHAR" />
+    <result column="CAR_GUAR" property="carGuar" jdbcType="VARCHAR" />
+    <result column="CONFIG_BILL" property="configBill" jdbcType="VARCHAR" />
+    <result column="QUALITY_GUAR" property="qualityGuar" jdbcType="VARCHAR" />
+    <result column="DELAY_GUAR" property="delayGuar" jdbcType="VARCHAR" />
+    <result column="BUYTAX_BILL" property="buytaxBill" jdbcType="VARCHAR" />
+    <result column="PRODUCE_LICENSE" property="productLicense" jdbcType="VARCHAR" />
+    <result column="BILL" property="bill" jdbcType="VARCHAR" />
+    <result column="CARD" property="card" jdbcType="VARCHAR" />
+     <result column="VIDEOS" property="videos" jdbcType="VARCHAR" />
+    <result column="OUTCARTIME" property="outcartime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, INFO_ID, INFO_NUM, SHOP_ID, SHOP_NAME, SELLER_ID, SELLER_CODE, SELLER_NAME, 
+    BUYER_NAME, IDENTIFY, PHONE, VIN, SALE_PRICE,CONT_PRICE, COOP_TYPE, OTHER_CONT, BANKCARD,OPENBANK,CREATE_TIME, PARTA, ADDRESSA, POSTCODEA, PHONEA,
+    POSTCODEB, ADDRESSB,IDENTYPE, IDENCODE, AGENT, AGENTPHONE,DOWNPAY,CARID,REALDOWNPAY,FINALPAY,REALFINALPAY,INSURE_PRICE,BUY_TAX,CARD_PRICE,QUALITYGUAR_PRICE,DELAYGUAR_PRICE,
+    DECORATE_PRICE,INSURE_PRICER,BUY_TAXR,CARD_PRICER,QUALITYGUAR_PRICER,DELAYGUAR_PRICER,DECORATE_PRICER,OUTID,MANUAL,CAR_KEY,THREE_IDEN,THREE_BILL,CAR_GUAR,CONFIG_BILL,QUALITY_GUAR,DELAY_GUAR,BUYTAX_BILL,PRODUCE_LICENSE,BILL,
+    CARD,OUTCARTIME,VIDEOS
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and ID = #{id}
+    </if>
+    <if test="infoId != null and infoId !=''" >
+       and INFO_ID = #{infoId}
+    </if>
+    <if test="carId != null and carId !=''" >
+       and CARID = #{carId}
+    </if>
+    <if test="infoNum != null and infoNum !=''" >
+       and INFO_NUM = #{infoNum}
+    </if>
+    <if test="shopId != null and shopId !=''" >
+       and SHOP_ID = #{shopId}
+    </if>
+    <if test="shopName != null and shopName !=''" >
+       and SHOP_NAME = #{shopName}
+    </if>
+    <if test="sellerId != null and sellerId !=''" >
+       and SELLER_ID = #{sellerId}
+    </if>
+    <if test="sellerCode != null and sellerCode !=''" >
+       and SELLER_CODE = #{sellerCode}
+    </if>
+    <if test="sellerName != null and sellerName !=''" >
+       and SELLER_NAME = #{sellerName}
+    </if>
+    <if test="buyerName != null and buyerName !=''" >
+       and BUYER_NAME = #{buyerName}
+    </if>
+    <if test="identify != null and identify !=''" >
+       and IDENTIFY = #{identify}
+    </if>
+    <if test="phone != null and phone !=''" >
+       and PHONE = #{phone}
+    </if>
+    <if test="vin != null and vin !=''" >
+       and VIN = #{vin}
+    </if>
+    <if test="salePrice != null and salePrice !=''" >
+       and SALE_PRICE = #{salePrice}
+    </if>
+    <if test="coopType != null and coopType !=''" >
+       and COOP_TYPE = #{coopType}
+    </if>
+    <if test="otherCont != null and otherCont !=''" >
+       and OTHER_CONT = #{otherCont}
+    </if>
+    <if test="createTime != null and createTime !=''" >
+       and CREATE_TIME = #{createTime}
+    </if>
+     <if test="videos != null and videos !=''" >
+       and VIDEOS = #{videos}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.cif.contract" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_contract
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.cif.contract" >
+    select count(*) from cif_contract where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_contract
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cif_contract
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.cif.contract" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(115);
+    </selectKey>
+    insert into cif_contract (ID, CONTRACT_ID, CONTRACT_NUM, 
+      SHOP_ID, SHOP_NAME, SELLER_ID, 
+      SELLER_CODE, SELLER_NAME, BUYER_NAME, 
+      IDENTIFY, PHONE, VIN, 
+      SALE_PRICE, COOP_TYPE, OTHER_CONT, 
+      CREATE_TIME)
+    values (#{id,jdbcType=INTEGER}, #{contractId,jdbcType=INTEGER}, #{contractNum,jdbcType=VARCHAR}, 
+      #{shopId,jdbcType=INTEGER}, #{shopName,jdbcType=VARCHAR}, #{sellerId,jdbcType=INTEGER}, 
+      #{sellerCode,jdbcType=VARCHAR}, #{sellerName,jdbcType=VARCHAR}, #{buyerName,jdbcType=VARCHAR}, 
+      #{identify,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{vin,jdbcType=VARCHAR}, 
+      #{salePrice,jdbcType=DECIMAL}, #{coopType,jdbcType=INTEGER}, #{otherCont,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP},#{videos,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.cif.contract" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(115);
+    </selectKey>
+    insert into cif_contract
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,
+      <if test="infoId != null" >
+        INFO_ID,
+      </if>
+      <if test="infoNum != null" >
+        INFO_NUM,
+      </if>
+      <if test="shopId != null" >
+        SHOP_ID,
+      </if>
+      <if test="shopName != null" >
+        SHOP_NAME,
+      </if>
+      <if test="sellerId != null" >
+        SELLER_ID,
+      </if>
+      <if test="sellerCode != null" >
+        SELLER_CODE,
+      </if>
+      <if test="sellerName != null" >
+        SELLER_NAME,
+      </if>
+      <if test="buyerName != null" >
+        BUYER_NAME,
+      </if>
+      <if test="identify != null" >
+        IDENTIFY,
+      </if>
+      <if test="phone != null" >
+        PHONE,
+      </if>
+      <if test="vin != null" >
+        VIN,
+      </if>
+      <if test="salePrice != null" >
+        SALE_PRICE,
+      </if>
+      <if test="contPrice != null" >
+        CONT_PRICE,
+      </if>
+      <if test="coopType != null" >
+        COOP_TYPE,
+      </if>
+      <if test="otherCont != null" >
+        OTHER_CONT,
+      </if>
+      <if test="bankcard != null" >
+        BANKCARD,
+      </if>
+      <if test="openbank != null" >
+        OPENBANK,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      
+      <if test="parta != null" >
+        PARTA,
+      </if>
+      <if test="addressa != null" >
+        ADDRESSA,
+      </if>
+      <if test="postcodea != null" >
+        POSTCODEA,
+      </if>
+      <if test="phonea != null" >
+        PHONEA,
+      </if>
+      <if test="addressb != null" >
+        ADDRESSB,
+      </if>
+      <if test="postcodeb != null" >
+        POSTCODEB,
+      </if>
+      <if test="idenType != null" >
+        IDENTYPE,
+      </if>
+      <if test="idenCode != null" >
+        IDENCODE,
+      </if>
+      <if test="agent != null" >
+        AGENT,
+      </if>
+      <if test="agentPhone != null" >
+        AGENTPHONE,
+      </if>
+      <if test="downpay != null" >
+        DOWNPAY,
+      </if>
+      <if test="carId != null" >
+        CARID,
+      </if>
+      <if test="finalpay != null" >
+        FINALPAY,
+      </if>
+      
+      <if test="insurePrice != null" >
+        INSURE_PRICE,
+      </if>
+      <if test="buyTax != null" >
+        BUY_TAX,
+      </if>
+      <if test="cardPrice != null" >
+        CARD_PRICE,
+      </if>
+      <if test="qualityguarPrice != null" >
+        QUALITYGUAR_PRICE,
+      </if>
+      <if test="delayguarPrice != null" >
+        DELAYGUAR_PRICE,
+      </if>
+      <if test="decoratePrice != null" >
+        DECORATE_PRICE,
+      </if>
+      <if test="outid != null" >
+        OUTID,
+      </if>
+       <if test="videos != null" >
+        VIDEOS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="infoId != null" >
+        #{infoId,jdbcType=INTEGER},
+      </if>
+      <if test="infoNum != null" >
+        #{infoNum,jdbcType=VARCHAR},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="shopName != null" >
+        #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        #{sellerId,jdbcType=INTEGER},
+      </if>
+      <if test="sellerCode != null" >
+        #{sellerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerName != null" >
+        #{sellerName,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerName != null" >
+        #{buyerName,jdbcType=VARCHAR},
+      </if>
+      <if test="identify != null" >
+        #{identify,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null" >
+        #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="salePrice != null" >
+        #{salePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="contPrice != null" >
+        #{contPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="coopType != null" >
+        #{coopType,jdbcType=INTEGER},
+      </if>
+      <if test="otherCont != null" >
+        #{otherCont,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcard != null" >
+        #{bankcard,jdbcType=VARCHAR},
+      </if>
+      <if test="openbank != null" >
+        #{openbank,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      
+      <if test="parta != null" >
+        #{parta,jdbcType=VARCHAR},
+      </if>
+      <if test="addressa != null" >
+        #{addressa,jdbcType=VARCHAR},
+      </if>
+      <if test="postcodea != null" >
+        #{postcodea,jdbcType=VARCHAR},
+      </if>
+      <if test="phonea != null" >
+        #{phonea,jdbcType=VARCHAR},
+      </if>
+      <if test="addressb != null" >
+        #{addressb,jdbcType=VARCHAR},
+      </if>
+      <if test="postcodeb != null" >
+        #{postcodeb,jdbcType=VARCHAR},
+      </if>
+      <if test="idenType != null" >
+        #{idenType,jdbcType=VARCHAR},
+      </if>
+      <if test="idenCode != null" >
+        #{idenCode,jdbcType=VARCHAR},
+      </if>
+      <if test="agent != null" >
+        #{agent,jdbcType=VARCHAR},
+      </if>
+      <if test="agentPhone != null" >
+        #{agentPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="downpay != null" >
+        #{downpay,jdbcType=VARCHAR},
+      </if>
+      <if test="carId != null" >
+        #{carId,jdbcType=INTEGER},
+      </if>
+      <if test="finalpay != null" >
+        #{finalpay,jdbcType=DECIMAL},
+      </if>
+      
+      <if test="insurePrice != null" >
+        #{insurePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="buyTax != null" >
+        #{buyTax,jdbcType=DECIMAL},
+      </if>
+      <if test="cardPrice != null" >
+        #{cardPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="qualityguarPrice != null" >
+        #{qualityguarPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="delayguarPrice != null" >
+        #{delayguarPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="decoratePrice != null" >
+        #{decoratePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="outid != null" >
+        #{outid,jdbcType=INTEGER},
+      </if>
+       <if test="videos != null" >
+        #{videos,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.cif.contract" >
+    update cif_contract
+    <set >
+      <if test="infoId != null" >
+        INFO_ID = #{infoId,jdbcType=INTEGER},
+      </if>
+      <if test="infoNum != null" >
+        INFO_NUM = #{infoNum,jdbcType=VARCHAR},
+      </if>
+      <if test="shopId != null" >
+        SHOP_ID = #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="shopName != null" >
+        SHOP_NAME = #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null" >
+        SELLER_ID = #{sellerId,jdbcType=INTEGER},
+      </if>
+      <if test="sellerCode != null" >
+        SELLER_CODE = #{sellerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerName != null" >
+        SELLER_NAME = #{sellerName,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerName != null" >
+        BUYER_NAME = #{buyerName,jdbcType=VARCHAR},
+      </if>
+      <if test="identify != null" >
+        IDENTIFY = #{identify,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null" >
+        VIN = #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="salePrice != null" >
+        SALE_PRICE = #{salePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="coopType != null" >
+        COOP_TYPE = #{coopType,jdbcType=INTEGER},
+      </if>
+      <if test="otherCont != null" >
+        OTHER_CONT = #{otherCont,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      
+      <if test="parta != null" >
+        PARTA = #{parta,jdbcType=VARCHAR},
+      </if>
+      <if test="addressa != null" >
+        ADDRESSA = #{addressa,jdbcType=VARCHAR},
+      </if>
+      <if test="postcodea != null" >
+        POSTCODEA = #{postcodea,jdbcType=VARCHAR},
+      </if>
+      <if test="phonea != null" >
+        PHONEA = #{phonea,jdbcType=VARCHAR},
+      </if>
+      <if test="postcodeb != null" >
+        POSTCODEB = #{postcodeb,jdbcType=VARCHAR},
+      </if>
+      <if test="idenType != null" >
+        IDENTYPE = #{idenType,jdbcType=VARCHAR},
+      </if>
+      <if test="idenCode != null" >
+        IDENCODE = #{idenCode,jdbcType=VARCHAR},
+      </if>
+      <if test="agent != null" >
+        AGENT = #{agent,jdbcType=VARCHAR},
+      </if>
+      <if test="agentPhone != null" >
+        AGENTPHONE = #{agentPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="downpay != null" >
+        DOWNPAY = #{downpay,jdbcType=DECIMAL},
+      </if>
+      <if test="carId != null" >
+        CARID = #{carId,jdbcType=INTEGER},
+      </if>
+      
+      <if test="realdownpay != null" >
+        REALDOWNPAY = #{realdownpay,jdbcType=DECIMAL},
+      </if>
+      <if test="finalpay != null" >
+        FINALPAY = #{finalpay,jdbcType=DECIMAL},
+      </if>
+      <if test="realfinalpay != null" >
+        REALFINALPAY = #{realfinalpay,jdbcType=DECIMAL},
+      </if>
+      
+      <if test="outid != null" >
+        OUTID = #{outid,jdbcType=INTEGER},
+      </if>
+      
+      <if test="insurePrice != null" >
+        INSURE_PRICE = #{insurePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="buyTax != null" >
+        BUY_TAX = #{buyTax,jdbcType=DECIMAL},
+      </if>
+      <if test="cardPrice != null" >
+        CARD_PRICE = #{cardPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="qualityguarPrice != null" >
+        QUALITYGUAR_PRICE = #{qualityguarPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="delayguarPrice != null" >
+        DELAYGUAR_PRICE = #{delayguarPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="decoratePrice != null" >
+        DECORATE_PRICE = #{decoratePrice,jdbcType=DECIMAL},
+      </if>
+      
+      <if test="insurePricer != null" >
+        INSURE_PRICER = #{insurePricer,jdbcType=DECIMAL},
+      </if>
+      <if test="buyTaxr != null" >
+        BUY_TAXR = #{buyTaxr,jdbcType=DECIMAL},
+      </if>
+      <if test="cardPricer != null" >
+        CARD_PRICER = #{cardPricer,jdbcType=DECIMAL},
+      </if>
+      <if test="qualityguarPricer != null" >
+        QUALITYGUAR_PRICER = #{qualityguarPricer,jdbcType=DECIMAL},
+      </if>
+      <if test="delayguarPricer != null" >
+        DELAYGUAR_PRICER = #{delayguarPricer,jdbcType=DECIMAL},
+      </if>
+      <if test="decoratePricer != null" >
+        DECORATE_PRICER = #{decoratePricer,jdbcType=DECIMAL},
+      </if>
+      
+      <if test="settlement != null" >
+        SETTLEMENT = #{settlement,jdbcType=DECIMAL},
+      </if>
+      
+      <if test="manual != null" >
+        MANUAL = #{manual,jdbcType=VARCHAR},
+      </if>
+      <if test="carKey != null" >
+        CAR_KEY = #{carKey,jdbcType=VARCHAR},
+      </if>
+      <if test="threeIden != null" >
+        THREE_IDEN = #{threeIden,jdbcType=VARCHAR},
+      </if>
+      <if test="threeBill != null" >
+        THREE_BILL = #{threeBill,jdbcType=VARCHAR},
+      </if>
+      <if test="carGuar != null" >
+        CAR_GUAR = #{carGuar,jdbcType=VARCHAR},
+      </if>
+      <if test="configBill != null" >
+        CONFIG_BILL = #{configBill,jdbcType=VARCHAR},
+      </if>
+      <if test="qualityGuar != null" >
+        QUALITY_GUAR = #{qualityGuar,jdbcType=VARCHAR},
+      </if>
+      <if test="delayGuar != null" >
+        DELAY_GUAR = #{delayGuar,jdbcType=VARCHAR},
+      </if>
+      <if test="buytaxBill != null" >
+        BUYTAX_BILL = #{buytaxBill,jdbcType=VARCHAR},
+      </if>
+      <if test="productLicense != null" >
+        PRODUCE_LICENSE = #{productLicense,jdbcType=VARCHAR},
+      </if>
+      <if test="bill != null" >
+        BILL = #{bill,jdbcType=VARCHAR},
+      </if>
+      <if test="card != null" >
+        CARD = #{card,jdbcType=VARCHAR},
+      </if>
+      
+      <if test="outcartime != null" >
+        OUTCARTIME = #{outcartime,jdbcType=TIMESTAMP},
+      </if>
+       <if test="videos != null" >
+        VIDEOS = #{videos,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.cif.contract" >
+    update cif_contract
+    set CONTRACT_ID = #{contractId,jdbcType=INTEGER},
+      CONTRACT_NUM = #{contractNum,jdbcType=VARCHAR},
+      SHOP_ID = #{shopId,jdbcType=INTEGER},
+      SHOP_NAME = #{shopName,jdbcType=VARCHAR},
+      SELLER_ID = #{sellerId,jdbcType=INTEGER},
+      SELLER_CODE = #{sellerCode,jdbcType=VARCHAR},
+      SELLER_NAME = #{sellerName,jdbcType=VARCHAR},
+      BUYER_NAME = #{buyerName,jdbcType=VARCHAR},
+      IDENTIFY = #{identify,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      VIN = #{vin,jdbcType=VARCHAR},
+      SALE_PRICE = #{salePrice,jdbcType=DECIMAL},
+      COOP_TYPE = #{coopType,jdbcType=INTEGER},
+      OTHER_CONT = #{otherCont,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      VIDEOS = #{videos,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="contractQuery" resultType="com.yyq.car.portal.common.dto.ContractDto" parameterType="com.yyq.car.portal.common.dto.ContractDto">
+SELECT
+
+	b.WORK_TYPE workType,
+	d.INFO_NUM infoNum,
+    d.SELLER_NAME sellerName,
+	d.PARTA parta,
+	d.SHOP_NAME shopName,
+	d.BUYER_NAME buyerName,
+	d.PHONE phone,
+	d.IDENCODE idenCode,
+	d.SALE_PRICE salePrice,
+	d.VIN vin,
+	d.CREATE_TIME,
+	d.DOWNPAY downPay,
+    d.INSURE_PRICE insurePrice,
+	d.BUY_TAX buyTax,
+	d.ID id,
+	d.CARD_PRICE cardPrice,
+	d.DELAYGUAR_PRICE delayguarPrice,
+	d.DECORATE_PRICE decoratePrice,
+	d.QUALITYGUAR_PRICE qualityguarPrice,
+	d.FINALPAY finalpay,
+	d.SETTLEMENT settlement
+FROM
+	pro_car c
+JOIN cif_contract d ON d.CARID = c.ID
+LEFT JOIN cif_buyer b ON d.INFO_NUM = b.FILENUM
+WHERE
+	c.SALETIME IS NOT NULL
+AND REALFINALPAY IS NOT NULL
+   <if test="infoNum != null and infoNum !=''" >
+       and d.INFO_NUM like concat('%',#{infoNum},'%')
+    </if>
+    <if test="sellerName != null and sellerName !=''" >
+       and d.SELLER_NAME like concat('%',#{sellerName},'%')
+    </if>
+    <if test="buyerName != null and buyerName !=''" >
+       and d.BUYER_NAME like concat('%',#{buyerName},'%')
+    </if>
+    <if test="parta != null and parta !=''" >
+       and d.PARTA like concat('%',#{parta},'%')
+    </if>
+     <if test="workType !=null and workType !=''"  >
+       and b.WORK_TYPE = #{workType,jdbcType=VARCHAR}
+    </if>
+    
+    ORDER BY d.CREATE_TIME DESC
+     limit #{pageStart},#{pageSize}
+  </select>
+  <select id="contractQueryNum" resultType="int" parameterType="com.yyq.car.portal.common.dto.ContractDto">
+  SELECT
+	count(*)
+FROM
+	pro_car c
+JOIN cif_contract d ON d.CARID = c.ID
+LEFT JOIN cif_buyer b ON d.INFO_NUM = b.FILENUM
+WHERE
+	c.SALETIME IS NOT NULL
+AND REALFINALPAY IS NOT NULL
+<if test="infoNum != null and infoNum !=''" >
+       and d.INFO_NUM like concat('%',#{infoNum},'%')
+    </if>
+    <if test="buyerName != null and buyerName !=''" >
+       and d.BUYER_NAME like concat('%',#{buyerName},'%')
+    </if>
+    <if test="parta != null and parta !=''" >
+       and d.PARTA like concat('%',#{parta},'%')
+    </if>
+     <if test="workType !=null and workType !=''"  >
+       and b.WORK_TYPE = #{workType,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <select id="contractQueryDetails" resultType="com.yyq.car.portal.common.dto.ContractDto" parameterType="java.lang.Integer">
+  SELECT
+d.PARTA parta,
+d.ADDRESSA addressa,
+d.POSTCODEA postCodea,
+d.PHONEA phonea,
+d.SHOP_NAME shopName,
+d.BUYER_NAME buyerName,
+d.ADDRESSB addressb,
+d.POSTCODEB postcodeb,
+d.PHONE phone,
+d.IDENTYPE idenType,
+d.IDENCODE idenCode,
+d.AGENT agent,
+d.AGENTPHONE agentPhone,
+d.SALE_PRICE salePrice,
+d.DOWNPAY downpay,
+d.INSURE_PRICE insurePrice,
+d.BUY_TAX buyTax,
+d.BUY_TAXR buyTaxr,
+d.CARD_PRICE cardPrice,
+d.CARD_PRICER cardPricer,
+d.QUALITYGUAR_PRICE qualityguarPrice,
+d.QUALITYGUAR_PRICER qualityguarPricer,
+d.DELAYGUAR_PRICER  delayguarPricer,
+d.DELAYGUAR_PRICE delayguarPrice,
+d.DECORATE_PRICE decoratePrice,
+d.DECORATE_PRICER decoratePricer,
+d.ID id,
+d.SELLER_NAME sellerName,
+d.FINALPAY finalpay,
+d.SETTLEMENT settlement,
+d.REALFINALPAY realfinalpay,
+d.REALDOWNPAY realdownpay,
+d.INSURE_PRICER insurePricer,
+c.ENGINE_NUM engineNum,
+c.VIN vin,
+c.BRAND brand,
+c.MODEL model,
+c.LEN_WID_HEI lenWidHei,
+c.LEAVEFACTORY_TIME leaveFactoryTime,
+c.DISPLACEMENT displacement,
+C.OIL_WEAR oilWear,
+c.DISCHARGE discharage,
+c.WEIGHT weight,
+c.LEVEL level,
+c.GEARBOX gearbox,
+c.ENERGY_TYPE energyType,
+c.OUTLOOK_COLOR outlookColor,
+c.INNER_COLOR innerColor,
+c.BUY_PRICE buyPrice,
+c.BUY_NAME buyName,
+c.version version,
+c.ADDRESS address,
+c.LOW_PRICE lowPrice,
+d.OTHER_CONT otherCont,
+d.VIDEOS videos
+FROM
+	pro_car c
+JOIN cif_contract d ON d.CARID = c.ID
+WHERE
+	c.SALETIME IS NOT NULL
+AND REALFINALPAY IS NOT NULL
+AND d.ID = #{id,jdbcType=INTEGER}
+  
+  </select>
+</mapper>

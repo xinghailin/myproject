@@ -1,0 +1,1534 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.jnd.JndcarcheckMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.jnd.Jndcarcheck" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="carid" property="carid" jdbcType="INTEGER" />
+    <result column="louver" property="louver" jdbcType="INTEGER" />
+    <result column="instrumentLight" property="instrumentlight" jdbcType="INTEGER" />
+    <result column="ashtray" property="ashtray" jdbcType="INTEGER" />
+    <result column="childLock" property="childlock" jdbcType="INTEGER" />
+    <result column="seatElectri" property="seatelectri" jdbcType="INTEGER" />
+    <result column="cosmeticMirror" property="cosmeticmirror" jdbcType="INTEGER" />
+    <result column="foldingSeat" property="foldingseat" jdbcType="INTEGER" />
+    <result column="cigarLighter" property="cigarlighter" jdbcType="INTEGER" />
+    <result column="backup" property="backup" jdbcType="INTEGER" />
+    <result column="triangularWarning" property="triangularwarning" jdbcType="INTEGER" />
+    <result column="firstAid" property="firstaid" jdbcType="INTEGER" />
+    <result column="foglight" property="foglight" jdbcType="INTEGER" />
+    <result column="extinguisher" property="extinguisher" jdbcType="INTEGER" />
+    <result column="frontBumper" property="frontbumper" jdbcType="INTEGER" />
+    <result column="bonnet" property="bonnet" jdbcType="INTEGER" />
+    <result column="leafBoard" property="leafboard" jdbcType="INTEGER" />
+    <result column="roof" property="roof" jdbcType="INTEGER" />
+    <result column="carDoor" property="cardoor" jdbcType="INTEGER" />
+    <result column="wheelPlate" property="wheelplate" jdbcType="INTEGER" />
+    <result column="caseCover" property="casecover" jdbcType="INTEGER" />
+    <result column="bumper" property="bumper" jdbcType="INTEGER" />
+    <result column="lacquer" property="lacquer" jdbcType="INTEGER" />
+    <result column="gap" property="gap" jdbcType="INTEGER" />
+    <result column="windshield" property="windshield" jdbcType="INTEGER" />
+    <result column="carDoorGlass" property="cardoorglass" jdbcType="INTEGER" />
+    <result column="otherGlass" property="otherglass" jdbcType="INTEGER" />
+    <result column="wiperBlade" property="wiperblade" jdbcType="INTEGER" />
+    <result column="wiperBladeArm" property="wiperbladearm" jdbcType="INTEGER" />
+    <result column="sign" property="sign" jdbcType="INTEGER" />
+    <result column="electroplatePanel" property="electroplatepanel" jdbcType="INTEGER" />
+    <result column="doorHandle" property="doorhandle" jdbcType="INTEGER" />
+    <result column="rearviewMirror" property="rearviewmirror" jdbcType="INTEGER" />
+    <result column="headlLight" property="headllight" jdbcType="INTEGER" />
+    <result column="sideLight" property="sidelight" jdbcType="INTEGER" />
+    <result column="taillight" property="taillight" jdbcType="INTEGER" />
+    <result column="stoplight" property="stoplight" jdbcType="INTEGER" />
+    <result column="remoteControl" property="remotecontrol" jdbcType="INTEGER" />
+    <result column="doorLock" property="doorlock" jdbcType="INTEGER" />
+    <result column="steeringWheel" property="steeringwheel" jdbcType="INTEGER" />
+    <result column="instrumentPanel" property="instrumentpanel" jdbcType="INTEGER" />
+    <result column="glovebox" property="glovebox" jdbcType="INTEGER" />
+    <result column="ceiling" property="ceiling" jdbcType="INTEGER" />
+    <result column="sunLouver" property="sunlouver" jdbcType="INTEGER" />
+    <result column="gearLever" property="gearlever" jdbcType="INTEGER" />
+    <result column="parkingBrake" property="parkingbrake" jdbcType="INTEGER" />
+    <result column="englishConsole" property="englishconsole" jdbcType="INTEGER" />
+    <result column="instrument" property="instrument" jdbcType="INTEGER" />
+    <result column="trumpet" property="trumpet" jdbcType="INTEGER" />
+    <result column="roomLight" property="roomlight" jdbcType="INTEGER" />
+    <result column="rwiperBlade" property="rwiperblade" jdbcType="INTEGER" />
+    <result column="rheadlLight" property="rheadllight" jdbcType="INTEGER" />
+    <result column="rturnLight" property="rturnlight" jdbcType="INTEGER" />
+    <result column="rsideLight" property="rsidelight" jdbcType="INTEGER" />
+    <result column="rtaillight" property="rtaillight" jdbcType="INTEGER" />
+    <result column="rstoplight" property="rstoplight" jdbcType="INTEGER" />
+    <result column="airConditioner" property="airconditioner" jdbcType="INTEGER" />
+    <result column="sound" property="sound" jdbcType="INTEGER" />
+    <result column="liftingOfGlass" property="liftingofglass" jdbcType="INTEGER" />
+    <result column="mirrorAdjustment" property="mirroradjustment" jdbcType="INTEGER" />
+    <result column="seatAdjustment" property="seatadjustment" jdbcType="INTEGER" />
+    <result column="safetyBelt" property="safetybelt" jdbcType="INTEGER" />
+    <result column="carpet" property="carpet" jdbcType="INTEGER" />
+    <result column="doorTrim" property="doortrim" jdbcType="INTEGER" />
+    <result column="trimAppearance" property="trimappearance" jdbcType="INTEGER" />
+    <result column="panicRelease" property="panicrelease" jdbcType="INTEGER" />
+    <result column="bonnetOpen" property="bonnetopen" jdbcType="INTEGER" />
+    <result column="brakeOilPot" property="brakeoilpot" jdbcType="INTEGER" />
+    <result column="boosterPump" property="boosterpump" jdbcType="INTEGER" />
+    <result column="expansionTank" property="expansiontank" jdbcType="INTEGER" />
+    <result column="blowCan" property="blowcan" jdbcType="INTEGER" />
+    <result column="Battery" property="battery" jdbcType="INTEGER" />
+    <result column="pipeline" property="pipeline" jdbcType="INTEGER" />
+    <result column="waterPipe" property="waterpipe" jdbcType="INTEGER" />
+    <result column="engine" property="engine" jdbcType="INTEGER" />
+    <result column="backBoxLock" property="backboxlock" jdbcType="INTEGER" />
+    <result column="backBoxLight" property="backboxlight" jdbcType="INTEGER" />
+    <result column="toolkit" property="toolkit" jdbcType="INTEGER" />
+    <result column="newPassat" property="newpassat" jdbcType="INTEGER" />
+    <result column="trimPlank" property="trimplank" jdbcType="INTEGER" />
+    <result column="fuelTankCap" property="fueltankcap" jdbcType="INTEGER" />
+    <result column="engineOilLeak" property="engineoilleak" jdbcType="INTEGER" />
+    <result column="gearboxOilLeak" property="gearboxoilleak" jdbcType="INTEGER" />
+    <result column="bwaterPipe" property="bwaterpipe" jdbcType="INTEGER" />
+    <result column="bpipeline" property="bpipeline" jdbcType="INTEGER" />
+    <result column="transmission" property="transmission" jdbcType="INTEGER" />
+    <result column="steeringSystem" property="steeringsystem" jdbcType="INTEGER" />
+    <result column="brakingSystem" property="brakingsystem" jdbcType="INTEGER" />
+    <result column="suspensionSystem" property="suspensionsystem" jdbcType="INTEGER" />
+    <result column="tyre" property="tyre" jdbcType="INTEGER" />
+    <result column="wheelhub" property="wheelhub" jdbcType="INTEGER" />
+    <result column="tirepressure" property="tirepressure" jdbcType="INTEGER" />
+    <result column="fender" property="fender" jdbcType="INTEGER" />
+    <result column="specification" property="specification" jdbcType="INTEGER" />
+    <result column="canadaremarks" property="canadaremarks" jdbcType="VARCHAR" />
+    <result column="chinaremarks" property="chinaremarks" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="area" property="area" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, carid, louver, instrumentLight, ashtray, childLock, seatElectri, cosmeticMirror, 
+    foldingSeat, cigarLighter, backup, triangularWarning, firstAid, foglight, extinguisher, 
+    frontBumper, bonnet, leafBoard, roof, carDoor, wheelPlate, caseCover, bumper, lacquer, 
+    gap, windshield, carDoorGlass, otherGlass, wiperBlade, wiperBladeArm, sign, electroplatePanel, 
+    doorHandle, rearviewMirror, headlLight, sideLight, taillight, stoplight, remoteControl, 
+    doorLock, steeringWheel, instrumentPanel, glovebox, ceiling, sunLouver, gearLever, 
+    parkingBrake, englishConsole, instrument, trumpet, roomLight, rwiperBlade, rheadlLight, 
+    rturnLight, rsideLight, rtaillight, rstoplight, airConditioner, sound, liftingOfGlass, 
+    mirrorAdjustment, seatAdjustment, safetyBelt, carpet, doorTrim, trimAppearance, panicRelease, 
+    bonnetOpen, brakeOilPot, boosterPump, expansionTank, blowCan, Battery, pipeline, 
+    waterPipe, engine, backBoxLock, backBoxLight, toolkit, newPassat, trimPlank, fuelTankCap, 
+    engineOilLeak, gearboxOilLeak, bwaterPipe, bpipeline, transmission, steeringSystem, 
+    brakingSystem, suspensionSystem, tyre, wheelhub, tirepressure, fender, specification, 
+    canadaremarks, chinaremarks, createtime, operator, area
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="carid != null and carid !=''" >
+       and carid = #{carid}
+    </if>
+    <if test="louver != null and louver !=''" >
+       and louver = #{louver}
+    </if>
+    <if test="instrumentlight != null and instrumentlight !=''" >
+       and instrumentLight = #{instrumentlight}
+    </if>
+    <if test="ashtray != null and ashtray !=''" >
+       and ashtray = #{ashtray}
+    </if>
+    <if test="childlock != null and childlock !=''" >
+       and childLock = #{childlock}
+    </if>
+    <if test="seatelectri != null and seatelectri !=''" >
+       and seatElectri = #{seatelectri}
+    </if>
+    <if test="cosmeticmirror != null and cosmeticmirror !=''" >
+       and cosmeticMirror = #{cosmeticmirror}
+    </if>
+    <if test="foldingseat != null and foldingseat !=''" >
+       and foldingSeat = #{foldingseat}
+    </if>
+    <if test="cigarlighter != null and cigarlighter !=''" >
+       and cigarLighter = #{cigarlighter}
+    </if>
+    <if test="backup != null and backup !=''" >
+       and backup = #{backup}
+    </if>
+    <if test="triangularwarning != null and triangularwarning !=''" >
+       and triangularWarning = #{triangularwarning}
+    </if>
+    <if test="firstaid != null and firstaid !=''" >
+       and firstAid = #{firstaid}
+    </if>
+    <if test="foglight != null and foglight !=''" >
+       and foglight = #{foglight}
+    </if>
+    <if test="extinguisher != null and extinguisher !=''" >
+       and extinguisher = #{extinguisher}
+    </if>
+    <if test="frontbumper != null and frontbumper !=''" >
+       and frontBumper = #{frontbumper}
+    </if>
+    <if test="bonnet != null and bonnet !=''" >
+       and bonnet = #{bonnet}
+    </if>
+    <if test="leafboard != null and leafboard !=''" >
+       and leafBoard = #{leafboard}
+    </if>
+    <if test="roof != null and roof !=''" >
+       and roof = #{roof}
+    </if>
+    <if test="cardoor != null and cardoor !=''" >
+       and carDoor = #{cardoor}
+    </if>
+    <if test="wheelplate != null and wheelplate !=''" >
+       and wheelPlate = #{wheelplate}
+    </if>
+    <if test="casecover != null and casecover !=''" >
+       and caseCover = #{casecover}
+    </if>
+    <if test="bumper != null and bumper !=''" >
+       and bumper = #{bumper}
+    </if>
+    <if test="lacquer != null and lacquer !=''" >
+       and lacquer = #{lacquer}
+    </if>
+    <if test="gap != null and gap !=''" >
+       and gap = #{gap}
+    </if>
+    <if test="windshield != null and windshield !=''" >
+       and windshield = #{windshield}
+    </if>
+    <if test="cardoorglass != null and cardoorglass !=''" >
+       and carDoorGlass = #{cardoorglass}
+    </if>
+    <if test="otherglass != null and otherglass !=''" >
+       and otherGlass = #{otherglass}
+    </if>
+    <if test="wiperblade != null and wiperblade !=''" >
+       and wiperBlade = #{wiperblade}
+    </if>
+    <if test="wiperbladearm != null and wiperbladearm !=''" >
+       and wiperBladeArm = #{wiperbladearm}
+    </if>
+    <if test="sign != null and sign !=''" >
+       and sign = #{sign}
+    </if>
+    <if test="electroplatepanel != null and electroplatepanel !=''" >
+       and electroplatePanel = #{electroplatepanel}
+    </if>
+    <if test="doorhandle != null and doorhandle !=''" >
+       and doorHandle = #{doorhandle}
+    </if>
+    <if test="rearviewmirror != null and rearviewmirror !=''" >
+       and rearviewMirror = #{rearviewmirror}
+    </if>
+    <if test="headllight != null and headllight !=''" >
+       and headlLight = #{headllight}
+    </if>
+    <if test="sidelight != null and sidelight !=''" >
+       and sideLight = #{sidelight}
+    </if>
+    <if test="taillight != null and taillight !=''" >
+       and taillight = #{taillight}
+    </if>
+    <if test="stoplight != null and stoplight !=''" >
+       and stoplight = #{stoplight}
+    </if>
+    <if test="remotecontrol != null and remotecontrol !=''" >
+       and remoteControl = #{remotecontrol}
+    </if>
+    <if test="doorlock != null and doorlock !=''" >
+       and doorLock = #{doorlock}
+    </if>
+    <if test="steeringwheel != null and steeringwheel !=''" >
+       and steeringWheel = #{steeringwheel}
+    </if>
+    <if test="instrumentpanel != null and instrumentpanel !=''" >
+       and instrumentPanel = #{instrumentpanel}
+    </if>
+    <if test="glovebox != null and glovebox !=''" >
+       and glovebox = #{glovebox}
+    </if>
+    <if test="ceiling != null and ceiling !=''" >
+       and ceiling = #{ceiling}
+    </if>
+    <if test="sunlouver != null and sunlouver !=''" >
+       and sunLouver = #{sunlouver}
+    </if>
+    <if test="gearlever != null and gearlever !=''" >
+       and gearLever = #{gearlever}
+    </if>
+    <if test="parkingbrake != null and parkingbrake !=''" >
+       and parkingBrake = #{parkingbrake}
+    </if>
+    <if test="englishconsole != null and englishconsole !=''" >
+       and englishConsole = #{englishconsole}
+    </if>
+    <if test="instrument != null and instrument !=''" >
+       and instrument = #{instrument}
+    </if>
+    <if test="trumpet != null and trumpet !=''" >
+       and trumpet = #{trumpet}
+    </if>
+    <if test="roomlight != null and roomlight !=''" >
+       and roomLight = #{roomlight}
+    </if>
+    <if test="rwiperblade != null and rwiperblade !=''" >
+       and rwiperBlade = #{rwiperblade}
+    </if>
+    <if test="rheadllight != null and rheadllight !=''" >
+       and rheadlLight = #{rheadllight}
+    </if>
+    <if test="rturnlight != null and rturnlight !=''" >
+       and rturnLight = #{rturnlight}
+    </if>
+    <if test="rsidelight != null and rsidelight !=''" >
+       and rsideLight = #{rsidelight}
+    </if>
+    <if test="rtaillight != null and rtaillight !=''" >
+       and rtaillight = #{rtaillight}
+    </if>
+    <if test="rstoplight != null and rstoplight !=''" >
+       and rstoplight = #{rstoplight}
+    </if>
+    <if test="airconditioner != null and airconditioner !=''" >
+       and airConditioner = #{airconditioner}
+    </if>
+    <if test="sound != null and sound !=''" >
+       and sound = #{sound}
+    </if>
+    <if test="liftingofglass != null and liftingofglass !=''" >
+       and liftingOfGlass = #{liftingofglass}
+    </if>
+    <if test="mirroradjustment != null and mirroradjustment !=''" >
+       and mirrorAdjustment = #{mirroradjustment}
+    </if>
+    <if test="seatadjustment != null and seatadjustment !=''" >
+       and seatAdjustment = #{seatadjustment}
+    </if>
+    <if test="safetybelt != null and safetybelt !=''" >
+       and safetyBelt = #{safetybelt}
+    </if>
+    <if test="carpet != null and carpet !=''" >
+       and carpet = #{carpet}
+    </if>
+    <if test="doortrim != null and doortrim !=''" >
+       and doorTrim = #{doortrim}
+    </if>
+    <if test="trimappearance != null and trimappearance !=''" >
+       and trimAppearance = #{trimappearance}
+    </if>
+    <if test="panicrelease != null and panicrelease !=''" >
+       and panicRelease = #{panicrelease}
+    </if>
+    <if test="bonnetopen != null and bonnetopen !=''" >
+       and bonnetOpen = #{bonnetopen}
+    </if>
+    <if test="brakeoilpot != null and brakeoilpot !=''" >
+       and brakeOilPot = #{brakeoilpot}
+    </if>
+    <if test="boosterpump != null and boosterpump !=''" >
+       and boosterPump = #{boosterpump}
+    </if>
+    <if test="expansiontank != null and expansiontank !=''" >
+       and expansionTank = #{expansiontank}
+    </if>
+    <if test="blowcan != null and blowcan !=''" >
+       and blowCan = #{blowcan}
+    </if>
+    <if test="battery != null and battery !=''" >
+       and Battery = #{battery}
+    </if>
+    <if test="pipeline != null and pipeline !=''" >
+       and pipeline = #{pipeline}
+    </if>
+    <if test="waterpipe != null and waterpipe !=''" >
+       and waterPipe = #{waterpipe}
+    </if>
+    <if test="engine != null and engine !=''" >
+       and engine = #{engine}
+    </if>
+    <if test="backboxlock != null and backboxlock !=''" >
+       and backBoxLock = #{backboxlock}
+    </if>
+    <if test="backboxlight != null and backboxlight !=''" >
+       and backBoxLight = #{backboxlight}
+    </if>
+    <if test="toolkit != null and toolkit !=''" >
+       and toolkit = #{toolkit}
+    </if>
+    <if test="newpassat != null and newpassat !=''" >
+       and newPassat = #{newpassat}
+    </if>
+    <if test="trimplank != null and trimplank !=''" >
+       and trimPlank = #{trimplank}
+    </if>
+    <if test="fueltankcap != null and fueltankcap !=''" >
+       and fuelTankCap = #{fueltankcap}
+    </if>
+    <if test="engineoilleak != null and engineoilleak !=''" >
+       and engineOilLeak = #{engineoilleak}
+    </if>
+    <if test="gearboxoilleak != null and gearboxoilleak !=''" >
+       and gearboxOilLeak = #{gearboxoilleak}
+    </if>
+    <if test="bwaterpipe != null and bwaterpipe !=''" >
+       and bwaterPipe = #{bwaterpipe}
+    </if>
+    <if test="bpipeline != null and bpipeline !=''" >
+       and bpipeline = #{bpipeline}
+    </if>
+    <if test="transmission != null and transmission !=''" >
+       and transmission = #{transmission}
+    </if>
+    <if test="steeringsystem != null and steeringsystem !=''" >
+       and steeringSystem = #{steeringsystem}
+    </if>
+    <if test="brakingsystem != null and brakingsystem !=''" >
+       and brakingSystem = #{brakingsystem}
+    </if>
+    <if test="suspensionsystem != null and suspensionsystem !=''" >
+       and suspensionSystem = #{suspensionsystem}
+    </if>
+    <if test="tyre != null and tyre !=''" >
+       and tyre = #{tyre}
+    </if>
+    <if test="wheelhub != null and wheelhub !=''" >
+       and wheelhub = #{wheelhub}
+    </if>
+    <if test="tirepressure != null and tirepressure !=''" >
+       and tirepressure = #{tirepressure}
+    </if>
+    <if test="fender != null and fender !=''" >
+       and fender = #{fender}
+    </if>
+    <if test="specification != null and specification !=''" >
+       and specification = #{specification}
+    </if>
+    <if test="canadaremarks != null and canadaremarks !=''" >
+       and canadaremarks = #{canadaremarks}
+    </if>
+    <if test="chinaremarks != null and chinaremarks !=''" >
+       and chinaremarks = #{chinaremarks}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="operator != null and operator !=''" >
+       and operator = #{operator}
+    </if>
+    <if test="area != null and area !=''" >
+       and area = #{area}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.jnd.Jndcarcheck" >
+    select 
+    <include refid="Base_Column_List" />
+    from jnd_carcheck
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.jnd.Jndcarcheck" >
+    select count(*) from jnd_carcheck where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from jnd_carcheck
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from jnd_carcheck
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.jnd.Jndcarcheck" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(704);
+    </selectKey>
+    insert into jnd_carcheck (id, carid, louver, 
+      instrumentLight, ashtray, childLock, 
+      seatElectri, cosmeticMirror, foldingSeat, 
+      cigarLighter, backup, triangularWarning, 
+      firstAid, foglight, extinguisher, 
+      frontBumper, bonnet, leafBoard, 
+      roof, carDoor, wheelPlate, 
+      caseCover, bumper, lacquer, 
+      gap, windshield, carDoorGlass, 
+      otherGlass, wiperBlade, wiperBladeArm, 
+      sign, electroplatePanel, doorHandle, 
+      rearviewMirror, headlLight, sideLight, 
+      taillight, stoplight, remoteControl, 
+      doorLock, steeringWheel, instrumentPanel, 
+      glovebox, ceiling, sunLouver, 
+      gearLever, parkingBrake, englishConsole, 
+      instrument, trumpet, roomLight, 
+      rwiperBlade, rheadlLight, rturnLight, 
+      rsideLight, rtaillight, rstoplight, 
+      airConditioner, sound, liftingOfGlass, 
+      mirrorAdjustment, seatAdjustment, safetyBelt, 
+      carpet, doorTrim, trimAppearance, 
+      panicRelease, bonnetOpen, brakeOilPot, 
+      boosterPump, expansionTank, blowCan, 
+      Battery, pipeline, waterPipe, 
+      engine, backBoxLock, backBoxLight, 
+      toolkit, newPassat, trimPlank, 
+      fuelTankCap, engineOilLeak, gearboxOilLeak, 
+      bwaterPipe, bpipeline, transmission, 
+      steeringSystem, brakingSystem, suspensionSystem, 
+      tyre, wheelhub, tirepressure, 
+      fender, specification, canadaremarks, 
+      chinaremarks, createtime, operator, 
+      area)
+    values (#{id,jdbcType=INTEGER}, #{carid,jdbcType=INTEGER}, #{louver,jdbcType=INTEGER}, 
+      #{instrumentlight,jdbcType=INTEGER}, #{ashtray,jdbcType=INTEGER}, #{childlock,jdbcType=INTEGER}, 
+      #{seatelectri,jdbcType=INTEGER}, #{cosmeticmirror,jdbcType=INTEGER}, #{foldingseat,jdbcType=INTEGER}, 
+      #{cigarlighter,jdbcType=INTEGER}, #{backup,jdbcType=INTEGER}, #{triangularwarning,jdbcType=INTEGER}, 
+      #{firstaid,jdbcType=INTEGER}, #{foglight,jdbcType=INTEGER}, #{extinguisher,jdbcType=INTEGER}, 
+      #{frontbumper,jdbcType=INTEGER}, #{bonnet,jdbcType=INTEGER}, #{leafboard,jdbcType=INTEGER}, 
+      #{roof,jdbcType=INTEGER}, #{cardoor,jdbcType=INTEGER}, #{wheelplate,jdbcType=INTEGER}, 
+      #{casecover,jdbcType=INTEGER}, #{bumper,jdbcType=INTEGER}, #{lacquer,jdbcType=INTEGER}, 
+      #{gap,jdbcType=INTEGER}, #{windshield,jdbcType=INTEGER}, #{cardoorglass,jdbcType=INTEGER}, 
+      #{otherglass,jdbcType=INTEGER}, #{wiperblade,jdbcType=INTEGER}, #{wiperbladearm,jdbcType=INTEGER}, 
+      #{sign,jdbcType=INTEGER}, #{electroplatepanel,jdbcType=INTEGER}, #{doorhandle,jdbcType=INTEGER}, 
+      #{rearviewmirror,jdbcType=INTEGER}, #{headllight,jdbcType=INTEGER}, #{sidelight,jdbcType=INTEGER}, 
+      #{taillight,jdbcType=INTEGER}, #{stoplight,jdbcType=INTEGER}, #{remotecontrol,jdbcType=INTEGER}, 
+      #{doorlock,jdbcType=INTEGER}, #{steeringwheel,jdbcType=INTEGER}, #{instrumentpanel,jdbcType=INTEGER}, 
+      #{glovebox,jdbcType=INTEGER}, #{ceiling,jdbcType=INTEGER}, #{sunlouver,jdbcType=INTEGER}, 
+      #{gearlever,jdbcType=INTEGER}, #{parkingbrake,jdbcType=INTEGER}, #{englishconsole,jdbcType=INTEGER}, 
+      #{instrument,jdbcType=INTEGER}, #{trumpet,jdbcType=INTEGER}, #{roomlight,jdbcType=INTEGER}, 
+      #{rwiperblade,jdbcType=INTEGER}, #{rheadllight,jdbcType=INTEGER}, #{rturnlight,jdbcType=INTEGER}, 
+      #{rsidelight,jdbcType=INTEGER}, #{rtaillight,jdbcType=INTEGER}, #{rstoplight,jdbcType=INTEGER}, 
+      #{airconditioner,jdbcType=INTEGER}, #{sound,jdbcType=INTEGER}, #{liftingofglass,jdbcType=INTEGER}, 
+      #{mirroradjustment,jdbcType=INTEGER}, #{seatadjustment,jdbcType=INTEGER}, #{safetybelt,jdbcType=INTEGER}, 
+      #{carpet,jdbcType=INTEGER}, #{doortrim,jdbcType=INTEGER}, #{trimappearance,jdbcType=INTEGER}, 
+      #{panicrelease,jdbcType=INTEGER}, #{bonnetopen,jdbcType=INTEGER}, #{brakeoilpot,jdbcType=INTEGER}, 
+      #{boosterpump,jdbcType=INTEGER}, #{expansiontank,jdbcType=INTEGER}, #{blowcan,jdbcType=INTEGER}, 
+      #{battery,jdbcType=INTEGER}, #{pipeline,jdbcType=INTEGER}, #{waterpipe,jdbcType=INTEGER}, 
+      #{engine,jdbcType=INTEGER}, #{backboxlock,jdbcType=INTEGER}, #{backboxlight,jdbcType=INTEGER}, 
+      #{toolkit,jdbcType=INTEGER}, #{newpassat,jdbcType=INTEGER}, #{trimplank,jdbcType=INTEGER}, 
+      #{fueltankcap,jdbcType=INTEGER}, #{engineoilleak,jdbcType=INTEGER}, #{gearboxoilleak,jdbcType=INTEGER}, 
+      #{bwaterpipe,jdbcType=INTEGER}, #{bpipeline,jdbcType=INTEGER}, #{transmission,jdbcType=INTEGER}, 
+      #{steeringsystem,jdbcType=INTEGER}, #{brakingsystem,jdbcType=INTEGER}, #{suspensionsystem,jdbcType=INTEGER}, 
+      #{tyre,jdbcType=INTEGER}, #{wheelhub,jdbcType=INTEGER}, #{tirepressure,jdbcType=INTEGER}, 
+      #{fender,jdbcType=INTEGER}, #{specification,jdbcType=INTEGER}, #{canadaremarks,jdbcType=VARCHAR}, 
+      #{chinaremarks,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{operator,jdbcType=VARCHAR}, 
+      #{area,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.jnd.Jndcarcheck" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(704);
+    </selectKey>
+    insert into jnd_carcheck
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="carid != null" >
+        carid,
+      </if>
+      <if test="louver != null" >
+        louver,
+      </if>
+      <if test="instrumentlight != null" >
+        instrumentLight,
+      </if>
+      <if test="ashtray != null" >
+        ashtray,
+      </if>
+      <if test="childlock != null" >
+        childLock,
+      </if>
+      <if test="seatelectri != null" >
+        seatElectri,
+      </if>
+      <if test="cosmeticmirror != null" >
+        cosmeticMirror,
+      </if>
+      <if test="foldingseat != null" >
+        foldingSeat,
+      </if>
+      <if test="cigarlighter != null" >
+        cigarLighter,
+      </if>
+      <if test="backup != null" >
+        backup,
+      </if>
+      <if test="triangularwarning != null" >
+        triangularWarning,
+      </if>
+      <if test="firstaid != null" >
+        firstAid,
+      </if>
+      <if test="foglight != null" >
+        foglight,
+      </if>
+      <if test="extinguisher != null" >
+        extinguisher,
+      </if>
+      <if test="frontbumper != null" >
+        frontBumper,
+      </if>
+      <if test="bonnet != null" >
+        bonnet,
+      </if>
+      <if test="leafboard != null" >
+        leafBoard,
+      </if>
+      <if test="roof != null" >
+        roof,
+      </if>
+      <if test="cardoor != null" >
+        carDoor,
+      </if>
+      <if test="wheelplate != null" >
+        wheelPlate,
+      </if>
+      <if test="casecover != null" >
+        caseCover,
+      </if>
+      <if test="bumper != null" >
+        bumper,
+      </if>
+      <if test="lacquer != null" >
+        lacquer,
+      </if>
+      <if test="gap != null" >
+        gap,
+      </if>
+      <if test="windshield != null" >
+        windshield,
+      </if>
+      <if test="cardoorglass != null" >
+        carDoorGlass,
+      </if>
+      <if test="otherglass != null" >
+        otherGlass,
+      </if>
+      <if test="wiperblade != null" >
+        wiperBlade,
+      </if>
+      <if test="wiperbladearm != null" >
+        wiperBladeArm,
+      </if>
+      <if test="sign != null" >
+        sign,
+      </if>
+      <if test="electroplatepanel != null" >
+        electroplatePanel,
+      </if>
+      <if test="doorhandle != null" >
+        doorHandle,
+      </if>
+      <if test="rearviewmirror != null" >
+        rearviewMirror,
+      </if>
+      <if test="headllight != null" >
+        headlLight,
+      </if>
+      <if test="sidelight != null" >
+        sideLight,
+      </if>
+      <if test="taillight != null" >
+        taillight,
+      </if>
+      <if test="stoplight != null" >
+        stoplight,
+      </if>
+      <if test="remotecontrol != null" >
+        remoteControl,
+      </if>
+      <if test="doorlock != null" >
+        doorLock,
+      </if>
+      <if test="steeringwheel != null" >
+        steeringWheel,
+      </if>
+      <if test="instrumentpanel != null" >
+        instrumentPanel,
+      </if>
+      <if test="glovebox != null" >
+        glovebox,
+      </if>
+      <if test="ceiling != null" >
+        ceiling,
+      </if>
+      <if test="sunlouver != null" >
+        sunLouver,
+      </if>
+      <if test="gearlever != null" >
+        gearLever,
+      </if>
+      <if test="parkingbrake != null" >
+        parkingBrake,
+      </if>
+      <if test="englishconsole != null" >
+        englishConsole,
+      </if>
+      <if test="instrument != null" >
+        instrument,
+      </if>
+      <if test="trumpet != null" >
+        trumpet,
+      </if>
+      <if test="roomlight != null" >
+        roomLight,
+      </if>
+      <if test="rwiperblade != null" >
+        rwiperBlade,
+      </if>
+      <if test="rheadllight != null" >
+        rheadlLight,
+      </if>
+      <if test="rturnlight != null" >
+        rturnLight,
+      </if>
+      <if test="rsidelight != null" >
+        rsideLight,
+      </if>
+      <if test="rtaillight != null" >
+        rtaillight,
+      </if>
+      <if test="rstoplight != null" >
+        rstoplight,
+      </if>
+      <if test="airconditioner != null" >
+        airConditioner,
+      </if>
+      <if test="sound != null" >
+        sound,
+      </if>
+      <if test="liftingofglass != null" >
+        liftingOfGlass,
+      </if>
+      <if test="mirroradjustment != null" >
+        mirrorAdjustment,
+      </if>
+      <if test="seatadjustment != null" >
+        seatAdjustment,
+      </if>
+      <if test="safetybelt != null" >
+        safetyBelt,
+      </if>
+      <if test="carpet != null" >
+        carpet,
+      </if>
+      <if test="doortrim != null" >
+        doorTrim,
+      </if>
+      <if test="trimappearance != null" >
+        trimAppearance,
+      </if>
+      <if test="panicrelease != null" >
+        panicRelease,
+      </if>
+      <if test="bonnetopen != null" >
+        bonnetOpen,
+      </if>
+      <if test="brakeoilpot != null" >
+        brakeOilPot,
+      </if>
+      <if test="boosterpump != null" >
+        boosterPump,
+      </if>
+      <if test="expansiontank != null" >
+        expansionTank,
+      </if>
+      <if test="blowcan != null" >
+        blowCan,
+      </if>
+      <if test="battery != null" >
+        Battery,
+      </if>
+      <if test="pipeline != null" >
+        pipeline,
+      </if>
+      <if test="waterpipe != null" >
+        waterPipe,
+      </if>
+      <if test="engine != null" >
+        engine,
+      </if>
+      <if test="backboxlock != null" >
+        backBoxLock,
+      </if>
+      <if test="backboxlight != null" >
+        backBoxLight,
+      </if>
+      <if test="toolkit != null" >
+        toolkit,
+      </if>
+      <if test="newpassat != null" >
+        newPassat,
+      </if>
+      <if test="trimplank != null" >
+        trimPlank,
+      </if>
+      <if test="fueltankcap != null" >
+        fuelTankCap,
+      </if>
+      <if test="engineoilleak != null" >
+        engineOilLeak,
+      </if>
+      <if test="gearboxoilleak != null" >
+        gearboxOilLeak,
+      </if>
+      <if test="bwaterpipe != null" >
+        bwaterPipe,
+      </if>
+      <if test="bpipeline != null" >
+        bpipeline,
+      </if>
+      <if test="transmission != null" >
+        transmission,
+      </if>
+      <if test="steeringsystem != null" >
+        steeringSystem,
+      </if>
+      <if test="brakingsystem != null" >
+        brakingSystem,
+      </if>
+      <if test="suspensionsystem != null" >
+        suspensionSystem,
+      </if>
+      <if test="tyre != null" >
+        tyre,
+      </if>
+      <if test="wheelhub != null" >
+        wheelhub,
+      </if>
+      <if test="tirepressure != null" >
+        tirepressure,
+      </if>
+      <if test="fender != null" >
+        fender,
+      </if>
+      <if test="specification != null" >
+        specification,
+      </if>
+      <if test="canadaremarks != null" >
+        canadaremarks,
+      </if>
+      <if test="chinaremarks != null" >
+        chinaremarks,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="carid != null" >
+        #{carid,jdbcType=INTEGER},
+      </if>
+      <if test="louver != null" >
+        #{louver,jdbcType=INTEGER},
+      </if>
+      <if test="instrumentlight != null" >
+        #{instrumentlight,jdbcType=INTEGER},
+      </if>
+      <if test="ashtray != null" >
+        #{ashtray,jdbcType=INTEGER},
+      </if>
+      <if test="childlock != null" >
+        #{childlock,jdbcType=INTEGER},
+      </if>
+      <if test="seatelectri != null" >
+        #{seatelectri,jdbcType=INTEGER},
+      </if>
+      <if test="cosmeticmirror != null" >
+        #{cosmeticmirror,jdbcType=INTEGER},
+      </if>
+      <if test="foldingseat != null" >
+        #{foldingseat,jdbcType=INTEGER},
+      </if>
+      <if test="cigarlighter != null" >
+        #{cigarlighter,jdbcType=INTEGER},
+      </if>
+      <if test="backup != null" >
+        #{backup,jdbcType=INTEGER},
+      </if>
+      <if test="triangularwarning != null" >
+        #{triangularwarning,jdbcType=INTEGER},
+      </if>
+      <if test="firstaid != null" >
+        #{firstaid,jdbcType=INTEGER},
+      </if>
+      <if test="foglight != null" >
+        #{foglight,jdbcType=INTEGER},
+      </if>
+      <if test="extinguisher != null" >
+        #{extinguisher,jdbcType=INTEGER},
+      </if>
+      <if test="frontbumper != null" >
+        #{frontbumper,jdbcType=INTEGER},
+      </if>
+      <if test="bonnet != null" >
+        #{bonnet,jdbcType=INTEGER},
+      </if>
+      <if test="leafboard != null" >
+        #{leafboard,jdbcType=INTEGER},
+      </if>
+      <if test="roof != null" >
+        #{roof,jdbcType=INTEGER},
+      </if>
+      <if test="cardoor != null" >
+        #{cardoor,jdbcType=INTEGER},
+      </if>
+      <if test="wheelplate != null" >
+        #{wheelplate,jdbcType=INTEGER},
+      </if>
+      <if test="casecover != null" >
+        #{casecover,jdbcType=INTEGER},
+      </if>
+      <if test="bumper != null" >
+        #{bumper,jdbcType=INTEGER},
+      </if>
+      <if test="lacquer != null" >
+        #{lacquer,jdbcType=INTEGER},
+      </if>
+      <if test="gap != null" >
+        #{gap,jdbcType=INTEGER},
+      </if>
+      <if test="windshield != null" >
+        #{windshield,jdbcType=INTEGER},
+      </if>
+      <if test="cardoorglass != null" >
+        #{cardoorglass,jdbcType=INTEGER},
+      </if>
+      <if test="otherglass != null" >
+        #{otherglass,jdbcType=INTEGER},
+      </if>
+      <if test="wiperblade != null" >
+        #{wiperblade,jdbcType=INTEGER},
+      </if>
+      <if test="wiperbladearm != null" >
+        #{wiperbladearm,jdbcType=INTEGER},
+      </if>
+      <if test="sign != null" >
+        #{sign,jdbcType=INTEGER},
+      </if>
+      <if test="electroplatepanel != null" >
+        #{electroplatepanel,jdbcType=INTEGER},
+      </if>
+      <if test="doorhandle != null" >
+        #{doorhandle,jdbcType=INTEGER},
+      </if>
+      <if test="rearviewmirror != null" >
+        #{rearviewmirror,jdbcType=INTEGER},
+      </if>
+      <if test="headllight != null" >
+        #{headllight,jdbcType=INTEGER},
+      </if>
+      <if test="sidelight != null" >
+        #{sidelight,jdbcType=INTEGER},
+      </if>
+      <if test="taillight != null" >
+        #{taillight,jdbcType=INTEGER},
+      </if>
+      <if test="stoplight != null" >
+        #{stoplight,jdbcType=INTEGER},
+      </if>
+      <if test="remotecontrol != null" >
+        #{remotecontrol,jdbcType=INTEGER},
+      </if>
+      <if test="doorlock != null" >
+        #{doorlock,jdbcType=INTEGER},
+      </if>
+      <if test="steeringwheel != null" >
+        #{steeringwheel,jdbcType=INTEGER},
+      </if>
+      <if test="instrumentpanel != null" >
+        #{instrumentpanel,jdbcType=INTEGER},
+      </if>
+      <if test="glovebox != null" >
+        #{glovebox,jdbcType=INTEGER},
+      </if>
+      <if test="ceiling != null" >
+        #{ceiling,jdbcType=INTEGER},
+      </if>
+      <if test="sunlouver != null" >
+        #{sunlouver,jdbcType=INTEGER},
+      </if>
+      <if test="gearlever != null" >
+        #{gearlever,jdbcType=INTEGER},
+      </if>
+      <if test="parkingbrake != null" >
+        #{parkingbrake,jdbcType=INTEGER},
+      </if>
+      <if test="englishconsole != null" >
+        #{englishconsole,jdbcType=INTEGER},
+      </if>
+      <if test="instrument != null" >
+        #{instrument,jdbcType=INTEGER},
+      </if>
+      <if test="trumpet != null" >
+        #{trumpet,jdbcType=INTEGER},
+      </if>
+      <if test="roomlight != null" >
+        #{roomlight,jdbcType=INTEGER},
+      </if>
+      <if test="rwiperblade != null" >
+        #{rwiperblade,jdbcType=INTEGER},
+      </if>
+      <if test="rheadllight != null" >
+        #{rheadllight,jdbcType=INTEGER},
+      </if>
+      <if test="rturnlight != null" >
+        #{rturnlight,jdbcType=INTEGER},
+      </if>
+      <if test="rsidelight != null" >
+        #{rsidelight,jdbcType=INTEGER},
+      </if>
+      <if test="rtaillight != null" >
+        #{rtaillight,jdbcType=INTEGER},
+      </if>
+      <if test="rstoplight != null" >
+        #{rstoplight,jdbcType=INTEGER},
+      </if>
+      <if test="airconditioner != null" >
+        #{airconditioner,jdbcType=INTEGER},
+      </if>
+      <if test="sound != null" >
+        #{sound,jdbcType=INTEGER},
+      </if>
+      <if test="liftingofglass != null" >
+        #{liftingofglass,jdbcType=INTEGER},
+      </if>
+      <if test="mirroradjustment != null" >
+        #{mirroradjustment,jdbcType=INTEGER},
+      </if>
+      <if test="seatadjustment != null" >
+        #{seatadjustment,jdbcType=INTEGER},
+      </if>
+      <if test="safetybelt != null" >
+        #{safetybelt,jdbcType=INTEGER},
+      </if>
+      <if test="carpet != null" >
+        #{carpet,jdbcType=INTEGER},
+      </if>
+      <if test="doortrim != null" >
+        #{doortrim,jdbcType=INTEGER},
+      </if>
+      <if test="trimappearance != null" >
+        #{trimappearance,jdbcType=INTEGER},
+      </if>
+      <if test="panicrelease != null" >
+        #{panicrelease,jdbcType=INTEGER},
+      </if>
+      <if test="bonnetopen != null" >
+        #{bonnetopen,jdbcType=INTEGER},
+      </if>
+      <if test="brakeoilpot != null" >
+        #{brakeoilpot,jdbcType=INTEGER},
+      </if>
+      <if test="boosterpump != null" >
+        #{boosterpump,jdbcType=INTEGER},
+      </if>
+      <if test="expansiontank != null" >
+        #{expansiontank,jdbcType=INTEGER},
+      </if>
+      <if test="blowcan != null" >
+        #{blowcan,jdbcType=INTEGER},
+      </if>
+      <if test="battery != null" >
+        #{battery,jdbcType=INTEGER},
+      </if>
+      <if test="pipeline != null" >
+        #{pipeline,jdbcType=INTEGER},
+      </if>
+      <if test="waterpipe != null" >
+        #{waterpipe,jdbcType=INTEGER},
+      </if>
+      <if test="engine != null" >
+        #{engine,jdbcType=INTEGER},
+      </if>
+      <if test="backboxlock != null" >
+        #{backboxlock,jdbcType=INTEGER},
+      </if>
+      <if test="backboxlight != null" >
+        #{backboxlight,jdbcType=INTEGER},
+      </if>
+      <if test="toolkit != null" >
+        #{toolkit,jdbcType=INTEGER},
+      </if>
+      <if test="newpassat != null" >
+        #{newpassat,jdbcType=INTEGER},
+      </if>
+      <if test="trimplank != null" >
+        #{trimplank,jdbcType=INTEGER},
+      </if>
+      <if test="fueltankcap != null" >
+        #{fueltankcap,jdbcType=INTEGER},
+      </if>
+      <if test="engineoilleak != null" >
+        #{engineoilleak,jdbcType=INTEGER},
+      </if>
+      <if test="gearboxoilleak != null" >
+        #{gearboxoilleak,jdbcType=INTEGER},
+      </if>
+      <if test="bwaterpipe != null" >
+        #{bwaterpipe,jdbcType=INTEGER},
+      </if>
+      <if test="bpipeline != null" >
+        #{bpipeline,jdbcType=INTEGER},
+      </if>
+      <if test="transmission != null" >
+        #{transmission,jdbcType=INTEGER},
+      </if>
+      <if test="steeringsystem != null" >
+        #{steeringsystem,jdbcType=INTEGER},
+      </if>
+      <if test="brakingsystem != null" >
+        #{brakingsystem,jdbcType=INTEGER},
+      </if>
+      <if test="suspensionsystem != null" >
+        #{suspensionsystem,jdbcType=INTEGER},
+      </if>
+      <if test="tyre != null" >
+        #{tyre,jdbcType=INTEGER},
+      </if>
+      <if test="wheelhub != null" >
+        #{wheelhub,jdbcType=INTEGER},
+      </if>
+      <if test="tirepressure != null" >
+        #{tirepressure,jdbcType=INTEGER},
+      </if>
+      <if test="fender != null" >
+        #{fender,jdbcType=INTEGER},
+      </if>
+      <if test="specification != null" >
+        #{specification,jdbcType=INTEGER},
+      </if>
+      <if test="canadaremarks != null" >
+        #{canadaremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="chinaremarks != null" >
+        #{chinaremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.jnd.Jndcarcheck" >
+    update jnd_carcheck
+    <set >
+      <if test="carid != null" >
+        carid = #{carid,jdbcType=INTEGER},
+      </if>
+      <if test="louver != null" >
+        louver = #{louver,jdbcType=INTEGER},
+      </if>
+      <if test="instrumentlight != null" >
+        instrumentLight = #{instrumentlight,jdbcType=INTEGER},
+      </if>
+      <if test="ashtray != null" >
+        ashtray = #{ashtray,jdbcType=INTEGER},
+      </if>
+      <if test="childlock != null" >
+        childLock = #{childlock,jdbcType=INTEGER},
+      </if>
+      <if test="seatelectri != null" >
+        seatElectri = #{seatelectri,jdbcType=INTEGER},
+      </if>
+      <if test="cosmeticmirror != null" >
+        cosmeticMirror = #{cosmeticmirror,jdbcType=INTEGER},
+      </if>
+      <if test="foldingseat != null" >
+        foldingSeat = #{foldingseat,jdbcType=INTEGER},
+      </if>
+      <if test="cigarlighter != null" >
+        cigarLighter = #{cigarlighter,jdbcType=INTEGER},
+      </if>
+      <if test="backup != null" >
+        backup = #{backup,jdbcType=INTEGER},
+      </if>
+      <if test="triangularwarning != null" >
+        triangularWarning = #{triangularwarning,jdbcType=INTEGER},
+      </if>
+      <if test="firstaid != null" >
+        firstAid = #{firstaid,jdbcType=INTEGER},
+      </if>
+      <if test="foglight != null" >
+        foglight = #{foglight,jdbcType=INTEGER},
+      </if>
+      <if test="extinguisher != null" >
+        extinguisher = #{extinguisher,jdbcType=INTEGER},
+      </if>
+      <if test="frontbumper != null" >
+        frontBumper = #{frontbumper,jdbcType=INTEGER},
+      </if>
+      <if test="bonnet != null" >
+        bonnet = #{bonnet,jdbcType=INTEGER},
+      </if>
+      <if test="leafboard != null" >
+        leafBoard = #{leafboard,jdbcType=INTEGER},
+      </if>
+      <if test="roof != null" >
+        roof = #{roof,jdbcType=INTEGER},
+      </if>
+      <if test="cardoor != null" >
+        carDoor = #{cardoor,jdbcType=INTEGER},
+      </if>
+      <if test="wheelplate != null" >
+        wheelPlate = #{wheelplate,jdbcType=INTEGER},
+      </if>
+      <if test="casecover != null" >
+        caseCover = #{casecover,jdbcType=INTEGER},
+      </if>
+      <if test="bumper != null" >
+        bumper = #{bumper,jdbcType=INTEGER},
+      </if>
+      <if test="lacquer != null" >
+        lacquer = #{lacquer,jdbcType=INTEGER},
+      </if>
+      <if test="gap != null" >
+        gap = #{gap,jdbcType=INTEGER},
+      </if>
+      <if test="windshield != null" >
+        windshield = #{windshield,jdbcType=INTEGER},
+      </if>
+      <if test="cardoorglass != null" >
+        carDoorGlass = #{cardoorglass,jdbcType=INTEGER},
+      </if>
+      <if test="otherglass != null" >
+        otherGlass = #{otherglass,jdbcType=INTEGER},
+      </if>
+      <if test="wiperblade != null" >
+        wiperBlade = #{wiperblade,jdbcType=INTEGER},
+      </if>
+      <if test="wiperbladearm != null" >
+        wiperBladeArm = #{wiperbladearm,jdbcType=INTEGER},
+      </if>
+      <if test="sign != null" >
+        sign = #{sign,jdbcType=INTEGER},
+      </if>
+      <if test="electroplatepanel != null" >
+        electroplatePanel = #{electroplatepanel,jdbcType=INTEGER},
+      </if>
+      <if test="doorhandle != null" >
+        doorHandle = #{doorhandle,jdbcType=INTEGER},
+      </if>
+      <if test="rearviewmirror != null" >
+        rearviewMirror = #{rearviewmirror,jdbcType=INTEGER},
+      </if>
+      <if test="headllight != null" >
+        headlLight = #{headllight,jdbcType=INTEGER},
+      </if>
+      <if test="sidelight != null" >
+        sideLight = #{sidelight,jdbcType=INTEGER},
+      </if>
+      <if test="taillight != null" >
+        taillight = #{taillight,jdbcType=INTEGER},
+      </if>
+      <if test="stoplight != null" >
+        stoplight = #{stoplight,jdbcType=INTEGER},
+      </if>
+      <if test="remotecontrol != null" >
+        remoteControl = #{remotecontrol,jdbcType=INTEGER},
+      </if>
+      <if test="doorlock != null" >
+        doorLock = #{doorlock,jdbcType=INTEGER},
+      </if>
+      <if test="steeringwheel != null" >
+        steeringWheel = #{steeringwheel,jdbcType=INTEGER},
+      </if>
+      <if test="instrumentpanel != null" >
+        instrumentPanel = #{instrumentpanel,jdbcType=INTEGER},
+      </if>
+      <if test="glovebox != null" >
+        glovebox = #{glovebox,jdbcType=INTEGER},
+      </if>
+      <if test="ceiling != null" >
+        ceiling = #{ceiling,jdbcType=INTEGER},
+      </if>
+      <if test="sunlouver != null" >
+        sunLouver = #{sunlouver,jdbcType=INTEGER},
+      </if>
+      <if test="gearlever != null" >
+        gearLever = #{gearlever,jdbcType=INTEGER},
+      </if>
+      <if test="parkingbrake != null" >
+        parkingBrake = #{parkingbrake,jdbcType=INTEGER},
+      </if>
+      <if test="englishconsole != null" >
+        englishConsole = #{englishconsole,jdbcType=INTEGER},
+      </if>
+      <if test="instrument != null" >
+        instrument = #{instrument,jdbcType=INTEGER},
+      </if>
+      <if test="trumpet != null" >
+        trumpet = #{trumpet,jdbcType=INTEGER},
+      </if>
+      <if test="roomlight != null" >
+        roomLight = #{roomlight,jdbcType=INTEGER},
+      </if>
+      <if test="rwiperblade != null" >
+        rwiperBlade = #{rwiperblade,jdbcType=INTEGER},
+      </if>
+      <if test="rheadllight != null" >
+        rheadlLight = #{rheadllight,jdbcType=INTEGER},
+      </if>
+      <if test="rturnlight != null" >
+        rturnLight = #{rturnlight,jdbcType=INTEGER},
+      </if>
+      <if test="rsidelight != null" >
+        rsideLight = #{rsidelight,jdbcType=INTEGER},
+      </if>
+      <if test="rtaillight != null" >
+        rtaillight = #{rtaillight,jdbcType=INTEGER},
+      </if>
+      <if test="rstoplight != null" >
+        rstoplight = #{rstoplight,jdbcType=INTEGER},
+      </if>
+      <if test="airconditioner != null" >
+        airConditioner = #{airconditioner,jdbcType=INTEGER},
+      </if>
+      <if test="sound != null" >
+        sound = #{sound,jdbcType=INTEGER},
+      </if>
+      <if test="liftingofglass != null" >
+        liftingOfGlass = #{liftingofglass,jdbcType=INTEGER},
+      </if>
+      <if test="mirroradjustment != null" >
+        mirrorAdjustment = #{mirroradjustment,jdbcType=INTEGER},
+      </if>
+      <if test="seatadjustment != null" >
+        seatAdjustment = #{seatadjustment,jdbcType=INTEGER},
+      </if>
+      <if test="safetybelt != null" >
+        safetyBelt = #{safetybelt,jdbcType=INTEGER},
+      </if>
+      <if test="carpet != null" >
+        carpet = #{carpet,jdbcType=INTEGER},
+      </if>
+      <if test="doortrim != null" >
+        doorTrim = #{doortrim,jdbcType=INTEGER},
+      </if>
+      <if test="trimappearance != null" >
+        trimAppearance = #{trimappearance,jdbcType=INTEGER},
+      </if>
+      <if test="panicrelease != null" >
+        panicRelease = #{panicrelease,jdbcType=INTEGER},
+      </if>
+      <if test="bonnetopen != null" >
+        bonnetOpen = #{bonnetopen,jdbcType=INTEGER},
+      </if>
+      <if test="brakeoilpot != null" >
+        brakeOilPot = #{brakeoilpot,jdbcType=INTEGER},
+      </if>
+      <if test="boosterpump != null" >
+        boosterPump = #{boosterpump,jdbcType=INTEGER},
+      </if>
+      <if test="expansiontank != null" >
+        expansionTank = #{expansiontank,jdbcType=INTEGER},
+      </if>
+      <if test="blowcan != null" >
+        blowCan = #{blowcan,jdbcType=INTEGER},
+      </if>
+      <if test="battery != null" >
+        Battery = #{battery,jdbcType=INTEGER},
+      </if>
+      <if test="pipeline != null" >
+        pipeline = #{pipeline,jdbcType=INTEGER},
+      </if>
+      <if test="waterpipe != null" >
+        waterPipe = #{waterpipe,jdbcType=INTEGER},
+      </if>
+      <if test="engine != null" >
+        engine = #{engine,jdbcType=INTEGER},
+      </if>
+      <if test="backboxlock != null" >
+        backBoxLock = #{backboxlock,jdbcType=INTEGER},
+      </if>
+      <if test="backboxlight != null" >
+        backBoxLight = #{backboxlight,jdbcType=INTEGER},
+      </if>
+      <if test="toolkit != null" >
+        toolkit = #{toolkit,jdbcType=INTEGER},
+      </if>
+      <if test="newpassat != null" >
+        newPassat = #{newpassat,jdbcType=INTEGER},
+      </if>
+      <if test="trimplank != null" >
+        trimPlank = #{trimplank,jdbcType=INTEGER},
+      </if>
+      <if test="fueltankcap != null" >
+        fuelTankCap = #{fueltankcap,jdbcType=INTEGER},
+      </if>
+      <if test="engineoilleak != null" >
+        engineOilLeak = #{engineoilleak,jdbcType=INTEGER},
+      </if>
+      <if test="gearboxoilleak != null" >
+        gearboxOilLeak = #{gearboxoilleak,jdbcType=INTEGER},
+      </if>
+      <if test="bwaterpipe != null" >
+        bwaterPipe = #{bwaterpipe,jdbcType=INTEGER},
+      </if>
+      <if test="bpipeline != null" >
+        bpipeline = #{bpipeline,jdbcType=INTEGER},
+      </if>
+      <if test="transmission != null" >
+        transmission = #{transmission,jdbcType=INTEGER},
+      </if>
+      <if test="steeringsystem != null" >
+        steeringSystem = #{steeringsystem,jdbcType=INTEGER},
+      </if>
+      <if test="brakingsystem != null" >
+        brakingSystem = #{brakingsystem,jdbcType=INTEGER},
+      </if>
+      <if test="suspensionsystem != null" >
+        suspensionSystem = #{suspensionsystem,jdbcType=INTEGER},
+      </if>
+      <if test="tyre != null" >
+        tyre = #{tyre,jdbcType=INTEGER},
+      </if>
+      <if test="wheelhub != null" >
+        wheelhub = #{wheelhub,jdbcType=INTEGER},
+      </if>
+      <if test="tirepressure != null" >
+        tirepressure = #{tirepressure,jdbcType=INTEGER},
+      </if>
+      <if test="fender != null" >
+        fender = #{fender,jdbcType=INTEGER},
+      </if>
+      <if test="specification != null" >
+        specification = #{specification,jdbcType=INTEGER},
+      </if>
+      <if test="canadaremarks != null" >
+        canadaremarks = #{canadaremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="chinaremarks != null" >
+        chinaremarks = #{chinaremarks,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.jnd.Jndcarcheck" >
+    update jnd_carcheck
+    set carid = #{carid,jdbcType=INTEGER},
+      louver = #{louver,jdbcType=INTEGER},
+      instrumentLight = #{instrumentlight,jdbcType=INTEGER},
+      ashtray = #{ashtray,jdbcType=INTEGER},
+      childLock = #{childlock,jdbcType=INTEGER},
+      seatElectri = #{seatelectri,jdbcType=INTEGER},
+      cosmeticMirror = #{cosmeticmirror,jdbcType=INTEGER},
+      foldingSeat = #{foldingseat,jdbcType=INTEGER},
+      cigarLighter = #{cigarlighter,jdbcType=INTEGER},
+      backup = #{backup,jdbcType=INTEGER},
+      triangularWarning = #{triangularwarning,jdbcType=INTEGER},
+      firstAid = #{firstaid,jdbcType=INTEGER},
+      foglight = #{foglight,jdbcType=INTEGER},
+      extinguisher = #{extinguisher,jdbcType=INTEGER},
+      frontBumper = #{frontbumper,jdbcType=INTEGER},
+      bonnet = #{bonnet,jdbcType=INTEGER},
+      leafBoard = #{leafboard,jdbcType=INTEGER},
+      roof = #{roof,jdbcType=INTEGER},
+      carDoor = #{cardoor,jdbcType=INTEGER},
+      wheelPlate = #{wheelplate,jdbcType=INTEGER},
+      caseCover = #{casecover,jdbcType=INTEGER},
+      bumper = #{bumper,jdbcType=INTEGER},
+      lacquer = #{lacquer,jdbcType=INTEGER},
+      gap = #{gap,jdbcType=INTEGER},
+      windshield = #{windshield,jdbcType=INTEGER},
+      carDoorGlass = #{cardoorglass,jdbcType=INTEGER},
+      otherGlass = #{otherglass,jdbcType=INTEGER},
+      wiperBlade = #{wiperblade,jdbcType=INTEGER},
+      wiperBladeArm = #{wiperbladearm,jdbcType=INTEGER},
+      sign = #{sign,jdbcType=INTEGER},
+      electroplatePanel = #{electroplatepanel,jdbcType=INTEGER},
+      doorHandle = #{doorhandle,jdbcType=INTEGER},
+      rearviewMirror = #{rearviewmirror,jdbcType=INTEGER},
+      headlLight = #{headllight,jdbcType=INTEGER},
+      sideLight = #{sidelight,jdbcType=INTEGER},
+      taillight = #{taillight,jdbcType=INTEGER},
+      stoplight = #{stoplight,jdbcType=INTEGER},
+      remoteControl = #{remotecontrol,jdbcType=INTEGER},
+      doorLock = #{doorlock,jdbcType=INTEGER},
+      steeringWheel = #{steeringwheel,jdbcType=INTEGER},
+      instrumentPanel = #{instrumentpanel,jdbcType=INTEGER},
+      glovebox = #{glovebox,jdbcType=INTEGER},
+      ceiling = #{ceiling,jdbcType=INTEGER},
+      sunLouver = #{sunlouver,jdbcType=INTEGER},
+      gearLever = #{gearlever,jdbcType=INTEGER},
+      parkingBrake = #{parkingbrake,jdbcType=INTEGER},
+      englishConsole = #{englishconsole,jdbcType=INTEGER},
+      instrument = #{instrument,jdbcType=INTEGER},
+      trumpet = #{trumpet,jdbcType=INTEGER},
+      roomLight = #{roomlight,jdbcType=INTEGER},
+      rwiperBlade = #{rwiperblade,jdbcType=INTEGER},
+      rheadlLight = #{rheadllight,jdbcType=INTEGER},
+      rturnLight = #{rturnlight,jdbcType=INTEGER},
+      rsideLight = #{rsidelight,jdbcType=INTEGER},
+      rtaillight = #{rtaillight,jdbcType=INTEGER},
+      rstoplight = #{rstoplight,jdbcType=INTEGER},
+      airConditioner = #{airconditioner,jdbcType=INTEGER},
+      sound = #{sound,jdbcType=INTEGER},
+      liftingOfGlass = #{liftingofglass,jdbcType=INTEGER},
+      mirrorAdjustment = #{mirroradjustment,jdbcType=INTEGER},
+      seatAdjustment = #{seatadjustment,jdbcType=INTEGER},
+      safetyBelt = #{safetybelt,jdbcType=INTEGER},
+      carpet = #{carpet,jdbcType=INTEGER},
+      doorTrim = #{doortrim,jdbcType=INTEGER},
+      trimAppearance = #{trimappearance,jdbcType=INTEGER},
+      panicRelease = #{panicrelease,jdbcType=INTEGER},
+      bonnetOpen = #{bonnetopen,jdbcType=INTEGER},
+      brakeOilPot = #{brakeoilpot,jdbcType=INTEGER},
+      boosterPump = #{boosterpump,jdbcType=INTEGER},
+      expansionTank = #{expansiontank,jdbcType=INTEGER},
+      blowCan = #{blowcan,jdbcType=INTEGER},
+      Battery = #{battery,jdbcType=INTEGER},
+      pipeline = #{pipeline,jdbcType=INTEGER},
+      waterPipe = #{waterpipe,jdbcType=INTEGER},
+      engine = #{engine,jdbcType=INTEGER},
+      backBoxLock = #{backboxlock,jdbcType=INTEGER},
+      backBoxLight = #{backboxlight,jdbcType=INTEGER},
+      toolkit = #{toolkit,jdbcType=INTEGER},
+      newPassat = #{newpassat,jdbcType=INTEGER},
+      trimPlank = #{trimplank,jdbcType=INTEGER},
+      fuelTankCap = #{fueltankcap,jdbcType=INTEGER},
+      engineOilLeak = #{engineoilleak,jdbcType=INTEGER},
+      gearboxOilLeak = #{gearboxoilleak,jdbcType=INTEGER},
+      bwaterPipe = #{bwaterpipe,jdbcType=INTEGER},
+      bpipeline = #{bpipeline,jdbcType=INTEGER},
+      transmission = #{transmission,jdbcType=INTEGER},
+      steeringSystem = #{steeringsystem,jdbcType=INTEGER},
+      brakingSystem = #{brakingsystem,jdbcType=INTEGER},
+      suspensionSystem = #{suspensionsystem,jdbcType=INTEGER},
+      tyre = #{tyre,jdbcType=INTEGER},
+      wheelhub = #{wheelhub,jdbcType=INTEGER},
+      tirepressure = #{tirepressure,jdbcType=INTEGER},
+      fender = #{fender,jdbcType=INTEGER},
+      specification = #{specification,jdbcType=INTEGER},
+      canadaremarks = #{canadaremarks,jdbcType=VARCHAR},
+      chinaremarks = #{chinaremarks,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      operator = #{operator,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="queryjndcarcheckBycarid" resultType="int" parameterType="int">
+  select id from jnd_carcheck where carid=#{carid}
+  </select>
+</mapper>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.cif.HelpFindMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.cif.HelpFind" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="wechatId" property="wechatid" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="detail" property="detail" jdbcType="VARCHAR" />
+     <result column="sex" property="sex" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, userId, wechatId, brand, name, phone, province, city, createTime, status, detail,sex
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="userid != null and userid !=''" >
+       and userId = #{userid}
+    </if>
+    <if test="wechatid != null and wechatid !=''" >
+       and wechatId = #{wechatid}
+    </if>
+    <if test="brand != null and brand !=''" >
+       and brand like concat('%',#{brand},'%')
+    </if>
+    <if test="name != null and name !=''" >
+       and name like concat('%',#{name},'%')
+    </if>
+    <if test="phone != null and phone !=''" >
+       and phone like concat('%',#{phone},'%')
+    </if>
+    <if test="province != null and province !=''" >
+       and province = #{province}
+    </if>
+    <if test="city != null and city !=''" >
+       and city like concat('%',#{city},'%')
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createTime = #{createtime}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+    <if test="detail != null and detail !=''" >
+       and detail = #{detail}
+    </if>
+    <if test="sex != null and sex !=''" >
+       and sex = #{sex}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.cif.HelpFind" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_helpfind
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.cif.HelpFind" >
+    select count(*) from cif_helpfind where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_helpfind
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cif_helpfind
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.cif.HelpFind" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(117);
+    </selectKey>
+    insert into cif_helpfind (id, userId, wechatId, 
+      brand, name, phone, 
+      province, city, createTime, 
+      status, detail,sex)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{wechatid,jdbcType=VARCHAR}, 
+      #{brand,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=VARCHAR}, #{detail,jdbcType=VARCHAR},#{sex,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.cif.HelpFind" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(117);
+    </selectKey>
+    insert into cif_helpfind
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="wechatid != null" >
+        wechatId,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="detail != null" >
+        detail,
+      </if>
+       <if test="sex != null" >
+        sex,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="wechatid != null" >
+        #{wechatid,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="detail != null" >
+        #{detail,jdbcType=VARCHAR},
+      </if>
+       <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.cif.HelpFind" >
+    update cif_helpfind
+    <set >
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="wechatid != null" >
+        wechatId = #{wechatid,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="detail != null" >
+        detail = #{detail,jdbcType=VARCHAR},
+      </if>
+       <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.cif.HelpFind" >
+    update cif_helpfind
+    set userId = #{userid,jdbcType=INTEGER},
+      wechatId = #{wechatid,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR},
+      detail = #{detail,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectByCriteriaStatusNull" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.cif.HelpFind" >
+    select 
+    <include refid="Base_Column_List" />
+    from cif_helpfind
+    where status is null and wechatId = #{wechatid,jdbcType=VARCHAR} order by createTime desc
+  </select>
+</mapper>

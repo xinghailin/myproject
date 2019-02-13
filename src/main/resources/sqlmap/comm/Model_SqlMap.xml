@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.comm.ModelMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.comm.Model" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="brandId" property="brandid" jdbcType="INTEGER" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, brandId, model, version, source
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and ID = #{id}
+    </if>
+    <if test="brandid != null and brandid !=''" >
+       and brandId = #{brandid}
+    </if>
+    <if test="model != null and model !=''" >
+       and model LIKE CONCAT('%',#{model},'%')
+    </if>
+    <if test="version != null and version !=''" >
+       and version = #{version}
+    </if>
+    <if test="source != null and source !=''" >
+       and source = #{source}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.comm.Model" >
+    select 
+    <include refid="Base_Column_List" />
+    from comm_model
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.comm.Model" >
+    select count(*) from comm_model where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from comm_model
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from comm_model
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.comm.Model" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(321);
+    </selectKey>
+    insert into comm_model (ID, brandId, model, 
+      version, source)
+    values (#{id,jdbcType=INTEGER}, #{brandid,jdbcType=INTEGER}, #{model,jdbcType=VARCHAR}, 
+      #{version,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.comm.Model" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(321);
+    </selectKey>
+    insert into comm_model
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      ID,
+      <if test="brandid != null" >
+        brandId,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="brandid != null" >
+        #{brandid,jdbcType=INTEGER},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.comm.Model" >
+    update comm_model
+    <set >
+      <if test="brandid != null" >
+        brandId = #{brandid,jdbcType=INTEGER},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.comm.Model" >
+    update comm_model
+    set brandId = #{brandid,jdbcType=INTEGER},
+      model = #{model,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      source = #{source,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <delete id="deleteAll">
+  Delete from comm_model where 1=1
+  </delete>
+  <select id="queryModel" resultType="map" parameterType="int" >
+  select DISTINCT model from comm_model where brandId = #{brandid}
+  </select>
+  <select id="queryVersion" resultType="map" parameterType="String">
+  select version from comm_model where model = #{model}
+  </select>
+  <insert id="addModellist">
+  insert into comm_model(brandid,model,version,source)
+   values
+        <foreach item="item" index="index" collection="list" separator=",">
+            (#{item.brandid},#{item.model},#{item.version},#{item.source})
+        </foreach>
+  </insert>
+</mapper>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.comm.GetDataByTypeMapper" >
+  
+  <select id="getDataByTypeMessage" resultType="map" parameterType="string">
+  	select a.code,a.value,a.is_default,a.description from comm_masterdata a where a.type=#{value} order by a.sort_num 
+  </select>
+  <select id="getDataByTypePic" resultType="map">
+SELECT
+	m.`CODE` code,
+	m.`VALUE` value,
+	p.PIC1 pic1,
+	p.PIC2 pic2
+FROM
+	comm_masterdata m
+JOIN comm_masterdata_pic p ON m.ID = p.MASTER_ID  
+  </select>
+  <!-- 查询所有的省 -->
+  <select id="getProvincesMessage" resultType="map">
+  	select a.id,a.name from comm_location a  where  a.type=0
+  </select>
+  
+  <!-- 查询省下面的市区 -->
+  <select id="getCityAndProvinceMessage" parameterType="string" resultType="map" >
+  	select b.id areaId, b.name areaName from comm_location a join comm_location b on a.id = b.parent where a.id=#{provinceId}
+  </select>
+  
+  <!-- 根据地区id查询 -->
+  <select id="getAreaMessage" parameterType="string" resultType="map" >
+  	select * from comm_location where id=#{id}
+  </select>
+  
+  <!-- 根据memberId查询关联品牌 -->
+  <select id="getAllBrandMemberRelate" parameterType="int" resultType="map" >
+  	SELECT a.ID id,a.`NAME` name,b.MEMBER_ID memberId FROM comm_brand a LEFT JOIN cif_brand_relate b ON (a.ID=b.BRAND_ID AND b.MEMBER_ID=#{memberId}) WHERE a.`STATUS`=1
+  </select>
+  
+  <!-- 查询所有品牌 -->
+  <select id="getAllBrand" resultType="map" >
+  	SELECT ID id,`NAME` name FROM comm_brand  WHERE `STATUS`=1
+  </select>
+</mapper>

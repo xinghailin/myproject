@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.biz.BizBondsmanMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.biz.BizBondsman" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="saleborrowid" property="saleborrowid" jdbcType="INTEGER" />
+    <result column="bondsman" property="bondsman" jdbcType="VARCHAR" />
+    <result column="bmaddress" property="bmaddress" jdbcType="VARCHAR" />
+    <result column="bmrunaddress" property="bmrunaddress" jdbcType="VARCHAR" />
+    <result column="bmfaxes" property="bmfaxes" jdbcType="VARCHAR" />
+    <result column="bmphone" property="bmphone" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, saleborrowid, bondsman, bmaddress, bmrunaddress, bmfaxes, bmphone, type
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="saleborrowid != null and saleborrowid !=''" >
+       and saleborrowid = #{saleborrowid}
+    </if>
+    <if test="bondsman != null and bondsman !=''" >
+       and bondsman = #{bondsman}
+    </if>
+    <if test="bmaddress != null and bmaddress !=''" >
+       and bmaddress = #{bmaddress}
+    </if>
+    <if test="bmrunaddress != null and bmrunaddress !=''" >
+       and bmrunaddress = #{bmrunaddress}
+    </if>
+    <if test="bmfaxes != null and bmfaxes !=''" >
+       and bmfaxes = #{bmfaxes}
+    </if>
+    <if test="bmphone != null and bmphone !=''" >
+       and bmphone = #{bmphone}
+    </if>
+    <if test="type != null and type !=''" >
+       and type = #{type}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.biz.BizBondsman" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_bondsman
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.biz.BizBondsman" >
+    select count(*) from biz_bondsman where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_bondsman
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from biz_bondsman
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.biz.BizBondsman" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(406);
+    </selectKey>
+    insert into biz_bondsman (id, saleborrowid, bondsman, 
+      bmaddress, bmrunaddress, bmfaxes, 
+      bmphone, type)
+    values (#{id,jdbcType=INTEGER}, #{saleborrowid,jdbcType=INTEGER}, #{bondsman,jdbcType=VARCHAR}, 
+      #{bmaddress,jdbcType=VARCHAR}, #{bmrunaddress,jdbcType=VARCHAR}, #{bmfaxes,jdbcType=VARCHAR}, 
+      #{bmphone,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.biz.BizBondsman" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(406);
+    </selectKey>
+    insert into biz_bondsman
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="saleborrowid != null" >
+        saleborrowid,
+      </if>
+      <if test="bondsman != null" >
+        bondsman,
+      </if>
+      <if test="bmaddress != null" >
+        bmaddress,
+      </if>
+      <if test="bmrunaddress != null" >
+        bmrunaddress,
+      </if>
+      <if test="bmfaxes != null" >
+        bmfaxes,
+      </if>
+      <if test="bmphone != null" >
+        bmphone,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="saleborrowid != null" >
+        #{saleborrowid,jdbcType=INTEGER},
+      </if>
+      <if test="bondsman != null" >
+        #{bondsman,jdbcType=VARCHAR},
+      </if>
+      <if test="bmaddress != null" >
+        #{bmaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="bmrunaddress != null" >
+        #{bmrunaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="bmfaxes != null" >
+        #{bmfaxes,jdbcType=VARCHAR},
+      </if>
+      <if test="bmphone != null" >
+        #{bmphone,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.biz.BizBondsman" >
+    update biz_bondsman
+    <set >
+      <if test="saleborrowid != null" >
+        saleborrowid = #{saleborrowid,jdbcType=INTEGER},
+      </if>
+      <if test="bondsman != null" >
+        bondsman = #{bondsman,jdbcType=VARCHAR},
+      </if>
+      <if test="bmaddress != null" >
+        bmaddress = #{bmaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="bmrunaddress != null" >
+        bmrunaddress = #{bmrunaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="bmfaxes != null" >
+        bmfaxes = #{bmfaxes,jdbcType=VARCHAR},
+      </if>
+      <if test="bmphone != null" >
+        bmphone = #{bmphone,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.biz.BizBondsman" >
+    update biz_bondsman
+    set saleborrowid = #{saleborrowid,jdbcType=INTEGER},
+      bondsman = #{bondsman,jdbcType=VARCHAR},
+      bmaddress = #{bmaddress,jdbcType=VARCHAR},
+      bmrunaddress = #{bmrunaddress,jdbcType=VARCHAR},
+      bmfaxes = #{bmfaxes,jdbcType=VARCHAR},
+      bmphone = #{bmphone,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <delete id="deleteByleasebackid" parameterType="int">
+    delete from biz_bondsman
+    where saleborrowid = #{id}
+  </delete>
+</mapper>

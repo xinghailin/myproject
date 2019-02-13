@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.biz.BizShopGroupIntermeMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.biz.BizShopGroupInterme" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="shopid" property="shopid" jdbcType="INTEGER" />
+    <result column="groupid" property="groupid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, shopid, groupid
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="shopid != null and shopid !=''" >
+       and shopid = #{shopid}
+    </if>
+    <if test="groupid != null and groupid !=''" >
+       and groupid = #{groupid}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.biz.BizShopGroupInterme" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_shop_group_interme
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.biz.BizShopGroupInterme" >
+    select count(*) from biz_shop_group_interme where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from biz_shop_group_interme
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from biz_shop_group_interme
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.biz.BizShopGroupInterme" >
+    insert into biz_shop_group_interme (id, shopid, groupid
+      )
+    values (#{id,jdbcType=VARCHAR}, #{shopid,jdbcType=INTEGER}, #{groupid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.biz.BizShopGroupInterme" >
+    insert into biz_shop_group_interme
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="shopid != null" >
+        shopid,
+      </if>
+      <if test="groupid != null" >
+        groupid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null" >
+        #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="groupid != null" >
+        #{groupid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.biz.BizShopGroupInterme" >
+    update biz_shop_group_interme
+    <set >
+      <if test="shopid != null" >
+        shopid = #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="groupid != null" >
+        groupid = #{groupid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.biz.BizShopGroupInterme" >
+    update biz_shop_group_interme
+    set shopid = #{shopid,jdbcType=INTEGER},
+      groupid = #{groupid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  
+  
+  
+    <delete id="deleteSelective" parameterType="com.yyq.car.portal.common.model.biz.BizShopGroupInterme" >
+    delete from biz_shop_group_interme
+    where groupid = #{groupid,jdbcType=INTEGER}
+  </delete>
+</mapper>

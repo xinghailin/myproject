@@ -1,0 +1,2621 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyq.car.portal.common.mapper.jnd.JndcontractMapper" >
+  <resultMap id="BaseResultMap" type="com.yyq.car.portal.common.model.jnd.Jndcontract" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="buyid" property="buyid" jdbcType="INTEGER" />
+    <result column="subbuyid" property="subbuyid" jdbcType="INTEGER" />
+    <result column="apayid" property="apayid" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="purfile" property="purfile" jdbcType="VARCHAR" />
+    <result column="texturl" property="texturl" jdbcType="VARCHAR" />
+    <result column="text1url" property="text1url" jdbcType="VARCHAR" />
+    <result column="stamp" property="stamp" jdbcType="INTEGER" />
+    <result column="sname" property="sname" jdbcType="VARCHAR" />
+    <result column="sadd" property="sadd" jdbcType="VARCHAR" />
+    <result column="sidtype" property="sidtype" jdbcType="VARCHAR" />
+    <result column="sno" property="sno" jdbcType="VARCHAR" />
+    <result column="sphone" property="sphone" jdbcType="VARCHAR" />
+    <result column="pname" property="pname" jdbcType="VARCHAR" />
+    <result column="padd" property="padd" jdbcType="VARCHAR" />
+    <result column="pidtype" property="pidtype" jdbcType="VARCHAR" />
+    <result column="pno" property="pno" jdbcType="VARCHAR" />
+    <result column="pphone" property="pphone" jdbcType="VARCHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="model" property="model" jdbcType="VARCHAR" />
+    <result column="version" property="version" jdbcType="VARCHAR" />
+    <result column="displacement" property="displacement" jdbcType="VARCHAR" />
+    <result column="config" property="config" jdbcType="VARCHAR" />
+    <result column="outcolor" property="outcolor" jdbcType="VARCHAR" />
+    <result column="incolor" property="incolor" jdbcType="VARCHAR" />
+    <result column="trim" property="trim" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="cmsn1" property="cmsn1" jdbcType="DECIMAL" />
+    <result column="cmsn2" property="cmsn2" jdbcType="DECIMAL" />
+    <result column="cmsn3" property="cmsn3" jdbcType="DECIMAL" />
+    <result column="cmsn4" property="cmsn4" jdbcType="DECIMAL" />
+    <result column="cmsn5" property="cmsn5" jdbcType="DECIMAL" />
+    <result column="other1" property="other1" jdbcType="DECIMAL" />
+    <result column="other2" property="other2" jdbcType="DECIMAL" />
+    <result column="other3" property="other3" jdbcType="DECIMAL" />
+    <result column="other4" property="other4" jdbcType="DECIMAL" />
+    <result column="other5" property="other5" jdbcType="DECIMAL" />
+    <result column="apponitadd" property="apponitadd" jdbcType="VARCHAR" />
+    <result column="appointtime" property="appointtime" jdbcType="TIMESTAMP" />
+    <result column="insurance" property="insurance" jdbcType="DECIMAL" />
+    <result column="transprice" property="transprice" jdbcType="DECIMAL" />
+    <result column="transname" property="transname" jdbcType="VARCHAR" />
+    <result column="currency" property="currency" jdbcType="INTEGER" />
+    <result column="country" property="country" jdbcType="INTEGER" />
+    <result column="trim1" property="trim1" jdbcType="VARCHAR" />
+    <result column="t1price" property="t1price" jdbcType="DECIMAL" />
+    <result column="trim2" property="trim2" jdbcType="VARCHAR" />
+    <result column="t2price" property="t2price" jdbcType="DECIMAL" />
+    <result column="trim3" property="trim3" jdbcType="VARCHAR" />
+    <result column="t3price" property="t3price" jdbcType="DECIMAL" />
+    <result column="trim4" property="trim4" jdbcType="VARCHAR" />
+    <result column="t4price" property="t4price" jdbcType="DECIMAL" />
+    <result column="trim5" property="trim5" jdbcType="VARCHAR" />
+    <result column="t5price" property="t5price" jdbcType="DECIMAL" />
+    <result column="trim6" property="trim6" jdbcType="VARCHAR" />
+    <result column="t6price" property="t6price" jdbcType="DECIMAL" />
+    <result column="trim7" property="trim7" jdbcType="VARCHAR" />
+    <result column="t7price" property="t7price" jdbcType="DECIMAL" />
+    <result column="trim8" property="trim8" jdbcType="VARCHAR" />
+    <result column="t8price" property="t8price" jdbcType="DECIMAL" />
+    <result column="trimprice" property="trimprice" jdbcType="DECIMAL" />
+    <result column="rejectreason1" property="rejectreason1" jdbcType="VARCHAR" />
+    <result column="rejectreason2" property="rejectreason2" jdbcType="VARCHAR" />
+    <result column="rejectreason3" property="rejectreason3" jdbcType="VARCHAR" />
+    <result column="auditer1" property="auditer1" jdbcType="VARCHAR" />
+    <result column="auditer2" property="auditer2" jdbcType="VARCHAR" />
+    <result column="auditer3" property="auditer3" jdbcType="VARCHAR" />
+    <result column="auditime1" property="auditime1" jdbcType="TIMESTAMP" />
+    <result column="auditime2" property="auditime2" jdbcType="TIMESTAMP" />
+    <result column="auditime3" property="auditime3" jdbcType="TIMESTAMP" />
+    <result column="downpay" property="downpay" jdbcType="DECIMAL" />
+    <result column="finalpay" property="finalpay" jdbcType="DECIMAL" />
+    <result column="autotprice" property="autotprice" jdbcType="DECIMAL" />
+    <result column="nopass" property="nopass" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="apaylock" property="apaylock" jdbcType="INTEGER" />
+    <result column="paytype" property="paytype" jdbcType="VARCHAR" />
+    <result column="totalprice" property="totalprice" jdbcType="DECIMAL" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="othercost" property="othercost" jdbcType="DECIMAL" />
+    <result column="expensetax" property="expensetax" jdbcType="DECIMAL" />
+    <result column="selfbuy" property="selfbuy" jdbcType="VARCHAR" />
+    <result column="issuingprice" property="issuingprice" jdbcType="DECIMAL" />
+    <result column="trim9" property="trim9" jdbcType="VARCHAR" />
+    <result column="t9price" property="t9price" jdbcType="DECIMAL" />
+    <result column="trim10" property="trim10" jdbcType="VARCHAR" />
+    <result column="t10price" property="t10price" jdbcType="DECIMAL" />
+    <result column="trim11" property="trim11" jdbcType="VARCHAR" />
+    <result column="t11price" property="t11price" jdbcType="DECIMAL" />
+    <result column="trim12" property="trim12" jdbcType="VARCHAR" />
+    <result column="t12price" property="t12price" jdbcType="DECIMAL" />
+    <result column="needer" property="needer" jdbcType="VARCHAR" />
+    <result column="preinsuranceprice" property="preinsuranceprice" jdbcType="DECIMAL" />
+    <result column="predrayageprice" property="predrayageprice" jdbcType="DECIMAL" />
+    <result column="prelicenseprice" property="prelicenseprice" jdbcType="DECIMAL" />
+    <result column="preoilprice" property="preoilprice" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, buyid, subbuyid, apayid, code, purfile, texturl, text1url, stamp, sname, sadd, 
+    sidtype, sno, sphone, pname, padd, pidtype, pno, pphone, brand, model, version, displacement, 
+    config, outcolor, incolor, trim, price, num, remark, cmsn1, cmsn2, cmsn3, cmsn4, 
+    cmsn5, other1, other2, other3, other4, other5, apponitadd, appointtime, insurance, 
+    transprice, transname, currency, country, trim1, t1price, trim2, t2price, trim3, 
+    t3price, trim4, t4price, trim5, t5price, trim6, t6price, trim7, t7price, trim8, t8price, 
+    trimprice, rejectreason1, rejectreason2, rejectreason3, auditer1, auditer2, auditer3, 
+    auditime1, auditime2, auditime3, downpay, finalpay, autotprice, nopass, status, apaylock, 
+    paytype, totalprice, createtime, othercost, expensetax, selfbuy, issuingprice, trim9, 
+    t9price, trim10, t10price, trim11, t11price, trim12, t12price, needer, preinsuranceprice, 
+    predrayageprice, prelicenseprice, preoilprice
+  </sql>
+  <sql id="wherecase" >
+     1=1 
+    <if test="id != null and id !=''" >
+       and id = #{id}
+    </if>
+    <if test="buyid != null and buyid !=''" >
+       and buyid = #{buyid}
+    </if>
+    <if test="subbuyid != null and subbuyid !=''" >
+       and subbuyid = #{subbuyid}
+    </if>
+    <if test="apayid != null and apayid !=''" >
+       and apayid = #{apayid}
+    </if>
+    <if test="code != null and code !=''" >
+       and code = #{code}
+    </if>
+    <if test="purfile != null and purfile !=''" >
+       and purfile = #{purfile}
+    </if>
+    <if test="texturl != null and texturl !=''" >
+       and texturl = #{texturl}
+    </if>
+    <if test="text1url != null and text1url !=''" >
+       and text1url = #{text1url}
+    </if>
+    <if test="stamp != null and stamp !=''" >
+       and stamp = #{stamp}
+    </if>
+    <if test="sname != null and sname !=''" >
+       and sname = #{sname}
+    </if>
+    <if test="sadd != null and sadd !=''" >
+       and sadd = #{sadd}
+    </if>
+    <if test="sidtype != null and sidtype !=''" >
+       and sidtype = #{sidtype}
+    </if>
+    <if test="sno != null and sno !=''" >
+       and sno = #{sno}
+    </if>
+    <if test="sphone != null and sphone !=''" >
+       and sphone = #{sphone}
+    </if>
+    <if test="pname != null and pname !=''" >
+       and pname = #{pname}
+    </if>
+    <if test="padd != null and padd !=''" >
+       and padd = #{padd}
+    </if>
+    <if test="pidtype != null and pidtype !=''" >
+       and pidtype = #{pidtype}
+    </if>
+    <if test="pno != null and pno !=''" >
+       and pno = #{pno}
+    </if>
+    <if test="pphone != null and pphone !=''" >
+       and pphone = #{pphone}
+    </if>
+    <if test="brand != null and brand !=''" >
+       and brand = #{brand}
+    </if>
+    <if test="model != null and model !=''" >
+       and model = #{model}
+    </if>
+    <if test="version != null and version !=''" >
+       and version = #{version}
+    </if>
+    <if test="displacement != null and displacement !=''" >
+       and displacement = #{displacement}
+    </if>
+    <if test="config != null and config !=''" >
+       and config = #{config}
+    </if>
+    <if test="outcolor != null and outcolor !=''" >
+       and outcolor = #{outcolor}
+    </if>
+    <if test="incolor != null and incolor !=''" >
+       and incolor = #{incolor}
+    </if>
+    <if test="trim != null and trim !=''" >
+       and trim = #{trim}
+    </if>
+    <if test="price != null and price !=''" >
+       and price = #{price}
+    </if>
+    <if test="num != null and num !=''" >
+       and num = #{num}
+    </if>
+    <if test="remark != null and remark !=''" >
+       and remark = #{remark}
+    </if>
+    <if test="cmsn1 != null and cmsn1 !=''" >
+       and cmsn1 = #{cmsn1}
+    </if>
+    <if test="cmsn2 != null and cmsn2 !=''" >
+       and cmsn2 = #{cmsn2}
+    </if>
+    <if test="cmsn3 != null and cmsn3 !=''" >
+       and cmsn3 = #{cmsn3}
+    </if>
+    <if test="cmsn4 != null and cmsn4 !=''" >
+       and cmsn4 = #{cmsn4}
+    </if>
+    <if test="cmsn5 != null and cmsn5 !=''" >
+       and cmsn5 = #{cmsn5}
+    </if>
+    <if test="other1 != null and other1 !=''" >
+       and other1 = #{other1}
+    </if>
+    <if test="other2 != null and other2 !=''" >
+       and other2 = #{other2}
+    </if>
+    <if test="other3 != null and other3 !=''" >
+       and other3 = #{other3}
+    </if>
+    <if test="other4 != null and other4 !=''" >
+       and other4 = #{other4}
+    </if>
+    <if test="other5 != null and other5 !=''" >
+       and other5 = #{other5}
+    </if>
+    <if test="apponitadd != null and apponitadd !=''" >
+       and apponitadd = #{apponitadd}
+    </if>
+    <if test="appointtime != null and appointtime !=''" >
+       and appointtime = #{appointtime}
+    </if>
+    <if test="insurance != null and insurance !=''" >
+       and insurance = #{insurance}
+    </if>
+    <if test="transprice != null and transprice !=''" >
+       and transprice = #{transprice}
+    </if>
+    <if test="transname != null and transname !=''" >
+       and transname = #{transname}
+    </if>
+    <if test="currency != null and currency !=''" >
+       and currency = #{currency}
+    </if>
+    <if test="country != null and country !=''" >
+       and country = #{country}
+    </if>
+    <if test="trim1 != null and trim1 !=''" >
+       and trim1 = #{trim1}
+    </if>
+    <if test="t1price != null and t1price !=''" >
+       and t1price = #{t1price}
+    </if>
+    <if test="trim2 != null and trim2 !=''" >
+       and trim2 = #{trim2}
+    </if>
+    <if test="t2price != null and t2price !=''" >
+       and t2price = #{t2price}
+    </if>
+    <if test="trim3 != null and trim3 !=''" >
+       and trim3 = #{trim3}
+    </if>
+    <if test="t3price != null and t3price !=''" >
+       and t3price = #{t3price}
+    </if>
+    <if test="trim4 != null and trim4 !=''" >
+       and trim4 = #{trim4}
+    </if>
+    <if test="t4price != null and t4price !=''" >
+       and t4price = #{t4price}
+    </if>
+    <if test="trim5 != null and trim5 !=''" >
+       and trim5 = #{trim5}
+    </if>
+    <if test="t5price != null and t5price !=''" >
+       and t5price = #{t5price}
+    </if>
+    <if test="trim6 != null and trim6 !=''" >
+       and trim6 = #{trim6}
+    </if>
+    <if test="t6price != null and t6price !=''" >
+       and t6price = #{t6price}
+    </if>
+    <if test="trim7 != null and trim7 !=''" >
+       and trim7 = #{trim7}
+    </if>
+    <if test="t7price != null and t7price !=''" >
+       and t7price = #{t7price}
+    </if>
+    <if test="trim8 != null and trim8 !=''" >
+       and trim8 = #{trim8}
+    </if>
+    <if test="t8price != null and t8price !=''" >
+       and t8price = #{t8price}
+    </if>
+    <if test="trimprice != null and trimprice !=''" >
+       and trimprice = #{trimprice}
+    </if>
+    <if test="rejectreason1 != null and rejectreason1 !=''" >
+       and rejectreason1 = #{rejectreason1}
+    </if>
+    <if test="rejectreason2 != null and rejectreason2 !=''" >
+       and rejectreason2 = #{rejectreason2}
+    </if>
+    <if test="rejectreason3 != null and rejectreason3 !=''" >
+       and rejectreason3 = #{rejectreason3}
+    </if>
+    <if test="auditer1 != null and auditer1 !=''" >
+       and auditer1 = #{auditer1}
+    </if>
+    <if test="auditer2 != null and auditer2 !=''" >
+       and auditer2 = #{auditer2}
+    </if>
+    <if test="auditer3 != null and auditer3 !=''" >
+       and auditer3 = #{auditer3}
+    </if>
+    <if test="auditime1 != null and auditime1 !=''" >
+       and auditime1 = #{auditime1}
+    </if>
+    <if test="auditime2 != null and auditime2 !=''" >
+       and auditime2 = #{auditime2}
+    </if>
+    <if test="auditime3 != null and auditime3 !=''" >
+       and auditime3 = #{auditime3}
+    </if>
+    <if test="downpay != null and downpay !=''" >
+       and downpay = #{downpay}
+    </if>
+    <if test="finalpay != null and finalpay !=''" >
+       and finalpay = #{finalpay}
+    </if>
+    <if test="autotprice != null and autotprice !=''" >
+       and autotprice = #{autotprice}
+    </if>
+    <if test="nopass != null and nopass !=''" >
+       and nopass = #{nopass}
+    </if>
+    <if test="status != null and status !=''" >
+       and status = #{status}
+    </if>
+    <if test="apaylock != null and apaylock !=''" >
+       and apaylock = #{apaylock}
+    </if>
+    <if test="paytype != null and paytype !=''" >
+       and paytype = #{paytype}
+    </if>
+    <if test="totalprice != null and totalprice !=''" >
+       and totalprice = #{totalprice}
+    </if>
+    <if test="createtime != null and createtime !=''" >
+       and createtime = #{createtime}
+    </if>
+    <if test="othercost != null and othercost !=''" >
+       and othercost = #{othercost}
+    </if>
+    <if test="expensetax != null and expensetax !=''" >
+       and expensetax = #{expensetax}
+    </if>
+    <if test="selfbuy != null and selfbuy !=''" >
+       and selfbuy = #{selfbuy}
+    </if>
+    <if test="issuingprice != null and issuingprice !=''" >
+       and issuingprice = #{issuingprice}
+    </if>
+    <if test="trim9 != null and trim9 !=''" >
+       and trim9 = #{trim9}
+    </if>
+    <if test="t9price != null and t9price !=''" >
+       and t9price = #{t9price}
+    </if>
+    <if test="trim10 != null and trim10 !=''" >
+       and trim10 = #{trim10}
+    </if>
+    <if test="t10price != null and t10price !=''" >
+       and t10price = #{t10price}
+    </if>
+    <if test="trim11 != null and trim11 !=''" >
+       and trim11 = #{trim11}
+    </if>
+    <if test="t11price != null and t11price !=''" >
+       and t11price = #{t11price}
+    </if>
+    <if test="trim12 != null and trim12 !=''" >
+       and trim12 = #{trim12}
+    </if>
+    <if test="t12price != null and t12price !=''" >
+       and t12price = #{t12price}
+    </if>
+    <if test="needer != null and needer !=''" >
+       and needer = #{needer}
+    </if>
+    <if test="preinsuranceprice != null and preinsuranceprice !=''" >
+       and preinsuranceprice = #{preinsuranceprice}
+    </if>
+    <if test="predrayageprice != null and predrayageprice !=''" >
+       and predrayageprice = #{predrayageprice}
+    </if>
+    <if test="prelicenseprice != null and prelicenseprice !=''" >
+       and prelicenseprice = #{prelicenseprice}
+    </if>
+    <if test="preoilprice != null and preoilprice !=''" >
+       and preoilprice = #{preoilprice}
+    </if>
+  </sql>
+  <select id="selectByCriteria" resultMap="BaseResultMap" parameterType="com.yyq.car.portal.common.model.jnd.Jndcontract" >
+    select 
+    <include refid="Base_Column_List" />
+    from jnd_contract
+    where 
+    <include refid="wherecase" />
+  </select>
+  <select id="countByCriteria" resultType="int" parameterType="com.yyq.car.portal.common.model.jnd.Jndcontract" >
+    select count(*) from jnd_contract where 
+    <include refid="wherecase" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from jnd_contract
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from jnd_contract
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yyq.car.portal.common.model.jnd.Jndcontract" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(710);
+    </selectKey>
+    insert into jnd_contract (id, buyid, subbuyid, 
+      apayid, code, purfile, 
+      texturl, text1url, stamp, 
+      sname, sadd, sidtype, 
+      sno, sphone, pname, 
+      padd, pidtype, pno, 
+      pphone, brand, model, 
+      version, displacement, config, 
+      outcolor, incolor, trim, 
+      price, num, remark, 
+      cmsn1, cmsn2, cmsn3, 
+      cmsn4, cmsn5, other1, 
+      other2, other3, other4, 
+      other5, apponitadd, appointtime, 
+      insurance, transprice, transname, 
+      currency, country, trim1, 
+      t1price, trim2, t2price, 
+      trim3, t3price, trim4, 
+      t4price, trim5, t5price, 
+      trim6, t6price, trim7, 
+      t7price, trim8, t8price, 
+      trimprice, rejectreason1, rejectreason2, 
+      rejectreason3, auditer1, auditer2, 
+      auditer3, auditime1, auditime2, 
+      auditime3, downpay, finalpay, 
+      autotprice, nopass, status, 
+      apaylock, paytype, totalprice, 
+      createtime, othercost, expensetax, 
+      selfbuy, issuingprice, trim9, 
+      t9price, trim10, t10price, 
+      trim11, t11price, trim12, 
+      t12price, needer, preinsuranceprice, 
+      predrayageprice, prelicenseprice, preoilprice
+      )
+    values (#{id,jdbcType=INTEGER}, #{buyid,jdbcType=INTEGER}, #{subbuyid,jdbcType=INTEGER}, 
+      #{apayid,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{purfile,jdbcType=VARCHAR}, 
+      #{texturl,jdbcType=VARCHAR}, #{text1url,jdbcType=VARCHAR}, #{stamp,jdbcType=INTEGER}, 
+      #{sname,jdbcType=VARCHAR}, #{sadd,jdbcType=VARCHAR}, #{sidtype,jdbcType=VARCHAR}, 
+      #{sno,jdbcType=VARCHAR}, #{sphone,jdbcType=VARCHAR}, #{pname,jdbcType=VARCHAR}, 
+      #{padd,jdbcType=VARCHAR}, #{pidtype,jdbcType=VARCHAR}, #{pno,jdbcType=VARCHAR}, 
+      #{pphone,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, 
+      #{version,jdbcType=VARCHAR}, #{displacement,jdbcType=VARCHAR}, #{config,jdbcType=VARCHAR}, 
+      #{outcolor,jdbcType=VARCHAR}, #{incolor,jdbcType=VARCHAR}, #{trim,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DECIMAL}, #{num,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
+      #{cmsn1,jdbcType=DECIMAL}, #{cmsn2,jdbcType=DECIMAL}, #{cmsn3,jdbcType=DECIMAL}, 
+      #{cmsn4,jdbcType=DECIMAL}, #{cmsn5,jdbcType=DECIMAL}, #{other1,jdbcType=DECIMAL}, 
+      #{other2,jdbcType=DECIMAL}, #{other3,jdbcType=DECIMAL}, #{other4,jdbcType=DECIMAL}, 
+      #{other5,jdbcType=DECIMAL}, #{apponitadd,jdbcType=VARCHAR}, #{appointtime,jdbcType=TIMESTAMP}, 
+      #{insurance,jdbcType=DECIMAL}, #{transprice,jdbcType=DECIMAL}, #{transname,jdbcType=VARCHAR}, 
+      #{currency,jdbcType=INTEGER}, #{country,jdbcType=INTEGER}, #{trim1,jdbcType=VARCHAR}, 
+      #{t1price,jdbcType=DECIMAL}, #{trim2,jdbcType=VARCHAR}, #{t2price,jdbcType=DECIMAL}, 
+      #{trim3,jdbcType=VARCHAR}, #{t3price,jdbcType=DECIMAL}, #{trim4,jdbcType=VARCHAR}, 
+      #{t4price,jdbcType=DECIMAL}, #{trim5,jdbcType=VARCHAR}, #{t5price,jdbcType=DECIMAL}, 
+      #{trim6,jdbcType=VARCHAR}, #{t6price,jdbcType=DECIMAL}, #{trim7,jdbcType=VARCHAR}, 
+      #{t7price,jdbcType=DECIMAL}, #{trim8,jdbcType=VARCHAR}, #{t8price,jdbcType=DECIMAL}, 
+      #{trimprice,jdbcType=DECIMAL}, #{rejectreason1,jdbcType=VARCHAR}, #{rejectreason2,jdbcType=VARCHAR}, 
+      #{rejectreason3,jdbcType=VARCHAR}, #{auditer1,jdbcType=VARCHAR}, #{auditer2,jdbcType=VARCHAR}, 
+      #{auditer3,jdbcType=VARCHAR}, #{auditime1,jdbcType=TIMESTAMP}, #{auditime2,jdbcType=TIMESTAMP}, 
+      #{auditime3,jdbcType=TIMESTAMP}, #{downpay,jdbcType=DECIMAL}, #{finalpay,jdbcType=DECIMAL}, 
+      #{autotprice,jdbcType=DECIMAL}, #{nopass,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{apaylock,jdbcType=INTEGER}, #{paytype,jdbcType=VARCHAR}, #{totalprice,jdbcType=DECIMAL}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{othercost,jdbcType=DECIMAL}, #{expensetax,jdbcType=DECIMAL}, 
+      #{selfbuy,jdbcType=VARCHAR}, #{issuingprice,jdbcType=DECIMAL}, #{trim9,jdbcType=VARCHAR}, 
+      #{t9price,jdbcType=DECIMAL}, #{trim10,jdbcType=VARCHAR}, #{t10price,jdbcType=DECIMAL}, 
+      #{trim11,jdbcType=VARCHAR}, #{t11price,jdbcType=DECIMAL}, #{trim12,jdbcType=VARCHAR}, 
+      #{t12price,jdbcType=DECIMAL}, #{needer,jdbcType=VARCHAR}, #{preinsuranceprice,jdbcType=DECIMAL}, 
+      #{predrayageprice,jdbcType=DECIMAL}, #{prelicenseprice,jdbcType=DECIMAL}, #{preoilprice,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yyq.car.portal.common.model.jnd.Jndcontract" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE" >
+      SELECT NEXTVAL(710);
+    </selectKey>
+    insert into jnd_contract
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="buyid != null" >
+        buyid,
+      </if>
+      <if test="subbuyid != null" >
+        subbuyid,
+      </if>
+      <if test="apayid != null" >
+        apayid,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="purfile != null" >
+        purfile,
+      </if>
+      <if test="texturl != null" >
+        texturl,
+      </if>
+      <if test="text1url != null" >
+        text1url,
+      </if>
+      <if test="stamp != null" >
+        stamp,
+      </if>
+      <if test="sname != null" >
+        sname,
+      </if>
+      <if test="sadd != null" >
+        sadd,
+      </if>
+      <if test="sidtype != null" >
+        sidtype,
+      </if>
+      <if test="sno != null" >
+        sno,
+      </if>
+      <if test="sphone != null" >
+        sphone,
+      </if>
+      <if test="pname != null" >
+        pname,
+      </if>
+      <if test="padd != null" >
+        padd,
+      </if>
+      <if test="pidtype != null" >
+        pidtype,
+      </if>
+      <if test="pno != null" >
+        pno,
+      </if>
+      <if test="pphone != null" >
+        pphone,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="displacement != null" >
+        displacement,
+      </if>
+      <if test="config != null" >
+        config,
+      </if>
+      <if test="outcolor != null" >
+        outcolor,
+      </if>
+      <if test="incolor != null" >
+        incolor,
+      </if>
+      <if test="trim != null" >
+        trim,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="cmsn1 != null" >
+        cmsn1,
+      </if>
+      <if test="cmsn2 != null" >
+        cmsn2,
+      </if>
+      <if test="cmsn3 != null" >
+        cmsn3,
+      </if>
+      <if test="cmsn4 != null" >
+        cmsn4,
+      </if>
+      <if test="cmsn5 != null" >
+        cmsn5,
+      </if>
+      <if test="other1 != null" >
+        other1,
+      </if>
+      <if test="other2 != null" >
+        other2,
+      </if>
+      <if test="other3 != null" >
+        other3,
+      </if>
+      <if test="other4 != null" >
+        other4,
+      </if>
+      <if test="other5 != null" >
+        other5,
+      </if>
+      <if test="apponitadd != null" >
+        apponitadd,
+      </if>
+      <if test="appointtime != null" >
+        appointtime,
+      </if>
+      <if test="insurance != null" >
+        insurance,
+      </if>
+      <if test="transprice != null" >
+        transprice,
+      </if>
+      <if test="transname != null" >
+        transname,
+      </if>
+      <if test="currency != null" >
+        currency,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="trim1 != null" >
+        trim1,
+      </if>
+      <if test="t1price != null" >
+        t1price,
+      </if>
+      <if test="trim2 != null" >
+        trim2,
+      </if>
+      <if test="t2price != null" >
+        t2price,
+      </if>
+      <if test="trim3 != null" >
+        trim3,
+      </if>
+      <if test="t3price != null" >
+        t3price,
+      </if>
+      <if test="trim4 != null" >
+        trim4,
+      </if>
+      <if test="t4price != null" >
+        t4price,
+      </if>
+      <if test="trim5 != null" >
+        trim5,
+      </if>
+      <if test="t5price != null" >
+        t5price,
+      </if>
+      <if test="trim6 != null" >
+        trim6,
+      </if>
+      <if test="t6price != null" >
+        t6price,
+      </if>
+      <if test="trim7 != null" >
+        trim7,
+      </if>
+      <if test="t7price != null" >
+        t7price,
+      </if>
+      <if test="trim8 != null" >
+        trim8,
+      </if>
+      <if test="t8price != null" >
+        t8price,
+      </if>
+      <if test="trimprice != null" >
+        trimprice,
+      </if>
+      <if test="rejectreason1 != null" >
+        rejectreason1,
+      </if>
+      <if test="rejectreason2 != null" >
+        rejectreason2,
+      </if>
+      <if test="rejectreason3 != null" >
+        rejectreason3,
+      </if>
+      <if test="auditer1 != null" >
+        auditer1,
+      </if>
+      <if test="auditer2 != null" >
+        auditer2,
+      </if>
+      <if test="auditer3 != null" >
+        auditer3,
+      </if>
+      <if test="auditime1 != null" >
+        auditime1,
+      </if>
+      <if test="auditime2 != null" >
+        auditime2,
+      </if>
+      <if test="auditime3 != null" >
+        auditime3,
+      </if>
+      <if test="downpay != null" >
+        downpay,
+      </if>
+      <if test="finalpay != null" >
+        finalpay,
+      </if>
+      <if test="autotprice != null" >
+        autotprice,
+      </if>
+      <if test="nopass != null" >
+        nopass,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="apaylock != null" >
+        apaylock,
+      </if>
+      <if test="paytype != null" >
+        paytype,
+      </if>
+      <if test="totalprice != null" >
+        totalprice,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="othercost != null" >
+        othercost,
+      </if>
+      <if test="expensetax != null" >
+        expensetax,
+      </if>
+      <if test="selfbuy != null" >
+        selfbuy,
+      </if>
+      <if test="issuingprice != null" >
+        issuingprice,
+      </if>
+      <if test="trim9 != null" >
+        trim9,
+      </if>
+      <if test="t9price != null" >
+        t9price,
+      </if>
+      <if test="trim10 != null" >
+        trim10,
+      </if>
+      <if test="t10price != null" >
+        t10price,
+      </if>
+      <if test="trim11 != null" >
+        trim11,
+      </if>
+      <if test="t11price != null" >
+        t11price,
+      </if>
+      <if test="trim12 != null" >
+        trim12,
+      </if>
+      <if test="t12price != null" >
+        t12price,
+      </if>
+      <if test="needer != null" >
+        needer,
+      </if>
+      <if test="preinsuranceprice != null" >
+        preinsuranceprice,
+      </if>
+      <if test="predrayageprice != null" >
+        predrayageprice,
+      </if>
+      <if test="prelicenseprice != null" >
+        prelicenseprice,
+      </if>
+      <if test="preoilprice != null" >
+        preoilprice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="buyid != null" >
+        #{buyid,jdbcType=INTEGER},
+      </if>
+      <if test="subbuyid != null" >
+        #{subbuyid,jdbcType=INTEGER},
+      </if>
+      <if test="apayid != null" >
+        #{apayid,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="purfile != null" >
+        #{purfile,jdbcType=VARCHAR},
+      </if>
+      <if test="texturl != null" >
+        #{texturl,jdbcType=VARCHAR},
+      </if>
+      <if test="text1url != null" >
+        #{text1url,jdbcType=VARCHAR},
+      </if>
+      <if test="stamp != null" >
+        #{stamp,jdbcType=INTEGER},
+      </if>
+      <if test="sname != null" >
+        #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="sadd != null" >
+        #{sadd,jdbcType=VARCHAR},
+      </if>
+      <if test="sidtype != null" >
+        #{sidtype,jdbcType=VARCHAR},
+      </if>
+      <if test="sno != null" >
+        #{sno,jdbcType=VARCHAR},
+      </if>
+      <if test="sphone != null" >
+        #{sphone,jdbcType=VARCHAR},
+      </if>
+      <if test="pname != null" >
+        #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="padd != null" >
+        #{padd,jdbcType=VARCHAR},
+      </if>
+      <if test="pidtype != null" >
+        #{pidtype,jdbcType=VARCHAR},
+      </if>
+      <if test="pno != null" >
+        #{pno,jdbcType=VARCHAR},
+      </if>
+      <if test="pphone != null" >
+        #{pphone,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="displacement != null" >
+        #{displacement,jdbcType=VARCHAR},
+      </if>
+      <if test="config != null" >
+        #{config,jdbcType=VARCHAR},
+      </if>
+      <if test="outcolor != null" >
+        #{outcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="incolor != null" >
+        #{incolor,jdbcType=VARCHAR},
+      </if>
+      <if test="trim != null" >
+        #{trim,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="cmsn1 != null" >
+        #{cmsn1,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn2 != null" >
+        #{cmsn2,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn3 != null" >
+        #{cmsn3,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn4 != null" >
+        #{cmsn4,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn5 != null" >
+        #{cmsn5,jdbcType=DECIMAL},
+      </if>
+      <if test="other1 != null" >
+        #{other1,jdbcType=DECIMAL},
+      </if>
+      <if test="other2 != null" >
+        #{other2,jdbcType=DECIMAL},
+      </if>
+      <if test="other3 != null" >
+        #{other3,jdbcType=DECIMAL},
+      </if>
+      <if test="other4 != null" >
+        #{other4,jdbcType=DECIMAL},
+      </if>
+      <if test="other5 != null" >
+        #{other5,jdbcType=DECIMAL},
+      </if>
+      <if test="apponitadd != null" >
+        #{apponitadd,jdbcType=VARCHAR},
+      </if>
+      <if test="appointtime != null" >
+        #{appointtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insurance != null" >
+        #{insurance,jdbcType=DECIMAL},
+      </if>
+      <if test="transprice != null" >
+        #{transprice,jdbcType=DECIMAL},
+      </if>
+      <if test="transname != null" >
+        #{transname,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=INTEGER},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=INTEGER},
+      </if>
+      <if test="trim1 != null" >
+        #{trim1,jdbcType=VARCHAR},
+      </if>
+      <if test="t1price != null" >
+        #{t1price,jdbcType=DECIMAL},
+      </if>
+      <if test="trim2 != null" >
+        #{trim2,jdbcType=VARCHAR},
+      </if>
+      <if test="t2price != null" >
+        #{t2price,jdbcType=DECIMAL},
+      </if>
+      <if test="trim3 != null" >
+        #{trim3,jdbcType=VARCHAR},
+      </if>
+      <if test="t3price != null" >
+        #{t3price,jdbcType=DECIMAL},
+      </if>
+      <if test="trim4 != null" >
+        #{trim4,jdbcType=VARCHAR},
+      </if>
+      <if test="t4price != null" >
+        #{t4price,jdbcType=DECIMAL},
+      </if>
+      <if test="trim5 != null" >
+        #{trim5,jdbcType=VARCHAR},
+      </if>
+      <if test="t5price != null" >
+        #{t5price,jdbcType=DECIMAL},
+      </if>
+      <if test="trim6 != null" >
+        #{trim6,jdbcType=VARCHAR},
+      </if>
+      <if test="t6price != null" >
+        #{t6price,jdbcType=DECIMAL},
+      </if>
+      <if test="trim7 != null" >
+        #{trim7,jdbcType=VARCHAR},
+      </if>
+      <if test="t7price != null" >
+        #{t7price,jdbcType=DECIMAL},
+      </if>
+      <if test="trim8 != null" >
+        #{trim8,jdbcType=VARCHAR},
+      </if>
+      <if test="t8price != null" >
+        #{t8price,jdbcType=DECIMAL},
+      </if>
+      <if test="trimprice != null" >
+        #{trimprice,jdbcType=DECIMAL},
+      </if>
+      <if test="rejectreason1 != null" >
+        #{rejectreason1,jdbcType=VARCHAR},
+      </if>
+      <if test="rejectreason2 != null" >
+        #{rejectreason2,jdbcType=VARCHAR},
+      </if>
+      <if test="rejectreason3 != null" >
+        #{rejectreason3,jdbcType=VARCHAR},
+      </if>
+      <if test="auditer1 != null" >
+        #{auditer1,jdbcType=VARCHAR},
+      </if>
+      <if test="auditer2 != null" >
+        #{auditer2,jdbcType=VARCHAR},
+      </if>
+      <if test="auditer3 != null" >
+        #{auditer3,jdbcType=VARCHAR},
+      </if>
+      <if test="auditime1 != null" >
+        #{auditime1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditime2 != null" >
+        #{auditime2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditime3 != null" >
+        #{auditime3,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downpay != null" >
+        #{downpay,jdbcType=DECIMAL},
+      </if>
+      <if test="finalpay != null" >
+        #{finalpay,jdbcType=DECIMAL},
+      </if>
+      <if test="autotprice != null" >
+        #{autotprice,jdbcType=DECIMAL},
+      </if>
+      <if test="nopass != null" >
+        #{nopass,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="apaylock != null" >
+        #{apaylock,jdbcType=INTEGER},
+      </if>
+      <if test="paytype != null" >
+        #{paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="totalprice != null" >
+        #{totalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="othercost != null" >
+        #{othercost,jdbcType=DECIMAL},
+      </if>
+      <if test="expensetax != null" >
+        #{expensetax,jdbcType=DECIMAL},
+      </if>
+      <if test="selfbuy != null" >
+        #{selfbuy,jdbcType=VARCHAR},
+      </if>
+      <if test="issuingprice != null" >
+        #{issuingprice,jdbcType=DECIMAL},
+      </if>
+      <if test="trim9 != null" >
+        #{trim9,jdbcType=VARCHAR},
+      </if>
+      <if test="t9price != null" >
+        #{t9price,jdbcType=DECIMAL},
+      </if>
+      <if test="trim10 != null" >
+        #{trim10,jdbcType=VARCHAR},
+      </if>
+      <if test="t10price != null" >
+        #{t10price,jdbcType=DECIMAL},
+      </if>
+      <if test="trim11 != null" >
+        #{trim11,jdbcType=VARCHAR},
+      </if>
+      <if test="t11price != null" >
+        #{t11price,jdbcType=DECIMAL},
+      </if>
+      <if test="trim12 != null" >
+        #{trim12,jdbcType=VARCHAR},
+      </if>
+      <if test="t12price != null" >
+        #{t12price,jdbcType=DECIMAL},
+      </if>
+      <if test="needer != null" >
+        #{needer,jdbcType=VARCHAR},
+      </if>
+      <if test="preinsuranceprice != null" >
+        #{preinsuranceprice,jdbcType=DECIMAL},
+      </if>
+      <if test="predrayageprice != null" >
+        #{predrayageprice,jdbcType=DECIMAL},
+      </if>
+      <if test="prelicenseprice != null" >
+        #{prelicenseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="preoilprice != null" >
+        #{preoilprice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yyq.car.portal.common.model.jnd.Jndcontract" >
+    update jnd_contract
+    <set >
+      <if test="buyid != null" >
+        buyid = #{buyid,jdbcType=INTEGER},
+      </if>
+      <if test="subbuyid != null" >
+        subbuyid = #{subbuyid,jdbcType=INTEGER},
+      </if>
+      <if test="apayid != null" >
+        apayid = #{apayid,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="purfile != null" >
+        purfile = #{purfile,jdbcType=VARCHAR},
+      </if>
+      <if test="texturl != null" >
+        texturl = #{texturl,jdbcType=VARCHAR},
+      </if>
+      <if test="text1url != null" >
+        text1url = #{text1url,jdbcType=VARCHAR},
+      </if>
+      <if test="stamp != null" >
+        stamp = #{stamp,jdbcType=INTEGER},
+      </if>
+      <if test="sname != null" >
+        sname = #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="sadd != null" >
+        sadd = #{sadd,jdbcType=VARCHAR},
+      </if>
+      <if test="sidtype != null" >
+        sidtype = #{sidtype,jdbcType=VARCHAR},
+      </if>
+      <if test="sno != null" >
+        sno = #{sno,jdbcType=VARCHAR},
+      </if>
+      <if test="sphone != null" >
+        sphone = #{sphone,jdbcType=VARCHAR},
+      </if>
+      <if test="pname != null" >
+        pname = #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="padd != null" >
+        padd = #{padd,jdbcType=VARCHAR},
+      </if>
+      <if test="pidtype != null" >
+        pidtype = #{pidtype,jdbcType=VARCHAR},
+      </if>
+      <if test="pno != null" >
+        pno = #{pno,jdbcType=VARCHAR},
+      </if>
+      <if test="pphone != null" >
+        pphone = #{pphone,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="displacement != null" >
+        displacement = #{displacement,jdbcType=VARCHAR},
+      </if>
+      <if test="config != null" >
+        config = #{config,jdbcType=VARCHAR},
+      </if>
+      <if test="outcolor != null" >
+        outcolor = #{outcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="incolor != null" >
+        incolor = #{incolor,jdbcType=VARCHAR},
+      </if>
+      <if test="trim != null" >
+        trim = #{trim,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="cmsn1 != null" >
+        cmsn1 = #{cmsn1,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn2 != null" >
+        cmsn2 = #{cmsn2,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn3 != null" >
+        cmsn3 = #{cmsn3,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn4 != null" >
+        cmsn4 = #{cmsn4,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn5 != null" >
+        cmsn5 = #{cmsn5,jdbcType=DECIMAL},
+      </if>
+      <if test="other1 != null" >
+        other1 = #{other1,jdbcType=DECIMAL},
+      </if>
+      <if test="other2 != null" >
+        other2 = #{other2,jdbcType=DECIMAL},
+      </if>
+      <if test="other3 != null" >
+        other3 = #{other3,jdbcType=DECIMAL},
+      </if>
+      <if test="other4 != null" >
+        other4 = #{other4,jdbcType=DECIMAL},
+      </if>
+      <if test="other5 != null" >
+        other5 = #{other5,jdbcType=DECIMAL},
+      </if>
+      <if test="apponitadd != null" >
+        apponitadd = #{apponitadd,jdbcType=VARCHAR},
+      </if>
+      <if test="appointtime != null" >
+        appointtime = #{appointtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insurance != null" >
+        insurance = #{insurance,jdbcType=DECIMAL},
+      </if>
+      <if test="transprice != null" >
+        transprice = #{transprice,jdbcType=DECIMAL},
+      </if>
+      <if test="transname != null" >
+        transname = #{transname,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null" >
+        currency = #{currency,jdbcType=INTEGER},
+      </if>
+      <if test="country != null" >
+        country = #{country,jdbcType=INTEGER},
+      </if>
+      <if test="trim1 != null" >
+        trim1 = #{trim1,jdbcType=VARCHAR},
+      </if>
+      <if test="t1price != null" >
+        t1price = #{t1price,jdbcType=DECIMAL},
+      </if>
+      <if test="trim2 != null" >
+        trim2 = #{trim2,jdbcType=VARCHAR},
+      </if>
+      <if test="t2price != null" >
+        t2price = #{t2price,jdbcType=DECIMAL},
+      </if>
+      <if test="trim3 != null" >
+        trim3 = #{trim3,jdbcType=VARCHAR},
+      </if>
+      <if test="t3price != null" >
+        t3price = #{t3price,jdbcType=DECIMAL},
+      </if>
+      <if test="trim4 != null" >
+        trim4 = #{trim4,jdbcType=VARCHAR},
+      </if>
+      <if test="t4price != null" >
+        t4price = #{t4price,jdbcType=DECIMAL},
+      </if>
+      <if test="trim5 != null" >
+        trim5 = #{trim5,jdbcType=VARCHAR},
+      </if>
+      <if test="t5price != null" >
+        t5price = #{t5price,jdbcType=DECIMAL},
+      </if>
+      <if test="trim6 != null" >
+        trim6 = #{trim6,jdbcType=VARCHAR},
+      </if>
+      <if test="t6price != null" >
+        t6price = #{t6price,jdbcType=DECIMAL},
+      </if>
+      <if test="trim7 != null" >
+        trim7 = #{trim7,jdbcType=VARCHAR},
+      </if>
+      <if test="t7price != null" >
+        t7price = #{t7price,jdbcType=DECIMAL},
+      </if>
+      <if test="trim8 != null" >
+        trim8 = #{trim8,jdbcType=VARCHAR},
+      </if>
+      <if test="t8price != null" >
+        t8price = #{t8price,jdbcType=DECIMAL},
+      </if>
+      <if test="trimprice != null" >
+        trimprice = #{trimprice,jdbcType=DECIMAL},
+      </if>
+      <if test="rejectreason1 != null" >
+        rejectreason1 = #{rejectreason1,jdbcType=VARCHAR},
+      </if>
+      <if test="rejectreason2 != null" >
+        rejectreason2 = #{rejectreason2,jdbcType=VARCHAR},
+      </if>
+      <if test="rejectreason3 != null" >
+        rejectreason3 = #{rejectreason3,jdbcType=VARCHAR},
+      </if>
+      <if test="auditer1 != null" >
+        auditer1 = #{auditer1,jdbcType=VARCHAR},
+      </if>
+      <if test="auditer2 != null" >
+        auditer2 = #{auditer2,jdbcType=VARCHAR},
+      </if>
+      <if test="auditer3 != null" >
+        auditer3 = #{auditer3,jdbcType=VARCHAR},
+      </if>
+      <if test="auditime1 != null" >
+        auditime1 = #{auditime1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditime2 != null" >
+        auditime2 = #{auditime2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditime3 != null" >
+        auditime3 = #{auditime3,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downpay != null" >
+        downpay = #{downpay,jdbcType=DECIMAL},
+      </if>
+      <if test="finalpay != null" >
+        finalpay = #{finalpay,jdbcType=DECIMAL},
+      </if>
+      <if test="autotprice != null" >
+        autotprice = #{autotprice,jdbcType=DECIMAL},
+      </if>
+      <if test="nopass != null" >
+        nopass = #{nopass,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="apaylock != null" >
+        apaylock = #{apaylock,jdbcType=INTEGER},
+      </if>
+      <if test="paytype != null" >
+        paytype = #{paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="totalprice != null" >
+        totalprice = #{totalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="othercost != null" >
+        othercost = #{othercost,jdbcType=DECIMAL},
+      </if>
+      <if test="expensetax != null" >
+        expensetax = #{expensetax,jdbcType=DECIMAL},
+      </if>
+      <if test="selfbuy != null" >
+        selfbuy = #{selfbuy,jdbcType=VARCHAR},
+      </if>
+      <if test="issuingprice != null" >
+        issuingprice = #{issuingprice,jdbcType=DECIMAL},
+      </if>
+      <if test="trim9 != null" >
+        trim9 = #{trim9,jdbcType=VARCHAR},
+      </if>
+      <if test="t9price != null" >
+        t9price = #{t9price,jdbcType=DECIMAL},
+      </if>
+      <if test="trim10 != null" >
+        trim10 = #{trim10,jdbcType=VARCHAR},
+      </if>
+      <if test="t10price != null" >
+        t10price = #{t10price,jdbcType=DECIMAL},
+      </if>
+      <if test="trim11 != null" >
+        trim11 = #{trim11,jdbcType=VARCHAR},
+      </if>
+      <if test="t11price != null" >
+        t11price = #{t11price,jdbcType=DECIMAL},
+      </if>
+      <if test="trim12 != null" >
+        trim12 = #{trim12,jdbcType=VARCHAR},
+      </if>
+      <if test="t12price != null" >
+        t12price = #{t12price,jdbcType=DECIMAL},
+      </if>
+      <if test="needer != null" >
+        needer = #{needer,jdbcType=VARCHAR},
+      </if>
+      <if test="preinsuranceprice != null" >
+        preinsuranceprice = #{preinsuranceprice,jdbcType=DECIMAL},
+      </if>
+      <if test="predrayageprice != null" >
+        predrayageprice = #{predrayageprice,jdbcType=DECIMAL},
+      </if>
+      <if test="prelicenseprice != null" >
+        prelicenseprice = #{prelicenseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="preoilprice != null" >
+        preoilprice = #{preoilprice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yyq.car.portal.common.model.jnd.Jndcontract" >
+    update jnd_contract
+    set buyid = #{buyid,jdbcType=INTEGER},
+      subbuyid = #{subbuyid,jdbcType=INTEGER},
+      apayid = #{apayid,jdbcType=INTEGER},
+      code = #{code,jdbcType=VARCHAR},
+      purfile = #{purfile,jdbcType=VARCHAR},
+      texturl = #{texturl,jdbcType=VARCHAR},
+      text1url = #{text1url,jdbcType=VARCHAR},
+      stamp = #{stamp,jdbcType=INTEGER},
+      sname = #{sname,jdbcType=VARCHAR},
+      sadd = #{sadd,jdbcType=VARCHAR},
+      sidtype = #{sidtype,jdbcType=VARCHAR},
+      sno = #{sno,jdbcType=VARCHAR},
+      sphone = #{sphone,jdbcType=VARCHAR},
+      pname = #{pname,jdbcType=VARCHAR},
+      padd = #{padd,jdbcType=VARCHAR},
+      pidtype = #{pidtype,jdbcType=VARCHAR},
+      pno = #{pno,jdbcType=VARCHAR},
+      pphone = #{pphone,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      displacement = #{displacement,jdbcType=VARCHAR},
+      config = #{config,jdbcType=VARCHAR},
+      outcolor = #{outcolor,jdbcType=VARCHAR},
+      incolor = #{incolor,jdbcType=VARCHAR},
+      trim = #{trim,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      num = #{num,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      cmsn1 = #{cmsn1,jdbcType=DECIMAL},
+      cmsn2 = #{cmsn2,jdbcType=DECIMAL},
+      cmsn3 = #{cmsn3,jdbcType=DECIMAL},
+      cmsn4 = #{cmsn4,jdbcType=DECIMAL},
+      cmsn5 = #{cmsn5,jdbcType=DECIMAL},
+      other1 = #{other1,jdbcType=DECIMAL},
+      other2 = #{other2,jdbcType=DECIMAL},
+      other3 = #{other3,jdbcType=DECIMAL},
+      other4 = #{other4,jdbcType=DECIMAL},
+      other5 = #{other5,jdbcType=DECIMAL},
+      apponitadd = #{apponitadd,jdbcType=VARCHAR},
+      appointtime = #{appointtime,jdbcType=TIMESTAMP},
+      insurance = #{insurance,jdbcType=DECIMAL},
+      transprice = #{transprice,jdbcType=DECIMAL},
+      transname = #{transname,jdbcType=VARCHAR},
+      currency = #{currency,jdbcType=INTEGER},
+      country = #{country,jdbcType=INTEGER},
+      trim1 = #{trim1,jdbcType=VARCHAR},
+      t1price = #{t1price,jdbcType=DECIMAL},
+      trim2 = #{trim2,jdbcType=VARCHAR},
+      t2price = #{t2price,jdbcType=DECIMAL},
+      trim3 = #{trim3,jdbcType=VARCHAR},
+      t3price = #{t3price,jdbcType=DECIMAL},
+      trim4 = #{trim4,jdbcType=VARCHAR},
+      t4price = #{t4price,jdbcType=DECIMAL},
+      trim5 = #{trim5,jdbcType=VARCHAR},
+      t5price = #{t5price,jdbcType=DECIMAL},
+      trim6 = #{trim6,jdbcType=VARCHAR},
+      t6price = #{t6price,jdbcType=DECIMAL},
+      trim7 = #{trim7,jdbcType=VARCHAR},
+      t7price = #{t7price,jdbcType=DECIMAL},
+      trim8 = #{trim8,jdbcType=VARCHAR},
+      t8price = #{t8price,jdbcType=DECIMAL},
+      trimprice = #{trimprice,jdbcType=DECIMAL},
+      rejectreason1 = #{rejectreason1,jdbcType=VARCHAR},
+      rejectreason2 = #{rejectreason2,jdbcType=VARCHAR},
+      rejectreason3 = #{rejectreason3,jdbcType=VARCHAR},
+      auditer1 = #{auditer1,jdbcType=VARCHAR},
+      auditer2 = #{auditer2,jdbcType=VARCHAR},
+      auditer3 = #{auditer3,jdbcType=VARCHAR},
+      auditime1 = #{auditime1,jdbcType=TIMESTAMP},
+      auditime2 = #{auditime2,jdbcType=TIMESTAMP},
+      auditime3 = #{auditime3,jdbcType=TIMESTAMP},
+      downpay = #{downpay,jdbcType=DECIMAL},
+      finalpay = #{finalpay,jdbcType=DECIMAL},
+      autotprice = #{autotprice,jdbcType=DECIMAL},
+      nopass = #{nopass,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      apaylock = #{apaylock,jdbcType=INTEGER},
+      paytype = #{paytype,jdbcType=VARCHAR},
+      totalprice = #{totalprice,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      othercost = #{othercost,jdbcType=DECIMAL},
+      expensetax = #{expensetax,jdbcType=DECIMAL},
+      selfbuy = #{selfbuy,jdbcType=VARCHAR},
+      issuingprice = #{issuingprice,jdbcType=DECIMAL},
+      trim9 = #{trim9,jdbcType=VARCHAR},
+      t9price = #{t9price,jdbcType=DECIMAL},
+      trim10 = #{trim10,jdbcType=VARCHAR},
+      t10price = #{t10price,jdbcType=DECIMAL},
+      trim11 = #{trim11,jdbcType=VARCHAR},
+      t11price = #{t11price,jdbcType=DECIMAL},
+      trim12 = #{trim12,jdbcType=VARCHAR},
+      t12price = #{t12price,jdbcType=DECIMAL},
+      needer = #{needer,jdbcType=VARCHAR},
+      preinsuranceprice = #{preinsuranceprice,jdbcType=DECIMAL},
+      predrayageprice = #{predrayageprice,jdbcType=DECIMAL},
+      prelicenseprice = #{prelicenseprice,jdbcType=DECIMAL},
+      preoilprice = #{preoilprice,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectContract" resultType="map" parameterType="map">
+  SELECT
+	b.code code,
+	c.`code` ccode,
+	c.brand brand,
+	c.model model,
+	c.version version,
+	c.displacement displacement,
+	c.price price,
+	c.apaylock  apaylock,
+	c.trimprice trimprice,
+	c.num num,
+	c.totalprice totalprice,
+	c.id id
+FROM
+	`jnd_contract` c
+LEFT JOIN jnd_buy b ON c.buyid = b.id where c.apayid=#{id};
+  </select>
+   <select id="countContract" resultType="int" parameterType="map">
+SELECT
+count(*)
+FROM
+	`jnd_contract` c
+LEFT JOIN jnd_buy b ON c.buyid = b.id where c.apayid=#{id};
+  </select>
+  <update id="updateapaylock" parameterType="com.yyq.car.portal.common.model.jnd.Jndcontract">
+    update  `jnd_contract`
+    set apaylock=#{apaylock} where apayid=#{apayid}
+  </update>
+  <!-- <select id="selectcontract" resultType="map" parameterType="int">
+ SELECT
+	b.`code` `code`,
+	c.brand brand,
+	c.model model,
+	c.version version,
+	c.`code` ccode,
+	c.price price,
+c.cmsn1 cmmsn1,
+c.cmsn2 cmsn2
+FROM
+	`jnd_contract` c
+LEFT JOIN jnd_buy b ON c.buyid = b.id
+WHERE c.apaylock is null AND
+	buyid = #{buyid};
+  </select> -->
+  <select id="selectContracts" resultType="map" parameterType="map">
+  SELECT
+	b.code code,
+	c.code ccode,
+	c.brand brand,
+	c.model model,
+	c.version version,
+	c.displacement displacement,
+	c.price price,
+	c.trimprice trimprice,
+	c.paytype paytype,
+	c.id id,
+	c.num num,
+	c.totalprice totalprice
+FROM
+	`jnd_contract` c
+LEFT JOIN jnd_buy b ON c.buyid = b.id where c.buyid=#{buyid} and c.paytype=#{paytype} and c.apaylock is null and c.`status`=7 AND c.stamp=1
+  <if test="selfbuy != null and selfbuy !=''" >
+       and c.selfbuy = #{selfbuy}
+    </if>
+  </select>
+  <select id="choosecontractshow" resultType="map" parameterType="int">
+    SELECT
+	b.code code,
+	c.code ccode,
+	c.brand brand,
+	c.model model,
+	c.version version,
+	c.displacement displacement,
+	c.price price,
+	c.trimprice trimprice,
+	c.paytype paytype,
+  	c.totalprice totalprice,
+	c.downpay downpay,
+	c.finalpay finalpay,
+	c.autotprice autotprice,
+	c.currency currency,
+	c.id id,
+	c.num num
+FROM
+	`jnd_contract` c
+LEFT JOIN jnd_buy b ON c.buyid = b.id where c.id=#{id}
+  </select>
+  <update id="updatepaystatus" parameterType="int">
+  update jnd_contract
+    set  apayid=NULL,apaylock=NULL where apayid=#{apayid}
+  </update>
+
+  
+  <select id="selectByPara" resultType="map" parameterType="map" >
+SELECT
+	a.*, b.`code` purchaseCode,
+	b.`name` purchaseName,c.needer
+FROM `jnd_contract` a
+JOIN jnd_buy b ON a.buyid = b.id join jnd_need c on c.id=b.needid WHERE 1=1
+	<if test='node == "1"' >
+      and (a.`status` is null or a.`status` in (1,2,3))
+    </if>
+    <if test='node == "2"' >
+      and a.`status` in (1,4,5,6)
+    </if>
+    <if test='node == "3"' >
+      and a.`status` in (4,7,8,9)
+    </if>
+	<if test="pcode != null" >
+      and b.`code` like concat('%',#{pcode},'%')
+    </if>
+    <if test="name != null" >
+      and b.`name` like concat('%',#{name},'%')
+    </if>
+	<if test="code != null" >
+      and a.`code` like concat('%',#{code},'%')
+    </if>
+    <if test="brand != null" >
+      and a.brand like concat('%',#{brand},'%')
+    </if>
+    <if test="status != null" >
+      and a.`status` = #{status}
+    </if>
+    <if test="country != null" >
+      and a.country = #{country}
+    </if>
+    <if test="createtime != null" >
+      and DATE_FORMAT(a.`createtime`,'%Y-%m-%d') = #{createtime}
+    </if>
+    order by a.createtime desc limit #{start},#{size}
+  </select>
+  <select id="countByPara" resultType="int" parameterType="map" >
+SELECT count(1) FROM `jnd_contract` a
+JOIN jnd_buy b ON a.buyid = b.id join jnd_need c on c.id=b.needid WHERE 1=1
+	<if test='node == "1"' >
+      and (a.`status` is null or a.`status` in (1,2,3))
+    </if>
+    <if test='node == "2"' >
+      and a.`status` in (1,4,5,6)
+    </if>
+    <if test='node == "3"' >
+      and a.`status` in (4,7,8,9)
+    </if>
+	<if test="pcode != null" >
+      and b.`code` like concat('%',#{pcode},'%')
+    </if>
+    <if test="name != null" >
+      and b.`name` like concat('%',#{name},'%')
+    </if>
+	<if test="code != null" >
+      and a.`code` like concat('%',#{code},'%')
+    </if>
+    <if test="brand != null" >
+      and a.brand like concat('%',#{brand},'%')
+    </if>
+    <if test="status != null" >
+      and a.`status` = #{status}
+    </if>
+    <if test="country != null" >
+      and a.country = #{country}
+    </if>
+    <if test="createtime != null" >
+      and DATE_FORMAT(a.`createtime`,'%Y-%m-%d') = #{createtime}
+    </if>
+  </select>
+  
+  <select id="selectSumBySubbuyId" resultType="int" parameterType="map" >
+    SELECT IFNULL(SUM(num),0) FROM jnd_contract WHERE nopass IS NULL AND subbuyid=#{subbuyid}
+    <if test="id != null" >
+      and id!=#{id}
+    </if>
+  </select>
+  
+  <insert id="insertSelectiveWithKey" parameterType="com.yyq.car.portal.common.model.jnd.Jndcontract" >
+    insert into jnd_contract
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      id,
+      <if test="buyid != null" >
+        buyid,
+      </if>
+      <if test="subbuyid != null" >
+        subbuyid,
+      </if>
+      <if test="apayid != null" >
+        apayid,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="purfile != null" >
+        purfile,
+      </if>
+      <if test="texturl != null" >
+        texturl,
+      </if>
+      <if test="text1url != null" >
+        text1url,
+      </if>
+      <if test="stamp != null" >
+        stamp,
+      </if>
+      <if test="sname != null" >
+        sname,
+      </if>
+      <if test="sadd != null" >
+        sadd,
+      </if>
+      <if test="sidtype != null" >
+        sidtype,
+      </if>
+      <if test="sno != null" >
+        sno,
+      </if>
+      <if test="sphone != null" >
+        sphone,
+      </if>
+      <if test="pname != null" >
+        pname,
+      </if>
+      <if test="padd != null" >
+        padd,
+      </if>
+      <if test="pidtype != null" >
+        pidtype,
+      </if>
+      <if test="pno != null" >
+        pno,
+      </if>
+      <if test="pphone != null" >
+        pphone,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="model != null" >
+        model,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="displacement != null" >
+        displacement,
+      </if><if test="config != null" >
+        config,
+      </if>
+      <if test="outcolor != null" >
+        outcolor,
+      </if>
+      <if test="incolor != null" >
+        incolor,
+      </if>
+      <if test="trim != null" >
+        trim,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="t1price != null" >
+        t1price,
+      </if>
+      <if test="t2price != null" >
+        t2price,
+      </if>
+      <if test="t3price != null" >
+        t3price,
+      </if>
+      <if test="t4price != null" >
+        t4price,
+      </if>
+      <if test="t5price != null" >
+        t5price,
+      </if>
+      <if test="t6price != null" >
+        t6price,
+      </if>
+      <if test="t7price != null" >
+        t7price,
+      </if>
+      <if test="t8price != null" >
+        t8price,
+      </if>
+      <if test="t9price != null" >
+        t9price,
+      </if>
+      <if test="t10price != null" >
+        t10price,
+      </if>
+      <if test="t11price != null" >
+        t11price,
+      </if>
+      <if test="t12price != null" >
+        t12price,
+      </if>
+      <if test="cmsn1 != null" >
+        cmsn1,
+      </if>
+      <if test="cmsn2 != null" >
+        cmsn2,
+      </if>
+      <if test="cmsn3 != null" >
+        cmsn3,
+      </if>
+      <if test="cmsn4 != null" >
+        cmsn4,
+      </if>
+      <if test="other1 != null" >
+        other1,
+      </if>
+      <if test="other2 != null" >
+        other2,
+      </if>
+      <if test="other3 != null" >
+        other3,
+      </if>
+      <if test="other4 != null" >
+        other4,
+      </if>
+      <if test="apponitadd != null" >
+        apponitadd,
+      </if>
+      <if test="appointtime != null" >
+        appointtime,
+      </if>
+      <if test="insurance != null" >
+        insurance,
+      </if>
+      <if test="transprice != null" >
+        transprice,
+      </if>
+      <if test="transname != null" >
+        transname,
+      </if>
+      <if test="paytype != null" >
+        paytype,
+      </if>
+      <if test="selfbuy != null" >
+        selfbuy,
+      </if>
+      <if test="currency != null" >
+        currency,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="trim1 != null" >
+        trim1,
+      </if>
+      <if test="trim2 != null" >
+        trim2,
+      </if>
+      <if test="trim3 != null" >
+        trim3,
+      </if>
+      <if test="trim4 != null" >
+        trim4,
+      </if>
+      <if test="trim5 != null" >
+        trim5,
+      </if>
+      <if test="trim6 != null" >
+        trim6,
+      </if>
+      <if test="trim7 != null" >
+        trim7,
+      </if>
+      <if test="trim8 != null" >
+        trim8,
+      </if>
+      <if test="trim9 != null" >
+        trim9,
+      </if>
+      <if test="trim10 != null" >
+        trim10,
+      </if>
+      <if test="trim11 != null" >
+        trim11,
+      </if>
+      <if test="trim12 != null" >
+        trim12,
+      </if>
+      <if test="trimprice != null" >
+        trimprice,
+      </if>
+      <if test="rejectreason1 != null" >
+        rejectreason1,
+      </if>
+      <if test="rejectreason2 != null" >
+        rejectreason2,
+      </if>
+      <if test="rejectreason3 != null" >
+        rejectreason3,
+      </if>
+      <if test="auditer1 != null" >
+        auditer1,
+      </if>
+      <if test="auditer2 != null" >
+        auditer2,
+      </if>
+      <if test="auditer3 != null" >
+        auditer3,
+      </if>
+      <if test="auditime1 != null" >
+        auditime1,
+      </if>
+      <if test="auditime2 != null" >
+        auditime2,
+      </if>
+      <if test="auditime3 != null" >
+        auditime3,
+      </if>
+      <if test="downpay != null" >
+        downpay,
+      </if>
+      <if test="finalpay != null" >
+        finalpay,
+      </if>
+      <if test="autotprice != null" >
+        autotprice,
+      </if>
+      <if test="apaylock != null" >
+        apaylock,
+      </if>
+      <if test="totalprice != null" >
+        totalprice,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="expensetax != null" >
+        expensetax,
+      </if>
+      <if test="othercost != null" >
+        othercost,
+      </if>
+      <if test="issuingprice != null" >
+        issuingprice,
+      </if>
+      <if test="needer != null" >
+        needer,
+      </if>
+      <if test="preinsuranceprice != null" >
+        preinsuranceprice,
+      </if>
+      <if test="predrayageprice != null" >
+        predrayageprice,
+      </if>
+      <if test="prelicenseprice != null" >
+        prelicenseprice,
+      </if>
+      <if test="preoilprice != null" >
+        preoilprice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{id,jdbcType=INTEGER},
+      <if test="buyid != null" >
+        #{buyid,jdbcType=INTEGER},
+      </if>
+      <if test="subbuyid != null" >
+        #{subbuyid,jdbcType=INTEGER},
+      </if>
+      <if test="apayid != null" >
+        #{apayid,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="purfile != null" >
+        #{purfile,jdbcType=VARCHAR},
+      </if>
+      <if test="texturl != null" >
+        #{texturl,jdbcType=VARCHAR},
+      </if>
+      <if test="text1url != null" >
+        #{text1url,jdbcType=VARCHAR},
+      </if>
+      <if test="stamp != null" >
+        #{stamp,jdbcType=INTEGER},
+      </if>
+      <if test="sname != null" >
+        #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="sadd != null" >
+        #{sadd,jdbcType=VARCHAR},
+      </if>
+      <if test="sidtype != null" >
+        #{sidtype,jdbcType=VARCHAR},
+      </if>
+      <if test="sno != null" >
+        #{sno,jdbcType=VARCHAR},
+      </if>
+      <if test="sphone != null" >
+        #{sphone,jdbcType=VARCHAR},
+      </if>
+      <if test="pname != null" >
+        #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="padd != null" >
+        #{padd,jdbcType=VARCHAR},
+      </if>
+      <if test="pidtype != null" >
+        #{pidtype,jdbcType=VARCHAR},
+      </if>
+      <if test="pno != null" >
+        #{pno,jdbcType=VARCHAR},
+      </if>
+      <if test="pphone != null" >
+        #{pphone,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="displacement != null" >
+        #{displacement,jdbcType=VARCHAR},
+      </if><if test="config != null" >
+        #{config,jdbcType=VARCHAR},
+      </if>
+      <if test="outcolor != null" >
+        #{outcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="incolor != null" >
+        #{incolor,jdbcType=VARCHAR},
+      </if>
+      <if test="trim != null" >
+        #{trim,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="t1price != null" >
+        #{t1price,jdbcType=DECIMAL},
+      </if>
+      <if test="t2price != null" >
+        #{t2price,jdbcType=DECIMAL},
+      </if>
+      <if test="t3price != null" >
+        #{t3price,jdbcType=DECIMAL},
+      </if>
+      <if test="t4price != null" >
+        #{t4price,jdbcType=DECIMAL},
+      </if>
+      <if test="t5price != null" >
+        #{t5price,jdbcType=DECIMAL},
+      </if>
+      <if test="t6price != null" >
+        #{t6price,jdbcType=DECIMAL},
+      </if>
+      <if test="t7price != null" >
+        #{t7price,jdbcType=DECIMAL},
+      </if>
+      <if test="t8price != null" >
+        #{t8price,jdbcType=DECIMAL},
+      </if>
+      <if test="t9price != null" >
+        #{t9price,jdbcType=DECIMAL},
+      </if>
+      <if test="t10price != null" >
+        #{t10price,jdbcType=DECIMAL},
+      </if>
+      <if test="t11price != null" >
+        #{t11price,jdbcType=DECIMAL},
+      </if>
+      <if test="t12price != null" >
+        #{t12price,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn1 != null" >
+        #{cmsn1,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn2 != null" >
+        #{cmsn2,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn3 != null" >
+        #{cmsn3,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsn4 != null" >
+        #{cmsn4,jdbcType=DECIMAL},
+      </if>
+      <if test="other1 != null" >
+        #{other1,jdbcType=DECIMAL},
+      </if>
+      <if test="other2 != null" >
+        #{other2,jdbcType=DECIMAL},
+      </if>
+      <if test="other3 != null" >
+        #{other3,jdbcType=DECIMAL},
+      </if>
+      <if test="other4 != null" >
+        #{other4,jdbcType=DECIMAL},
+      </if>
+      <if test="apponitadd != null" >
+        #{apponitadd,jdbcType=VARCHAR},
+      </if>
+      <if test="appointtime != null" >
+        #{appointtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insurance != null" >
+        #{insurance,jdbcType=DECIMAL},
+      </if>
+      <if test="transprice != null" >
+        #{transprice,jdbcType=DECIMAL},
+      </if>
+      <if test="transname != null" >
+        #{transname,jdbcType=VARCHAR},
+      </if>
+      <if test="paytype != null" >
+        #{paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="selfbuy != null" >
+        #{selfbuy,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=INTEGER},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="trim1 != null" >
+        #{trim1,jdbcType=VARCHAR},
+      </if>
+      <if test="trim2 != null" >
+        #{trim2,jdbcType=VARCHAR},
+      </if>
+      <if test="trim3 != null" >
+        #{trim3,jdbcType=VARCHAR},
+      </if>
+      <if test="trim4 != null" >
+        #{trim4,jdbcType=VARCHAR},
+      </if>
+      <if test="trim5 != null" >
+        #{trim5,jdbcType=VARCHAR},
+      </if>
+      <if test="trim6 != null" >
+        #{trim6,jdbcType=VARCHAR},
+      </if>
+      <if test="trim7 != null" >
+        #{trim7,jdbcType=VARCHAR},
+      </if>
+      <if test="trim8 != null" >
+        #{trim8,jdbcType=VARCHAR},
+      </if>
+      <if test="trim9 != null" >
+        #{trim9,jdbcType=VARCHAR},
+      </if>
+      <if test="trim10 != null" >
+        #{trim10,jdbcType=VARCHAR},
+      </if>
+      <if test="trim11 != null" >
+        #{trim11,jdbcType=VARCHAR},
+      </if>
+      <if test="trim12 != null" >
+        #{trim12,jdbcType=VARCHAR},
+      </if>
+      <if test="trimprice != null" >
+        #{trimprice,jdbcType=DECIMAL},
+      </if>
+      <if test="rejectreason1 != null" >
+        #{rejectreason1,jdbcType=VARCHAR},
+      </if>
+      <if test="rejectreason2 != null" >
+        #{rejectreason2,jdbcType=VARCHAR},
+      </if>
+      <if test="rejectreason3 != null" >
+        #{rejectreason3,jdbcType=VARCHAR},
+      </if>
+      <if test="auditer1 != null" >
+        #{auditer1,jdbcType=VARCHAR},
+      </if>
+      <if test="auditer2 != null" >
+        #{auditer2,jdbcType=VARCHAR},
+      </if>
+      <if test="auditer3 != null" >
+        #{auditer3,jdbcType=VARCHAR},
+      </if>
+      <if test="auditime1 != null" >
+        #{auditime1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditime2 != null" >
+        #{auditime2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditime3 != null" >
+        #{auditime3,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downpay != null" >
+        #{downpay,jdbcType=DECIMAL},
+      </if>
+      <if test="finalpay != null" >
+        #{finalpay,jdbcType=DECIMAL},
+      </if>
+      <if test="autotprice != null" >
+        #{autotprice,jdbcType=DECIMAL},
+      </if>
+      <if test="apaylock != null" >
+        #{apaylock,jdbcType=INTEGER},
+      </if>
+      <if test="totalprice != null" >
+        #{totalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expensetax != null" >
+        #{expensetax,jdbcType=DECIMAL},
+      </if>
+      <if test="othercost != null" >
+        #{othercost,jdbcType=DECIMAL},
+      </if>
+      <if test="issuingprice != null" >
+        #{issuingprice,jdbcType=DECIMAL},
+      </if>
+      <if test="needer != null" >
+        #{needer,jdbcType=DECIMAL},
+      </if>
+      <if test="preinsuranceprice != null" >
+        #{preinsuranceprice,jdbcType=DECIMAL},
+      </if>
+      <if test="predrayageprice != null" >
+        #{predrayageprice,jdbcType=DECIMAL},
+      </if>
+      <if test="prelicenseprice != null" >
+        #{prelicenseprice,jdbcType=DECIMAL},
+      </if>
+      <if test="preoilprice != null" >
+        #{preoilprice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  
+  <select id="selectMultiContractById" resultType="map" parameterType="int" >
+SELECT
+	a.*, b.`code` purchaseCode,
+	b.`name` purchaseName
+FROM `jnd_contract` a
+JOIN jnd_buy b ON a.buyid = b.id and a.id=#{id,jdbcType=INTEGER}
+  </select>
+  
+  <update id="updateContract" parameterType="com.yyq.car.portal.common.model.jnd.Jndcontract" >
+    update jnd_contract
+    <set >
+      <if test="buyid != null" >
+        buyid = #{buyid,jdbcType=INTEGER},
+      </if>
+      <if test="subbuyid != null" >
+        subbuyid = #{subbuyid,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="purfile != null" >
+        purfile = #{purfile,jdbcType=VARCHAR},
+      </if>
+      <if test="texturl != null" >
+        texturl = #{texturl,jdbcType=VARCHAR},
+      </if>
+      <if test="text1url != null" >
+        text1url = #{text1url,jdbcType=VARCHAR},
+      </if>
+      <if test="stamp != null" >
+        stamp = #{stamp,jdbcType=INTEGER},
+      </if>
+      <if test="sname != null" >
+        sname = #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="sadd != null" >
+        sadd = #{sadd,jdbcType=VARCHAR},
+      </if>
+      <if test="sidtype != null" >
+        sidtype = #{sidtype,jdbcType=VARCHAR},
+      </if>
+      <if test="sno != null" >
+        sno = #{sno,jdbcType=VARCHAR},
+      </if>
+      <if test="sphone != null" >
+        sphone = #{sphone,jdbcType=VARCHAR},
+      </if>
+      <if test="pname != null" >
+        pname = #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="padd != null" >
+        padd = #{padd,jdbcType=VARCHAR},
+      </if>
+      <if test="pidtype != null" >
+        pidtype = #{pidtype,jdbcType=VARCHAR},
+      </if>
+      <if test="pno != null" >
+        pno = #{pno,jdbcType=VARCHAR},
+      </if>
+      <if test="pphone != null" >
+        pphone = #{pphone,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="displacement != null" >
+        displacement = #{displacement,jdbcType=VARCHAR},
+      </if>
+      <if test="config != null" >
+        config = #{config,jdbcType=VARCHAR},
+      </if>
+      <if test="outcolor != null" >
+        outcolor = #{outcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="incolor != null" >
+        incolor = #{incolor,jdbcType=VARCHAR},
+      </if>
+      <if test="trim != null" >
+        trim = #{trim,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if><if test="t1price != null" >
+        t1price = #{t1price,jdbcType=DECIMAL},
+      </if><if test="t1price == null" >
+        t1price = null,
+      </if>
+      <if test="t2price != null" >
+        t2price = #{t2price,jdbcType=DECIMAL},
+      </if><if test="t2price == null" >
+        t2price = null,
+      </if>
+      <if test="t3price != null" >
+        t3price = #{t3price,jdbcType=DECIMAL},
+      </if><if test="t3price == null" >
+        t3price = null,
+      </if>
+      <if test="t4price != null" >
+        t4price = #{t4price,jdbcType=DECIMAL},
+      </if><if test="t4price == null" >
+        t4price = null,
+      </if>
+      <if test="t5price != null" >
+        t5price = #{t5price,jdbcType=DECIMAL},
+      </if><if test="t5price == null" >
+        t5price = null,
+      </if>
+      <if test="t6price != null" >
+        t6price = #{t6price,jdbcType=DECIMAL},
+      </if><if test="t6price == null" >
+        t6price = null,
+      </if>
+      <if test="t7price != null" >
+        t7price = #{t7price,jdbcType=DECIMAL},
+      </if><if test="t7price == null" >
+        t7price = null,
+      </if>
+      <if test="t8price != null" >
+        t8price = #{t8price,jdbcType=DECIMAL},
+      </if><if test="t8price == null" >
+        t8price = null,
+      </if><if test="t9price != null" >
+        t9price = #{t9price,jdbcType=DECIMAL},
+      </if><if test="t9price == null" >
+        t9price = null,
+      </if>
+      <if test="t10price != null" >
+        t10price = #{t10price,jdbcType=DECIMAL},
+      </if><if test="t10price == null" >
+        t10price = null,
+      </if>
+      <if test="t11price != null" >
+        t11price = #{t11price,jdbcType=DECIMAL},
+      </if><if test="t11price == null" >
+        t11price = null,
+      </if>
+      <if test="t12price != null" >
+        t12price = #{t12price,jdbcType=DECIMAL},
+      </if><if test="t12price == null" >
+        t12price = null,
+      </if>
+      <if test="cmsn1 != null" >
+        cmsn1 = #{cmsn1,jdbcType=DECIMAL},
+      </if><if test="cmsn1 == null" >
+        cmsn1 = null,
+      </if>
+      <if test="cmsn2 != null" >
+        cmsn2 = #{cmsn2,jdbcType=DECIMAL},
+      </if><if test="cmsn2 == null" >
+        cmsn2 = null,
+      </if>
+      <if test="cmsn3 != null" >
+        cmsn3 = #{cmsn3,jdbcType=DECIMAL},
+      </if><if test="cmsn3 == null" >
+        cmsn3 = null,
+      </if>
+      <if test="cmsn4 != null" >
+        cmsn4 = #{cmsn4,jdbcType=DECIMAL},
+      </if><if test="cmsn4 == null" >
+        cmsn4 = null,
+      </if>
+      <if test="other1 != null" >
+        other1 = #{other1,jdbcType=DECIMAL},
+      </if><if test="other1 == null" >
+        other1 = null,
+      </if>
+      <if test="other2 != null" >
+        other2 = #{other2,jdbcType=DECIMAL},
+      </if><if test="other2 == null" >
+        other2 = null,
+      </if>
+      <if test="other3 != null" >
+        other3 = #{other3,jdbcType=DECIMAL},
+      </if><if test="other3 == null" >
+        other3 = null,
+      </if>
+      <if test="other4 != null" >
+        other4 = #{other4,jdbcType=DECIMAL},
+      </if><if test="other4 == null" >
+        other4 = null,
+      </if>
+      <if test="apponitadd != null" >
+        apponitadd = #{apponitadd,jdbcType=VARCHAR},
+      </if>
+      <if test="appointtime != null" >
+        appointtime = #{appointtime,jdbcType=TIMESTAMP},
+      </if><if test="appointtime == null" >
+        appointtime = null,
+      </if>
+      <if test="insurance != null" >
+        insurance = #{insurance,jdbcType=DECIMAL},
+      </if><if test="insurance == null" >
+        insurance = null,
+      </if>
+      <if test="transprice != null" >
+        transprice = #{transprice,jdbcType=DECIMAL},
+      </if><if test="transprice == null" >
+        transprice = null,
+      </if>
+      <if test="transname != null" >
+        transname = #{transname,jdbcType=VARCHAR},
+      </if>
+      <if test="paytype != null" >
+        paytype = #{paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="paytype == 1" >
+        selfbuy = null,
+      </if>
+      <if test="paytype == 2" >
+        selfbuy = #{selfbuy,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null" >
+        currency = #{currency,jdbcType=INTEGER},
+      </if>
+      <if test="country != null" >
+        country = #{country,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if><if test="status == null" >
+        status = null,
+      </if>
+      <if test="trim1 != null" >
+        trim1 = #{trim1,jdbcType=VARCHAR},
+      </if>
+      <if test="trim2 != null" >
+        trim2 = #{trim2,jdbcType=VARCHAR},
+      </if>
+      <if test="trim3 != null" >
+        trim3 = #{trim3,jdbcType=VARCHAR},
+      </if>
+      <if test="trim4 != null" >
+        trim4 = #{trim4,jdbcType=VARCHAR},
+      </if>
+      <if test="trim5 != null" >
+        trim5 = #{trim5,jdbcType=VARCHAR},
+      </if>
+      <if test="trim6 != null" >
+        trim6 = #{trim6,jdbcType=VARCHAR},
+      </if>
+      <if test="trim7 != null" >
+        trim7 = #{trim7,jdbcType=VARCHAR},
+      </if>
+      <if test="trim8 != null" >
+        trim8 = #{trim8,jdbcType=VARCHAR},
+      </if>
+      <if test="trim9 != null" >
+        trim9 = #{trim9,jdbcType=VARCHAR},
+      </if>
+      <if test="trim10 != null" >
+        trim10 = #{trim10,jdbcType=VARCHAR},
+      </if>
+      <if test="trim11 != null" >
+        trim11 = #{trim11,jdbcType=VARCHAR},
+      </if>
+      <if test="trim12 != null" >
+        trim12 = #{trim12,jdbcType=VARCHAR},
+      </if>
+      <if test="trimprice != null" >
+        trimprice = #{trimprice,jdbcType=DECIMAL},
+      </if><if test="trimprice == null" >
+        trimprice = null,
+      </if>
+      <if test="downpay != null" >
+        downpay = #{downpay,jdbcType=DECIMAL},
+      </if><if test="downpay == null" >
+        downpay = null,
+      </if>
+      <if test="finalpay != null" >
+        finalpay = #{finalpay,jdbcType=DECIMAL},
+      </if><if test="finalpay == null" >
+        finalpay = null,
+      </if>
+      <if test="autotprice != null" >
+        autotprice = #{autotprice,jdbcType=DECIMAL},
+      </if>
+      <if test="totalprice != null" >
+        totalprice = #{totalprice,jdbcType=DECIMAL},
+      </if>
+      <if test="expensetax != null" >
+        expensetax = #{expensetax,jdbcType=DECIMAL},
+      </if><if test="expensetax == null" >
+        expensetax = null,
+      </if>
+      <if test="othercost != null" >
+        othercost = #{othercost,jdbcType=DECIMAL},
+      </if><if test="othercost == null" >
+        othercost = null,
+      </if>
+      <if test="issuingprice != null" >
+        issuingprice = #{issuingprice,jdbcType=DECIMAL},
+      </if><if test="issuingprice == null" >
+        issuingprice = null,
+      </if>
+      <if test="needer != null" >
+        needer = #{needer,jdbcType=VARCHAR},
+      </if>
+      <if test="preinsuranceprice != null" >
+        preinsuranceprice = #{preinsuranceprice,jdbcType=DECIMAL},
+      </if><if test="preinsuranceprice == null" >
+        preinsuranceprice = null,
+      </if>
+      <if test="predrayageprice != null" >
+        predrayageprice = #{predrayageprice,jdbcType=DECIMAL},
+      </if><if test="predrayageprice == null" >
+        predrayageprice = null,
+      </if>
+      <if test="prelicenseprice != null" >
+        prelicenseprice = #{prelicenseprice,jdbcType=DECIMAL},
+      </if><if test="prelicenseprice == null" >
+        prelicenseprice = null,
+      </if>
+      <if test="preoilprice != null" >
+        preoilprice = #{preoilprice,jdbcType=DECIMAL},
+      </if><if test="preoilprice == null" >
+        preoilprice = null,
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectcode" resultType="com.yyq.car.portal.common.model.jnd.Jndcontract" parameterType="int">
+  SELECT code FROM `jnd_contract` where apayid=#{apayid}
+  </select>
+  
+  <select id="countTaskByNode" resultType="int" parameterType="map" >
+SELECT
+	COUNT(1)
+FROM
+	`jnd_contract`
+WHERE
+	<if test="node == 0" >
+        `status` IN (2, 5, 8)
+    </if>
+    <if test="node == 1" >
+        `status` IS NULL
+    </if>
+    <if test="node == 2" >
+        `status` = 1
+    </if>
+    <if test="node == 3" >
+        `status` = 4
+    </if>
+  </select>
+</mapper>
